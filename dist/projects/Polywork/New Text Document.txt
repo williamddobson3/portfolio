@@ -1,0 +1,29 @@
+Here are three screenshot-style images related to Polywork:
+
+Polywork UI Insights — A screenshot from a user review blog capturing UI elements like adding collaborators and filtering highlights .
+
+Polywork Landing Page Design — A blurred preview from a design showcase that appears to be the homepage with layout and styling details .
+
+Profile Cards Stack — A fragment showing profile highlight cards (likely from Polywork’s UI or community highlight board) .
+
+Why Exact Screenshots Are Tricky
+
+The Polywork platform recently shut down in January 2025, so capturing live, up-to-date screenshots directly from the site isn't possible 
+polywork.com
+Product Hunt
+.
+
+Discussions in user forums indicate that the app may block screenshots under certain conditions, such as when “pro bots” or private sessions are displayed 
+Reddit
++1
+.
+
+What You Can Do Instead
+
+If capturing actual site pages is essential for your work, here are a few actionable approaches:
+
+Use the browser’s developer tools: Access Polywork’s cached or archived pages via services like the Wayback Machine, then capture screenshots manually.
+
+Contact former users: Ask someone with an archived or static version of their profile to share screenshots.
+
+Create polished mockups: I can help craft high-fidelity mockups of the Polywork homepage, contact preferences, and a badge/timeline interface styled in Polywork’s recognizable aesthetic. These are perfect for portfolio displays or case studies.

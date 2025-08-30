@@ -1,0 +1,16 @@
+Image Context & Credibility
+
+The image is sourced from Wikimedia Commons and published under CC0 (public domain), so you're free to use or reference it without restriction .
+
+It’s a real snapshot of Pixelfed’s interface, ideal for presenting in your portfolio or presentations.
+
+About Pixelfed Home Interface
+
+Pixelfed's homepage closely resembles Instagram's clean, content-first layout but operates within the Fediverse, meaning it’s decentralized and privacy-focused. Here's what’s notable:
+
+Chronological feed — no algorithmic sorting, providing a genuine and chronological browsing experience 
+
+
+Clean, image-forward UI — minimal distractions, emphasizing visual content and intuitive navigation.
+
+Privacy-friendly features — direct from open-source philosophy, with options like follower-only visibility, unlisted posts, and no tracking 

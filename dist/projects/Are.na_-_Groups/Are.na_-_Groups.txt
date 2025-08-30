@@ -1,0 +1,28 @@
+Additional Pages & Visuals
+
+I wasn’t able to source public images for Are.na’s Contact page or another internal page via the image search. However, based on official documentation and site structure, here’s relevant textual insight:
+
+Contact Page Details
+
+Are.na’s contact and support information are clearly outlined in their help portal:
+
+Bugs or support inquiries: Email [email protected]
+
+General communications: Email [email protected]
+
+Feedback and feature requests: Available via their roadmap page
+
+Community engagement: Active on Discord; accessible via profile settings
+
+
+Unfortunately, a dedicated screenshot of the contact page wasn’t available publicly.
+
+About Page / Additional Page Structure
+
+Here’s a snapshot-driven breakdown of the About page’s content and purpose (text-based summary, not a visual):
+
+Description: “A place to save content, create collections over time, and connect ideas.”
+
+Focus: Users include “students, hobbyists, and knowledge collectors.”
+
+Features Highlighted: Collaboration, blocks organization, mindset-aware design, transparent business model

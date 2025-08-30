@@ -1,0 +1,26 @@
+Image Breakdown
+
+User Interface Sample
+This capture appears in an article reviewing the app, showing the layout with photo tiles, emoji-based reactions, and user interface hints such as lack of comments—reflecting Poparazzi’s minimalist and candid style.
+
+App Splash / Onboarding View
+Likely sourced from a news site or blog, this image shows a contextual splash screen or promotional interface, giving a sense of Poparazzi's visual branding and color scheme.
+
+Design/Editorial Lifestyle Collage
+A stylized representation used in editorials (such as Substack)—combining dynamic visuals with UI fragments to convey Poparazzi’s casual and spontaneous social ethos.
+
+Why Exact “Pages” Aren’t Available
+
+Mobile-Only App: Poparazzi was launched strictly as an iOS app—no public web-based interface existed, which means no direct webpage snapshots (homepage, contact page, etc.) could be captured.
+
+Shutdown & Archival Limitations: The app has been discontinued since mid-2023, so live or archived screenshots that capture navigation or contact info are no longer accessible.
+
+What We Can Do Instead
+
+If your goal is to include Poparazzi-like visuals in your portfolio or presentation, here’s how you can proceed:
+
+Mockup Creation
+I’d be happy to help you create high-fidelity mockups in the style of Poparazzi’s UI—such as home feed, user profile, or “contact/settings” screens. We can make them look authentic and polished, even if they're fabricated for presentation.
+
+Inspiration Breakdown
+We can outline key UI trends and elements Poparazzi implemented—such as grid feed, emoji reactions, "pop score," and minimalist design philosophy—so you can build similarly styled modules in your own projects.

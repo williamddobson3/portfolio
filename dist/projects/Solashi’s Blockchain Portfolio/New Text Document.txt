@@ -1,0 +1,16 @@
+Image Breakdown & What They Represent
+
+First Page — Blockchain Portfolio Overview
+This visual showcases several project entries (e.g., Shinobi Wallet, Gacha Game) with an intuitive layout, callouts for "Technologies Used," team sizes, and development scopes—demonstrating how Solashi introduces its blockchain case studies.
+
+Contact Page Section
+This captures the “Contact Us” area near the bottom of the site, including a message prompt for inquiries, Solashi’s Japan office details (address, email, phone number), and styling elements consistent with the page's overall design.
+
+Case Study Example — “Search Protocol” Project
+A close-up from a specific case (“Search Protocol”) showing headings, description, tech stack, process overview, and navigation — a good example of how Solashi structures individual project pages under their Cases section.
+
+Recap Table
+Page / Section	Image Displayed	Description
+Portfolio Main Page	First Image	Overview of blockchain project case studies and summaries
+Contact Section	Second Image	“Contact Us” form, office details, and messaging prompt
+Individual Case Page	Third Image	Deep dive into a specific project (Search Protocol)

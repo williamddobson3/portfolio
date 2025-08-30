@@ -1,0 +1,38 @@
+What Each Screenshot Represents
+
+Homepage Overview (Image 1)
+A archive-style interface capture—likely from a corporate or user-facing business page—featuring site navigation, value propositions, and a prominent "Contact Us" section with phone number and form instruction .
+
+Design Concept (“Command Post”) (Image 2)
+A conceptual UI design shared on Dribbble showing the “Command Post” — an exclusive content feature in RallyPoint where members post long-form educational or leadership content 
+Dribbble
+.
+
+App Preview (Image 3)
+An older promotional screenshot of the RallyPoint mobile app (from TechCrunch coverage) highlighting how the feed or user interface cleanly supports interaction and networking among service members .
+
+Contact Page Insights
+
+While a direct screenshot of a commercial “Contact Us” page wasn't located, RallyPoint’s actual contact information is clearly published:
+
+General Inquiries & Support:
+
+For recruiting: recruiting@rallypoint.com
+
+For marketing inquiries: marketing@rallypoint.com
+
+For feedback or improvement suggestions: feedback@rallypoint.com
+
+RallyPoint
++1
+
+Business Continuity Website (“RallyPoint” securing workforce communications):
+A separate domain includes a “Contact Us” section instructing users to fill out a form or call 225-258-1170, located in Baton Rouge, LA 
+myrallypoint.net
+.
+
+Quick Overview Table
+Page/View	Screenshot?	Notes
+Homepage / Landing	Included	Archive-style capture with navigation and contact info.
+Contact Section	Indicated via text	Email addresses for recruiting, marketing, feedback—but no captured screenshot.
+Feature/Other Page	Included	Concept design ("Command Post") and mobile app UI moodboard.

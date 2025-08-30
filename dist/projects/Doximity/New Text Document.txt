@@ -1,0 +1,33 @@
+Screenshot Details
+Page Type	Screenshot Description
+Homepage / App Preview	Image 1 – A carousel-style snippet from Doximity’s site describing key features like clinician directory lookup, secure fax, and app uses
+Marketing/Business Contact Page	Image 2 – From the “Patient Connect” feature section on Doximity’s business pages, featuring a “Contact Us” link and enterprise-oriented UI
+Profile Edit Tutorial	Image 3 – A support doc screenshot showing how users can edit their profile information via the platform’s UI (e.g., updating details and clicking Save)
+Contact Page Details Extracted from Web Sources
+
+Although a direct screenshot of a “Contact Us” page isn’t available, here are official contact details:
+
+General Contact Info:
+
+Email for partnerships: bd@doximity.com
+
+Press inquiries: pr@doximity.com
+
+Office address:
+Doximity, Inc. HQ
+500 3rd St. Suite 510, San Francisco, CA 94107 
+Doximity
++1
+
+Support Requests:
+Users can submit a help request via the Help Center or call support at (650) 546-7775 during business hours. 
+support.doximity.com
++1
+
+Summary: What’s Captured & What’s Not
+
+Available visuals: App feature highlights, enterprise Contact CTA section, and user profile editing UI.
+
+Unavailable for screenshot: A dedicated homepage or standalone “Contact Us” page with visible form and layout.
+
+Content details gleaned from text: Contact email addresses, support lines, and physical HQ address from official source content.

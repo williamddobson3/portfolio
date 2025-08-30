@@ -1,0 +1,16 @@
+Screenshot Breakdown
+
+Homepage (First Page)
+This visual captures Astar Network’s hero section from their main landing page. It highlights key features like multi-VM support (EVM & WASM), developer-friendly features, interoperability, and a call-to-action to "Build on Astar."
+
+About Page / Contact Section
+This image comes from the “About Us” page and includes a “Get in touch with the Astar Network team” prompt, newsletter sign-up, and navigation with a “Contact Us” link—demonstrating where visitors can access contact functionalities.
+
+Internal Feature Highlight – Astar 2.0 Blog Section
+A screenshot from a blog post titled “Introducing Astar 2.0,” showcasing their messaging around upcoming platform enhancements and architectural evolution—great for showing their developer-centric storytelling approach.
+
+Summary Table
+Page Type	Content Highlight
+Homepage	Hero messaging, core technical features
+About / Contact	Team reach-out prompt & site navigation
+Internal Feature	Developer communication and evolution overview

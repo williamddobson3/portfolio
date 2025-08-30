@@ -1,0 +1,16 @@
+Screenshot Highlights
+
+Homepage Snapshot
+This captures the header section of Eversystem’s website, showcasing navigation links such as "Home," "About," "Business," and "Contact." It also features the tagline: "The Best System Ever with Block Chain", along with news and event updates.
+
+Company Profile
+A snapshot from the Company Profile page, detailing essential information: the company name, CEO, establishment date, core services (like blockchain app development, web services, mobile apps), and their Nagoya-based address.
+
+Event or Seminar Section
+A glimpse into the News section, which includes visuals from their events—such as seminars at Yamaguchi University—emphasizing their active engagement in blockchain education and hands-on workshops.
+
+Summary Table
+Page / Section	Description
+Homepage	Navigation header, company tagline, and news/event highlights
+Company Page	Corporate details including CEO, founding year, business focus, and location
+News/Events Page	Event snapshots showcasing practical involvement in blockchain seminars

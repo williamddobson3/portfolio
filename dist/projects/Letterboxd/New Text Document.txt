@@ -1,0 +1,44 @@
+Image Details & Context
+
+Homepage Overview
+
+Captured from a scholarly analysis on Letterboxd’s transformation of film criticism .
+
+Shows a clean dark-themed layout with featured movie thumbnails and navigation prompts like “Films,” “Reviews,” and “Lists.”
+
+Film Card UI / Watchlist Interaction
+
+Taken from a Woodstock Film Festival article, highlighting how users interact with watchlists—adding films or viewing streaming availability .
+
+Mobile Profile or Feed View
+
+An older Android app screenshot revealing UI for browsing trending films, reviews, and lists—likely similar to logged-in home feed experiences .
+
+Contact Page Info (Text-Based)
+
+Although no screenshot exists, Letterboxd does have a public Contact page with structured information:
+
+Users are encouraged to check the FAQ page first.
+
+If their query isn't addressed, they can reach out via email for:
+
+General support
+
+Press/media inquiries
+
+Editorial pitches (for Journal)
+
+Film data corrections
+
+Podcast feedback
+
+Sponsorship or advertising inquiries
+
+Letterboxd
++1
+
+Summary of Findings
+Page Type	Screenshot Available?	Notes
+Homepage	Available	Archival images reveal feed layout, UI structure
+Contact Page	Not Available	Text details retrieved but no visual snapshot published
+Other Page	Available (Mobile)	Android feed/profile interface gives additional UI insight

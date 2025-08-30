@@ -1,0 +1,21 @@
+Screenshot Details
+
+Homepage (News & Events Section)
+Captures the top portion of their English site, highlighting the navigation menu (“HOME,” “About,” “Contact,” “日本語”) and a news block showcasing recent publications and thought leadership. 
+blockchainhub.co.jp
++1
+
+Contact Section (Footer Area)
+This snippet from the site’s footer shows their physical address—8F, 1-8-1 Nihombashi Kayabacho, Chuo-ku, Tokyo 103-0025, Japan—and a “GET IN TOUCH WITH US” prompt, guiding visitors toward contacting them. 
+blockchainhub.co.jp
++1
+
+About Page (Leadership Section)
+Part of the “About” page featuring the CEO, Go Masuda, with his profile and background, emphasizing the company’s leadership and expertise. 
+blockchainhub.co.jp
+
+Summary Table
+Page Type	Visual Captured	Description
+Homepage Overview	Yes (Image 1)	Shows navigation menu and key news/posts area
+Contact Section	Yes (Image 2)	Displays location/address and contact prompt in the footer
+About – Leadership	Yes (Image 3)	Highlights CEO profile and credentials from the About page

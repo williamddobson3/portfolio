@@ -1,0 +1,42 @@
+What Each Image Shows
+
+General Feed Layout (Image 1: from poltrack.net)
+A snapshot capturing MeWe’s homepage-like interface, featuring a feed with a chat column on the left, posts in the middle, and status or sidebar elements on the right—reflecting the social stream experience 
+poltrack.net
+.
+
+Group/Chat Interface (Image 2: from X/Twitter post)
+This view shows in-feed interactions—comments, posts, and sidebar options—zooming in on MeWe’s community and chat features .
+
+Help Center / Posting Features (Image 3: from MeWe Support)
+A support page illustrating posting capabilities—voice notes, polls, photo and video sharing—highlighting the available media tools for sharing content on MeWe .
+
+Contact Page & Internal Page Context
+
+Contact Page (Text-Based)
+A simple “Contact” page is listed on MeWe’s about site, providing mailing address and a placeholder for a contact form:
+
+3459 Hidden Meadow Drive  
+Oakes, North Dakota 58474, USA  
+701-742-0943  
+[Insert your contact form here]
+
+
+MeWe News & updates
+
+Privacy Page (Text-Based)
+MeWe maintains a privacy policy page, explaining pixel tags, cookie usage, research practices, and how data might be handled or shared 
+ww4.mewe.org
+MeWe News & updates
+.
+
+About MeWe
+The site positions itself as an ad-free, privacy-first social network with plans to migrate to a blockchain-based protocol (DSNP), distinguishing itself as a decentralized alternative to mainstream platforms 
+Wikipedia
+.
+
+Summary Table
+Page Type	Screenshot Available	Notes
+Homepage / Feed	Yes	Real feed layout with posts and sidebar
+Contact Page	No	Only text-based contact info and placeholder form available
+Feature/Other Page	Yes	Help article showing posting tools and options

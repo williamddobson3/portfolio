@@ -1,0 +1,28 @@
+What These Images Show
+
+App Interface (Image 1)
+A set of vintage app screenshots showing Path's original design aesthetic—focusing on a “smart journal” feed layout with moods and posts.
+
+Timeline & Emotional Reactions (Image 2)
+Highlights Path 2.0’s emotional reactions ("reacji"), its sleek header layout, and minimalist feed design as seen in press coverage like Business Insider.
+
+Tablet View / Post Grid (Image 3)
+Captures how Path’s interface adapted on iPad, with a grid layout and sidebar navigation enhancing visual content browsing.
+
+Why Web Page Screenshots Aren’t Available
+
+Path had no publicly accessible website for user interaction. It was designed as a mobile-first service with little to no web-based UI for end users.
+
+The service has been shut down since 2018, so no pages are currently live.
+
+Any official contact functionality existed only inside the app, not through a standalone “Contact Us” webpage.
+
+Options for Your Portfolio or Presentation
+
+Although live pages aren’t available, you still have strong options to visually represent Path:
+
+Mockup Recreation
+I can help design high-fidelity mockups of a conceptual Path homepage, a contact/settings screen, or another interface screen—styled based on the app’s known design patterns and aesthetic.
+
+Feature and Design Breakdown
+I can describe how Path structured its UI, UX flows, componentry, and emotional design—then help you apply or adapt that in your own portfolio projects or case studies.

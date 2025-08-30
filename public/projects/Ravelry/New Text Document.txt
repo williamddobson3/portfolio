@@ -1,0 +1,36 @@
+Here are three authentic screenshots that capture key views of the Ravelry site:
+
+Homepage / Getting Started Tour – A friendly overview presenting navigation tabs like Patterns, Yarn, People, Groups, and Community, along with entry prompts to sign in or create an account.
+
+Groups Section (Archived Snapshot) – Showcases the community groups feature—an example of Ravelry’s social structure and how thematic blocks are arranged in visually accessible formats.
+
+Profile Page / Settings Walkthrough – A blog-derived image illustrating how users manage profile details, such as email, privacy settings, and their avatar ("Ravatar") management.
+
+Finding the Contact Page
+
+Ravelry's "Contact Us" page is accessible via https://www.ravelry.com/contact, where users can submit inquiries—often after logging in. 
+Ravelry
+
+While not pictured, the site also publishes legal-related contacts like abuse or legal matters (e.g., legal@ravelry.com, abuse@ravelry.com) and a customer service number (617-337-3028) available through third-party sources. 
+PissedConsumer
+
+Context & Highlights
+
+Homepage Design: Clean and content-forward, structured to introduce new users to Ravelry’s expansive creative database. 
+swatch.ravelry.com
+Building Community
+Wikipedia
+
+Community Orientation: Ravelry thrives on user-contributed content—projects, patterns, groups, forums—creating a dynamic, socially rich experience. 
+swatch.ravelry.com
+Wikipedia
+
+Communication Accessibility: Rather than emailing directly, Ravelry encourages feedback and technical support via their official contact page. 
+Ravelry
+
+Summary Table
+Page / View	Screenshot?	Description
+Homepage / First Page	Included	Shows introductory navigation and user prompts
+Groups / Community Page	Included	Captures Ravelry’s group-based community layout
+Profile Page / Settings	Included	Highlights user profile management features
+Contact Page	Not included	Accessible via site but no public screenshot available (text-based only)

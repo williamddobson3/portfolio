@@ -1,0 +1,14 @@
+Here’s a screenshot of the Trust Café (formerly WT.Social) interface, as showcased in a design/portfolio case study by Turtle Reality . It reflects the platform's mid-transition branding and UI layout, demonstrating the look of its beta version.
+
+Image Context & Reality Check
+
+The image is from a design portfolio, not the live site.
+
+It serves as a visual mock-up or retrospective rather than a functioning, interactive snapshot.
+
+About the Live Platform
+
+Trust Café is an active microblogging and social networking service founded by Wikipedia co-founder Jimmy Wales, intended as an ad-free, donation-funded alternative to traditional social media 
+
+
+The live site (e.g., wts2.wt.social or trustcafe.io) requires JavaScript to load fully, which means capturing a live screenshot without running the web app (or using developer tools) isn't feasible 

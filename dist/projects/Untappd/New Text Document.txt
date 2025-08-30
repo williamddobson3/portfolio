@@ -1,0 +1,33 @@
+Screenshot Breakdown
+
+First Page / Promotional Landing (Image 1) – Untappd Homepage Preview
+This shot highlights the app’s landing area featuring a smartphone mockup, descriptions like "Find beers you'll love", QR code for download, and key features such as check-ins, badges, and venue discovery. 
+Untappd
+
+Business Support / Brewery Tools (Image 2) – Help Center Interface
+Captures the “Brewery Page Management Tools” section from the Untappd Help Center. The image outlines brewery editing options, beer listings, activity threads, and user interactions relevant to venue owners. 
+help.untappd.com
+
+Venue Interactions (Image 3) – Venue Check-In Panel Snapshot
+This image illustrates the interface used by businesses to respond to customer check-ins via “Toast” buttons and comments—showcasing engagement tools embedded in the Untappd for Business platform. 
+help.untappd.com
+Untappd for Business™
+
+Contact Page Details (Text-Based)
+
+While no screenshot of a dedicated “Contact Us” page was available, official contact information includes:
+
+Business or general inquiries: via ticket submission in the Help Center or by emailing business@untappd.com 
+help.untappd.com
+.
+
+Corporate Office Address:
+Untappd, Inc., 21 S. Front St., Wilmington, NC 28401, United States 
+PissedConsumer
+.
+
+Summary Table
+Page Type	Screenshot Available	Description
+Homepage/Landing	Yes	Promotional UI with core features and app download prompt
+Contact Page	No	Info via email/support tickets only
+Internal Feature	Yes	Brewery management and engagement tools interface from Help Center

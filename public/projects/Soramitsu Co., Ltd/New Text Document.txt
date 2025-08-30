@@ -1,0 +1,22 @@
+Screenshot Breakdown
+1. Homepage Intro / Press Highlight
+
+This image, pulled from a press release section of the site, showcases SORAMITSU’s current initiatives—such as the CBDC Proof-of-Concept (DLak) and its broader branding with clear emphasis on technological leadership and communication. 
+soramitsu.co.jp
++1
+
+2. Project Spotlight: Asian Digital Payment Network
+
+This screenshot highlights SORAMITSU’s announcement about leading development of an Asian Digital Payment Network leveraging Bakong (Cambodian CBDC infrastructure), underlining its cross-border ambitions and cutting-edge fintech solutions. 
+soramitsu.co.jp
+
+3. Contact Section / Footer “Get in Touch”
+
+A capture from the site’s footer or "Year in Review" page reveals the “Get in Touch” CTA, contact email (service@soramitsu.co.jp), and the Tokyo office address—demonstrating how the company presents contact information in a clean, approachable manner. 
+soramitsu.co.jp
+
+Summary Table
+Page / Section	Screenshot Available	Description
+Homepage / Intro	Yes (Image 1)	Press-style highlight focusing on projects like DLak CBDC and company ethos
+Contact Section / Footer	Partial (via text)	“Get in Touch” call-to-action with email and Tokyo HQ details
+Project Page Highlight	Yes (Image 2)	Asian Digital Payment Network teaser—Bakong usage, cross-border projects

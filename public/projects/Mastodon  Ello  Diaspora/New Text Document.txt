@@ -1,0 +1,31 @@
+Screenshot Breakdown
+
+Landing Page (joinmastodon.org) – This modern homepage introduces Mastodon’s mission, federation model, and invites users to discover or join an instance. It’s part of Mastodon’s updated official website.
+
+Web Interface (Mastodon v4.3.1) – A public-domain screenshot showing the Mastodon app’s multi-column or single-column UI for posts, timelines, and notifications within an instance.
+
+Instance Directory / Server List View – A screenshot from Fast Company illustrating how users might browse or choose a Mastodon server (instance) to join from a directory or listing page.
+
+Contact Page Details
+
+Mastodon does not maintain a centralized “Contact Us” page, as the platform is federated and each instance operates independently.
+
+For the official site (joinmastodon.org), contact instructions and details are included under their “About Us” or similar informational sections. 
+Wikipedia
+
+Meta-level communication (like project sponsorships) often goes through social posts or GitHub, with roles referenced on their blog or team pages; contributors sometimes reach out directly via Mastodon handles. 
+Reddit
+
+Regarding Ello and Diaspora
+
+Ello: The platform has been inactive since July 2023, so no actual pages exist to screenshot. 
+Wikipedia
+
+Diaspora: Operates via independently hosted “pods,” so there's no centralized interface to capture. Thus, screenshots vary widely and aren’t standardized.
+
+Summary Table
+Platform	Screenshot Provided	Notes
+Mastodon	Yes (3 visuals)	Landing page, UI interface, instance directory portal
+Contact Page	No screenshot	Mastodon is decentralized—contact via instance or community channels
+Ello	No (inactive)	Platform shut down in 2023
+Diaspora	No centralized UI	Federated pods—interfaces vary by server

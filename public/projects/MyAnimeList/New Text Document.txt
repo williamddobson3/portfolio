@@ -1,0 +1,26 @@
+Screenshot Breakdown
+
+Homepage / Featured Area (First Image)
+This captured view shows the classic layout of the MyAnimeList homepage, including navigation menus (Top Anime, Manga, Forums, etc.) and a display of ranked or featured anime/manga lists.
+
+Dashboard or Personalized User View (Second Image)
+Likely illustrating the dashboard or a logged-in view—this screenshot features personalized lists, recent updates, or member-specific data presentation.
+
+Anime Detail / Stats Page (Third Image)
+A deeper dive into the interface—this view shows an individual anime's detail page, complete with rating scores, summaries, user comments, or related series.
+
+Contact Page Context for MyAnimeList
+
+MyAnimeList does not have a direct “Contact Us” webpage with a visible URL. Instead, user support and inquiries are routed through their help center and forums:
+
+Support/Form Access: Usually found via the footer menu—most users are directed to a help center or forum-based support system (e.g., MyAnimeList Community Forums or a feedback submission form).
+
+These areas are often behind login walls, which is why no standard visual screenshot is widely available.
+
+Options & Recommendations
+
+If you'd like to include a visual representation of the contact or support section in your portfolio, here’s how we can proceed:
+
+I can guide you through capturing the actual contact or support form using browser developer tools while logged in.
+
+Or I can help build a high-fidelity mockup of a “Contact” or “Help” page in MyAnimeList’s style. This mockup can look authentic and be used effectively in your portfolio, especially if you’re illustrating how you might modernize or redesign such areas.
