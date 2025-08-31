@@ -1,0 +1,161 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "resume": "Resume",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "Senior Developer",
+    "subtitle": "Portfolio",
+    "description": "Full Stack & Blockchain Developer with 10 years of experience",
+    "tagline": "Creating innovative digital solutions with cutting-edge technology",
+    "viewProjects": "View Projects",
+    "viewResume": "View Resume",
+    "getInTouch": "Get In Touch",
+    "expertise": "Expertise",
+    "expertiseSubtitle": "Specialized in modern technologies and frameworks",
+    "featuredProjects": "Featured Projects",
+    "featuredProjectsSubtitle": "A showcase of my recent work and achievements",
+    "viewAllProjects": "View All Projects",
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Projects Completed",
+      "technologies": "Technologies",
+      "clients": "Happy Clients"
+    },
+    "skills": {
+      "fullStack": "Full Stack Development",
+      "blockchain": "Blockchain Development",
+      "mobile": "Mobile Development",
+      "web3": "Web3 & DeFi"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Senior Full Stack and Blockchain Developer with 10 years of experience creating innovative digital solutions.",
+    "whoIAm": "Who I Am",
+    "description1": "I'm a passionate developer with over a decade of experience in full-stack development, blockchain technology, and mobile applications. My journey in tech has been driven by curiosity and a desire to create meaningful solutions that impact people's lives.",
+    "description2": "Throughout my career, I've worked on diverse projects ranging from social platforms and enterprise solutions to cutting-edge blockchain applications and AI-powered systems. I believe in writing clean, maintainable code and staying up-to-date with the latest technologies and best practices.",
+    "description3": "When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.",
+    "downloadCV": "Download CV",
+    "contactMe": "Contact Me",
+    "skillsTitle": "Skills & Technologies",
+    "skillsSubtitle": "Comprehensive expertise across modern development stack",
+    "experienceTitle": "Experience",
+    "experienceSubtitle": "My professional journey in technology",
+    "social": {
+      "telegram": "Message on Telegram",
+      "discord": "Connect on Discord",
+      "github": "View GitHub Profile"
+    },
+    "skillCategories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "blockchain": "Blockchain",
+      "mobile": "Mobile",
+      "devops": "DevOps & Cloud",
+      "ai": "AI & ML"
+    },
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Projects Completed", 
+      "technologies": "Technologies",
+      "clients": "Happy Clients"
+    },
+    "experiences": [
+      {
+        "year": "2023",
+        "title": "Senior Full Stack Developer",
+        "company": "Various Companies",
+        "description": "Led development of 25+ projects across web, mobile, and blockchain technologies."
+      },
+      {
+        "year": "2022",
+        "title": "Blockchain Developer",
+        "company": "DeFi & Web3 Projects",
+        "description": "Developed smart contracts, DeFi protocols, and blockchain infrastructure."
+      },
+      {
+        "year": "2021",
+        "title": "Full Stack Developer",
+        "company": "Tech Startups",
+        "description": "Built scalable web applications and mobile apps for growing startups."
+      },
+      {
+        "year": "2020",
+        "title": "Software Engineer",
+        "company": "Enterprise Solutions",
+        "description": "Developed enterprise-grade applications and microservices architecture."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Ready to start your next project? Let's discuss how I can help bring your ideas to life.",
+    "letsConnect": "Let's Connect",
+    "description": "I'm always interested in new opportunities and exciting projects. Whether you have a question about my work, want to discuss a potential collaboration, or just want to say hello, I'd love to hear from you.",
+    "followMe": "Follow Me",
+    "sendMessage": "Send Message",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "your@email.com",
+      "subjectPlaceholder": "Project inquiry",
+      "messagePlaceholder": "Tell me about your project...",
+      "sending": "Sending...",
+      "send": "Send Message",
+      "success": "Message sent successfully!"
+    },
+    "info": {
+      "email": "Email",
+      "location": "Location",
+      "locationValue": "Tokyo, Japan"
+    },
+    "services": {
+      "title": "What I Can Help With",
+      "web": {
+        "title": "Web Development",
+        "description": "Full-stack web applications with modern frameworks and best practices."
+      },
+      "mobile": {
+        "title": "Mobile Apps",
+        "description": "Cross-platform mobile applications for iOS and Android."
+      },
+      "blockchain": {
+        "title": "Blockchain Solutions",
+        "description": "Smart contracts, DeFi protocols, and Web3 applications."
+      }
+    }
+  },
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "A comprehensive showcase of my work across web development, mobile apps, blockchain solutions, and enterprise applications.",
+    "searchPlaceholder": "Search projects, technologies...",
+    "showingResults": "Showing {{count}} of {{total}} projects",
+    "noProjectsFound": "No projects found",
+    "noProjectsDescription": "Try adjusting your search terms or filter criteria",
+    "clearFilters": "Clear Filters",
+    "categories": {
+      "all": "All Projects",
+      "web": "Web Development",
+      "mobile": "Mobile Apps",
+      "blockchain": "Blockchain",
+      "social": "Social Platforms",
+      "ai": "AI & ML",
+      "enterprise": "Enterprise"
+    },
+    "duration": "Duration",
+    "role": "Role",
+    "year": "Year"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Retry"
+  }
+}

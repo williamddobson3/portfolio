@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Code, Database, Smartphone, Globe, Zap, Users } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { getFeaturedProjects } from '../data/projects'
 import ProjectCard from '../components/ProjectCard'
 
@@ -26,20 +27,21 @@ const itemVariants = {
 }
 
 const stats = [
-  { label: 'Years Experience', value: '10+', icon: Code },
-  { label: 'Projects Completed', value: '25+', icon: Database },
-  { label: 'Technologies', value: '50+', icon: Zap },
-  { label: 'Happy Clients', value: '100+', icon: Users },
+  { labelKey: 'home.stats.experience', value: '10+', icon: Code },
+  { labelKey: 'home.stats.projects', value: '25+', icon: Database },
+  { labelKey: 'home.stats.technologies', value: '50+', icon: Zap },
+  { labelKey: 'home.stats.clients', value: '100+', icon: Users },
 ]
 
 const skills = [
-  { name: 'Full Stack Development', icon: Code, color: 'from-blue-500 to-cyan-500' },
-  { name: 'Blockchain Development', icon: Database, color: 'from-purple-500 to-pink-500' },
-  { name: 'Mobile Development', icon: Smartphone, color: 'from-green-500 to-emerald-500' },
-  { name: 'Web3 & DeFi', icon: Globe, color: 'from-orange-500 to-red-500' },
+  { nameKey: 'home.skills.fullStack', icon: Code, color: 'from-blue-500 to-cyan-500' },
+  { nameKey: 'home.skills.blockchain', icon: Database, color: 'from-purple-500 to-pink-500' },
+  { nameKey: 'home.skills.mobile', icon: Smartphone, color: 'from-green-500 to-emerald-500' },
+  { nameKey: 'home.skills.web3', icon: Globe, color: 'from-orange-500 to-red-500' },
 ]
 
 export default function Home() {
+  const { t } = useTranslation()
   const featuredProjects = getFeaturedProjects()
 
   return (
@@ -58,18 +60,18 @@ export default function Home() {
               variants={itemVariants}
               className="text-5xl md:text-7xl font-bold mb-6"
             >
-              <span className="gradient-text">Senior Developer</span>
+              <span className="gradient-text">{t('home.title')}</span>
               <br />
-              <span className="text-white">Portfolio</span>
+              <span className="text-white">{t('home.subtitle')}</span>
             </motion.h1>
             
             <motion.p
               variants={itemVariants}
               className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto"
             >
-              Full Stack & Blockchain Developer with 10 years of experience
+              {t('home.description')}
               <br />
-              Creating innovative digital solutions with cutting-edge technology
+              {t('home.tagline')}
             </motion.p>
             
             <motion.div
@@ -82,7 +84,7 @@ export default function Home() {
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-4 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg font-semibold text-white flex items-center space-x-2"
                 >
-                  <span>View Projects</span>
+                  <span>{t('home.viewProjects')}</span>
                   <ArrowRight className="w-5 h-5" />
                 </motion.button>
               </Link>
@@ -93,7 +95,7 @@ export default function Home() {
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-4 bg-gradient-to-r from-secondary-500 to-accent-500 rounded-lg font-semibold text-white flex items-center space-x-2"
                 >
-                  <span>View Resume</span>
+                  <span>{t('home.viewResume')}</span>
                   <ArrowRight className="w-5 h-5" />
                 </motion.button>
               </Link>
@@ -104,7 +106,7 @@ export default function Home() {
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-4 glass rounded-lg font-semibold text-white border border-white/20"
                 >
-                  Get In Touch
+                  {t('home.getInTouch')}
                 </motion.button>
               </Link>
             </motion.div>
@@ -150,7 +152,7 @@ export default function Home() {
               const Icon = stat.icon
               return (
                 <motion.div
-                  key={stat.label}
+                  key={stat.labelKey}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -161,7 +163,7 @@ export default function Home() {
                     <Icon className="w-8 h-8 text-white" />
                   </div>
                   <div className="text-3xl font-bold gradient-text mb-2">{stat.value}</div>
-                  <div className="text-gray-400">{stat.label}</div>
+                  <div className="text-gray-400">{t(stat.labelKey)}</div>
                 </motion.div>
               )
             })}
@@ -179,8 +181,8 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold gradient-text mb-4">Expertise</h2>
-            <p className="text-xl text-gray-400">Specialized in modern technologies and frameworks</p>
+            <h2 className="text-4xl font-bold gradient-text mb-4">{t('home.expertise')}</h2>
+            <p className="text-xl text-gray-400">{t('home.expertiseSubtitle')}</p>
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -188,7 +190,7 @@ export default function Home() {
               const Icon = skill.icon
               return (
                 <motion.div
-                  key={skill.name}
+                  key={skill.nameKey}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -199,7 +201,7 @@ export default function Home() {
                   <div className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-r ${skill.color} rounded-2xl flex items-center justify-center`}>
                     <Icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{skill.name}</h3>
+                  <h3 className="text-xl font-semibold text-white mb-2">{t(skill.nameKey)}</h3>
                 </motion.div>
               )
             })}
@@ -217,8 +219,8 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold gradient-text mb-4">Featured Projects</h2>
-            <p className="text-xl text-gray-400">A showcase of my recent work and achievements</p>
+            <h2 className="text-4xl font-bold gradient-text mb-4">{t('home.featuredProjects')}</h2>
+            <p className="text-xl text-gray-400">{t('home.featuredProjectsSubtitle')}</p>
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -248,7 +250,7 @@ export default function Home() {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 glass rounded-lg font-semibold text-white border border-white/20 flex items-center space-x-2 mx-auto"
               >
-                <span>View All Projects</span>
+                <span>{t('home.viewAllProjects')}</span>
                 <ArrowRight className="w-5 h-5" />
               </motion.button>
             </Link>

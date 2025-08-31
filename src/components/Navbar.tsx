@@ -2,19 +2,22 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Code, Briefcase, User, Mail, FileText } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import LanguageSwitcher from './LanguageSwitcher'
 
 const navItems = [
-  { name: 'Home', path: '/', icon: Code },
-  { name: 'Projects', path: '/projects', icon: Briefcase },
-  { name: 'About', path: '/about', icon: User },
-  { name: 'Resume', path: '/resume', icon: FileText },
-  { name: 'Contact', path: '/contact', icon: Mail },
+  { nameKey: 'nav.home', path: '/', icon: Code },
+  { nameKey: 'nav.projects', path: '/projects', icon: Briefcase },
+  { nameKey: 'nav.about', path: '/about', icon: User },
+  { nameKey: 'nav.resume', path: '/resume', icon: FileText },
+  { nameKey: 'nav.contact', path: '/contact', icon: Mail },
 ]
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+  const { t } = useTranslation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,7 +56,7 @@ export default function Navbar() {
               
               return (
                 <Link
-                  key={item.name}
+                  key={item.nameKey}
                   to={item.path}
                   className="relative group"
                 >
@@ -66,7 +69,7 @@ export default function Navbar() {
                     }`}
                   >
                     <Icon className="w-4 h-4" />
-                    <span className="font-medium">{item.name}</span>
+                    <span className="font-medium">{t(item.nameKey)}</span>
                   </motion.div>
                   
                   {isActive && (
@@ -78,6 +81,9 @@ export default function Navbar() {
                 </Link>
               )
             })}
+            
+            {/* Language Switcher */}
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
@@ -107,7 +113,7 @@ export default function Navbar() {
                 
                 return (
                   <Link
-                    key={item.name}
+                    key={item.nameKey}
                     to={item.path}
                     onClick={() => setIsOpen(false)}
                   >
@@ -120,11 +126,16 @@ export default function Navbar() {
                       }`}
                     >
                       <Icon className="w-5 h-5" />
-                      <span className="font-medium">{item.name}</span>
+                      <span className="font-medium">{t(item.nameKey)}</span>
                     </motion.div>
                   </Link>
                 )
               })}
+              
+              {/* Mobile Language Switcher */}
+              <div className="px-4">
+                <LanguageSwitcher />
+              </div>
             </div>
           </motion.div>
         )}

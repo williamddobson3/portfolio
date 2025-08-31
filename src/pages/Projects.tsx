@@ -1,23 +1,27 @@
 import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Grid, List, Search } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { projects, Project } from '../data/projects'
 import ProjectCard from '../components/ProjectCard'
 
-const categories = [
-  { id: 'all', name: 'All Projects', count: projects.length },
-  { id: 'web', name: 'Web Development', count: projects.filter(p => p.category === 'web').length },
-  { id: 'mobile', name: 'Mobile Apps', count: projects.filter(p => p.category === 'mobile').length },
-  { id: 'blockchain', name: 'Blockchain', count: projects.filter(p => p.category === 'blockchain').length },
-  { id: 'social', name: 'Social Platforms', count: projects.filter(p => p.category === 'social').length },
-  { id: 'ai', name: 'AI & ML', count: projects.filter(p => p.category === 'ai').length },
-  { id: 'enterprise', name: 'Enterprise', count: projects.filter(p => p.category === 'enterprise').length },
+const getCategoriesWithCounts = () => [
+  { id: 'all', nameKey: 'projects.categories.all', count: projects.length },
+  { id: 'web', nameKey: 'projects.categories.web', count: projects.filter(p => p.category === 'web').length },
+  { id: 'mobile', nameKey: 'projects.categories.mobile', count: projects.filter(p => p.category === 'mobile').length },
+  { id: 'blockchain', nameKey: 'projects.categories.blockchain', count: projects.filter(p => p.category === 'blockchain').length },
+  { id: 'social', nameKey: 'projects.categories.social', count: projects.filter(p => p.category === 'social').length },
+  { id: 'ai', nameKey: 'projects.categories.ai', count: projects.filter(p => p.category === 'ai').length },
+  { id: 'enterprise', nameKey: 'projects.categories.enterprise', count: projects.filter(p => p.category === 'enterprise').length },
 ]
 
 export default function Projects() {
+  const { t } = useTranslation()
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [searchTerm, setSearchTerm] = useState('')
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
+  
+  const categories = getCategoriesWithCounts()
 
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
@@ -40,9 +44,9 @@ export default function Projects() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-5xl font-bold gradient-text mb-6">My Projects</h1>
+            <h1 className="text-5xl font-bold gradient-text mb-6">{t('projects.title')}</h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              A comprehensive showcase of my work across web development, mobile apps, blockchain solutions, and enterprise applications.
+              {t('projects.subtitle')}
             </p>
           </motion.div>
 
@@ -53,7 +57,7 @@ export default function Projects() {
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="text"
-                placeholder="Search projects, technologies..."
+                placeholder={t('projects.searchPlaceholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-12 pr-4 py-3 glass rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500"
@@ -74,7 +78,7 @@ export default function Projects() {
                       : 'glass text-gray-300 hover:text-white hover:bg-white/10'
                   }`}
                 >
-                  {category.name}
+                  {t(category.nameKey)}
                   <span className="ml-2 text-sm opacity-75">({category.count})</span>
                 </motion.button>
               ))}
@@ -110,7 +114,7 @@ export default function Projects() {
           {/* Results Count */}
           <div className="text-center mb-8">
             <p className="text-gray-400">
-              Showing {filteredProjects.length} of {projects.length} projects
+              {t('projects.showingResults', { count: filteredProjects.length, total: projects.length })}
             </p>
           </div>
         </div>
@@ -142,7 +146,7 @@ export default function Projects() {
                     className={viewMode === 'list' ? 'glass-card p-6' : ''}
                   >
                     {viewMode === 'list' ? (
-                      <ProjectListItem project={project} />
+                      <ProjectListItem project={project} t={t} />
                     ) : (
                       <ProjectCard project={project} />
                     )}
@@ -158,9 +162,9 @@ export default function Projects() {
                 <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center">
                   <Search className="w-12 h-12 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">No projects found</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">{t('projects.noProjectsFound')}</h3>
                 <p className="text-gray-400 mb-8">
-                  Try adjusting your search terms or filter criteria
+                  {t('projects.noProjectsDescription')}
                 </p>
                 <button
                   onClick={() => {
@@ -169,7 +173,7 @@ export default function Projects() {
                   }}
                   className="px-6 py-3 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg text-white font-medium"
                 >
-                  Clear Filters
+                  {t('projects.clearFilters')}
                 </button>
               </motion.div>
             )}
@@ -180,7 +184,7 @@ export default function Projects() {
   )
 }
 
-function ProjectListItem({ project }: { project: Project }) {
+function ProjectListItem({ project, t }: { project: Project, t: any }) {
   return (
     <div className="flex flex-col md:flex-row gap-6">
       <div className="md:w-1/3">
@@ -209,9 +213,9 @@ function ProjectListItem({ project }: { project: Project }) {
           ))}
         </div>
         <div className="flex items-center justify-between text-sm text-gray-500">
-          <span>Duration: {project.duration}</span>
-          <span>Role: {project.role}</span>
-          <span>Year: {project.year}</span>
+          <span>{t('projects.duration')}: {project.duration}</span>
+          <span>{t('projects.role')}: {project.role}</span>
+          <span>{t('projects.year')}: {project.year}</span>
         </div>
       </div>
     </div>

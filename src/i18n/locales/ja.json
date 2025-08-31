@@ -1,0 +1,161 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "projects": "プロジェクト",
+    "about": "私について",
+    "resume": "履歴書",
+    "contact": "お問い合わせ"
+  },
+  "home": {
+    "title": "シニア開発者",
+    "subtitle": "ポートフォリオ",
+    "description": "10年の経験を持つフルスタック＆ブロックチェーン開発者",
+    "tagline": "最先端技術で革新的なデジタルソリューションを創造",
+    "viewProjects": "プロジェクトを見る",
+    "viewResume": "履歴書を見る",
+    "getInTouch": "お問い合わせ",
+    "expertise": "専門技術",
+    "expertiseSubtitle": "モダンテクノロジーとフレームワークの専門知識",
+    "featuredProjects": "注目のプロジェクト",
+    "featuredProjectsSubtitle": "最近の作品と成果のショーケース",
+    "viewAllProjects": "全プロジェクトを見る",
+    "stats": {
+      "experience": "年の経験",
+      "projects": "完了プロジェクト",
+      "technologies": "テクノロジー",
+      "clients": "満足したクライアント"
+    },
+    "skills": {
+      "fullStack": "フルスタック開発",
+      "blockchain": "ブロックチェーン開発",
+      "mobile": "モバイル開発",
+      "web3": "Web3 & DeFi"
+    }
+  },
+  "about": {
+    "title": "私について",
+    "subtitle": "革新的なデジタルソリューションを創造する10年の経験を持つシニアフルスタック＆ブロックチェーン開発者。",
+    "whoIAm": "私は誰か",
+    "description1": "私は10年以上の経験を持つ情熱的な開発者で、フルスタック開発、ブロックチェーン技術、モバイルアプリケーションを専門としています。技術への旅は好奇心と、人々の生活に影響を与える意味のあるソリューションを創造したいという願望によって推進されてきました。",
+    "description2": "キャリアを通じて、ソーシャルプラットフォームやエンタープライズソリューションから最先端のブロックチェーンアプリケーションやAI駆動システムまで、多様なプロジェクトに取り組んできました。クリーンで保守可能なコードを書き、最新の技術とベストプラクティスに常に追いついていることを信念としています。",
+    "description3": "コーディングをしていない時は、新しい技術を探求したり、オープンソースプロジェクトに貢献したり、開発者コミュニティと知識を共有したりしています。",
+    "downloadCV": "履歴書ダウンロード",
+    "contactMe": "お問い合わせ",
+    "skillsTitle": "スキル＆テクノロジー",
+    "skillsSubtitle": "モダン開発スタック全体にわたる包括的な専門知識",
+    "experienceTitle": "経験",
+    "experienceSubtitle": "技術における私の職業的な歩み",
+    "social": {
+      "telegram": "Telegramでメッセージ",
+      "discord": "Discordで接続",
+      "github": "GitHubプロフィールを見る"
+    },
+    "skillCategories": {
+      "frontend": "フロントエンド",
+      "backend": "バックエンド",
+      "blockchain": "ブロックチェーン",
+      "mobile": "モバイル",
+      "devops": "DevOps & クラウド",
+      "ai": "AI & ML"
+    },
+    "stats": {
+      "experience": "年の経験",
+      "projects": "完了プロジェクト", 
+      "technologies": "テクノロジー",
+      "clients": "満足したクライアント"
+    },
+    "experiences": [
+      {
+        "year": "2023年",
+        "title": "シニアフルスタック開発者",
+        "company": "各種企業",
+        "description": "ウェブ、モバイル、ブロックチェーン技術における25以上のプロジェクトの開発をリード。"
+      },
+      {
+        "year": "2022年",
+        "title": "ブロックチェーン開発者",
+        "company": "DeFi & Web3プロジェクト",
+        "description": "スマートコントラクト、DeFiプロトコル、ブロックチェーンインフラストラクチャの開発。"
+      },
+      {
+        "year": "2021年",
+        "title": "フルスタック開発者",
+        "company": "テックスタートアップ",
+        "description": "成長中のスタートアップ向けのスケーラブルなウェブアプリケーションとモバイルアプリの構築。"
+      },
+      {
+        "year": "2020年",
+        "title": "ソフトウェアエンジニア",
+        "company": "エンタープライズソリューション",
+        "description": "エンタープライズグレードアプリケーションとマイクロサービスアーキテクチャの開発。"
+      }
+    ]
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "subtitle": "次のプロジェクトを始める準備はできていますか？あなたのアイデアを実現するお手伝いについて話し合いましょう。",
+    "letsConnect": "つながりましょう",
+    "description": "私は常に新しい機会とエキサイティングなプロジェクトに興味があります。私の仕事について質問がある、潜在的なコラボレーションについて話し合いたい、または単に挨拶したいだけでも、ぜひお聞かせください。",
+    "followMe": "フォローする",
+    "sendMessage": "メッセージを送る",
+    "form": {
+      "name": "お名前",
+      "email": "メールアドレス",
+      "subject": "件名",
+      "message": "メッセージ",
+      "namePlaceholder": "お名前を入力",
+      "emailPlaceholder": "your@email.com",
+      "subjectPlaceholder": "プロジェクトの問い合わせ",
+      "messagePlaceholder": "プロジェクトについて教えてください...",
+      "sending": "送信中...",
+      "send": "メッセージを送る",
+      "success": "メッセージが正常に送信されました！"
+    },
+    "info": {
+      "email": "メールアドレス",
+      "location": "所在地",
+      "locationValue": "東京、日本"
+    },
+    "services": {
+      "title": "お手伝いできること",
+      "web": {
+        "title": "ウェブ開発",
+        "description": "モダンフレームワークとベストプラクティスを使用したフルスタックウェブアプリケーション。"
+      },
+      "mobile": {
+        "title": "モバイルアプリ",
+        "description": "iOS、Android向けクロスプラットフォームモバイルアプリケーション。"
+      },
+      "blockchain": {
+        "title": "ブロックチェーンソリューション",
+        "description": "スマートコントラクト、DeFiプロトコル、Web3アプリケーション。"
+      }
+    }
+  },
+  "projects": {
+    "title": "私のプロジェクト",
+    "subtitle": "ウェブ開発、モバイルアプリ、ブロックチェーンソリューション、エンタープライズアプリケーション全体の包括的な作品ショーケース。",
+    "searchPlaceholder": "プロジェクト、技術を検索...",
+    "showingResults": "{{total}}件中{{count}}件を表示",
+    "noProjectsFound": "プロジェクトが見つかりません",
+    "noProjectsDescription": "検索条件やフィルタ基準を調整してみてください",
+    "clearFilters": "フィルタをクリア",
+    "categories": {
+      "all": "全プロジェクト",
+      "web": "ウェブ開発",
+      "mobile": "モバイルアプリ",
+      "blockchain": "ブロックチェーン",
+      "social": "ソーシャルプラットフォーム",
+      "ai": "AI & ML",
+      "enterprise": "エンタープライズ"
+    },
+    "duration": "期間",
+    "role": "役割",
+    "year": "年"
+  },
+  "common": {
+    "loading": "読み込み中...",
+    "error": "問題が発生しました",
+    "retry": "再試行"
+  }
+}

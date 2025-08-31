@@ -1,18 +1,19 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, MapPin, Send, MessageCircle, Github } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const contactInfo = [
   {
     icon: Mail,
-    title: 'Email',
+    titleKey: 'contact.info.email',
     value: 'williamddobson3@gmail.com',
     href: 'mailto:williamddobson3@gmail.com'
   },
   {
     icon: MapPin,
-    title: 'Location',
-    value: 'Tokyo, Japan',
+    titleKey: 'contact.info.location',
+    valueKey: 'contact.info.locationValue',
     href: '#'
   }
 ]
@@ -24,6 +25,7 @@ const socialLinks = [
 ]
 
 export default function Contact() {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -44,7 +46,7 @@ export default function Contact() {
     setIsSubmitting(false)
     
     // Show success message (you can implement a toast notification here)
-    alert('Message sent successfully!')
+    alert(t('contact.form.success'))
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -65,9 +67,9 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-5xl font-bold gradient-text mb-6">Get In Touch</h1>
+            <h1 className="text-5xl font-bold gradient-text mb-6">{t('contact.title')}</h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Ready to start your next project? Let's discuss how I can help bring your ideas to life.
+              {t('contact.subtitle')}
             </p>
           </motion.div>
 
@@ -79,11 +81,9 @@ export default function Contact() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <div className="glass-card p-8">
-                <h2 className="text-3xl font-bold text-white mb-8">Let's Connect</h2>
+                <h2 className="text-3xl font-bold text-white mb-8">{t('contact.letsConnect')}</h2>
                 <p className="text-gray-300 mb-8 leading-relaxed">
-                  I'm always interested in new opportunities and exciting projects. 
-                  Whether you have a question about my work, want to discuss a potential 
-                  collaboration, or just want to say hello, I'd love to hear from you.
+                  {t('contact.description')}
                 </p>
 
                 <div className="space-y-6 mb-8">
@@ -91,7 +91,7 @@ export default function Contact() {
                     const Icon = info.icon
                     return (
                       <motion.a
-                        key={info.title}
+                        key={info.titleKey}
                         href={info.href}
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -102,8 +102,8 @@ export default function Contact() {
                           <Icon className="w-6 h-6 text-white" />
                         </div>
                         <div>
-                          <div className="font-semibold text-white">{info.title}</div>
-                          <div className="text-gray-400">{info.value}</div>
+                          <div className="font-semibold text-white">{t(info.titleKey)}</div>
+                          <div className="text-gray-400">{info.valueKey ? t(info.valueKey) : info.value}</div>
                         </div>
                       </motion.a>
                     )
@@ -112,7 +112,7 @@ export default function Contact() {
 
                 {/* Social Links */}
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-4">Follow Me</h3>
+                  <h3 className="text-xl font-bold text-white mb-4">{t('contact.followMe')}</h3>
                   <div className="flex space-x-4">
                     {socialLinks.map((social, index) => (
                       <motion.a
@@ -139,13 +139,13 @@ export default function Contact() {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <div className="glass-card p-8">
-                <h2 className="text-3xl font-bold text-white mb-8">Send Message</h2>
+                <h2 className="text-3xl font-bold text-white mb-8">{t('contact.sendMessage')}</h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                        Name
+                        {t('contact.form.name')}
                       </label>
                       <input
                         type="text"
@@ -155,13 +155,13 @@ export default function Contact() {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 glass rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500"
-                        placeholder="Your name"
+                        placeholder={t('contact.form.namePlaceholder')}
                       />
                     </div>
                     
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                        Email
+                        {t('contact.form.email')}
                       </label>
                       <input
                         type="email"
@@ -171,14 +171,14 @@ export default function Contact() {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 glass rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500"
-                        placeholder="your@email.com"
+                        placeholder={t('contact.form.emailPlaceholder')}
                       />
                     </div>
                   </div>
                   
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
-                      Subject
+                      {t('contact.form.subject')}
                     </label>
                     <input
                       type="text"
@@ -188,13 +188,13 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 glass rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500"
-                      placeholder="Project inquiry"
+                      placeholder={t('contact.form.subjectPlaceholder')}
                     />
                   </div>
                   
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                      Message
+                      {t('contact.form.message')}
                     </label>
                     <textarea
                       id="message"
@@ -204,7 +204,7 @@ export default function Contact() {
                       required
                       rows={6}
                       className="w-full px-4 py-3 glass rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none"
-                      placeholder="Tell me about your project..."
+                      placeholder={t('contact.form.messagePlaceholder')}
                     />
                   </div>
                   
@@ -218,12 +218,12 @@ export default function Contact() {
                     {isSubmitting ? (
                       <>
                         <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                        <span>Sending...</span>
+                        <span>{t('contact.form.sending')}</span>
                       </>
                     ) : (
                       <>
                         <Send className="w-5 h-5" />
-                        <span>Send Message</span>
+                        <span>{t('contact.form.send')}</span>
                       </>
                     )}
                   </motion.button>
@@ -244,32 +244,32 @@ export default function Contact() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h2 className="text-3xl font-bold gradient-text mb-6">What I Can Help With</h2>
+            <h2 className="text-3xl font-bold gradient-text mb-6">{t('contact.services.title')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
-                  title: 'Web Development',
-                  description: 'Full-stack web applications with modern frameworks and best practices.'
+                  titleKey: 'contact.services.web.title',
+                  descriptionKey: 'contact.services.web.description'
                 },
                 {
-                  title: 'Mobile Apps',
-                  description: 'Cross-platform mobile applications for iOS and Android.'
+                  titleKey: 'contact.services.mobile.title',
+                  descriptionKey: 'contact.services.mobile.description'
                 },
                 {
-                  title: 'Blockchain Solutions',
-                  description: 'Smart contracts, DeFi protocols, and Web3 applications.'
+                  titleKey: 'contact.services.blockchain.title',
+                  descriptionKey: 'contact.services.blockchain.description'
                 }
               ].map((service, index) => (
                 <motion.div
-                  key={service.title}
+                  key={service.titleKey}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   className="glass-card p-6 text-center"
                 >
-                  <h3 className="text-xl font-bold text-white mb-4">{service.title}</h3>
-                  <p className="text-gray-400">{service.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-4">{t(service.titleKey)}</h3>
+                  <p className="text-gray-400">{t(service.descriptionKey)}</p>
                 </motion.div>
               ))}
             </div>
