@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { Layout } from './components/Layout';
 import { HomePage } from './components/HomePage';
@@ -6,6 +6,8 @@ import { ProjectsPage } from './components/ProjectsPage';
 import { SkillsPage } from './components/SkillsPage';
 import { AboutPage } from './components/AboutPage';
 import { ContactPage } from './components/ContactPage';
+import ServicesPage from './components/ServicesPage';
+import TestimonialsPage from './components/TestimonialsPage';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -29,6 +31,10 @@ function App() {
 
   const renderPage = () => {
     switch (currentPage) {
+      case 'services':
+        return <ServicesPage />;
+      case 'testimonials':
+        return <TestimonialsPage />;
       case 'projects':
         return <ProjectsPage />;
       case 'skills':

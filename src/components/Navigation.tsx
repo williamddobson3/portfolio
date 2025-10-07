@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Home, Folder, Zap, User, Mail, Menu, X } from 'lucide-react';
+import { Home, Folder, Zap, User, Mail, Menu, X, Briefcase } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
@@ -11,8 +11,10 @@ export const Navigation: React.FC<NavigationProps> = ({ currentPage }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useLanguage();
 
-  const navItems = [
+    const navItems = [
     { id: 'home', label: t('nav.home'), icon: Home },
+    { id: 'services', label: t('nav.services'), icon: Briefcase },
+    { id: 'testimonials', label: t('nav.testimonials'), icon: User },
     { id: 'projects', label: t('nav.projects'), icon: Folder },
     { id: 'skills', label: t('nav.skills'), icon: Zap },
     { id: 'about', label: t('nav.about'), icon: User },

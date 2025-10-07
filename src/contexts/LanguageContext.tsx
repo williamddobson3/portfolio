@@ -599,6 +599,197 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
         en: 'Experience across Japan and Malaysia brings unique multicultural insights.',
         ja: '日本とマレーシアでの経験がユニークな多文化インサイトをもたらす。'
       }
+      ,
+      // Services Page
+      'nav.services': {
+        en: 'Services',
+        ja: '提供サービス'
+      },
+      'nav.testimonials': {
+        en: 'Testimonials',
+        ja: 'お客様の声'
+      },
+      // Testimonials Page
+      'testimonials.title': {
+        en: 'Client Testimonials — Real results from real projects',
+        ja: 'クライアントの声 — 実務での効果と評価'
+      },
+      'testimonials.intro': {
+        en: 'Selected excerpts from client feedback highlighting impact, timelines, and measurable outcomes.',
+        ja: '実務での効果や評価を抜粋して掲載しています。期間や定量的な成果を中心にご覧ください。'
+      },
+      'testimonials.controls.play': {
+        en: 'Play rotation',
+        ja: '自動再生'
+      },
+      'testimonials.controls.pause': {
+        en: 'Pause rotation',
+        ja: '停止'
+      },
+      'testimonials.filter.all': {
+        en: 'All industries',
+        ja: 'すべての業種'
+      },
+      'testimonials.filter.industry': {
+        en: 'Industry',
+        ja: '業種'
+      },
+      'testimonials.case.view': {
+        en: 'View case study',
+        ja: '事例を見る'
+      },
+      'testimonials.longform.title': {
+        en: 'In-depth case studies',
+        ja: 'ロングフォーム事例'
+      },
+      'services.title': {
+        en: 'Services — What I can help with',
+        ja: '提供サービス — お手伝いできること'
+      },
+      'services.subtitle': {
+        en: 'Professional web, Android and AI development: thoughtful engineering with measurable impact.',
+        ja: 'ウェブ・Android・AI の専門的な開発。思慮深い設計と定量的インパクトを重視します。'
+      },
+      'services.cta.contact': {
+        en: 'Book a free 15‑minute consult',
+        ja: '無料相談を申し込む（15分）'
+      },
+      'services.cta.case': {
+        en: 'See case studies',
+        ja: '事例を見る'
+      },
+      'services.list_title': {
+        en: 'Core Services',
+        ja: '主なサービス'
+      },
+      'services.card.detail': {
+        en: 'Details',
+        ja: '詳細を見る'
+      },
+      'services.card.quote': {
+        en: 'Request Quote',
+        ja: '見積を依頼'
+      },
+      'services.web.title': {
+        en: 'Full‑stack Web Development',
+        ja: 'フルスタック Web 開発'
+      },
+      'services.web.subtitle': {
+        en: 'Modern, performant frontends and robust backend systems',
+        ja: 'モダンで高性能なフロントエンドと堅牢なバックエンド'
+      },
+      'services.web.kpi': {
+        en: 'Improved LCP / engagement up to 2x',
+        ja: 'LCP 改善・エンゲージメント最大2倍'
+      },
+      'services.web.duration': {
+        en: 'Typical: 4–12 weeks',
+        ja: '目安: 4〜12 週間'
+      },
+      'services.android.title': {
+        en: 'Android Native Apps',
+        ja: 'Android ネイティブアプリ'
+      },
+      'services.android.subtitle': {
+        en: 'Jetpack Compose, modern architecture, performant UX',
+        ja: 'Jetpack Compose、最新のアーキテクチャ、パフォーマントな UX'
+      },
+      'services.android.kpi': {
+        en: 'Fast feature delivery; stable releases',
+        ja: '迅速な機能提供・安定したリリース'
+      },
+      'services.android.duration': {
+        en: 'Typical: 6–16 weeks',
+        ja: '目安: 6〜16 週間'
+      },
+      'services.ai.title': {
+        en: 'AI Model Development & Ops',
+        ja: 'AI モデル開発・運用'
+      },
+      'services.ai.subtitle': {
+        en: 'Data→Model→Deployment: pragmatic, production‑focused ML',
+        ja: 'データ→モデル→デプロイまで。実運用を見据えた実践的な ML'
+      },
+      'services.ai.kpi': {
+        en: 'Prototype → production in months',
+        ja: 'プロトタイプから本番まで数ヶ月'
+      },
+      'services.ai.duration': {
+        en: 'Typical: 8–20 weeks',
+        ja: '目安: 8〜20 週間'
+      },
+      'services.workflow_title': {
+        en: 'How I work',
+        ja: '進め方'
+      },
+      'services.workflow.consult.title': {
+        en: 'Consult',
+        ja: '相談'
+      },
+      'services.workflow.consult.desc': {
+        en: 'We clarify goals, constraints, and success metrics.',
+        ja: '目的・制約・成功指標を明確にします。'
+      },
+      'services.workflow.design.title': {
+        en: 'Design',
+        ja: '設計'
+      },
+      'services.workflow.design.desc': {
+        en: 'Architect the solution with performance and accessibility in mind.',
+        ja: 'パフォーマンスとアクセシビリティを重視して設計します。'
+      },
+      'services.workflow.build.title': {
+        en: 'Implement',
+        ja: '実装'
+      },
+      'services.workflow.build.desc': {
+        en: 'Ship reliable, tested features with CI and monitoring.',
+        ja: 'CI と監視を備えた信頼性の高い機能を提供します。'
+      },
+      'services.workflow.operate.title': {
+        en: 'Operate',
+        ja: '運用'
+      },
+      'services.workflow.operate.desc': {
+        en: 'Ongoing support, maintenance, and optimization.',
+        ja: '継続的なサポート・保守・最適化を行います。'
+      },
+      'services.faq_title': {
+        en: 'FAQ — practical details',
+        ja: 'よくある質問'
+      },
+      'services.faq.q1.title': {
+        en: 'How long does a typical project take?',
+        ja: '一般的な納期はどれくらいですか？'
+      },
+      'services.faq.q1.answer': {
+        en: 'Timeline depends on scope; small features in weeks, larger projects in months. I provide estimates after the initial consultation.',
+        ja: 'スコープによります。小さな機能は数週間、大きなプロジェクトは数ヶ月です。最初の相談後に見積りを提示します。'
+      },
+      'services.faq.q2.title': {
+        en: 'Do you provide maintenance?',
+        ja: '保守は提供しますか？'
+      },
+      'services.faq.q2.answer': {
+        en: 'Yes — I offer retainer-based maintenance and SLA options.',
+        ja: 'はい。リテイナー型の保守や SLA オプションを提供しています。'
+      },
+      'services.faq.q3.title': {
+        en: 'How do you handle accessibility and performance?',
+        ja: 'アクセシビリティとパフォーマンスはどう対処しますか？'
+      },
+      'services.faq.q3.answer': {
+        en: 'They are treated as design constraints from the start: audits, tests, and measurable goals.',
+        ja: '最初から設計制約として扱います。監査・テスト・定量的目標を設定します。'
+      },
+      'services.cta.big_title': {
+        en: 'Start your project with a short chat',
+        ja: '短い相談から始めましょう'
+      },
+      'services.cta.big_desc': {
+        en: 'I’ll help assess fit, scope, and next steps — with clear deliverables and timeline.',
+        ja: '適合性、スコープ、次のステップを評価し、明確な成果物とスケジュールを提示します。'
+      }
     };
 
     if (translations[key] && translations[key][language]) {
