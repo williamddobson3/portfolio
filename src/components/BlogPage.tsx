@@ -825,12 +825,7 @@ Wrap up your article with key takeaways and next steps.`,
                 >
                   Close
                 </button>
-                <button
-                  onClick={() => handleShare(selectedPost)}
-                  className="px-8 py-3 border border-white/20 hover:border-white/40 text-white rounded-xl font-semibold transition-colors"
-                >
-                  Share Article
-                </button>
+               
               </div>
             </div>
           </div>

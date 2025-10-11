@@ -89,6 +89,36 @@ const TestimonialsPage: React.FC = () => {
       year: t('testimonials.lifesciencedb.year'),
       industry: t('testimonials.lifesciencedb.industry'),
     },
+    {
+      id: 'openai',
+      quote: t('testimonials.openai.quote'),
+      name: t('testimonials.openai.name'),
+      title: t('testimonials.openai.title'),
+      company: t('testimonials.openai.company'),
+      metrics: t('testimonials.openai.metrics'),
+      year: t('testimonials.openai.year'),
+      industry: t('testimonials.openai.industry'),
+    },
+    {
+      id: 'marvel',
+      quote: t('testimonials.marvel.quote'),
+      name: t('testimonials.marvel.name'),
+      title: t('testimonials.marvel.title'),
+      company: t('testimonials.marvel.company'),
+      metrics: t('testimonials.marvel.metrics'),
+      year: t('testimonials.marvel.year'),
+      industry: t('testimonials.marvel.industry'),
+    },
+    {
+      id: 'untappd',
+      quote: t('testimonials.untappd.quote'),
+      name: t('testimonials.untappd.name'),
+      title: t('testimonials.untappd.title'),
+      company: t('testimonials.untappd.company'),
+      metrics: t('testimonials.untappd.metrics'),
+      year: t('testimonials.untappd.year'),
+      industry: t('testimonials.untappd.industry'),
+    },
   ], [t]);
 
   const items = testimonials;
@@ -118,12 +148,27 @@ const TestimonialsPage: React.FC = () => {
   const prev = () => setIndex((i) => (i - 1 + items.length) % items.length);
 
   const filtered = filter === 'all' ? items : items.filter((it) => it.industry === filter);
-  const current = filtered[index % filtered.length] || filtered[0];
+  const current = filtered.length > 0 ? (filtered[index % filtered.length] || filtered[0]) : null;
 
   useEffect(() => {
     // keep index in-bounds when filter changes
     setIndex(0);
   }, [filter]);
+
+  // Show loading state if no testimonials are available
+  if (!current) {
+    return (
+      <div className="max-w-6xl mx-auto px-6 py-16 pt-[150px]">
+        <header className="mb-10 text-center">
+          <h1 className="text-3xl md:text-4xl font-semibold text-white">{t('testimonials.title')}</h1>
+          <p className="mt-3 text-white/80 max-w-2xl mx-auto">{t('testimonials.intro')}</p>
+        </header>
+        <div className="flex items-center justify-center h-64">
+          <div className="text-white/60">Loading testimonials...</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-16 pt-[150px]">
@@ -152,12 +197,12 @@ const TestimonialsPage: React.FC = () => {
                     {playing ? <Pause size={16} /> : <Play size={16} />}
                   </button>
                   <div>
-                    <div className="text-sm font-medium">{current.name} — {current.title}</div>
-                    <div className="text-xs text-white/60">{current.company} • {current.year}</div>
+                    <div className="text-sm font-medium">{current?.name} — {current?.title}</div>
+                    <div className="text-xs text-white/60">{current?.company} • {current?.year}</div>
                   </div>
                 </div>
                 <div className="text-right">
-                  {current.metrics && <div className="text-sm font-semibold text-green-300">{current.metrics}</div>}
+                  {current?.metrics && <div className="text-sm font-semibold text-green-300">{current.metrics}</div>}
                   <div className="mt-2 flex items-center justify-end gap-2">
                     <button onClick={prev} className="p-2 rounded-md bg-white/8 text-white" aria-label="Previous">
                       <ChevronLeft size={18} />
@@ -169,7 +214,7 @@ const TestimonialsPage: React.FC = () => {
                 </div>
               </div>
 
-              <blockquote className="mt-4 text-white/90 text-lg">“{current.quote}”</blockquote>
+              <blockquote className="mt-4 text-white/90 text-lg">"{current?.quote}"</blockquote>
 
               <div className="mt-4">
                 <label className="text-xs text-white/60">{t('testimonials.filter.industry')}</label>
@@ -180,9 +225,11 @@ const TestimonialsPage: React.FC = () => {
                   aria-label="Filter testimonials"
                 >
                   <option value="all">{t('testimonials.filter.all')}</option>
-                  <option value="SaaS">SaaS</option>
-                  <option value="Media">Media</option>
-                  <option value="Consumer">Consumer</option>
+                  <option value="SaaS">{t('testimonials.filter.saas')}</option>
+                  <option value="Media">{t('testimonials.filter.media')}</option>
+                  <option value="Consumer">{t('testimonials.filter.consumer')}</option>
+                  <option value="Entertainment">{t('testimonials.filter.entertainment')}</option>
+                  <option value="Healthcare">{t('testimonials.filter.healthcare')}</option>
                 </select>
               </div>
 

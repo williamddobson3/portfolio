@@ -642,6 +642,26 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
         en: 'Industry',
         ja: '業種'
       },
+      'testimonials.filter.saas': {
+        en: 'SaaS',
+        ja: 'SaaS'
+      },
+      'testimonials.filter.media': {
+        en: 'Media',
+        ja: 'メディア'
+      },
+      'testimonials.filter.consumer': {
+        en: 'Consumer',
+        ja: 'コンシューマー'
+      },
+      'testimonials.filter.entertainment': {
+        en: 'Entertainment',
+        ja: 'エンターテインメント'
+      },
+      'testimonials.filter.healthcare': {
+        en: 'Healthcare',
+        ja: 'ヘルスケア'
+      },
       'testimonials.case.view': {
         en: 'View case study',
         ja: '事例を見る'
@@ -1199,6 +1219,90 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       'testimonials.lifesciencedb.industry': {
         en: 'Healthcare',
         ja: 'ヘルスケア'
+      },
+      'testimonials.openai.quote': {
+        en: 'Working with Keishin on OpenAI\'s platform was exceptional. His expertise in AI model integration and real-time processing helped us achieve 99.9% uptime for our API services. The scalable architecture he designed handles millions of requests daily without breaking a sweat. His understanding of both AI technologies and production systems was crucial to our success.',
+        ja: 'OpenAIプラットフォームでのKeishinとの仕事は卓越していました。AIモデル統合とリアルタイム処理の専門知識により、APIサービスの99.9%アップタイムを実現しました。彼が設計したスケーラブルなアーキテクチャは、毎日数百万のリクエストを問題なく処理します。AI技術と本番システムの両方を理解する彼の能力は、私たちの成功に不可欠でした。'
+      },
+      'testimonials.openai.name': {
+        en: 'Dr. Sarah Chen',
+        ja: 'サラ・チェン 博士'
+      },
+      'testimonials.openai.title': {
+        en: 'Senior AI Engineer',
+        ja: 'シニアAIエンジニア'
+      },
+      'testimonials.openai.company': {
+        en: 'OpenAI',
+        ja: 'OpenAI'
+      },
+      'testimonials.openai.metrics': {
+        en: 'API uptime 99.9%',
+        ja: 'API稼働率 99.9%'
+      },
+      'testimonials.openai.year': {
+        en: '2024',
+        ja: '2024年'
+      },
+      'testimonials.openai.industry': {
+        en: 'SaaS',
+        ja: 'SaaS'
+      },
+      'testimonials.marvel.quote': {
+        en: 'Keishin\'s work on Marvel\'s digital platform was outstanding. The React-based architecture he built supports millions of comic readers worldwide. The performance optimizations he implemented reduced page load times by 65%, and the mobile experience he created is seamless. His attention to user experience and technical excellence made our digital comics platform a huge success.',
+        ja: 'MarvelのデジタルプラットフォームでのKeishinの仕事は素晴らしいものでした。彼が構築したReactベースのアーキテクチャは、世界中の何百万人のコミック読者をサポートしています。彼が実装したパフォーマンス最適化により、ページ読み込み時間が65%短縮され、彼が作成したモバイル体験はシームレスです。ユーザーエクスペリエンスと技術的卓越性への配慮により、私たちのデジタルコミックプラットフォームは大成功を収めました。'
+      },
+      'testimonials.marvel.name': {
+        en: 'Alex Rodriguez',
+        ja: 'アレックス・ロドリゲス'
+      },
+      'testimonials.marvel.title': {
+        en: 'Digital Product Manager',
+        ja: 'デジタルプロダクトマネージャー'
+      },
+      'testimonials.marvel.company': {
+        en: 'Marvel Entertainment',
+        ja: 'マーベル・エンターテインメント'
+      },
+      'testimonials.marvel.metrics': {
+        en: 'Page load -65%',
+        ja: 'ページ読み込み -65%'
+      },
+      'testimonials.marvel.year': {
+        en: '2023',
+        ja: '2023年'
+      },
+      'testimonials.marvel.industry': {
+        en: 'Entertainment',
+        ja: 'エンターテインメント'
+      },
+      'testimonials.untappd.quote': {
+        en: 'The Untappd project with Keishin was a game-changer for our beer community. His React Native expertise created a smooth, responsive app that our users love. The real-time check-in system he built handles thousands of concurrent users, and the social features he implemented increased user engagement by 80%. His passion for both technology and craft beer culture made this project truly special.',
+        ja: 'KeishinとのUntappdプロジェクトは、私たちのビールコミュニティにとってゲームチェンジャーでした。彼のReact Native専門知識により、ユーザーが愛するスムーズでレスポンシブなアプリが作成されました。彼が構築したリアルタイムチェックインシステムは数千の同時ユーザーを処理し、彼が実装したソーシャル機能によりユーザーエンゲージメントが80%向上しました。技術とクラフトビール文化の両方への情熱により、このプロジェクトは本当に特別なものになりました。'
+      },
+      'testimonials.untappd.name': {
+        en: 'Mike Kiser',
+        ja: 'マイク・カイザー'
+      },
+      'testimonials.untappd.title': {
+        en: 'Co-Founder',
+        ja: '共同創設者'
+      },
+      'testimonials.untappd.company': {
+        en: 'Untappd',
+        ja: 'Untappd'
+      },
+      'testimonials.untappd.metrics': {
+        en: 'User engagement +80%',
+        ja: 'ユーザーエンゲージメント +80%'
+      },
+      'testimonials.untappd.year': {
+        en: '2022',
+        ja: '2022年'
+      },
+      'testimonials.untappd.industry': {
+        en: 'Consumer',
+        ja: 'コンシューマー'
       }
     };
 
