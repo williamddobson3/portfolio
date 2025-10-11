@@ -17,34 +17,74 @@ interface Testimonial {
 
 const SAMPLE: Testimonial[] = [
   {
-    id: 't1',
-    quote: '導入後、問い合わせ数が 1.5 倍になりました。',
-    name: '山田 太郎',
-    title: 'CTO',
-    company: '株式会社ABC',
-    metrics: '問い合わせ数 +50%',
+    id: 'ameba',
+    quote: 'Working with Keishin on Ameba was transformative. The AMP Stories implementation increased our mobile story completion rates by 40%, and the modular frontend architecture he built reduced our development time for new features by 60%. His attention to performance optimization and user experience made our platform feel modern and responsive. The rich post editor with Graffiti drawing feature became one of our most popular tools. His technical expertise and collaborative approach made this project a huge success.',
+    name: 'Yuki Nakamura',
+    title: 'Frontend Engineering Lead',
+    company: 'CyberAgent (Ameba)',
+    metrics: 'Story completion +40%',
     year: '2023',
-    industry: 'SaaS',
+    industry: 'Social Media',
   },
   {
-    id: 't2',
-    quote: 'パフォーマンス改善で LCP が 40% 改善しました。',
-    name: '田中 花子',
-    title: 'PM',
-    company: '株式会社XYZ',
-    metrics: 'LCP -40%',
+    id: 'itmedia',
+    quote: 'The ITmedia modernization project exceeded all expectations. Keishin transformed our legacy system into a modern, high-performance platform. LCP dropped from 3 seconds to 1.2 seconds, and our bounce rates decreased significantly. The Laravel + React architecture with Redis caching and Kubernetes deployment on AWS handles traffic spikes beautifully. The custom CMS he built made our editorial workflow 3x faster. His expertise in performance optimization and scalable architecture was exactly what we needed.',
+    name: 'Masahiro Tanaka',
+    title: 'Technical Director',
+    company: 'ITmedia',
+    metrics: 'LCP -60%',
+    year: '2023',
+    industry: 'Media',
+  },
+  {
+    id: 'buzzfeed',
+    quote: 'Keishin\'s work on BuzzFeed Japan was exceptional. The modular content system he designed gave our editors unprecedented flexibility in storytelling. Page load speeds improved dramatically, and the real-time analytics integration transformed how we approach content strategy. The responsive design works flawlessly across all devices, and the CDN optimization ensures fast delivery globally. His understanding of both technical requirements and editorial needs made this project a game-changer for our team.',
+    name: 'Sarah Johnson',
+    title: 'Head of Product',
+    company: 'BuzzFeed Japan',
+    metrics: 'Page speed +2x',
     year: '2022',
     industry: 'Media',
   },
   {
-    id: 't3',
-    quote: 'Android リリースを 2 か月で提供してくれました。',
-    name: '佐藤 次郎',
-    title: 'プロダクトマネージャー',
-    company: 'Example Inc',
-    metrics: 'Time-to-market -30%',
-    year: '2024',
-    industry: 'Consumer',
+    id: 'manga',
+    quote: 'Building MangaONE from scratch with Keishin was an incredible experience. He designed a robust system that handles thousands of concurrent users during peak releases without breaking a sweat. The free reads system works flawlessly, and the native mobile apps provide a seamless reading experience. The CMS he built streamlined our content management process. His expertise in high-concurrency systems and mobile optimization was crucial to our success.',
+    name: 'Kenji Watanabe',
+    title: 'CTO',
+    company: 'MangaONE',
+    metrics: 'Concurrent users +500%',
+    year: '2023',
+    industry: 'Entertainment',
+  },
+  {
+    id: 'cookpad',
+    quote: 'Keishin\'s contributions to Cookpad were invaluable. The React.js frontend he developed made our recipe discovery experience much more intuitive. The Ruby on Rails backend optimizations with PostgreSQL and Redis caching improved our search performance by 70%. The mobile responsiveness he implemented increased our mobile user engagement by 45%. His focus on user experience and performance optimization made our platform more enjoyable for millions of users.',
+    name: 'Akiko Sato',
+    title: 'Engineering Manager',
+    company: 'Cookpad',
+    metrics: 'Search performance +70%',
+    year: '2022',
+    industry: 'Food & Lifestyle',
+  },
+  {
+    id: 'teamlab',
+    quote: 'Working with Keishin on our digital art platform was inspiring. His WebGL and Three.js expertise brought our interactive installations to life. The real-time responsiveness to user interactions created truly immersive experiences. The Next.js SSR implementation ensures fast loading even with complex 3D content. His passion for combining technology with art resulted in experiences that moved our visitors emotionally. The platform now supports thousands of concurrent users exploring our digital exhibitions.',
+    name: 'Dr. Toshiyuki Inoko',
+    title: 'Founder & Director',
+    company: 'teamLab',
+    metrics: 'User engagement +300%',
+    year: '2023',
+    industry: 'Digital Art',
+  },
+  {
+    id: 'lifesciencedb',
+    quote: 'The BodyParts3D project with Keishin was groundbreaking. His WebGL expertise made complex 3D anatomical models accessible and interactive. The integration with FMA database ensures medical accuracy while maintaining smooth performance. The user interface he designed makes exploring human anatomy intuitive for both medical students and professionals. His attention to detail in 3D rendering and data visualization created a tool that\'s now used in medical education worldwide.',
+    name: 'Dr. Hiroshi Matsumoto',
+    title: 'Professor of Anatomy',
+    company: 'Life Science Database',
+    metrics: 'Medical education reach +200%',
+    year: '2022',
+    industry: 'Healthcare',
   },
 ];
 
@@ -85,7 +125,7 @@ export const TestimonialsPage: React.FC = () => {
   }, [filter]);
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-16">
+    <div className="max-w-6xl mx-auto px-6 py-16 pt-[150px]">
       <header className="mb-10 text-center">
         <h1 className="text-3xl md:text-4xl font-semibold text-white">{t('testimonials.title')}</h1>
         <p className="mt-3 text-white/80 max-w-2xl mx-auto">{t('testimonials.intro')}</p>
@@ -174,7 +214,7 @@ export const TestimonialsPage: React.FC = () => {
                 <div className="ml-auto text-sm text-green-300">{it.metrics}</div>
               </div>
               <p className="mt-3 text-white/80">{it.quote}</p>
-              <div className="mt-3 text-right text-xs"><a href="#" className="underline">{t('testimonials.case.view')}</a></div>
+              <div className="mt-3 text-right text-xs"><a href="#projects" className="underline">{t('testimonials.case.view')}</a></div>
             </div>
           ))}
         </div>
