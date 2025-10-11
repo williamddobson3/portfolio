@@ -626,6 +626,14 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
         en: 'Pause rotation',
         ja: '停止'
       },
+      'testimonials.controls.auto_rotating': {
+        en: 'Auto-rotating',
+        ja: '自動回転中'
+      },
+      'testimonials.controls.paused': {
+        en: 'Paused',
+        ja: '一時停止中'
+      },
       'testimonials.filter.all': {
         en: 'All industries',
         ja: 'すべての業種'
@@ -649,6 +657,10 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       'services.subtitle': {
         en: 'Professional web, Android and AI development: thoughtful engineering with measurable impact.',
         ja: 'ウェブ・Android・AI の専門的な開発。思慮深い設計と定量的インパクトを重視します。'
+      },
+      'services.hero.alt': {
+        en: 'Professional workspace with laptop, smartphones, and AI network',
+        ja: 'ラップトップ、スマートフォン、AIネットワークを備えたプロフェッショナルなワークスペース'
       },
       'services.cta.contact': {
         en: 'Book a free 15‑minute consult',
@@ -717,6 +729,102 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       'services.ai.duration': {
         en: 'Typical: 8–20 weeks',
         ja: '目安: 8〜20 週間'
+      },
+      'services.web.description': {
+        en: 'I provide complete web development solutions — from intuitive front-end interfaces to secure and scalable back-end systems. With a focus on modern technologies and clean architecture, I help clients build fast, reliable, and maintainable web applications that drive real results.',
+        ja: '直感的なフロントエンドインターフェースから安全でスケーラブルなバックエンドシステムまで、完全なWeb開発ソリューションを提供します。モダンな技術とクリーンなアーキテクチャに焦点を当て、クライアントが実際の結果をもたらす高速で信頼性の高い保守可能なWebアプリケーションを構築するのを支援します。'
+      },
+      'services.web.features.1': {
+        en: 'Responsive, mobile-first front-end development',
+        ja: 'レスポンシブ、モバイルファーストのフロントエンド開発'
+      },
+      'services.web.features.2': {
+        en: 'RESTful / GraphQL API integration',
+        ja: 'RESTful / GraphQL API統合'
+      },
+      'services.web.features.3': {
+        en: 'Secure authentication and user management',
+        ja: '安全な認証とユーザー管理'
+      },
+      'services.web.features.4': {
+        en: 'Performance optimization (LCP, Core Web Vitals)',
+        ja: 'パフォーマンス最適化（LCP、Core Web Vitals）'
+      },
+      'services.web.features.5': {
+        en: 'Deployment & maintenance on AWS, GCP, or Vercel',
+        ja: 'AWS、GCP、Vercelでのデプロイメントとメンテナンス'
+      },
+      'services.web.features.6': {
+        en: 'Continuous support after delivery',
+        ja: '納品後の継続的なサポート'
+      },
+      'services.web.goal': {
+        en: 'Modern, fast, and reliable web applications that deliver measurable outcomes',
+        ja: '測定可能な結果をもたらすモダンで高速で信頼性の高いWebアプリケーション'
+      },
+      'services.android.description': {
+        en: 'I build modern, high-performance Android applications using the latest native technologies and best practices. Every app is designed for speed, stability, and an excellent user experience, ensuring it performs beautifully across all Android devices.',
+        ja: '最新のネイティブ技術とベストプラクティスを使用して、モダンで高性能なAndroidアプリケーションを構築します。すべてのアプリは速度、安定性、優れたユーザーエクスペリエンスのために設計され、すべてのAndroidデバイスで美しく動作することを保証します。'
+      },
+      'services.android.features.1': {
+        en: 'UI/UX design implementation with Jetpack Compose',
+        ja: 'Jetpack ComposeによるUI/UXデザイン実装'
+      },
+      'services.android.features.2': {
+        en: 'MVVM / Clean Architecture for maintainable, testable code',
+        ja: '保守可能でテスト可能なコードのためのMVVM / Clean Architecture'
+      },
+      'services.android.features.3': {
+        en: 'Integration with RESTful APIs, Firebase, and third-party SDKs',
+        ja: 'RESTful API、Firebase、サードパーティSDKとの統合'
+      },
+      'services.android.features.4': {
+        en: 'Offline support with Room database or DataStore',
+        ja: 'RoomデータベースまたはDataStoreによるオフラインサポート'
+      },
+      'services.android.features.5': {
+        en: 'Push notifications, analytics, and background services',
+        ja: 'プッシュ通知、分析、バックグラウンドサービス'
+      },
+      'services.android.features.6': {
+        en: 'App performance optimization and Google Play deployment',
+        ja: 'アプリパフォーマンス最適化とGoogle Playデプロイメント'
+      },
+      'services.android.goal': {
+        en: 'Fast, stable, and user-focused Android apps that align with your business objectives',
+        ja: 'ビジネス目標に合致した高速で安定したユーザー重視のAndroidアプリ'
+      },
+      'services.ai.description': {
+        en: 'I design and deploy AI and machine learning solutions that transform data into real-world value. From data preparation to model development and production deployment, my focus is on building practical, reliable systems that deliver measurable business impact.',
+        ja: 'データを実世界の価値に変換するAIと機械学習ソリューションを設計・デプロイします。データ準備からモデル開発、本番デプロイメントまで、測定可能なビジネスインパクトをもたらす実用的で信頼性の高いシステムの構築に焦点を当てています。'
+      },
+      'services.ai.features.1': {
+        en: 'Data preprocessing, feature engineering, and model training',
+        ja: 'データ前処理、特徴エンジニアリング、モデル訓練'
+      },
+      'services.ai.features.2': {
+        en: 'Custom ML/DL model design (TensorFlow / PyTorch)',
+        ja: 'カスタムML/DLモデル設計（TensorFlow / PyTorch）'
+      },
+      'services.ai.features.3': {
+        en: 'Model evaluation, tuning, and performance optimization',
+        ja: 'モデル評価、チューニング、パフォーマンス最適化'
+      },
+      'services.ai.features.4': {
+        en: 'Automated pipelines with MLOps tools (MLflow, DVC, CI/CD)',
+        ja: 'MLOpsツールによる自動化パイプライン（MLflow、DVC、CI/CD）'
+      },
+      'services.ai.features.5': {
+        en: 'Deployment to cloud platforms (AWS SageMaker, GCP Vertex AI, Azure ML)',
+        ja: 'クラウドプラットフォームへのデプロイメント（AWS SageMaker、GCP Vertex AI、Azure ML）'
+      },
+      'services.ai.features.6': {
+        en: 'Integration with existing apps or APIs',
+        ja: '既存のアプリやAPIとの統合'
+      },
+      'services.ai.goal': {
+        en: 'Rapidly transform prototypes into production-ready AI systems that are scalable and efficient',
+        ja: 'プロトタイプをスケーラブルで効率的な本番対応AIシステムに迅速に変換'
       },
       'services.workflow_title': {
         en: 'How I work',
@@ -787,8 +895,310 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
         ja: '短い相談から始めましょう'
       },
       'services.cta.big_desc': {
-        en: 'I’ll help assess fit, scope, and next steps — with clear deliverables and timeline.',
+        en: 'I\'ll help assess fit, scope, and next steps — with clear deliverables and timeline.',
         ja: '適合性、スコープ、次のステップを評価し、明確な成果物とスケジュールを提示します。'
+      },
+      'services.representative_cases.title': {
+        en: 'Representative Cases',
+        ja: '代表事例'
+      },
+      'services.representative_cases.subtitle': {
+        en: 'Proven projects and quantifiable results',
+        ja: '実績のあるプロジェクトと定量的な結果'
+      },
+      'services.workflow.subtitle': {
+        en: 'From consultation to operation, comprehensive support',
+        ja: '相談から運用まで、包括的なサポート'
+      },
+      'services.faq.subtitle': {
+        en: 'Regarding practical details',
+        ja: '実務的な詳細について'
+      },
+      'services.cta.examples': {
+        en: 'See examples',
+        ja: '事例を見る'
+      },
+      'services.stats.experience': {
+        en: 'years of experience',
+        ja: '年の経験'
+      },
+      'services.stats.projects': {
+        en: 'Completed Projects',
+        ja: '完了プロジェクト'
+      },
+      'services.stats.satisfaction': {
+        en: 'Customer Satisfaction',
+        ja: '顧客満足度'
+      },
+      'services.stats.timeframe': {
+        en: 'Within [timeframe]',
+        ja: '[時間内]'
+      },
+      'services.stats.response': {
+        en: 'Response Time',
+        ja: 'レスポンス時間'
+      },
+      'services.case_studies.ameba.title': {
+        en: 'Ameba - Japan\'s largest blog SNS',
+        ja: 'Ameba - 日本最大のブログSNS'
+      },
+      'services.case_studies.ameba.description': {
+        en: 'AMP Stories, Rich Editor, Module UI, SEO/Performance Optimization',
+        ja: 'AMP Stories、リッチエディター、モジュールUI、SEO/パフォーマンス最適化'
+      },
+      'services.case_studies.ameba.kpi': {
+        en: 'LCP 40% improvement',
+        ja: 'LCP 40%改善'
+      },
+      'services.case_studies.ameba.duration': {
+        en: '3 months',
+        ja: '3ヶ月'
+      },
+      'services.case_studies.ameba.role': {
+        en: 'Front-End Lead',
+        ja: 'フロントエンドリード'
+      },
+      'services.case_studies.buzzfeed.title': {
+        en: 'BuzzFeed Japan',
+        ja: 'BuzzFeed Japan'
+      },
+      'services.case_studies.buzzfeed.description': {
+        en: 'Localization and modular content. Responsive optimization, CMS workflow',
+        ja: 'ローカライゼーションとモジュラーコンテンツ。レスポンシブ最適化、CMSワークフロー'
+      },
+      'services.case_studies.buzzfeed.kpi': {
+        en: 'Double the engagement',
+        ja: 'エンゲージメント2倍'
+      },
+      'services.case_studies.buzzfeed.duration': {
+        en: '4 months',
+        ja: '4ヶ月'
+      },
+      'services.case_studies.buzzfeed.role': {
+        en: 'Full-stack development',
+        ja: 'フルスタック開発'
+      },
+      'services.case_studies.itmedia.title': {
+        en: 'ITmedia Modernization',
+        ja: 'ITmedia モダナイゼーション'
+      },
+      'services.case_studies.itmedia.description': {
+        en: 'Refreshed with Laravel+React, Elasticsearch, Redis Cache, Docker/Kubernetes (AWS)',
+        ja: 'Laravel+React、Elasticsearch、Redis Cache、Docker/Kubernetes（AWS）で刷新'
+      },
+      'services.case_studies.itmedia.kpi': {
+        en: 'LCP・Operational Efficiency Improvement',
+        ja: 'LCP・運用効率改善'
+      },
+      'services.case_studies.itmedia.duration': {
+        en: '3 months',
+        ja: '3ヶ月'
+      },
+      'services.case_studies.itmedia.role': {
+        en: 'Architect',
+        ja: 'アーキテクト'
+      },
+      // Blog Page
+      'nav.blog': {
+        en: 'Blog',
+        ja: 'ブログ'
+      },
+      // Testimonials Page - Detailed translations
+      'testimonials.ameba.quote': {
+        en: 'Working with Keishin on Ameba was transformative. The AMP Stories implementation increased our mobile story completion rates by 40%, and the modular frontend architecture he built reduced our development time for new features by 60%. His attention to performance optimization and user experience made our platform feel modern and responsive. The rich post editor with Graffiti drawing feature became one of our most popular tools. His technical expertise and collaborative approach made this project a huge success.',
+        ja: 'AmebaでのKeishinとの仕事は革新的でした。AMP Storiesの実装により、モバイルストーリーの完了率が40%向上し、彼が構築したモジュラー型フロントエンドアーキテクチャにより、新機能の開発時間が60%短縮されました。パフォーマンス最適化とユーザーエクスペリエンスへの配慮により、プラットフォームは現代的でレスポンシブなものになりました。Graffiti描画機能付きのリッチポストエディターは最も人気のあるツールの一つになりました。彼の技術的専門知識と協力的なアプローチにより、このプロジェクトは大成功を収めました。'
+      },
+      'testimonials.ameba.name': {
+        en: 'Yuki Nakamura',
+        ja: '中村 由紀'
+      },
+      'testimonials.ameba.title': {
+        en: 'Frontend Engineering Lead',
+        ja: 'フロントエンドエンジニアリングリード'
+      },
+      'testimonials.ameba.company': {
+        en: 'CyberAgent (Ameba)',
+        ja: 'サイバーエージェント（Ameba）'
+      },
+      'testimonials.ameba.metrics': {
+        en: 'Story completion +40%',
+        ja: 'ストーリー完了率 +40%'
+      },
+      'testimonials.ameba.year': {
+        en: '2023',
+        ja: '2023年'
+      },
+      'testimonials.ameba.industry': {
+        en: 'Social Media',
+        ja: 'ソーシャルメディア'
+      },
+      'testimonials.itmedia.quote': {
+        en: 'The ITmedia modernization project exceeded all expectations. Keishin transformed our legacy system into a modern, high-performance platform. LCP dropped from 3 seconds to 1.2 seconds, and our bounce rates decreased significantly. The Laravel + React architecture with Redis caching and Kubernetes deployment on AWS handles traffic spikes beautifully. The custom CMS he built made our editorial workflow 3x faster. His expertise in performance optimization and scalable architecture was exactly what we needed.',
+        ja: 'ITmediaのモダナイゼーションプロジェクトはすべての期待を上回りました。Keishinは私たちのレガシーシステムを現代的で高性能なプラットフォームに変革しました。LCPは3秒から1.2秒に短縮され、直帰率も大幅に減少しました。RedisキャッシュとAWSでのKubernetesデプロイメントを備えたLaravel + Reactアーキテクチャは、トラフィックスパイクを美しく処理します。彼が構築したカスタムCMSにより、編集ワークフローが3倍高速化されました。パフォーマンス最適化とスケーラブルなアーキテクチャの専門知識は、まさに私たちが必要としていたものでした。'
+      },
+      'testimonials.itmedia.name': {
+        en: 'Masahiro Tanaka',
+        ja: '田中 正弘'
+      },
+      'testimonials.itmedia.title': {
+        en: 'Technical Director',
+        ja: 'テクニカルディレクター'
+      },
+      'testimonials.itmedia.company': {
+        en: 'ITmedia',
+        ja: 'ITmedia'
+      },
+      'testimonials.itmedia.metrics': {
+        en: 'LCP -60%',
+        ja: 'LCP -60%'
+      },
+      'testimonials.itmedia.year': {
+        en: '2023',
+        ja: '2023年'
+      },
+      'testimonials.itmedia.industry': {
+        en: 'Media',
+        ja: 'メディア'
+      },
+      'testimonials.buzzfeed.quote': {
+        en: 'Keishin\'s work on BuzzFeed Japan was exceptional. The modular content system he designed gave our editors unprecedented flexibility in storytelling. Page load speeds improved dramatically, and the real-time analytics integration transformed how we approach content strategy. The responsive design works flawlessly across all devices, and the CDN optimization ensures fast delivery globally. His understanding of both technical requirements and editorial needs made this project a game-changer for our team.',
+        ja: 'BuzzFeed JapanでのKeishinの仕事は卓越していました。彼が設計したモジュラー型コンテンツシステムにより、編集者はストーリーテリングにおいて前例のない柔軟性を得ました。ページ読み込み速度は劇的に改善され、リアルタイム分析統合によりコンテンツ戦略へのアプローチが変革されました。レスポンシブデザインはすべてのデバイスで完璧に動作し、CDN最適化によりグローバルな高速配信を実現しています。技術要件と編集ニーズの両方を理解する彼の能力により、このプロジェクトは私たちのチームにとってゲームチェンジャーとなりました。'
+      },
+      'testimonials.buzzfeed.name': {
+        en: 'Sarah Johnson',
+        ja: 'サラ・ジョンソン'
+      },
+      'testimonials.buzzfeed.title': {
+        en: 'Head of Product',
+        ja: 'プロダクトヘッド'
+      },
+      'testimonials.buzzfeed.company': {
+        en: 'BuzzFeed Japan',
+        ja: 'BuzzFeed Japan'
+      },
+      'testimonials.buzzfeed.metrics': {
+        en: 'Page speed +2x',
+        ja: 'ページ速度 +2倍'
+      },
+      'testimonials.buzzfeed.year': {
+        en: '2022',
+        ja: '2022年'
+      },
+      'testimonials.buzzfeed.industry': {
+        en: 'Media',
+        ja: 'メディア'
+      },
+      'testimonials.manga.quote': {
+        en: 'Building MangaONE from scratch with Keishin was an incredible experience. He designed a robust system that handles thousands of concurrent users during peak releases without breaking a sweat. The free reads system works flawlessly, and the native mobile apps provide a seamless reading experience. The CMS he built streamlined our content management process. His expertise in high-concurrency systems and mobile optimization was crucial to our success.',
+        ja: 'Keishinと一緒にMangaONEをゼロから構築した経験は素晴らしいものでした。彼が設計した堅牢なシステムは、ピークリリース時に数千の同時ユーザーを問題なく処理します。無料読みシステムは完璧に動作し、ネイティブモバイルアプリはシームレスな読書体験を提供します。彼が構築したCMSにより、コンテンツ管理プロセスが合理化されました。高並行システムとモバイル最適化の専門知識は、私たちの成功に不可欠でした。'
+      },
+      'testimonials.manga.name': {
+        en: 'Kenji Watanabe',
+        ja: '渡辺 健二'
+      },
+      'testimonials.manga.title': {
+        en: 'CTO',
+        ja: 'CTO'
+      },
+      'testimonials.manga.company': {
+        en: 'MangaONE',
+        ja: 'MangaONE'
+      },
+      'testimonials.manga.metrics': {
+        en: 'Concurrent users +500%',
+        ja: '同時ユーザー +500%'
+      },
+      'testimonials.manga.year': {
+        en: '2023',
+        ja: '2023年'
+      },
+      'testimonials.manga.industry': {
+        en: 'Entertainment',
+        ja: 'エンターテインメント'
+      },
+      'testimonials.cookpad.quote': {
+        en: 'Keishin\'s contributions to Cookpad were invaluable. The React.js frontend he developed made our recipe discovery experience much more intuitive. The Ruby on Rails backend optimizations with PostgreSQL and Redis caching improved our search performance by 70%. The mobile responsiveness he implemented increased our mobile user engagement by 45%. His focus on user experience and performance optimization made our platform more enjoyable for millions of users.',
+        ja: 'CookpadへのKeishinの貢献は非常に価値のあるものでした。彼が開発したReact.jsフロントエンドにより、レシピ発見体験がより直感的になりました。PostgreSQLとRedisキャッシュを活用したRuby on Railsバックエンドの最適化により、検索パフォーマンスが70%向上しました。彼が実装したモバイルレスポンシブネスにより、モバイルユーザーのエンゲージメントが45%増加しました。ユーザーエクスペリエンスとパフォーマンス最適化への焦点により、何百万人のユーザーにとってプラットフォームがより楽しいものになりました。'
+      },
+      'testimonials.cookpad.name': {
+        en: 'Akiko Sato',
+        ja: '佐藤 明子'
+      },
+      'testimonials.cookpad.title': {
+        en: 'Engineering Manager',
+        ja: 'エンジニアリングマネージャー'
+      },
+      'testimonials.cookpad.company': {
+        en: 'Cookpad',
+        ja: 'クックパッド'
+      },
+      'testimonials.cookpad.metrics': {
+        en: 'Search performance +70%',
+        ja: '検索パフォーマンス +70%'
+      },
+      'testimonials.cookpad.year': {
+        en: '2022',
+        ja: '2022年'
+      },
+      'testimonials.cookpad.industry': {
+        en: 'Food & Lifestyle',
+        ja: 'フード・ライフスタイル'
+      },
+      'testimonials.teamlab.quote': {
+        en: 'Working with Keishin on our digital art platform was inspiring. His WebGL and Three.js expertise brought our interactive installations to life. The real-time responsiveness to user interactions created truly immersive experiences. The Next.js SSR implementation ensures fast loading even with complex 3D content. His passion for combining technology with art resulted in experiences that moved our visitors emotionally. The platform now supports thousands of concurrent users exploring our digital exhibitions.',
+        ja: 'デジタルアートプラットフォームでKeishinと働くことは刺激的でした。彼のWebGLとThree.jsの専門知識により、インタラクティブなインスタレーションが命を吹き込まれました。ユーザーインタラクションへのリアルタイムレスポンスにより、真に没入感のある体験が生まれました。Next.js SSRの実装により、複雑な3Dコンテンツでも高速読み込みを実現しています。技術とアートを組み合わせる彼の情熱により、訪問者を感情的にも動かす体験が生まれました。プラットフォームは現在、デジタル展示を探索する数千の同時ユーザーをサポートしています。'
+      },
+      'testimonials.teamlab.name': {
+        en: 'Dr. Toshiyuki Inoko',
+        ja: '猪子 寿之 博士'
+      },
+      'testimonials.teamlab.title': {
+        en: 'Founder & Director',
+        ja: '創設者・ディレクター'
+      },
+      'testimonials.teamlab.company': {
+        en: 'teamLab',
+        ja: 'チームラボ'
+      },
+      'testimonials.teamlab.metrics': {
+        en: 'User engagement +300%',
+        ja: 'ユーザーエンゲージメント +300%'
+      },
+      'testimonials.teamlab.year': {
+        en: '2023',
+        ja: '2023年'
+      },
+      'testimonials.teamlab.industry': {
+        en: 'Digital Art',
+        ja: 'デジタルアート'
+      },
+      'testimonials.lifesciencedb.quote': {
+        en: 'The BodyParts3D project with Keishin was groundbreaking. His WebGL expertise made complex 3D anatomical models accessible and interactive. The integration with FMA database ensures medical accuracy while maintaining smooth performance. The user interface he designed makes exploring human anatomy intuitive for both medical students and professionals. His attention to detail in 3D rendering and data visualization created a tool that\'s now used in medical education worldwide.',
+        ja: 'KeishinとのBodyParts3Dプロジェクトは画期的でした。彼のWebGL専門知識により、複雑な3D解剖モデルがアクセス可能でインタラクティブになりました。FMAデータベースとの統合により、スムーズなパフォーマンスを維持しながら医学的精度を確保しています。彼が設計したユーザーインターフェースにより、医学部生と専門家の両方にとって人体解剖学の探索が直感的になりました。3Dレンダリングとデータ可視化における細部への注意により、現在世界中の医学教育で使用されているツールが生まれました。'
+      },
+      'testimonials.lifesciencedb.name': {
+        en: 'Dr. Hiroshi Matsumoto',
+        ja: '松本 博 博士'
+      },
+      'testimonials.lifesciencedb.title': {
+        en: 'Professor of Anatomy',
+        ja: '解剖学教授'
+      },
+      'testimonials.lifesciencedb.company': {
+        en: 'Life Science Database',
+        ja: 'ライフサイエンスデータベース'
+      },
+      'testimonials.lifesciencedb.metrics': {
+        en: 'Medical education reach +200%',
+        ja: '医学教育の到達範囲 +200%'
+      },
+      'testimonials.lifesciencedb.year': {
+        en: '2022',
+        ja: '2022年'
+      },
+      'testimonials.lifesciencedb.industry': {
+        en: 'Healthcare',
+        ja: 'ヘルスケア'
       }
     };
 

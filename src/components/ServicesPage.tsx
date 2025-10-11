@@ -1,26 +1,14 @@
-import React, { useEffect, useState, Suspense } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { ArrowRight, Cpu, Smartphone, Globe, ChevronRight, Monitor, Brain, Code, Zap } from 'lucide-react';
-
-// Lazy 3D placeholder - real 3D should be added later (Three.js / react-three-fiber)
-// explicit .tsx extension helps the TypeScript resolver in some configs
-const Lazy3DScene = React.lazy(() => import('./Services3DPlaceholder.tsx').catch(() => ({ default: () => null })));
+import { ArrowRight, Cpu, Smartphone, Globe, ChevronRight, Brain } from 'lucide-react';
 
 export const ServicesPage: React.FC = () => {
   const { t } = useLanguage();
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const [activeCaseStudy, setActiveCaseStudy] = useState(0);
   const [currentProcessStep, setCurrentProcessStep] = useState(0);
   const [selectedService, setSelectedService] = useState<string | null>(null);
 
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const handler = () => setPrefersReducedMotion(mq.matches);
-    handler();
-    mq.addEventListener?.('change', handler);
-    return () => mq.removeEventListener?.('change', handler);
-  }, []);
 
   // Auto-rotate case studies
   useEffect(() => {
@@ -68,29 +56,29 @@ export const ServicesPage: React.FC = () => {
   const caseStudies = [
     {
       id: 'ameba',
-      title: `Ameba - Japan's largest blog SNS`,
-      description: 'AMP Stories, Rich Editor, Module UI, SEO/Performance Optimization',
-      kpi: 'LCP 40% improvement',
-      duration: '3 months',
-      role: 'Front-End Lead',
+      title: t('services.case_studies.ameba.title'),
+      description: t('services.case_studies.ameba.description'),
+      kpi: t('services.case_studies.ameba.kpi'),
+      duration: t('services.case_studies.ameba.duration'),
+      role: t('services.case_studies.ameba.role'),
       image: '/projects/ameba/1.png'
     },
     {
       id: 'buzzfeed',
-      title: 'BuzzFeed Japan',
-      description: 'Localization and modular content. Responsive optimization, CMS workflow',
-      kpi: 'Double the engagement',
-      duration: '4 months',
-      role: 'Full-stack development',
+      title: t('services.case_studies.buzzfeed.title'),
+      description: t('services.case_studies.buzzfeed.description'),
+      kpi: t('services.case_studies.buzzfeed.kpi'),
+      duration: t('services.case_studies.buzzfeed.duration'),
+      role: t('services.case_studies.buzzfeed.role'),
       image: '/projects/buzzfeed/1.jpg'
     },
     {
       id: 'itmedia',
-      title: 'ITmedia Modernization',
-      description: 'Refreshed with Laravel+React, Elasticsearch, Redis Cache, Docker/Kubernetes (AWS)',
-      kpi: 'LCP・Operational Efficiency Improvement',
-      duration: '3 months',
-      role: 'Architect',
+      title: t('services.case_studies.itmedia.title'),
+      description: t('services.case_studies.itmedia.description'),
+      kpi: t('services.case_studies.itmedia.kpi'),
+      duration: t('services.case_studies.itmedia.duration'),
+      role: t('services.case_studies.itmedia.role'),
       image: '/projects/itmedia/1.png'
     }
   ];
@@ -128,53 +116,53 @@ export const ServicesPage: React.FC = () => {
 
   const serviceDetails = {
     web: {
-      title: "Full-stack Web Development",
-      subtitle: "Complete web development solutions — from intuitive front-end interfaces to secure and scalable back-end systems.",
-      description: "I provide complete web development solutions — from intuitive front-end interfaces to secure and scalable back-end systems. With a focus on modern technologies and clean architecture, I help clients build fast, reliable, and maintainable web applications that drive real results.",
+      title: t('services.web.title'),
+      subtitle: t('services.web.subtitle'),
+      description: t('services.web.description'),
       features: [
-        "Responsive, mobile-first front-end development",
-        "RESTful / GraphQL API integration", 
-        "Secure authentication and user management",
-        "Performance optimization (LCP, Core Web Vitals)",
-        "Deployment & maintenance on AWS, GCP, or Vercel",
-        "Continuous support after delivery"
+        t('services.web.features.1'),
+        t('services.web.features.2'),
+        t('services.web.features.3'),
+        t('services.web.features.4'),
+        t('services.web.features.5'),
+        t('services.web.features.6')
       ],
-      duration: "4–12 weeks",
-      goal: "Modern, fast, and reliable web applications that deliver measurable outcomes",
+      duration: t('services.web.duration'),
+      goal: t('services.web.goal'),
       technologies: ["React", "Next.js", "Vue", "Node.js", "Express", "Laravel", "Django", "MySQL", "PostgreSQL", "MongoDB"],
       color: "#0B76FF"
     },
     android: {
-      title: "Android Native Apps",
-      subtitle: "Modern, high-performance Android applications using the latest native technologies and best practices.",
-      description: "I build modern, high-performance Android applications using the latest native technologies and best practices. Every app is designed for speed, stability, and an excellent user experience, ensuring it performs beautifully across all Android devices.",
+      title: t('services.android.title'),
+      subtitle: t('services.android.subtitle'),
+      description: t('services.android.description'),
       features: [
-        "UI/UX design implementation with Jetpack Compose",
-        "MVVM / Clean Architecture for maintainable, testable code",
-        "Integration with RESTful APIs, Firebase, and third-party SDKs",
-        "Offline support with Room database or DataStore",
-        "Push notifications, analytics, and background services",
-        "App performance optimization and Google Play deployment"
+        t('services.android.features.1'),
+        t('services.android.features.2'),
+        t('services.android.features.3'),
+        t('services.android.features.4'),
+        t('services.android.features.5'),
+        t('services.android.features.6')
       ],
-      duration: "6–16 weeks",
-      goal: "Fast, stable, and user-focused Android apps that align with your business objectives",
+      duration: t('services.android.duration'),
+      goal: t('services.android.goal'),
       technologies: ["Jetpack Compose", "MVVM", "Clean Architecture", "Hilt", "Dagger", "Firebase", "Room", "DataStore"],
       color: "#FF7B6B"
     },
     ai: {
-      title: "AI Model Development & Ops",
-      subtitle: "AI and machine learning solutions that transform data into real-world value.",
-      description: "I design and deploy AI and machine learning solutions that transform data into real-world value. From data preparation to model development and production deployment, my focus is on building practical, reliable systems that deliver measurable business impact.",
+      title: t('services.ai.title'),
+      subtitle: t('services.ai.subtitle'),
+      description: t('services.ai.description'),
       features: [
-        "Data preprocessing, feature engineering, and model training",
-        "Custom ML/DL model design (TensorFlow / PyTorch)",
-        "Model evaluation, tuning, and performance optimization",
-        "Automated pipelines with MLOps tools (MLflow, DVC, CI/CD)",
-        "Deployment to cloud platforms (AWS SageMaker, GCP Vertex AI, Azure ML)",
-        "Integration with existing apps or APIs"
+        t('services.ai.features.1'),
+        t('services.ai.features.2'),
+        t('services.ai.features.3'),
+        t('services.ai.features.4'),
+        t('services.ai.features.5'),
+        t('services.ai.features.6')
       ],
-      duration: "8–20 weeks",
-      goal: "Rapidly transform prototypes into production-ready AI systems that are scalable and efficient",
+      duration: t('services.ai.duration'),
+      goal: t('services.ai.goal'),
       technologies: ["TensorFlow", "PyTorch", "scikit-learn", "MLflow", "DVC", "Docker", "Kubernetes", "AWS SageMaker", "GCP Vertex AI"],
       color: "#9AE66E"
     }
@@ -214,7 +202,7 @@ export const ServicesPage: React.FC = () => {
           <div className="absolute inset-0">
             <img 
               src="/hero_back.png" 
-              alt="Professional workspace with laptop, smartphones, and AI network" 
+              alt={t('services.hero.alt')} 
               className="w-full h-full object-cover"
             />
             {/* Overlay for better text contrast */}
@@ -314,7 +302,7 @@ export const ServicesPage: React.FC = () => {
                       onClick={() => window.location.hash = 'contact'}
                       className="text-sm px-3 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors"
                     >
-                      Request a quote
+                      {t('services.card.quote')}
                     </button>
                   </div>
                 </div>
@@ -327,8 +315,8 @@ export const ServicesPage: React.FC = () => {
       {/* Case Studies with 3D Rotation */}
       <section className="max-w-7xl mx-auto mb-32">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Representative Cases</h2>
-          <p className="text-white/70 text-lg">Proven projects and quantifiable results</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t('services.representative_cases.title')}</h2>
+          <p className="text-white/70 text-lg">{t('services.representative_cases.subtitle')}</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {caseStudies.map((study, index) => (
@@ -375,9 +363,9 @@ export const ServicesPage: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-xl p-6 flex flex-col justify-end">
                   <h3 className="text-xl font-semibold text-white mb-2">{study.title}</h3>
                   <p className="text-white/80 text-sm mb-4">{study.description}</p>
+                  </div>
                 </div>
               </div>
-            </div>
           ))}
         </div>
         
@@ -402,7 +390,7 @@ export const ServicesPage: React.FC = () => {
       <section className="max-w-7xl mx-auto mb-32">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t('services.workflow_title')}</h2>
-          <p className="text-white/70 text-lg">From consultation to operation, comprehensive support</p>
+          <p className="text-white/70 text-lg">{t('services.workflow.subtitle')}</p>
         </div>
         
         <div className="relative">
@@ -465,7 +453,7 @@ export const ServicesPage: React.FC = () => {
       <section className="max-w-7xl mx-auto mb-32">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t('services.faq_title')}</h2>
-          <p className="text-white/70 text-lg">Regarding practical details</p>
+          <p className="text-white/70 text-lg">{t('services.faq.subtitle')}</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -523,28 +511,28 @@ export const ServicesPage: React.FC = () => {
                 href="#projects" 
                 className="inline-flex items-center gap-3 border-2 border-white/40 text-white px-8 py-5 rounded-xl font-semibold hover:bg-white/10 hover:border-white/60 transition-all duration-300"
               >
-                See examples
+                {t('services.cta.examples')}
                 <ChevronRight size={20} />
               </a>
-            </div>
-            
+          </div>
+
             {/* Trust indicators */}
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="text-3xl font-bold text-white mb-1">8+</div>
-                <div className="text-white/70 text-sm">years of experience</div>
+                <div className="text-white/70 text-sm">{t('services.stats.experience')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-white mb-1">30+</div>
-                <div className="text-white/70 text-sm">Completed Projects</div>
+                <div className="text-white/70 text-sm">{t('services.stats.projects')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-white mb-1">24 hours</div>
-                <div className="text-white/70 text-sm">Within [timeframe]</div>
+                <div className="text-white/70 text-sm">{t('services.stats.timeframe')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-white mb-1">100%</div>
-                <div className="text-white/70 text-sm">Customer Satisfaction</div>
+                <div className="text-white/70 text-sm">{t('services.stats.satisfaction')}</div>
               </div>
             </div>
           </div>

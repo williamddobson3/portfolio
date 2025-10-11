@@ -1,32 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Quote, Star, Users, TrendingUp } from 'lucide-react';
+import { Quote, Users, TrendingUp } from 'lucide-react';
 
 export const Testimonials3DPlaceholder: React.FC<{ playing: boolean }> = ({ playing }) => {
   const { t } = useLanguage();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-  // Sample testimonials for the 3D placeholder
-  const testimonials = [
+  // Testimonials for the 3D placeholder using translations
+  const testimonials = useMemo(() => [
     {
-      quote: "Working with Keishin on Ameba was transformative. The AMP Stories implementation increased our mobile story completion rates by 40%.",
-      author: "Yuki Nakamura",
-      company: "CyberAgent",
-      metric: "Story completion +40%"
+      quote: t('testimonials.ameba.quote'),
+      author: t('testimonials.ameba.name'),
+      company: t('testimonials.ameba.company'),
+      metric: t('testimonials.ameba.metrics')
     },
     {
-      quote: "The ITmedia modernization project exceeded all expectations. LCP dropped from 3 seconds to 1.2 seconds.",
-      author: "Masahiro Tanaka", 
-      company: "ITmedia",
-      metric: "LCP -60%"
+      quote: t('testimonials.itmedia.quote'),
+      author: t('testimonials.itmedia.name'), 
+      company: t('testimonials.itmedia.company'),
+      metric: t('testimonials.itmedia.metrics')
     },
     {
-      quote: "Keishin's work on BuzzFeed Japan was exceptional. The modular content system gave our editors unprecedented flexibility.",
-      author: "Sarah Johnson",
-      company: "BuzzFeed Japan", 
-      metric: "Page speed +2x"
+      quote: t('testimonials.buzzfeed.quote'),
+      author: t('testimonials.buzzfeed.name'),
+      company: t('testimonials.buzzfeed.company'), 
+      metric: t('testimonials.buzzfeed.metrics')
     }
-  ];
+  ], [t]);
 
   // Auto-rotate testimonials when playing
   useEffect(() => {
@@ -39,7 +39,7 @@ export const Testimonials3DPlaceholder: React.FC<{ playing: boolean }> = ({ play
   }, [playing, testimonials.length]);
 
   return (
-    <div className="w-full max-w-4xl mx-auto h-80 md:h-96 relative overflow-hidden">
+    <div className="w-full max-w-4xl mx-auto h-110 md:h-145 relative overflow-hidden">
       {/* Background with animated gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-coral-900/20 rounded-2xl"></div>
       <div className="absolute inset-0 bg-gradient-to-tr from-slate-800/90 to-slate-900/90 rounded-2xl"></div>
@@ -118,7 +118,7 @@ export const Testimonials3DPlaceholder: React.FC<{ playing: boolean }> = ({ play
         <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-2">
           <div className={`w-2 h-2 rounded-full ${playing ? 'bg-green-400 animate-pulse' : 'bg-gray-400'}`}></div>
           <span className="text-xs text-white/70">
-            {playing ? 'Auto-rotating' : 'Paused'}
+            {playing ? t('testimonials.controls.auto_rotating') : t('testimonials.controls.paused')}
           </span>
         </div>
       </div>

@@ -272,7 +272,7 @@ export const ProjectsPage: React.FC = () => {
       {/* Project Detail Modal */}
       {selectedProject && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-6">
-          <div className="bg-gray-900/90 backdrop-blur-md border border-white/20 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="pt-10 bg-gray-900/90 backdrop-blur-md border border-white/20 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="relative">
               <button
                 onClick={() => setSelectedProject(null)}
