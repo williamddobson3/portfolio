@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, Users } from 'lucide-react';
+import { MessageCircle, Users, Globe } from 'lucide-react';
 import { Conversation } from '../../firebase/types';
 
 interface ConversationItemProps {
@@ -20,6 +20,9 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
   };
 
   const getDisplayName = () => {
+    if (conversation.id === 'general_chat') {
+      return 'General Chat';
+    }
     if (conversation.type === 'group') {
       return conversation.metadata?.title || 'Group Chat';
     }
@@ -71,7 +74,9 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
         {/* Avatar */}
         <div className="relative">
           <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-            {conversation.type === 'group' ? (
+            {conversation.id === 'general_chat' ? (
+              <Globe className="w-6 h-6 text-white" />
+            ) : conversation.type === 'group' ? (
               <Users className="w-6 h-6 text-white" />
             ) : (
               <MessageCircle className="w-6 h-6 text-white" />

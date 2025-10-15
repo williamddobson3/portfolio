@@ -63,7 +63,7 @@ export const signUpWithEmail = async (email: string, password: string, displayNa
     
     // Create user document
     console.log('Creating user document...');
-    await createUserDocument(user);
+    await createUserDocument(user, { displayName });
     console.log('User document created');
     
     // Wait a moment for the document to be fully written
@@ -128,29 +128,17 @@ export const updateUserProfile = async (updates: Partial<User>) => {
 export const getUserDocument = async (uid: string): Promise<User | null> => {
   try {
     const userRef = doc(db, 'users', uid);
-    const userSnap = await getDoc(userRef);
     
-    if (userSnap.exists()) {
+    // Try to get the document with a timeout
+    const userSnap = await Promise.race([
+      getDoc(userRef),
+      new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Timeout')), 5000)
+      )
+    ]) as any;
+    
+    if (userSnap && userSnap.exists()) {
       const data = userSnap.data();
-      return {
-        uid: data.uid || uid,
-        displayName: data.displayName || '',
-        email: data.email || '',
-        avatarUrl: data.avatarUrl,
-        createdAt: data.createdAt?.toDate() || new Date(),
-        lastSeenAt: data.lastSeenAt?.toDate() || new Date(),
-        isOnline: data.isOnline || false,
-        publicFlags: data.publicFlags || {}
-      };
-    }
-    
-    // If document doesn't exist, wait a bit and try again (for race conditions)
-    console.log('User document not found, waiting and retrying...');
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    const retrySnap = await getDoc(userRef);
-    if (retrySnap.exists()) {
-      const data = retrySnap.data();
       return {
         uid: data.uid || uid,
         displayName: data.displayName || '',
@@ -165,7 +153,7 @@ export const getUserDocument = async (uid: string): Promise<User | null> => {
     
     return null;
   } catch (error) {
-    console.error('Error getting user document:', error);
+    console.log('Could not fetch user document:', error.message);
     return null;
   }
 };

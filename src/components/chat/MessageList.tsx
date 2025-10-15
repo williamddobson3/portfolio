@@ -1,13 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Message } from '../../firebase/types';
 import { MessageBubble } from './MessageBubble';
 
 interface MessageListProps {
   messages: Message[];
   currentUserId: string;
+  onEditMessage?: (messageId: string, newText: string) => void;
+  onDeleteMessage?: (messageId: string) => void;
 }
 
-export const MessageList: React.FC<MessageListProps> = ({ messages, currentUserId }) => {
+export const MessageList: React.FC<MessageListProps> = ({ 
+  messages, 
+  currentUserId, 
+  onEditMessage, 
+  onDeleteMessage 
+}) => {
+  console.log('MessageList received messages:', messages);
+  console.log('MessageList currentUserId:', currentUserId);
+  
+  const [editingMessageId, setEditingMessageId] = useState<string | null>(null);
+  
+  const handleEditMessage = (messageId: string, newText: string) => {
+    if (onEditMessage) {
+      onEditMessage(messageId, newText);
+    }
+    setEditingMessageId(null);
+  };
+
+  const handleDeleteMessage = (messageId: string) => {
+    if (onDeleteMessage) {
+      onDeleteMessage(messageId);
+    }
+  };
+
+  const handleEditStart = (messageId: string) => {
+    setEditingMessageId(messageId);
+  };
+
+  const handleEditCancel = () => {
+    setEditingMessageId(null);
+  };
+  
   const groupMessagesByDate = (messages: Message[]) => {
     const groups: { [key: string]: Message[] } = {};
     
@@ -88,8 +121,11 @@ export const MessageList: React.FC<MessageListProps> = ({ messages, currentUserI
                   key={message.id}
                   message={message}
                   isOwn={message.senderUid === currentUserId}
-                  showAvatar={showAvatar}
-                  showTimestamp={showTimestamp}
+                  onEdit={handleEditMessage}
+                  onDelete={handleDeleteMessage}
+                  isEditing={editingMessageId === message.id}
+                  onEditStart={handleEditStart}
+                  onEditCancel={handleEditCancel}
                 />
               );
             })}

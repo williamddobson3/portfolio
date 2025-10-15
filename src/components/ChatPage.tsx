@@ -1,13 +1,68 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChatSidebar } from './chat/ChatSidebar';
 import { ChatMain } from './chat/ChatMain';
 import { ChatAuth } from './chat/ChatAuth';
+import { Navigation } from './Navigation';
 import { useAuth } from '../hooks/useAuth';
+import { useChat } from '../hooks/useChat';
 
 export const ChatPage: React.FC = () => {
   const { user, isLoading: authLoading } = useAuth();
+  const { createGeneralChat, conversations } = useChat();
   const [selectedConversationId, setSelectedConversationId] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState('chat');
+
+  const handleNavigation = (page: string) => {
+    setCurrentPage(page);
+    // Update the URL hash
+    window.location.hash = page === 'chat' ? '#chat' : `#${page}`;
+  };
+
+  // Debug conversations
+  useEffect(() => {
+    console.log('ChatPage - conversations updated:', conversations);
+    
+    // If we have conversations but no selected conversation, try to find the general chat
+    if (conversations.length > 0 && !selectedConversationId) {
+      const generalChat = conversations.find(conv => conv.id === 'general_chat');
+      if (generalChat) {
+        console.log('Found general chat in conversations, selecting it');
+        setSelectedConversationId('general_chat');
+      }
+    }
+  }, [conversations, selectedConversationId]);
+
+  // Auto-open general chat when user first logs in
+  useEffect(() => {
+    if (user && !selectedConversationId) {
+      const initializeGeneralChat = async () => {
+        try {
+          console.log('Creating general chat...');
+          console.log('User:', user);
+          const generalChat = await createGeneralChat();
+          console.log('General chat created:', generalChat);
+          if (generalChat) {
+            console.log('Setting selected conversation ID to:', generalChat.id);
+            setSelectedConversationId(generalChat.id);
+          } else {
+            console.error('General chat creation failed - no chat returned');
+            // Fallback: try to set the general chat ID directly
+            console.log('Trying fallback with general_chat ID');
+            setSelectedConversationId('general_chat');
+          }
+        } catch (error) {
+          console.error('Error initializing general chat:', error);
+          // Fallback: try to set the general chat ID directly
+          console.log('Trying fallback with general_chat ID after error');
+          setSelectedConversationId('general_chat');
+        }
+      };
+      
+      // Create general chat immediately, no delay
+      initializeGeneralChat();
+    }
+  }, [user, selectedConversationId, createGeneralChat]);
 
   // Show auth component if user is not logged in
   if (authLoading) {
@@ -22,7 +77,12 @@ export const ChatPage: React.FC = () => {
   }
 
   if (!user) {
-    return <ChatAuth />;
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+        <Navigation currentPage="chat" />
+        <ChatAuth />
+      </div>
+    );
   }
 
   return (
@@ -40,11 +100,13 @@ export const ChatPage: React.FC = () => {
 
         {/* Sidebar */}
         <div className={`${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 fixed md:relative z-40 w-80 h-full bg-black/20 backdrop-blur-md border-r border-white/10 transition-transform duration-300 ease-in-out`}>
-          <ChatSidebar
-            selectedConversationId={selectedConversationId}
-            onSelectConversation={setSelectedConversationId}
-            onCloseMobileMenu={() => setIsMobileMenuOpen(false)}
-          />
+            <ChatSidebar
+              selectedConversationId={selectedConversationId}
+              onSelectConversation={setSelectedConversationId}
+              onCloseMobileMenu={() => setIsMobileMenuOpen(false)}
+              onNavigate={handleNavigation}
+              currentPage={currentPage}
+            />
         </div>
 
         {/* Mobile overlay */}
@@ -61,6 +123,7 @@ export const ChatPage: React.FC = () => {
             <ChatMain
               conversationId={selectedConversationId}
               onBack={() => setSelectedConversationId(null)}
+              onSelectConversation={setSelectedConversationId}
             />
           ) : (
             <div className="flex-1 flex items-center justify-center text-white">
@@ -82,6 +145,7 @@ export const ChatPage: React.FC = () => {
             </div>
           )}
         </div>
+
       </div>
     </div>
   );

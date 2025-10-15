@@ -1,70 +1,71 @@
 import React, { useState } from 'react';
-import { MoreVertical, Reply, Edit, Trash2, Flag } from 'lucide-react';
+import { Edit2, Trash2, Check, X, MoreVertical } from 'lucide-react';
 import { Message } from '../../firebase/types';
 
 interface MessageBubbleProps {
   message: Message;
   isOwn: boolean;
-  showAvatar: boolean;
-  showTimestamp: boolean;
+  onEdit: (messageId: string, newText: string) => void;
+  onDelete: (messageId: string) => void;
+  isEditing?: boolean;
+  onEditStart?: (messageId: string) => void;
+  onEditCancel?: () => void;
 }
 
 export const MessageBubble: React.FC<MessageBubbleProps> = ({
   message,
   isOwn,
-  showAvatar,
-  showTimestamp
+  onEdit,
+  onDelete,
+  isEditing = false,
+  onEditStart,
+  onEditCancel
 }) => {
+  const [editText, setEditText] = useState(message.text);
   const [showActions, setShowActions] = useState(false);
 
-  const formatTime = (date: Date) => {
-    return date.toLocaleTimeString('en-US', {
-      hour: 'numeric',
-      minute: '2-digit',
-      hour12: true
-    });
+  const handleEdit = () => {
+    if (onEditStart) {
+      onEditStart(message.id);
+    }
+    setEditText(message.text);
   };
 
-  const getStatusIcon = () => {
-    switch (message.status) {
-      case 'sending':
-        return <div className="w-2 h-2 bg-gray-400 rounded-full animate-pulse" />;
-      case 'sent':
-        return <div className="w-2 h-2 bg-gray-400 rounded-full" />;
-      case 'delivered':
-        return <div className="w-2 h-2 bg-blue-400 rounded-full" />;
-      case 'read':
-        return <div className="w-2 h-2 bg-green-400 rounded-full" />;
-      default:
-        return null;
+  const handleSaveEdit = () => {
+    if (editText.trim() && editText.trim() !== message.text) {
+      onEdit(message.id, editText.trim());
+    }
+    if (onEditCancel) {
+      onEditCancel();
     }
   };
 
-  const handleReport = () => {
-    // TODO: Implement report functionality
-    console.log('Report message:', message.id);
-  };
-
-  const handleEdit = () => {
-    // TODO: Implement edit functionality
-    console.log('Edit message:', message.id);
+  const handleCancelEdit = () => {
+    setEditText(message.text);
+    if (onEditCancel) {
+      onEditCancel();
+    }
   };
 
   const handleDelete = () => {
-    // TODO: Implement delete functionality
-    console.log('Delete message:', message.id);
+    if (window.confirm('Are you sure you want to delete this message?')) {
+      onDelete(message.id);
+    }
   };
 
-  const handleReply = () => {
-    // TODO: Implement reply functionality
-    console.log('Reply to message:', message.id);
+  const formatTime = (date: Date) => {
+    return date.toLocaleTimeString('en-US', { 
+      hour: '2-digit', 
+      minute: '2-digit',
+      hour12: true 
+    });
   };
 
   if (message.deleted) {
     return (
       <div className={`flex ${isOwn ? 'justify-end' : 'justify-start'} mb-2`}>
-        <div className="bg-gray-500/20 border border-gray-500/30 rounded-lg px-4 py-2 max-w-xs">
-          <p className="text-gray-400 text-sm italic">This message was deleted</p>
+        <div className="max-w-xs lg:max-w-md px-4 py-2 rounded-2xl bg-gray-500/20 text-gray-400 italic">
+          <p className="text-sm">This message was deleted</p>
         </div>
       </div>
     );
@@ -72,94 +73,82 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
 
   return (
     <div className={`flex ${isOwn ? 'justify-end' : 'justify-start'} mb-2 group`}>
-      <div className={`flex items-end space-x-2 max-w-xs lg:max-w-md ${isOwn ? 'flex-row-reverse space-x-reverse' : ''}`}>
-        {/* Avatar */}
-        {!isOwn && showAvatar && (
-          <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
-            <span className="text-white font-medium text-xs">
-              {message.senderUid.charAt(0).toUpperCase()}
-            </span>
-          </div>
-        )}
-        
-        {!isOwn && !showAvatar && (
-          <div className="w-8 h-8 flex-shrink-0" />
-        )}
-
+      <div className="relative">
         {/* Message bubble */}
-        <div className="relative">
-          <div
-            className={`px-4 py-2 rounded-2xl ${
-              isOwn
-                ? 'bg-blue-500 text-white rounded-br-md'
-                : 'bg-black/30 backdrop-blur-md border border-white/20 text-white'
-            }`}
-            onMouseEnter={() => setShowActions(true)}
-            onMouseLeave={() => setShowActions(false)}
-          >
-            <p className="text-sm whitespace-pre-wrap break-words">{message.text}</p>
-            
-            {/* Timestamp and status */}
-            <div className={`flex items-center justify-end mt-1 space-x-1 ${isOwn ? 'text-blue-100' : 'text-gray-400'}`}>
-              {showTimestamp && (
-                <span className="text-xs">
-                  {formatTime(message.createdAt)}
-                </span>
-              )}
-              {isOwn && getStatusIcon()}
-            </div>
-          </div>
-
-          {/* Message actions */}
-          {showActions && (
-            <div className={`absolute top-0 ${isOwn ? 'left-0' : 'right-0'} transform -translate-y-full mb-2`}>
-              <div className="bg-black/80 backdrop-blur-md border border-white/20 rounded-lg p-1 flex items-center space-x-1">
+        <div
+          className={`max-w-xs lg:max-w-md px-4 py-2 rounded-2xl relative ${
+            isOwn
+              ? 'bg-blue-500 text-white'
+              : 'bg-gray-700 text-white'
+          }`}
+          onMouseEnter={() => setShowActions(true)}
+          onMouseLeave={() => setShowActions(false)}
+        >
+          {isEditing ? (
+            <div className="space-y-2">
+              <textarea
+                value={editText}
+                onChange={(e) => setEditText(e.target.value)}
+                className="w-full bg-transparent border-none outline-none resize-none text-white placeholder-gray-300"
+                rows={2}
+                autoFocus
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    handleSaveEdit();
+                  } else if (e.key === 'Escape') {
+                    handleCancelEdit();
+                  }
+                }}
+              />
+              <div className="flex items-center justify-end space-x-2">
                 <button
-                  onClick={handleReply}
-                  className="p-2 hover:bg-white/10 rounded transition-colors"
-                  title="Reply"
+                  onClick={handleSaveEdit}
+                  className="p-1 hover:bg-white/20 rounded-full transition-colors"
+                  title="Save"
                 >
-                  <Reply className="w-4 h-4 text-white" />
+                  <Check className="w-4 h-4 text-green-400" />
                 </button>
-                
-                {isOwn && (
-                  <button
-                    onClick={handleEdit}
-                    className="p-2 hover:bg-white/10 rounded transition-colors"
-                    title="Edit"
-                  >
-                    <Edit className="w-4 h-4 text-white" />
-                  </button>
-                )}
-                
-                {isOwn && (
-                  <button
-                    onClick={handleDelete}
-                    className="p-2 hover:bg-white/10 rounded transition-colors"
-                    title="Delete"
-                  >
-                    <Trash2 className="w-4 h-4 text-white" />
-                  </button>
-                )}
-                
-                {!isOwn && (
-                  <button
-                    onClick={handleReport}
-                    className="p-2 hover:bg-white/10 rounded transition-colors"
-                    title="Report"
-                  >
-                    <Flag className="w-4 h-4 text-white" />
-                  </button>
-                )}
-                
                 <button
-                  onClick={() => setShowActions(false)}
-                  className="p-2 hover:bg-white/10 rounded transition-colors"
-                  title="More"
+                  onClick={handleCancelEdit}
+                  className="p-1 hover:bg-white/20 rounded-full transition-colors"
+                  title="Cancel"
                 >
-                  <MoreVertical className="w-4 h-4 text-white" />
+                  <X className="w-4 h-4 text-red-400" />
                 </button>
               </div>
+            </div>
+          ) : (
+            <div>
+              <p className="text-sm whitespace-pre-wrap break-words">{message.text}</p>
+              <div className="flex items-center justify-end space-x-1 mt-1">
+                <span className="text-xs opacity-70">
+                  {formatTime(message.createdAt)}
+                </span>
+                {message.editedAt && (
+                  <span className="text-xs opacity-50">(edited)</span>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Action buttons - only show for own messages */}
+          {isOwn && !isEditing && showActions && (
+            <div className="absolute -right-2 -top-2 flex items-center space-x-1 bg-gray-800 rounded-full p-1 shadow-lg">
+              <button
+                onClick={handleEdit}
+                className="p-1 hover:bg-blue-500/20 rounded-full transition-colors"
+                title="Edit message"
+              >
+                <Edit2 className="w-3 h-3 text-blue-400" />
+              </button>
+              <button
+                onClick={handleDelete}
+                className="p-1 hover:bg-red-500/20 rounded-full transition-colors"
+                title="Delete message"
+              >
+                <Trash2 className="w-3 h-3 text-red-400" />
+              </button>
             </div>
           )}
         </div>

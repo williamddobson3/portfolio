@@ -5,7 +5,13 @@ import {
   sendMessage, 
   markMessagesAsRead,
   searchUsers,
-  createOrGetDMConversation
+  getAllUsers,
+  createOrGetDMConversation,
+  createOrGetGeneralChat,
+  checkMessagesExist,
+  deleteConversation,
+  editMessage,
+  deleteMessage
 } from '../firebase/firestore';
 import { 
   setUserPresence, 
@@ -41,7 +47,9 @@ export const useChat = () => {
 
   // Listen to conversations
   const listenToConversations = useCallback((uid: string) => {
+    console.log('Setting up conversation listener for user:', uid);
     return getUserConversations(uid, (conversations) => {
+      console.log('Received conversations:', conversations);
       setConversations(conversations);
     });
   }, []);
@@ -110,6 +118,16 @@ export const useChat = () => {
     return await createOrGetDMConversation(uid1, uid2);
   }, []);
 
+  // Create or get general chat
+  const createGeneralChat = useCallback(async () => {
+    return await createOrGetGeneralChat();
+  }, []);
+
+  // Get all users
+  const getAllUsersList = useCallback(async (currentUid: string) => {
+    return await getAllUsers(currentUid);
+  }, []);
+
   // Listen to online users
   const listenToOnlineUsers = useCallback((userIds: string[]) => {
     return listenToUsersPresence(userIds, (presence) => {
@@ -118,6 +136,21 @@ export const useChat = () => {
         .map(([uid, _]) => uid);
       setOnlineUsers(online);
     });
+  }, []);
+
+  // Delete conversation
+  const deleteConversationById = useCallback(async (conversationId: string, uid: string) => {
+    return await deleteConversation(conversationId, uid);
+  }, []);
+
+  // Edit message
+  const editMessageById = useCallback(async (conversationId: string, messageId: string, newText: string, uid: string) => {
+    return await editMessage(conversationId, messageId, newText, uid);
+  }, []);
+
+  // Delete message
+  const deleteMessageById = useCallback(async (conversationId: string, messageId: string, uid: string) => {
+    return await deleteMessage(conversationId, messageId, uid);
   }, []);
 
   return {
@@ -136,6 +169,11 @@ export const useChat = () => {
     setTyping,
     searchForUsers,
     createDMConversation,
-    listenToOnlineUsers
+    createGeneralChat,
+    getAllUsersList,
+    listenToOnlineUsers,
+    deleteConversation: deleteConversationById,
+    editMessage: editMessageById,
+    deleteMessage: deleteMessageById
   };
 };

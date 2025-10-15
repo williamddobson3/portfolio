@@ -56,9 +56,13 @@ function App() {
 
   return (
     <LanguageProvider>
-      <Layout currentPage={currentPage}>
-        {renderPage()}
-      </Layout>
+      {currentPage === 'chat' ? (
+        <ChatPage />
+      ) : (
+        <Layout currentPage={currentPage}>
+          {renderPage()}
+        </Layout>
+      )}
     </LanguageProvider>
   );
 }

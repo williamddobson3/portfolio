@@ -1,22 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Plus, MessageCircle, Users, Settings, LogOut } from 'lucide-react';
+import { Search, Plus, MessageCircle, Users, Settings, LogOut, Navigation } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useAuth } from '../../hooks/useAuth';
 import { useChat } from '../../hooks/useChat';
 import { ConversationItem } from './ConversationItem';
 import { UserSearch } from './UserSearch';
+import { NavigationModal } from './NavigationModal';
 import { signOutUser } from '../../firebase/auth';
 
 interface ChatSidebarProps {
   selectedConversationId: string | null;
   onSelectConversation: (conversationId: string) => void;
   onCloseMobileMenu: () => void;
+  onNavigate?: (page: string) => void;
+  currentPage?: string;
 }
 
 export const ChatSidebar: React.FC<ChatSidebarProps> = ({
   selectedConversationId,
   onSelectConversation,
-  onCloseMobileMenu
+  onCloseMobileMenu,
+  onNavigate,
+  currentPage = 'chat'
 }) => {
   const { t } = useLanguage();
   const { user } = useAuth();
@@ -26,17 +31,20 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
     isSearching, 
     searchForUsers, 
     createDMConversation,
+    createGeneralChat,
     listenToConversations,
     listenToOnlineUsers
   } = useChat();
   
   const [searchQuery, setSearchQuery] = useState('');
   const [showUserSearch, setShowUserSearch] = useState(false);
+  const [showNavigationModal, setShowNavigationModal] = useState(false);
   const [unsubscribes, setUnsubscribes] = useState<(() => void)[]>([]);
 
   // Set up listeners when user is available
   useEffect(() => {
     if (user) {
+      console.log('Setting up conversation listener in ChatSidebar for user:', user.uid);
       const unsubscribeConversations = listenToConversations(user.uid);
       setUnsubscribes(prev => [...prev, unsubscribeConversations]);
     }
@@ -45,6 +53,29 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
       unsubscribes.forEach(unsubscribe => unsubscribe());
     };
   }, [user, listenToConversations]);
+
+  // Try to create general chat if it doesn't exist
+  useEffect(() => {
+    if (user && conversations.length === 0) {
+      const createGeneralChatIfNeeded = async () => {
+        try {
+          console.log('No conversations found, trying to create general chat...');
+          const generalChat = await createGeneralChat();
+          console.log('General chat created from ChatSidebar:', generalChat);
+        } catch (error) {
+          console.error('Error creating general chat from ChatSidebar:', error);
+        }
+      };
+      
+      // Wait a bit for the conversation listener to set up, then try to create general chat
+      setTimeout(createGeneralChatIfNeeded, 2000);
+    }
+  }, [user, conversations, createGeneralChat]);
+
+  // Debug conversations
+  useEffect(() => {
+    console.log('ChatSidebar - conversations updated:', conversations);
+  }, [conversations]);
 
   // Listen to online status for conversation participants
   useEffect(() => {
@@ -101,6 +132,15 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
             >
               <Plus className="w-5 h-5 text-white" />
             </button>
+            {onNavigate && (
+              <button
+                onClick={() => setShowNavigationModal(true)}
+                className="p-2 hover:bg-blue-500/20 rounded-lg transition-colors group"
+                title="Navigate to other pages"
+              >
+                <Navigation className="w-5 h-5 text-blue-400 group-hover:text-blue-300 group-hover:rotate-12 transition-all duration-300" />
+              </button>
+            )}
             <button
               onClick={handleSignOut}
               className="p-2 hover:bg-white/10 rounded-lg transition-colors"
@@ -164,7 +204,7 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
       {user && (
         <div className="p-4 border-t border-white/10">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
               <span className="text-white font-medium text-sm">
                 {user.displayName?.charAt(0).toUpperCase() || 'U'}
               </span>
@@ -179,6 +219,16 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
             </div>
           </div>
         </div>
+      )}
+
+      {/* Navigation Modal */}
+      {onNavigate && (
+        <NavigationModal
+          isOpen={showNavigationModal}
+          onClose={() => setShowNavigationModal(false)}
+          onNavigate={onNavigate}
+          currentPage={currentPage}
+        />
       )}
     </div>
   );

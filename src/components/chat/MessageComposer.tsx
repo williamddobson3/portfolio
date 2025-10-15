@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Smile, Paperclip, Mic } from 'lucide-react';
+import { Send } from 'lucide-react';
 
 interface MessageComposerProps {
   onSendMessage: (text: string) => void;
@@ -69,21 +69,6 @@ export const MessageComposer: React.FC<MessageComposerProps> = ({
     }
   };
 
-  const handleFileUpload = () => {
-    // TODO: Implement file upload
-    console.log('File upload not implemented yet');
-  };
-
-  const handleVoiceMessage = () => {
-    // TODO: Implement voice message
-    console.log('Voice message not implemented yet');
-  };
-
-  const handleEmoji = () => {
-    // TODO: Implement emoji picker
-    console.log('Emoji picker not implemented yet');
-  };
-
   // Cleanup typing indicator on unmount
   useEffect(() => {
     return () => {
@@ -98,15 +83,6 @@ export const MessageComposer: React.FC<MessageComposerProps> = ({
 
   return (
     <div className="flex items-end space-x-3">
-      {/* File upload button */}
-      <button
-        onClick={handleFileUpload}
-        className="p-2 hover:bg-white/10 rounded-lg transition-colors flex-shrink-0"
-        title="Attach file"
-      >
-        <Paperclip className="w-5 h-5 text-gray-400" />
-      </button>
-
       {/* Message input */}
       <div className="flex-1 relative">
         <textarea
@@ -115,34 +91,16 @@ export const MessageComposer: React.FC<MessageComposerProps> = ({
           onChange={handleInputChange}
           onKeyPress={handleKeyPress}
           placeholder="Type a message..."
-          className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none max-h-32"
+          className="w-full px-4 py-3 pr-12 bg-black/30 border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none max-h-32"
           rows={1}
         />
-        
-        {/* Emoji button */}
-        <button
-          onClick={handleEmoji}
-          className="absolute right-12 top-1/2 transform -translate-y-1/2 p-1 hover:bg-white/10 rounded transition-colors"
-          title="Add emoji"
-        >
-          <Smile className="w-5 h-5 text-gray-400" />
-        </button>
       </div>
-
-      {/* Voice message button */}
-      <button
-        onClick={handleVoiceMessage}
-        className="p-2 hover:bg-white/10 rounded-lg transition-colors flex-shrink-0"
-        title="Voice message"
-      >
-        <Mic className="w-5 h-5 text-gray-400" />
-      </button>
 
       {/* Send button */}
       <button
         onClick={handleSend}
         disabled={!message.trim()}
-        className="p-2 bg-blue-500 hover:bg-blue-600 disabled:bg-gray-500 disabled:cursor-not-allowed text-white rounded-lg transition-colors flex-shrink-0"
+        className="p-3 bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 disabled:from-gray-500 disabled:to-gray-600 disabled:cursor-not-allowed text-white rounded-xl transition-all duration-300 transform hover:scale-105 disabled:hover:scale-100 flex-shrink-0 shadow-lg"
         title="Send message"
       >
         <Send className="w-5 h-5" />
