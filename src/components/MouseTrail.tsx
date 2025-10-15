@@ -1,26 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-interface Particle {
-  id: number;
+interface TrailPoint {
   x: number;
   y: number;
-  vx: number;
-  vy: number;
-  life: number;
-  maxLife: number;
-  size: number;
-  color: string;
-  opacity: number;
-  rotation: number;
-  rotationSpeed: number;
+  time: number;
 }
 
 export const MouseTrail: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const particlesRef = useRef<Particle[]>([]);
   const animationRef = useRef<number>();
   const mouseRef = useRef({ x: 0, y: 0 });
-  const lastMouseRef = useRef({ x: 0, y: 0 });
+  const trailRef = useRef<TrailPoint[]>([]);
   const [isVisible, setIsVisible] = useState(true);
 
   const colors = [
@@ -46,113 +36,94 @@ export const MouseTrail: React.FC = () => {
       canvas.height = window.innerHeight;
     };
 
-    const createParticle = (x: number, y: number): Particle => {
-      const angle = Math.random() * Math.PI * 2;
-      const speed = Math.random() * 3 + 1;
-      const color = colors[Math.floor(Math.random() * colors.length)];
-      
-      return {
-        id: Math.random(),
-        x,
-        y,
-        vx: Math.cos(angle) * speed,
-        vy: Math.sin(angle) * speed,
-        life: 1,
-        maxLife: Math.random() * 40 + 30,
-        size: Math.random() * 6 + 3,
-        color,
-        opacity: 1,
-        rotation: Math.random() * Math.PI * 2,
-        rotationSpeed: (Math.random() - 0.5) * 0.2,
-      };
-    };
-
-    const updateParticles = () => {
-      particlesRef.current = particlesRef.current.filter(particle => {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-        particle.life--;
-        particle.opacity = particle.life / particle.maxLife;
-        particle.rotation += particle.rotationSpeed;
-        
-        // Add some gravity and air resistance
-        particle.vy += 0.05;
-        particle.vx *= 0.99;
-        particle.vy *= 0.99;
-        
-        return particle.life > 0;
-      });
-    };
-
-    const drawParticles = () => {
+    const drawTrail = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      particlesRef.current.forEach(particle => {
+      const currentTime = Date.now();
+      const maxAge = 1000; // 1 second trail
+      
+      // Filter out old trail points
+      trailRef.current = trailRef.current.filter(point => 
+        currentTime - point.time < maxAge
+      );
+      
+      if (trailRef.current.length < 2) return;
+      
+      // Draw trail with gradient
+      for (let i = 0; i < trailRef.current.length - 1; i++) {
+        const point = trailRef.current[i];
+        const nextPoint = trailRef.current[i + 1];
+        
+        const age = currentTime - point.time;
+        const opacity = 1 - (age / maxAge);
+        const size = 20 * opacity;
+        
+        // Create gradient
+        const gradient = ctx.createRadialGradient(
+          point.x, point.y, 0,
+          point.x, point.y, size
+        );
+        
+        const color = colors[i % colors.length];
+        gradient.addColorStop(0, color + Math.floor(opacity * 255).toString(16).padStart(2, '0'));
+        gradient.addColorStop(0.5, color + Math.floor(opacity * 128).toString(16).padStart(2, '0'));
+        gradient.addColorStop(1, color + '00');
+        
         ctx.save();
-        ctx.globalAlpha = particle.opacity;
-        ctx.translate(particle.x, particle.y);
-        ctx.rotate(particle.rotation);
-        
-        // Create gradient for more vibrant effect
-        const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, particle.size);
-        gradient.addColorStop(0, particle.color);
-        gradient.addColorStop(0.7, particle.color + '80');
-        gradient.addColorStop(1, particle.color + '00');
-        
+        ctx.globalAlpha = opacity;
         ctx.fillStyle = gradient;
-        ctx.shadowBlur = 15;
-        ctx.shadowColor = particle.color;
+        ctx.shadowBlur = 30;
+        ctx.shadowColor = color;
         
-        // Draw star shape for more interesting particles
+        // Draw main cursor circle
         ctx.beginPath();
-        const spikes = 5;
-        const outerRadius = particle.size;
-        const innerRadius = particle.size * 0.5;
-        
-        for (let i = 0; i < spikes * 2; i++) {
-          const angle = (i * Math.PI) / spikes;
-          const radius = i % 2 === 0 ? outerRadius : innerRadius;
-          const x = Math.cos(angle) * radius;
-          const y = Math.sin(angle) * radius;
-          
-          if (i === 0) {
-            ctx.moveTo(x, y);
-          } else {
-            ctx.lineTo(x, y);
-          }
-        }
-        ctx.closePath();
+        ctx.arc(point.x, point.y, size, 0, Math.PI * 2);
         ctx.fill();
         
+        // Draw connecting line
+        if (nextPoint) {
+          ctx.strokeStyle = color + Math.floor(opacity * 100).toString(16).padStart(2, '0');
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.moveTo(point.x, point.y);
+          ctx.lineTo(nextPoint.x, nextPoint.y);
+          ctx.stroke();
+        }
+        
         ctx.restore();
-      });
+      }
     };
 
     const animate = () => {
-      updateParticles();
-      drawParticles();
+      drawTrail();
       animationRef.current = requestAnimationFrame(animate);
     };
 
     const handleMouseMove = (e: MouseEvent) => {
       const currentMouse = { x: e.clientX, y: e.clientY };
-      const lastMouse = lastMouseRef.current;
+      const lastMouse = mouseRef.current;
       
-      // Calculate mouse velocity for dynamic particle creation
-      const velocity = Math.sqrt(
+      // Calculate distance moved
+      const distance = Math.sqrt(
         Math.pow(currentMouse.x - lastMouse.x, 2) + 
         Math.pow(currentMouse.y - lastMouse.y, 2)
       );
       
-      mouseRef.current = currentMouse;
-      lastMouseRef.current = currentMouse;
-      
-      // Create more particles when moving faster
-      const particleCount = Math.min(Math.floor(velocity / 5) + 2, 8);
-      
-      for (let i = 0; i < particleCount; i++) {
-        particlesRef.current.push(createParticle(e.clientX, e.clientY));
+      // Only add points if mouse moved significantly
+      if (distance > 5) {
+        trailRef.current.push({
+          x: e.clientX,
+          y: e.clientY,
+          time: Date.now()
+        });
+        
+        // Limit trail length
+        if (trailRef.current.length > 20) {
+          trailRef.current.shift();
+        }
       }
+      
+      mouseRef.current = currentMouse;
     };
 
     const handleMouseEnter = () => setIsVisible(true);
@@ -186,8 +157,7 @@ export const MouseTrail: React.FC = () => {
       ref={canvasRef}
       className="fixed top-0 left-0 pointer-events-none z-10"
       style={{ 
-        background: 'transparent',
-        mixBlendMode: 'screen'
+        background: 'transparent'
       }}
     />
   );
