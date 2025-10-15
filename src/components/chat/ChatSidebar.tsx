@@ -7,6 +7,7 @@ import { ConversationItem } from './ConversationItem';
 import { UserSearch } from './UserSearch';
 import { NavigationModal } from './NavigationModal';
 import { signOutUser } from '../../firebase/auth';
+import { Conversation } from '../../firebase/types';
 
 interface ChatSidebarProps {
   selectedConversationId: string | null;
@@ -39,6 +40,8 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
   const [searchQuery, setSearchQuery] = useState('');
   const [showUserSearch, setShowUserSearch] = useState(false);
   const [showNavigationModal, setShowNavigationModal] = useState(false);
+  const [filteredConversations, setFilteredConversations] = useState<Conversation[]>([]);
+  const [userNames, setUserNames] = useState<Record<string, string>>({});
   const [unsubscribes, setUnsubscribes] = useState<(() => void)[]>([]);
 
   // Set up listeners when user is available
@@ -76,6 +79,50 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
   useEffect(() => {
     console.log('ChatSidebar - conversations updated:', conversations);
   }, [conversations]);
+
+  // Fetch user names when conversations change
+  useEffect(() => {
+    if (conversations.length > 0 && user) {
+      fetchUserNames(conversations);
+    }
+  }, [conversations, user]);
+
+  // Filter conversations based on search query
+  useEffect(() => {
+    if (!searchQuery.trim()) {
+      setFilteredConversations(conversations);
+    } else {
+      const filtered = conversations.filter(conv => {
+        const searchLower = searchQuery.toLowerCase();
+        
+        // Search in conversation metadata title
+        const title = conv.metadata?.title || '';
+        if (title.toLowerCase().includes(searchLower)) {
+          return true;
+        }
+        
+        // For general chat, search for "general" or "chat"
+        if (conv.id === 'general_chat' && 
+            (searchLower.includes('general') || searchLower.includes('chat'))) {
+          return true;
+        }
+        
+        // For DM conversations, search by participant names
+        if (conv.type === 'dm') {
+          const otherParticipants = conv.participants.filter(uid => uid !== user?.uid);
+          for (const uid of otherParticipants) {
+            const userName = userNames[uid];
+            if (userName && userName.toLowerCase().includes(searchLower)) {
+              return true;
+            }
+          }
+        }
+        
+        return false;
+      });
+      setFilteredConversations(filtered);
+    }
+  }, [conversations, searchQuery, userNames, user]);
 
   // Listen to online status for conversation participants
   useEffect(() => {
@@ -116,6 +163,39 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
 
   const handleSignOut = async () => {
     await signOutUser();
+  };
+
+  // Fetch user names for DM participants
+  const fetchUserNames = async (conversations: Conversation[]) => {
+    const userIds = new Set<string>();
+    
+    conversations.forEach(conv => {
+      if (conv.type === 'dm') {
+        conv.participants.forEach(uid => {
+          if (uid !== user?.uid) {
+            userIds.add(uid);
+          }
+        });
+      }
+    });
+
+    if (userIds.size > 0) {
+      try {
+        const { getAllUsers } = await import('../../firebase/firestore');
+        const allUsers = await getAllUsers(user?.uid || '');
+        const nameMap: Record<string, string> = {};
+        
+        allUsers.forEach(u => {
+          if (userIds.has(u.uid)) {
+            nameMap[u.uid] = u.displayName || u.email || 'Unknown User';
+          }
+        });
+        
+        setUserNames(nameMap);
+      } catch (error) {
+        console.error('Error fetching user names:', error);
+      }
+    }
   };
 
   return (
@@ -176,20 +256,31 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
 
       {/* Conversations List */}
       <div className="flex-1 overflow-y-auto">
-        {conversations.length === 0 ? (
+        {filteredConversations.length === 0 ? (
           <div className="p-4 text-center text-gray-400">
-            <MessageCircle className="w-12 h-12 mx-auto mb-3 text-gray-500" />
-            <p className="text-sm">No conversations yet</p>
-            <p className="text-xs text-gray-500 mt-1">Start a new chat to begin</p>
+            {searchQuery.trim() ? (
+              <>
+                <Search className="w-12 h-12 mx-auto mb-3 text-gray-500" />
+                <p className="text-sm">No conversations found</p>
+                <p className="text-xs text-gray-500 mt-1">Try a different search term</p>
+              </>
+            ) : (
+              <>
+                <MessageCircle className="w-12 h-12 mx-auto mb-3 text-gray-500" />
+                <p className="text-sm">No conversations yet</p>
+                <p className="text-xs text-gray-500 mt-1">Start a new chat to begin</p>
+              </>
+            )}
           </div>
         ) : (
           <div className="p-2">
-            {conversations.map((conversation) => (
+            {filteredConversations.map((conversation) => (
               <ConversationItem
                 key={conversation.id}
                 conversation={conversation}
                 isSelected={selectedConversationId === conversation.id}
                 currentUserId={user?.uid || ''}
+                userNames={userNames}
                 onClick={() => {
                   onSelectConversation(conversation.id);
                   onCloseMobileMenu();

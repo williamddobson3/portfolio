@@ -7,6 +7,8 @@ import { MessageList } from './MessageList';
 import { MessageComposer } from './MessageComposer';
 import { UsersList } from './UsersList';
 import { DeleteConversationModal } from './DeleteConversationModal';
+import { PermissionDeniedModal } from './PermissionDeniedModal';
+import { ErrorModal } from './ErrorModal';
 import { Conversation } from '../../firebase/types';
 
 interface ChatMainProps {
@@ -36,6 +38,9 @@ export const ChatMain: React.FC<ChatMainProps> = ({ conversationId, onBack, onSe
   const [conversation, setConversation] = useState<Conversation | null>(null);
   const [showInfo, setShowInfo] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showPermissionDeniedModal, setShowPermissionDeniedModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -134,7 +139,7 @@ export const ChatMain: React.FC<ChatMainProps> = ({ conversationId, onBack, onSe
     
     // Only allow deletion of DM conversations by the creator
     if (conversation.type !== 'dm') {
-      alert('Only DM conversations can be deleted');
+      setShowPermissionDeniedModal(true);
       return;
     }
     
@@ -157,11 +162,13 @@ export const ChatMain: React.FC<ChatMainProps> = ({ conversationId, onBack, onSe
         onBack();
       } else {
         console.error('Failed to delete conversation:', result.error);
-        alert(`Failed to delete conversation: ${result.error}`);
+        setErrorMessage(result.error || 'An unknown error occurred');
+        setShowErrorModal(true);
       }
     } catch (error) {
       console.error('Error deleting conversation:', error);
-      alert('An error occurred while deleting the conversation');
+      setErrorMessage('An error occurred while deleting the conversation');
+      setShowErrorModal(true);
     } finally {
       setIsDeleting(false);
     }
@@ -377,6 +384,23 @@ export const ChatMain: React.FC<ChatMainProps> = ({ conversationId, onBack, onSe
         onConfirm={handleConfirmDelete}
         conversationName={getDisplayName()}
         isLoading={isDeleting}
+      />
+
+      {/* Permission denied modal */}
+      <PermissionDeniedModal
+        isOpen={showPermissionDeniedModal}
+        onClose={() => setShowPermissionDeniedModal(false)}
+        title="Cannot Delete Conversation"
+        message="Only DM conversations can be deleted by their creator."
+      />
+
+      {/* Error modal */}
+      <ErrorModal
+        isOpen={showErrorModal}
+        onClose={() => setShowErrorModal(false)}
+        title="Delete Failed"
+        message={errorMessage}
+        type="error"
       />
     </div>
   );

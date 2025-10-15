@@ -7,13 +7,15 @@ interface ConversationItemProps {
   isSelected: boolean;
   currentUserId: string;
   onClick: () => void;
+  userNames?: Record<string, string>;
 }
 
 export const ConversationItem: React.FC<ConversationItemProps> = ({
   conversation,
   isSelected,
   currentUserId,
-  onClick
+  onClick,
+  userNames = {}
 }) => {
   const getOtherParticipant = () => {
     return conversation.participants.find(uid => uid !== currentUserId);
@@ -26,8 +28,14 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
     if (conversation.type === 'group') {
       return conversation.metadata?.title || 'Group Chat';
     }
-    // For DM, we'll need to fetch the other user's name
-    // For now, we'll show a placeholder
+    // For DM, show the other participant's name
+    if (conversation.type === 'dm') {
+      const otherParticipant = getOtherParticipant();
+      if (otherParticipant && userNames[otherParticipant]) {
+        return userNames[otherParticipant];
+      }
+      return 'Direct Message';
+    }
     return 'Direct Message';
   };
 
