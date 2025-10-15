@@ -9,14 +9,12 @@ interface MessageListProps {
   onDeleteMessage?: (messageId: string) => void;
 }
 
-export const MessageList: React.FC<MessageListProps> = ({ 
-  messages, 
-  currentUserId, 
-  onEditMessage, 
-  onDeleteMessage 
+export const MessageList: React.FC<MessageListProps> = ({
+  messages,
+  currentUserId,
+  onEditMessage,
+  onDeleteMessage
 }) => {
-  console.log('MessageList received messages:', messages);
-  console.log('MessageList currentUserId:', currentUserId);
   
   const [editingMessageId, setEditingMessageId] = useState<string | null>(null);
   

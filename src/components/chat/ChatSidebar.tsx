@@ -47,7 +47,6 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
   // Set up listeners when user is available
   useEffect(() => {
     if (user) {
-      console.log('Setting up conversation listener in ChatSidebar for user:', user.uid);
       const unsubscribeConversations = listenToConversations(user.uid);
       setUnsubscribes(prev => [...prev, unsubscribeConversations]);
     }
@@ -60,25 +59,19 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
   // Try to create general chat if it doesn't exist
   useEffect(() => {
     if (user && conversations.length === 0) {
-      const createGeneralChatIfNeeded = async () => {
-        try {
-          console.log('No conversations found, trying to create general chat...');
-          const generalChat = await createGeneralChat();
-          console.log('General chat created from ChatSidebar:', generalChat);
-        } catch (error) {
-          console.error('Error creating general chat from ChatSidebar:', error);
-        }
-      };
+        const createGeneralChatIfNeeded = async () => {
+          try {
+            const generalChat = await createGeneralChat();
+          } catch (error) {
+            console.error('Error creating general chat from ChatSidebar:', error);
+          }
+        };
       
       // Wait a bit for the conversation listener to set up, then try to create general chat
       setTimeout(createGeneralChatIfNeeded, 2000);
     }
   }, [user, conversations, createGeneralChat]);
 
-  // Debug conversations
-  useEffect(() => {
-    console.log('ChatSidebar - conversations updated:', conversations);
-  }, [conversations]);
 
   // Fetch user names when conversations change
   useEffect(() => {

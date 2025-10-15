@@ -104,8 +104,8 @@ export const NavigationModal: React.FC<NavigationModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-gray-900/95 backdrop-blur-md border border-white/20 rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+    <div className="modal-container fixed inset-0 bg-black/60 backdrop-blur-sm z-50 p-4">
+      <div className="nav-modal bg-gray-900/95 backdrop-blur-md border border-white/20 rounded-3xl shadow-2xl max-w-4xl w-full max-h-[80vh] overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-white/10">
           <div className="flex items-center space-x-4">
@@ -113,8 +113,8 @@ export const NavigationModal: React.FC<NavigationModalProps> = ({
               <Globe className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-white">Portfolio Navigation</h2>
-              <p className="text-gray-400">Choose a section to explore</p>
+              <h2 className="text-2xl font-bold text-white leading-tight">Portfolio Navigation</h2>
+              <p className="text-gray-400 text-sm mt-1">Choose a section to explore</p>
             </div>
           </div>
           <button
@@ -135,10 +135,10 @@ export const NavigationModal: React.FC<NavigationModalProps> = ({
                 </span>
               </div>
               <div className="flex-1">
-                <h3 className="text-white font-semibold text-lg">
+                <h3 className="text-white font-semibold text-lg leading-tight">
                   Welcome back, {user.displayName || 'User'}!
                 </h3>
-                <p className="text-gray-400">
+                <p className="text-gray-400 text-sm mt-1">
                   Explore different sections of my portfolio
                 </p>
               </div>
@@ -151,7 +151,7 @@ export const NavigationModal: React.FC<NavigationModalProps> = ({
         )}
 
         {/* Navigation Grid */}
-        <div className="p-6">
+        <div className="p-6 overflow-y-auto max-h-[50vh]">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {navigationItems.map((item) => {
               const Icon = item.icon;
@@ -161,29 +161,29 @@ export const NavigationModal: React.FC<NavigationModalProps> = ({
                 <button
                   key={item.id}
                   onClick={() => handleNavigation(item)}
-                  className={`group relative p-6 rounded-2xl transition-all duration-300 transform hover:scale-105 ${
+                  className={`group relative p-4 rounded-2xl transition-all duration-300 transform hover:scale-105 ${
                     isActive
                       ? `bg-gradient-to-br ${item.color} text-white shadow-lg shadow-blue-500/25`
                       : 'bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white'
                   }`}
                 >
-                  <div className="flex flex-col items-center space-y-3">
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
+                  <div className="flex flex-col items-center space-y-2">
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
                       isActive 
                         ? 'bg-white/20' 
                         : `bg-gradient-to-br ${item.color} ${item.hoverColor}`
                     }`}>
-                      <Icon className={`w-6 h-6 ${
+                      <Icon className={`w-5 h-5 ${
                         isActive ? 'text-white' : 'text-white'
                       }`} />
                     </div>
                     <div className="text-center">
-                      <p className={`font-semibold text-sm ${
+                      <p className={`font-semibold text-xs leading-tight ${
                         isActive ? 'text-white' : 'text-gray-300 group-hover:text-white'
                       }`}>
                         {item.label}
                       </p>
-                      <p className={`text-xs mt-1 ${
+                      <p className={`text-xs mt-1 leading-tight ${
                         isActive ? 'text-white/80' : 'text-gray-500 group-hover:text-gray-400'
                       }`}>
                         {item.description}
@@ -203,20 +203,20 @@ export const NavigationModal: React.FC<NavigationModalProps> = ({
           </div>
 
           {/* Special Chat Section */}
-          <div className="mt-8 p-6 bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-2xl border border-green-500/20">
+          <div className="mt-6 p-4 bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-2xl border border-green-500/20">
             <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center">
-                  <MessageSquare className="w-6 h-6 text-white" />
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center">
+                  <MessageSquare className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold text-lg">Live Chat</h3>
-                  <p className="text-gray-400">Real-time messaging with other users</p>
+                  <h3 className="text-white font-semibold text-base leading-tight">Live Chat</h3>
+                  <p className="text-gray-400 text-sm">Real-time messaging with other users</p>
                 </div>
               </div>
               <button
                 onClick={() => handleNavigation({ id: 'chat', label: 'Chat', icon: MessageSquare, description: 'Live chat', color: '', hoverColor: '' })}
-                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 text-sm ${
                   currentPage === 'chat'
                     ? 'bg-green-500 text-white shadow-lg'
                     : 'bg-green-500/20 text-green-400 hover:bg-green-500 hover:text-white'
@@ -229,18 +229,18 @@ export const NavigationModal: React.FC<NavigationModalProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="p-6 border-t border-white/10 bg-gray-800/50">
+        <div className="p-4 border-t border-white/10 bg-gray-800/50">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => window.open('#', '_blank')}
-                className="flex items-center space-x-2 px-4 py-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+                className="flex items-center space-x-2 px-3 py-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors text-sm"
               >
                 <ExternalLink className="w-4 h-4" />
-                <span className="text-sm">Visit Website</span>
+                <span>Visit Website</span>
               </button>
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-xs text-gray-500">
               Navigate through my portfolio
             </div>
           </div>

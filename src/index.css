@@ -39,6 +39,31 @@ code {
   background: rgba(59, 130, 246, 0.7);
 }
 
+/* Perfect centering for modal */
+.modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Ensure modal is perfectly centered */
+.nav-modal {
+  position: relative;
+  margin: auto;
+  display: block;
+  font-family: 'Inter', sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;

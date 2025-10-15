@@ -9,15 +9,13 @@ export const useAuth = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChange(async (firebaseUser) => {
       if (firebaseUser) {
-        // Try to get the user document first, fallback to basic user info
-        try {
-          console.log('Firebase user displayName:', firebaseUser.displayName);
-          const userDoc = await getUserDocument(firebaseUser.uid);
-          if (userDoc) {
-            console.log('User document displayName:', userDoc.displayName);
-            setUser(userDoc);
-            setIsLoading(false);
-          } else {
+            // Try to get the user document first, fallback to basic user info
+            try {
+              const userDoc = await getUserDocument(firebaseUser.uid);
+              if (userDoc) {
+                setUser(userDoc);
+                setIsLoading(false);
+              } else {
             // Fallback to basic user info if document doesn't exist
             const basicUser = {
               uid: firebaseUser.uid,
@@ -32,9 +30,8 @@ export const useAuth = () => {
             setUser(basicUser);
             setIsLoading(false);
           }
-        } catch (error) {
-          console.log('Could not fetch user document, using basic user info');
-          // Fallback to basic user info
+            } catch (error) {
+              // Fallback to basic user info
           const basicUser = {
             uid: firebaseUser.uid,
             displayName: firebaseUser.displayName || '',

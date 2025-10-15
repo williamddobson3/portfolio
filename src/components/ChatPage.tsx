@@ -20,15 +20,11 @@ export const ChatPage: React.FC = () => {
     window.location.hash = page === 'chat' ? '#chat' : `#${page}`;
   };
 
-  // Debug conversations
+  // Auto-select general chat if available
   useEffect(() => {
-    console.log('ChatPage - conversations updated:', conversations);
-    
-    // If we have conversations but no selected conversation, try to find the general chat
     if (conversations.length > 0 && !selectedConversationId) {
       const generalChat = conversations.find(conv => conv.id === 'general_chat');
       if (generalChat) {
-        console.log('Found general chat in conversations, selecting it');
         setSelectedConversationId('general_chat');
       }
     }
@@ -39,23 +35,15 @@ export const ChatPage: React.FC = () => {
     if (user && !selectedConversationId) {
       const initializeGeneralChat = async () => {
         try {
-          console.log('Creating general chat...');
-          console.log('User:', user);
           const generalChat = await createGeneralChat();
-          console.log('General chat created:', generalChat);
           if (generalChat) {
-            console.log('Setting selected conversation ID to:', generalChat.id);
             setSelectedConversationId(generalChat.id);
           } else {
-            console.error('General chat creation failed - no chat returned');
             // Fallback: try to set the general chat ID directly
-            console.log('Trying fallback with general_chat ID');
             setSelectedConversationId('general_chat');
           }
         } catch (error) {
-          console.error('Error initializing general chat:', error);
           // Fallback: try to set the general chat ID directly
-          console.log('Trying fallback with general_chat ID after error');
           setSelectedConversationId('general_chat');
         }
       };

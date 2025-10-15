@@ -47,17 +47,13 @@ export const ChatMain: React.FC<ChatMainProps> = ({ conversationId, onBack, onSe
 
   // Find the current conversation
   useEffect(() => {
-    console.log('Looking for conversation:', conversationId);
-    console.log('Available conversations:', conversations);
     const currentConversation = conversations.find(conv => conv.id === conversationId);
-    console.log('Found conversation:', currentConversation);
     setConversation(currentConversation || null);
   }, [conversations, conversationId]);
 
   // Set up conversation listener
   useEffect(() => {
     if (user) {
-      console.log('Setting up conversation listener in ChatMain for user:', user.uid);
       const unsubscribeConversations = listenToConversations(user.uid);
       return () => unsubscribeConversations();
     }
@@ -66,7 +62,6 @@ export const ChatMain: React.FC<ChatMainProps> = ({ conversationId, onBack, onSe
   // Set up message and typing listeners
   useEffect(() => {
     if (conversationId && user) {
-      console.log('Setting up message listener for conversation:', conversationId);
       const unsubscribeMessages = listenToMessages(conversationId);
       const unsubscribeTyping = listenToTyping(conversationId);
 
@@ -77,10 +72,6 @@ export const ChatMain: React.FC<ChatMainProps> = ({ conversationId, onBack, onSe
     }
   }, [conversationId, user, listenToMessages, listenToTyping]);
 
-  // Debug messages
-  useEffect(() => {
-    console.log('Messages for conversation', conversationId, ':', messages[conversationId]);
-  }, [messages, conversationId]);
 
   // Mark messages as read when conversation is opened
   useEffect(() => {
@@ -97,13 +88,12 @@ export const ChatMain: React.FC<ChatMainProps> = ({ conversationId, onBack, onSe
   const handleSendMessage = async (text: string) => {
     if (!user || !text.trim()) return;
 
-    try {
-      // If conversation is not found, try to create it first
-      if (!conversation && conversationId === 'general_chat') {
-        console.log('Conversation not found, attempting to create general chat...');
-        // The general chat should be created by the ChatPage, but we can try to send anyway
-        // Firebase will handle the case where the conversation doesn't exist
-      }
+        try {
+          // If conversation is not found, try to create it first
+          if (!conversation && conversationId === 'general_chat') {
+            // The general chat should be created by the ChatPage, but we can try to send anyway
+            // Firebase will handle the case where the conversation doesn't exist
+          }
       
       await sendMessageToConversation(conversationId, user.uid, text);
     } catch (error) {
@@ -152,11 +142,9 @@ export const ChatMain: React.FC<ChatMainProps> = ({ conversationId, onBack, onSe
     setIsDeleting(true);
     
     try {
-      console.log('Deleting conversation:', conversationId);
       const result = await deleteConversation(conversationId, user.uid);
       
       if (result.success) {
-        console.log('Conversation deleted successfully');
         setShowDeleteModal(false);
         // Go back to the conversation list
         onBack();
@@ -184,11 +172,10 @@ export const ChatMain: React.FC<ChatMainProps> = ({ conversationId, onBack, onSe
     if (!user) return;
     
     try {
-      console.log('Editing message:', messageId, 'with new text:', newText);
       const result = await editMessage(conversationId, messageId, newText, user.uid);
-      
+
       if (result.success) {
-        console.log('Message edited successfully');
+        // Message edited successfully
       } else {
         console.error('Failed to edit message:', result.error);
         alert(`Failed to edit message: ${result.error}`);
@@ -203,11 +190,10 @@ export const ChatMain: React.FC<ChatMainProps> = ({ conversationId, onBack, onSe
     if (!user) return;
     
     try {
-      console.log('Deleting message:', messageId);
       const result = await deleteMessage(conversationId, messageId, user.uid);
-      
+
       if (result.success) {
-        console.log('Message deleted successfully');
+        // Message deleted successfully
       } else {
         console.error('Failed to delete message:', result.error);
         alert(`Failed to delete message: ${result.error}`);

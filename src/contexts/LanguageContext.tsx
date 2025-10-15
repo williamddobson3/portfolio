@@ -343,10 +343,6 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
         en: 'Eyewear e‑commerce with customizable filters, real‑time inventory, and 3D product views. React front‑end with Node/Express backend and Stripe payments.',
         ja: 'カスタマイズ可能なフィルタ、在庫のリアルタイム反映、3D商品ビューを備えたメガネEC。ReactフロントとNode/Expressバックエンド、Stripe決済。'
       },
-      'project.lifesciencedb.description': {
-        en: 'Interactive 3D human anatomy explorer (BodyParts3D/Anatomography). Built WebGL/Three.js UI to select parts, adjust visualization, and embed/export models; integrated anatomical datasets (FMA).',
-        ja: '対話型3D人体解剖プラットフォーム（BodyParts3D/Anatomography）。WebGL/Three.jsで部位選択や可視化調整、埋め込み/エクスポートUIを実装し、FMAなどの解剖データセットを統合。'
-      },
       'project.teamlab.description': {
         en: 'Immersive digital art experiences with interactive 3D/real‑time visuals. Contributed to performant WebGL scenes, SSR UI, and real‑time interactions for exhibitions and virtual tours.',
         ja: '没入型デジタルアート体験。パフォーマンスに優れたWebGLシーン、SSR UI、リアルタイムインタラクションを実装し、展示やバーチャルツアーを支援。'
@@ -1195,34 +1191,6 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       'testimonials.teamlab.industry': {
         en: 'Digital Art',
         ja: 'デジタルアート'
-      },
-      'testimonials.lifesciencedb.quote': {
-        en: 'The BodyParts3D project with Keishin was groundbreaking. His WebGL expertise made complex 3D anatomical models accessible and interactive. The integration with FMA database ensures medical accuracy while maintaining smooth performance. The user interface he designed makes exploring human anatomy intuitive for both medical students and professionals. His attention to detail in 3D rendering and data visualization created a tool that\'s now used in medical education worldwide.',
-        ja: 'KeishinとのBodyParts3Dプロジェクトは画期的でした。彼のWebGL専門知識により、複雑な3D解剖モデルがアクセス可能でインタラクティブになりました。FMAデータベースとの統合により、スムーズなパフォーマンスを維持しながら医学的精度を確保しています。彼が設計したユーザーインターフェースにより、医学部生と専門家の両方にとって人体解剖学の探索が直感的になりました。3Dレンダリングとデータ可視化における細部への注意により、現在世界中の医学教育で使用されているツールが生まれました。'
-      },
-      'testimonials.lifesciencedb.name': {
-        en: 'Dr. Hiroshi Matsumoto',
-        ja: '松本 博 博士'
-      },
-      'testimonials.lifesciencedb.title': {
-        en: 'Professor of Anatomy',
-        ja: '解剖学教授'
-      },
-      'testimonials.lifesciencedb.company': {
-        en: 'Life Science Database',
-        ja: 'ライフサイエンスデータベース'
-      },
-      'testimonials.lifesciencedb.metrics': {
-        en: 'Medical education reach +200%',
-        ja: '医学教育の到達範囲 +200%'
-      },
-      'testimonials.lifesciencedb.year': {
-        en: '2022',
-        ja: '2022年'
-      },
-      'testimonials.lifesciencedb.industry': {
-        en: 'Healthcare',
-        ja: 'ヘルスケア'
       },
       'testimonials.openai.quote': {
         en: 'Working with Keishin on OpenAI\'s platform was exceptional. His expertise in AI model integration and real-time processing helped us achieve 99.9% uptime for our API services. The scalable architecture he designed handles millions of requests daily without breaking a sweat. His understanding of both AI technologies and production systems was crucial to our success.',

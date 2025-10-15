@@ -23,34 +23,42 @@ export const LoadingAnimation: React.FC = () => {
       {/* Ground line */}
       <div className="absolute bottom-1/3 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-400/30 to-transparent"></div>
 
-      {/* Walking man animation */}
-      <div className="relative w-full h-32 mb-8">
-        <div className="absolute bottom-0 left-0 w-full h-full">
-          <div className="walking-man">
-            {/* Man character */}
-            <div className="relative">
-              {/* Head */}
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full mx-auto mb-2 shadow-lg">
-                <div className="w-full h-full flex items-center justify-center">
-                  <User className="w-6 h-6 text-white" />
-                </div>
-              </div>
-              
-              {/* Body */}
-              <div className="w-8 h-16 bg-gradient-to-b from-blue-500 to-blue-600 rounded-lg mx-auto relative shadow-lg">
-                {/* Arms */}
-                <div className="arm-left absolute -left-3 top-2 w-2 h-10 bg-blue-500 rounded-full origin-top"></div>
-                <div className="arm-right absolute -right-3 top-2 w-2 h-10 bg-blue-500 rounded-full origin-top"></div>
-              </div>
-              
-              {/* Legs */}
+      {/* Progress frame container */}
+      <div className="relative w-full max-w-4xl mx-auto mb-8">
+        {/* Progress frame background */}
+        <div className="w-full h-4 bg-gray-700/30 rounded-full overflow-hidden border border-gray-600/50">
+          <div className="progress-frame h-full bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-full"></div>
+        </div>
+        
+        {/* Walking man animation */}
+        <div className="relative w-full h-32 mt-4">
+          <div className="absolute bottom-0 left-0 w-full h-full">
+            <div className="walking-man">
+              {/* Man character */}
               <div className="relative">
-                <div className="leg-left absolute left-2 top-0 w-2 h-12 bg-blue-600 rounded-full origin-top"></div>
-                <div className="leg-right absolute right-2 top-0 w-2 h-12 bg-blue-600 rounded-full origin-top"></div>
-              </div>
+                {/* Head */}
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full mx-auto mb-2 shadow-lg">
+                  <div className="w-full h-full flex items-center justify-center">
+                    <User className="w-6 h-6 text-white" />
+                  </div>
+                </div>
+                
+                {/* Body */}
+                <div className="w-8 h-16 bg-gradient-to-b from-blue-500 to-blue-600 rounded-lg mx-auto relative shadow-lg">
+                  {/* Arms */}
+                  <div className="arm-left absolute -left-3 top-2 w-2 h-10 bg-blue-500 rounded-full origin-top"></div>
+                  <div className="arm-right absolute -right-3 top-2 w-2 h-10 bg-blue-500 rounded-full origin-top"></div>
+                </div>
+                
+                {/* Legs */}
+                <div className="relative">
+                  <div className="leg-left absolute left-2 top-0 w-2 h-12 bg-blue-600 rounded-full origin-top"></div>
+                  <div className="leg-right absolute right-2 top-0 w-2 h-12 bg-blue-600 rounded-full origin-top"></div>
+                </div>
 
-              {/* Shadow */}
-              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-2 bg-black/20 rounded-full blur-sm"></div>
+                {/* Shadow */}
+                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-2 bg-black/20 rounded-full blur-sm"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -69,18 +77,23 @@ export const LoadingAnimation: React.FC = () => {
         <p className="text-gray-300 mt-4 text-sm">Please wait while we prepare everything for you</p>
       </div>
 
-      {/* Progress bar */}
-      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-64 h-2 bg-gray-700/50 rounded-full overflow-hidden">
-        <div className="progress-bar h-full bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-full"></div>
-      </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes walk {
           0% {
-            transform: translateX(-10vw);
+            transform: translateX(-5vw);
           }
           100% {
-            transform: translateX(110vw);
+            transform: translateX(105vw);
+          }
+        }
+
+        @keyframes progressFrame {
+          0% {
+            width: 0%;
+          }
+          100% {
+            width: 100%;
           }
         }
 
@@ -120,37 +133,28 @@ export const LoadingAnimation: React.FC = () => {
           }
         }
 
-        @keyframes progressBar {
-          0% {
-            width: 0%;
-          }
-          100% {
-            width: 100%;
-          }
+        .walking-man {
+          animation: walk 6s linear infinite;
         }
 
-        .walking-man {
-          animation: walk 8s linear infinite;
+        .progress-frame {
+          animation: progressFrame 6s linear infinite;
         }
 
         .arm-left {
-          animation: swingArmLeft 0.6s ease-in-out infinite;
+          animation: swingArmLeft 0.4s ease-in-out infinite;
         }
 
         .arm-right {
-          animation: swingArmRight 0.6s ease-in-out infinite;
+          animation: swingArmRight 0.4s ease-in-out infinite;
         }
 
         .leg-left {
-          animation: swingLegLeft 0.6s ease-in-out infinite;
+          animation: swingLegLeft 0.4s ease-in-out infinite;
         }
 
         .leg-right {
-          animation: swingLegRight 0.6s ease-in-out infinite;
-        }
-
-        .progress-bar {
-          animation: progressBar 8s linear infinite;
+          animation: swingLegRight 0.4s ease-in-out infinite;
         }
       `}</style>
     </div>

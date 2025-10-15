@@ -37,13 +37,11 @@ export const generateConversationId = (uid1: string, uid2: string): string => {
 // Create or get general chat conversation
 export const createOrGetGeneralChat = async (): Promise<Conversation | null> => {
   try {
-    console.log('Creating or getting general chat...');
     const conversationId = 'general_chat';
     const conversationRef = doc(db, CONVERSATIONS_COLLECTION, conversationId);
     const conversationSnap = await getDoc(conversationRef);
 
     if (conversationSnap.exists()) {
-      console.log('General chat already exists');
       const data = conversationSnap.data();
       return {
         id: conversationId,
@@ -66,7 +64,6 @@ export const createOrGetGeneralChat = async (): Promise<Conversation | null> => 
         metadata: data.metadata || { archived: false, pinned: false }
       };
     } else {
-      console.log('Creating new general chat...');
       // Create new general chat conversation
       const newConversation = {
         participants: [], // Empty array means everyone can join
@@ -83,7 +80,6 @@ export const createOrGetGeneralChat = async (): Promise<Conversation | null> => 
       };
 
       await setDoc(conversationRef, newConversation);
-      console.log('General chat created successfully');
       
       return {
         id: conversationId,
@@ -211,10 +207,8 @@ export const getUserConversations = (uid: string, callback: (conversations: Conv
   // Get general chat by document ID
   const generalChatRef = doc(db, CONVERSATIONS_COLLECTION, 'general_chat');
   const unsubscribeGeneral = onSnapshot(generalChatRef, (snapshot) => {
-    console.log('General chat snapshot received:', snapshot.exists());
     if (snapshot.exists()) {
       const data = snapshot.data();
-      console.log('General chat data:', data);
       generalChat = {
         id: snapshot.id,
         participants: data.participants,
@@ -235,24 +229,20 @@ export const getUserConversations = (uid: string, callback: (conversations: Conv
         ),
         metadata: data.metadata || { archived: false, pinned: false }
       };
-    } else {
-      console.log('General chat document does not exist');
-      generalChat = null;
-    }
+        } else {
+          generalChat = null;
+        }
     updateConversations();
   });
 
   const updateConversations = () => {
-    console.log('updateConversations called - userConversations:', userConversations);
-    console.log('updateConversations called - generalChat:', generalChat);
     let allConversations = [...userConversations];
     if (generalChat) {
       allConversations.unshift(generalChat); // Put general chat at the top
     }
-    
+
     // Sort conversations by lastMessageAt on the client side
     allConversations.sort((a, b) => b.lastMessageAt.getTime() - a.lastMessageAt.getTime());
-    console.log('Final conversations to callback:', allConversations);
     callback(allConversations);
   };
 
@@ -269,7 +259,6 @@ export const sendMessage = async (
   text: string
 ): Promise<{ success: boolean; messageId?: string; error?: string }> => {
   try {
-    console.log('sendMessage called with:', { conversationId, senderUid, text });
     const messagesRef = collection(db, CONVERSATIONS_COLLECTION, conversationId, MESSAGES_COLLECTION);
     const conversationRef = doc(db, CONVERSATIONS_COLLECTION, conversationId);
 
@@ -300,7 +289,6 @@ export const sendMessage = async (
     batch.update(conversationRef, conversationUpdate);
 
     await batch.commit();
-    console.log('Message sent successfully, ID:', messageRef.id);
 
     return { success: true, messageId: messageRef.id };
   } catch (error: any) {
@@ -315,9 +303,7 @@ export const getConversationMessages = (
   callback: (messages: Message[]) => void,
   pageSize: number = 50
 ) => {
-  console.log('getConversationMessages called for conversation:', conversationId);
   const messagesRef = collection(db, CONVERSATIONS_COLLECTION, conversationId, MESSAGES_COLLECTION);
-  console.log('Messages collection path:', `conversations/${conversationId}/messages`);
   
   const q = query(
     messagesRef,
@@ -326,12 +312,7 @@ export const getConversationMessages = (
   );
 
   return onSnapshot(q, (snapshot) => {
-    console.log('getConversationMessages - received snapshot for conversation:', conversationId);
-    console.log('Snapshot size:', snapshot.size);
-    console.log('Snapshot empty:', snapshot.empty);
-    
     if (snapshot.empty) {
-      console.log('No messages found for conversation:', conversationId);
       callback([]);
       return;
     }
@@ -339,7 +320,6 @@ export const getConversationMessages = (
     const messages: Message[] = [];
     snapshot.forEach((doc) => {
       const data = doc.data();
-      console.log('Message data:', data);
       messages.push({
         id: doc.id,
         senderUid: data.senderUid,
@@ -351,7 +331,6 @@ export const getConversationMessages = (
         metadata: data.metadata || {}
       });
     });
-    console.log('Processed messages:', messages);
     // Reverse to show oldest first
     callback(messages.reverse());
   }, (error) => {
@@ -363,11 +342,9 @@ export const getConversationMessages = (
 // Check if messages exist for a conversation
 export const checkMessagesExist = async (conversationId: string): Promise<boolean> => {
   try {
-    console.log('Checking if messages exist for conversation:', conversationId);
     const messagesRef = collection(db, CONVERSATIONS_COLLECTION, conversationId, MESSAGES_COLLECTION);
     const q = query(messagesRef, limit(1));
     const snapshot = await getDocs(q);
-    console.log('Messages exist check - snapshot size:', snapshot.size);
     return !snapshot.empty;
   } catch (error) {
     console.error('Error checking messages existence:', error);
@@ -378,7 +355,6 @@ export const checkMessagesExist = async (conversationId: string): Promise<boolea
 // Delete a conversation (only by creator or admin)
 export const deleteConversation = async (conversationId: string, uid: string): Promise<{ success: boolean; error?: string }> => {
   try {
-    console.log('Deleting conversation:', conversationId, 'by user:', uid);
     
     // First, get the conversation to check permissions
     const conversationRef = doc(db, CONVERSATIONS_COLLECTION, conversationId);
@@ -413,7 +389,6 @@ export const deleteConversation = async (conversationId: string, uid: string): P
     batch.delete(conversationRef);
     
     await batch.commit();
-    console.log('Conversation deleted successfully');
     
     return { success: true };
   } catch (error: any) {
@@ -430,7 +405,6 @@ export const editMessage = async (
   uid: string
 ): Promise<{ success: boolean; error?: string }> => {
   try {
-    console.log('Editing message:', messageId, 'with new text:', newText);
     
     const messageRef = doc(db, CONVERSATIONS_COLLECTION, conversationId, MESSAGES_COLLECTION, messageId);
     
@@ -452,7 +426,6 @@ export const editMessage = async (
       status: 'edited'
     });
     
-    console.log('Message edited successfully');
     return { success: true };
   } catch (error: any) {
     console.error('Error editing message:', error);
@@ -467,7 +440,6 @@ export const deleteMessage = async (
   uid: string
 ): Promise<{ success: boolean; error?: string }> => {
   try {
-    console.log('Deleting message:', messageId);
     
     const messageRef = doc(db, CONVERSATIONS_COLLECTION, conversationId, MESSAGES_COLLECTION, messageId);
     
@@ -489,7 +461,6 @@ export const deleteMessage = async (
       deletedAt: serverTimestamp()
     });
     
-    console.log('Message deleted successfully');
     return { success: true };
   } catch (error: any) {
     console.error('Error deleting message:', error);

@@ -30,23 +30,6 @@ export const projectCategories = [
 export const projects: Project[] = [
   // AR / VR / 3D Experiences (Selected)
   {
-    id: 'lifesciencedb',
-    title: 'LifeScienceDB — BodyParts3D',
-    category: 'arvr',
-    descriptionKey: 'project.lifesciencedb.description',
-    role: 'AR/3D Web Developer',
-    year: '2021',
-    status: 'Launched',
-    technologies: ['WebGL', 'Three.js', 'JavaScript', 'HTML5/CSS3', 'Node.js', 'Database'],
-    images: [
-      '/projects/lifesciencedb/1.jpg',
-      '/projects/lifesciencedb/2.png',
-      '/projects/lifesciencedb/3.gif',
-      '/projects/lifesciencedb/4.png'
-    ],
-    website: 'https://lifesciencedb.jp/bp3d/'
-  },
-  {
     id: 'teamlab',
     title: 'teamLab — Digital Art Experiences',
     category: 'arvr',

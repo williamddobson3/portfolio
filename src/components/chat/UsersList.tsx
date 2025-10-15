@@ -64,10 +64,8 @@ export const UsersList: React.FC<UsersListProps> = ({ conversationId, onSelectCo
     if (!currentUser || user.uid === currentUser.uid) return;
     
     try {
-      console.log('Creating DM with user:', user.displayName);
       const dmConversation = await createDMConversation(currentUser.uid, user.uid);
       if (dmConversation && onSelectConversation) {
-        console.log('DM created, selecting conversation:', dmConversation.id);
         onSelectConversation(dmConversation.id);
       }
     } catch (error) {

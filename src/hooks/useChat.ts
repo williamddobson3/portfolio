@@ -47,9 +47,7 @@ export const useChat = () => {
 
   // Listen to conversations
   const listenToConversations = useCallback((uid: string) => {
-    console.log('Setting up conversation listener for user:', uid);
     return getUserConversations(uid, (conversations) => {
-      console.log('Received conversations:', conversations);
       setConversations(conversations);
     });
   }, []);

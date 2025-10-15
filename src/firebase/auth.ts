@@ -36,10 +36,6 @@ const createUserDocument = async (firebaseUser: FirebaseUser, additionalData?: a
         },
         ...additionalData
       });
-      
-      console.log('User document created successfully');
-    } else {
-      console.log('User document already exists');
     }
   } catch (error) {
     console.error('Error creating user document:', error);
@@ -52,19 +48,13 @@ const createUserDocument = async (firebaseUser: FirebaseUser, additionalData?: a
 // Sign up with email and password
 export const signUpWithEmail = async (email: string, password: string, displayName: string) => {
   try {
-    console.log('Creating user account...');
     const { user } = await createUserWithEmailAndPassword(auth, email, password);
-    console.log('User account created:', user.uid);
     
     // Update the user's display name
-    console.log('Updating user profile...');
     await updateProfile(user, { displayName });
-    console.log('User profile updated');
     
     // Create user document
-    console.log('Creating user document...');
     await createUserDocument(user, { displayName });
-    console.log('User document created');
     
     // Wait a moment for the document to be fully written
     await new Promise(resolve => setTimeout(resolve, 1000));
@@ -153,7 +143,6 @@ export const getUserDocument = async (uid: string): Promise<User | null> => {
     
     return null;
   } catch (error) {
-    console.log('Could not fetch user document:', error.message);
     return null;
   }
 };
