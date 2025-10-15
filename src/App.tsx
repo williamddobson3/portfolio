@@ -10,6 +10,7 @@ import ServicesPage from './components/ServicesPage';
 import TestimonialsPage from './components/TestimonialsPage';
 import BlogPage from './components/BlogPage';
 import { ChatPage } from './components/ChatPage';
+import { MouseTrail } from './components/MouseTrail';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -56,6 +57,7 @@ function App() {
 
   return (
     <LanguageProvider>
+      <MouseTrail />
       {currentPage === 'chat' ? (
         <ChatPage />
       ) : (
