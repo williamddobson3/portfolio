@@ -79,6 +79,10 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
         en: 'Contact',
         ja: 'お問い合わせ'
       },
+      'nav.chat': {
+        en: 'Chat',
+        ja: 'チャット'
+      },
 
       // ProjectsPage
       'projects.title': {

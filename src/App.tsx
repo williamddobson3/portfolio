@@ -9,6 +9,7 @@ import { ContactPage } from './components/ContactPage';
 import ServicesPage from './components/ServicesPage';
 import TestimonialsPage from './components/TestimonialsPage';
 import BlogPage from './components/BlogPage';
+import { ChatPage } from './components/ChatPage';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -38,6 +39,8 @@ function App() {
         return <TestimonialsPage />;
       case 'blog':
         return <BlogPage />;
+      case 'chat':
+        return <ChatPage />;
       case 'projects':
         return <ProjectsPage />;
       case 'skills':

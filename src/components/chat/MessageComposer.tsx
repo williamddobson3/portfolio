@@ -1,0 +1,152 @@
+import React, { useState, useRef, useEffect } from 'react';
+import { Send, Smile, Paperclip, Mic } from 'lucide-react';
+
+interface MessageComposerProps {
+  onSendMessage: (text: string) => void;
+  onTyping: (isTyping: boolean) => void;
+}
+
+export const MessageComposer: React.FC<MessageComposerProps> = ({
+  onSendMessage,
+  onTyping
+}) => {
+  const [message, setMessage] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Auto-resize textarea
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+    }
+  }, [message]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const value = e.target.value;
+    setMessage(value);
+
+    // Handle typing indicator
+    if (value.trim() && !isTyping) {
+      setIsTyping(true);
+      onTyping(true);
+    } else if (!value.trim() && isTyping) {
+      setIsTyping(false);
+      onTyping(false);
+    }
+
+    // Clear existing timeout
+    if (typingTimeoutRef.current) {
+      clearTimeout(typingTimeoutRef.current);
+    }
+
+    // Set timeout to stop typing indicator
+    typingTimeoutRef.current = setTimeout(() => {
+      setIsTyping(false);
+      onTyping(false);
+    }, 3000);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
+  };
+
+  const handleSend = () => {
+    const trimmedMessage = message.trim();
+    if (trimmedMessage) {
+      onSendMessage(trimmedMessage);
+      setMessage('');
+      setIsTyping(false);
+      onTyping(false);
+      
+      if (textareaRef.current) {
+        textareaRef.current.style.height = 'auto';
+      }
+    }
+  };
+
+  const handleFileUpload = () => {
+    // TODO: Implement file upload
+    console.log('File upload not implemented yet');
+  };
+
+  const handleVoiceMessage = () => {
+    // TODO: Implement voice message
+    console.log('Voice message not implemented yet');
+  };
+
+  const handleEmoji = () => {
+    // TODO: Implement emoji picker
+    console.log('Emoji picker not implemented yet');
+  };
+
+  // Cleanup typing indicator on unmount
+  useEffect(() => {
+    return () => {
+      if (typingTimeoutRef.current) {
+        clearTimeout(typingTimeoutRef.current);
+      }
+      if (isTyping) {
+        onTyping(false);
+      }
+    };
+  }, [isTyping, onTyping]);
+
+  return (
+    <div className="flex items-end space-x-3">
+      {/* File upload button */}
+      <button
+        onClick={handleFileUpload}
+        className="p-2 hover:bg-white/10 rounded-lg transition-colors flex-shrink-0"
+        title="Attach file"
+      >
+        <Paperclip className="w-5 h-5 text-gray-400" />
+      </button>
+
+      {/* Message input */}
+      <div className="flex-1 relative">
+        <textarea
+          ref={textareaRef}
+          value={message}
+          onChange={handleInputChange}
+          onKeyPress={handleKeyPress}
+          placeholder="Type a message..."
+          className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none max-h-32"
+          rows={1}
+        />
+        
+        {/* Emoji button */}
+        <button
+          onClick={handleEmoji}
+          className="absolute right-12 top-1/2 transform -translate-y-1/2 p-1 hover:bg-white/10 rounded transition-colors"
+          title="Add emoji"
+        >
+          <Smile className="w-5 h-5 text-gray-400" />
+        </button>
+      </div>
+
+      {/* Voice message button */}
+      <button
+        onClick={handleVoiceMessage}
+        className="p-2 hover:bg-white/10 rounded-lg transition-colors flex-shrink-0"
+        title="Voice message"
+      >
+        <Mic className="w-5 h-5 text-gray-400" />
+      </button>
+
+      {/* Send button */}
+      <button
+        onClick={handleSend}
+        disabled={!message.trim()}
+        className="p-2 bg-blue-500 hover:bg-blue-600 disabled:bg-gray-500 disabled:cursor-not-allowed text-white rounded-lg transition-colors flex-shrink-0"
+        title="Send message"
+      >
+        <Send className="w-5 h-5" />
+      </button>
+    </div>
+  );
+};
