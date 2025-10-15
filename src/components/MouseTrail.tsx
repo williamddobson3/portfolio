@@ -40,7 +40,7 @@ export const MouseTrail: React.FC = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       const currentTime = Date.now();
-      const maxAge = 1000; // 1 second trail
+      const maxAge = 2000; // 2 second trail
       
       // Filter out old trail points
       trailRef.current = trailRef.current.filter(point => 
@@ -56,41 +56,53 @@ export const MouseTrail: React.FC = () => {
         
         const age = currentTime - point.time;
         const opacity = 1 - (age / maxAge);
-        const size = 20 * opacity;
+        const size = 40 * opacity; // Increased from 20 to 40
         
-        // Create gradient
-        const gradient = ctx.createRadialGradient(
-          point.x, point.y, 0,
-          point.x, point.y, size
-        );
+        // Create multiple circles for stronger effect
+        for (let j = 0; j < 3; j++) {
+          const circleSize = size * (1 - j * 0.3);
+          const circleOpacity = opacity * (1 - j * 0.2);
+          
+          // Create gradient
+          const gradient = ctx.createRadialGradient(
+            point.x, point.y, 0,
+            point.x, point.y, circleSize
+          );
+          
+          const color = colors[i % colors.length];
+          gradient.addColorStop(0, color + Math.floor(circleOpacity * 255).toString(16).padStart(2, '0'));
+          gradient.addColorStop(0.3, color + Math.floor(circleOpacity * 200).toString(16).padStart(2, '0'));
+          gradient.addColorStop(0.7, color + Math.floor(circleOpacity * 100).toString(16).padStart(2, '0'));
+          gradient.addColorStop(1, color + '00');
+          
+          ctx.save();
+          ctx.globalAlpha = circleOpacity;
+          ctx.fillStyle = gradient;
+          ctx.shadowBlur = 50 + j * 20; // Increased shadow blur
+          ctx.shadowColor = color;
+          
+          // Draw main cursor circle
+          ctx.beginPath();
+          ctx.arc(point.x, point.y, circleSize, 0, Math.PI * 2);
+          ctx.fill();
+          
+          ctx.restore();
+        }
         
-        const color = colors[i % colors.length];
-        gradient.addColorStop(0, color + Math.floor(opacity * 255).toString(16).padStart(2, '0'));
-        gradient.addColorStop(0.5, color + Math.floor(opacity * 128).toString(16).padStart(2, '0'));
-        gradient.addColorStop(1, color + '00');
-        
-        ctx.save();
-        ctx.globalAlpha = opacity;
-        ctx.fillStyle = gradient;
-        ctx.shadowBlur = 30;
-        ctx.shadowColor = color;
-        
-        // Draw main cursor circle
-        ctx.beginPath();
-        ctx.arc(point.x, point.y, size, 0, Math.PI * 2);
-        ctx.fill();
-        
-        // Draw connecting line
+        // Draw connecting line with stronger effect
         if (nextPoint) {
-          ctx.strokeStyle = color + Math.floor(opacity * 100).toString(16).padStart(2, '0');
-          ctx.lineWidth = 3;
+          ctx.save();
+          ctx.globalAlpha = opacity * 0.8;
+          ctx.strokeStyle = colors[i % colors.length] + Math.floor(opacity * 200).toString(16).padStart(2, '0');
+          ctx.lineWidth = 8; // Increased from 3 to 8
+          ctx.shadowBlur = 20;
+          ctx.shadowColor = colors[i % colors.length];
           ctx.beginPath();
           ctx.moveTo(point.x, point.y);
           ctx.lineTo(nextPoint.x, nextPoint.y);
           ctx.stroke();
+          ctx.restore();
         }
-        
-        ctx.restore();
       }
     };
 
@@ -109,16 +121,29 @@ export const MouseTrail: React.FC = () => {
         Math.pow(currentMouse.y - lastMouse.y, 2)
       );
       
-      // Only add points if mouse moved significantly
-      if (distance > 5) {
+      // Add points more frequently for stronger effect
+      if (distance > 2) { // Reduced from 5 to 2
         trailRef.current.push({
           x: e.clientX,
           y: e.clientY,
           time: Date.now()
         });
         
+        // Add multiple points for denser trail
+        if (distance > 10) {
+          for (let i = 1; i < 3; i++) {
+            const interpolatedX = lastMouse.x + (currentMouse.x - lastMouse.x) * (i / 3);
+            const interpolatedY = lastMouse.y + (currentMouse.y - lastMouse.y) * (i / 3);
+            trailRef.current.push({
+              x: interpolatedX,
+              y: interpolatedY,
+              time: Date.now() - i * 10
+            });
+          }
+        }
+        
         // Limit trail length
-        if (trailRef.current.length > 20) {
+        if (trailRef.current.length > 50) { // Increased from 20 to 50
           trailRef.current.shift();
         }
       }
