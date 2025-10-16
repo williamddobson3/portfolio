@@ -264,6 +264,60 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
         ja: 'ゲーム・チャット'
       },
 
+      // Additional contact page translations
+      'contact.email.title': {
+        en: 'Email Contact',
+        ja: 'メール連絡'
+      },
+      'contact.email.subtitle': {
+        en: 'For professional inquiries and project discussions, you can reach me via email.',
+        ja: 'プロフェッショナルな問い合わせやプロジェクトの議論については、メールでお問い合わせください。'
+      },
+      'contact.email.professional': {
+        en: 'Professional Email Contact',
+        ja: 'プロフェッショナルメール連絡'
+      },
+      'contact.email.copy': {
+        en: 'Copy Email Address',
+        ja: 'メールアドレスをコピー'
+      },
+      'contact.email.copied': {
+        en: 'Email Copied!',
+        ja: 'メールアドレスをコピーしました！'
+      },
+      'contact.status.response': {
+        en: '24h Response',
+        ja: '24時間以内に回答'
+      },
+      'contact.status.professional': {
+        en: 'Professional Service',
+        ja: 'プロフェッショナルサービス'
+      },
+      'contact.status.detailed': {
+        en: 'Detailed Discussions',
+        ja: '詳細な議論'
+      },
+      'contact.availability.title': {
+        en: 'Available',
+        ja: '利用可能'
+      },
+      'contact.availability.new': {
+        en: 'New Projects',
+        ja: '新しいプロジェクト'
+      },
+      'contact.availability.response': {
+        en: '24h Response',
+        ja: '24時間以内に回答'
+      },
+      'contact.availability.timezone': {
+        en: 'JST Timezone',
+        ja: 'JSTタイムゾーン'
+      },
+      'contact.availability.tokyo': {
+        en: 'Tokyo, Japan',
+        ja: '東京、日本'
+      },
+
       // Project Types
       'project.type.ai': {
         en: 'AI/ML Development',

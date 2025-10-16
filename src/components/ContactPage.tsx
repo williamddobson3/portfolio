@@ -11,7 +11,7 @@ export const ContactPage: React.FC = () => {
       name: 'Email',
       href: '#',
       icon: Mail,
-      description: 'Professional email contact',
+      description: t('contact.social.email'),
       color: 'from-blue-500 to-blue-600',
       bgColor: 'bg-blue-500/10',
       borderColor: 'border-blue-500/20',
@@ -23,7 +23,7 @@ export const ContactPage: React.FC = () => {
       name: 'GitHub',
       href: 'https://github.com/williamddobson3',
       icon: Github,
-      description: 'Check out my code and projects',
+      description: t('contact.social.github'),
       color: 'from-gray-600 to-gray-700',
       bgColor: 'bg-gray-500/10',
       borderColor: 'border-gray-500/20',
@@ -35,7 +35,7 @@ export const ContactPage: React.FC = () => {
       name: 'Telegram',
       href: 'https://t.me/ErosPhoenix',
       icon: MessageCircle,
-      description: 'Chat with me on Telegram',
+      description: t('contact.social.telegram'),
       color: 'from-cyan-500 to-cyan-600',
       bgColor: 'bg-cyan-500/10',
       borderColor: 'border-cyan-500/20',
@@ -47,7 +47,7 @@ export const ContactPage: React.FC = () => {
       name: 'Discord',
       href: 'https://discord.gg/ZKbuj7ZV',
       icon: Users,
-      description: 'Join my Discord server',
+      description: t('contact.social.discord'),
       color: 'from-purple-500 to-purple-600',
       bgColor: 'bg-purple-500/10',
       borderColor: 'border-purple-500/20',
@@ -181,9 +181,9 @@ export const ContactPage: React.FC = () => {
             <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
               <Mail size={32} className="text-white" />
             </div>
-            <h2 className="text-3xl font-bold text-white mb-4">Email Contact</h2>
+            <h2 className="text-3xl font-bold text-white mb-4">{t('contact.email.title')}</h2>
             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-              For professional inquiries and project discussions, you can reach me via email.
+              {t('contact.email.subtitle')}
             </p>
           </div>
           
@@ -196,20 +196,20 @@ export const ContactPage: React.FC = () => {
                 </div>
                 
                 <h3 className="text-2xl font-bold text-white mb-2">satoshiengineer92@gmail.com</h3>
-                <p className="text-gray-400 mb-6">Professional Email Contact</p>
+                <p className="text-gray-400 mb-6">{t('contact.email.professional')}</p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 w-full">
                   <div className="flex items-center justify-center text-gray-300">
                     <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
-                    <span className="text-sm">24h Response</span>
+                    <span className="text-sm">{t('contact.status.response')}</span>
                   </div>
                   <div className="flex items-center justify-center text-gray-300">
                     <div className="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
-                    <span className="text-sm">Professional Service</span>
+                    <span className="text-sm">{t('contact.status.professional')}</span>
                   </div>
                   <div className="flex items-center justify-center text-gray-300">
                     <div className="w-2 h-2 bg-purple-400 rounded-full mr-2"></div>
-                    <span className="text-sm">Detailed Discussions</span>
+                    <span className="text-sm">{t('contact.status.detailed')}</span>
                   </div>
                 </div>
                 
@@ -220,12 +220,12 @@ export const ContactPage: React.FC = () => {
                   {copiedItem === 'email' ? (
                     <>
                       <Check size={18} className="text-green-400" />
-                      <span className="text-green-400 font-medium">Email Copied!</span>
+                      <span className="text-green-400 font-medium">{t('contact.email.copied')}</span>
                     </>
                   ) : (
                     <>
                       <Copy size={18} className="text-gray-400" />
-                      <span className="text-gray-300">Copy Email Address</span>
+                      <span className="text-gray-300">{t('contact.email.copy')}</span>
                     </>
                   )}
                 </button>
@@ -240,24 +240,24 @@ export const ContactPage: React.FC = () => {
             <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
               <div className="w-6 h-6 bg-green-400 rounded-full animate-pulse" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">Available</h3>
-            <p className="text-gray-400">Accepting new projects</p>
+            <h3 className="text-xl font-bold text-white mb-2">{t('contact.availability.title')}</h3>
+            <p className="text-gray-400">{t('contact.availability.new')}</p>
           </div>
           
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
             <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
               <div className="w-6 h-6 bg-blue-400 rounded-full" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">24h Response</h3>
-            <p className="text-gray-400">Quick turnaround time</p>
+            <h3 className="text-xl font-bold text-white mb-2">{t('contact.availability.response')}</h3>
+            <p className="text-gray-400">{t('contact.availability.new')}</p>
           </div>
           
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
             <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
               <div className="w-6 h-6 bg-purple-400 rounded-full" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">JST Timezone</h3>
-            <p className="text-gray-400">Tokyo, Japan</p>
+            <h3 className="text-xl font-bold text-white mb-2">{t('contact.availability.timezone')}</h3>
+            <p className="text-gray-400">{t('contact.availability.tokyo')}</p>
           </div>
         </div>
       </div>
