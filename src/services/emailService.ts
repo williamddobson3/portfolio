@@ -20,8 +20,8 @@ const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // Replace with your EmailJS tem
 const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // Replace with your EmailJS public key
 const RECIPIENT_EMAIL = 'satoshiengineer92@gmail.com';
 
-// Alternative: Using a simple fetch to a backend endpoint
-const BACKEND_EMAIL_ENDPOINT = '/api/send-email'; // Replace with your backend endpoint
+// Backend endpoint for email sending
+const BACKEND_EMAIL_ENDPOINT = 'http://localhost:3001/api/send-email';
 
 /**
  * Send email using EmailJS (recommended for frontend-only solutions)
@@ -119,22 +119,28 @@ ${formData.message}
 
 /**
  * Main email sending function
- * Tries EmailJS first, then backend, then falls back to mailto
+ * Uses backend endpoint by default, with fallback to mailto
  */
 export const sendContactEmail = async (formData: ContactFormData): Promise<EmailServiceResponse> => {
-  // Try EmailJS first (if configured)
-  if (EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID') {
-    const emailjsResult = await sendEmailWithEmailJS(formData);
-    if (emailjsResult.success) {
-      return emailjsResult;
-    }
-  }
-
-  // Try backend endpoint (if configured)
-  if (BACKEND_EMAIL_ENDPOINT !== '/api/send-email') {
+  // Try backend endpoint first (primary method)
+  try {
     const backendResult = await sendEmailWithBackend(formData);
     if (backendResult.success) {
       return backendResult;
+    }
+  } catch (error) {
+    console.warn('Backend email failed, trying fallback:', error);
+  }
+
+  // Try EmailJS as secondary option (if configured)
+  if (EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID') {
+    try {
+      const emailjsResult = await sendEmailWithEmailJS(formData);
+      if (emailjsResult.success) {
+        return emailjsResult;
+      }
+    } catch (error) {
+      console.warn('EmailJS failed, using fallback:', error);
     }
   }
 
