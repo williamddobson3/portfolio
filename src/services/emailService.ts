@@ -1,5 +1,5 @@
 // Email service for sending contact form messages
-// This service can be configured to use various email providers
+// Uses backend Nodemailer service
 
 export interface ContactFormData {
   name: string;
@@ -14,55 +14,17 @@ export interface EmailServiceResponse {
   error?: string;
 }
 
-// EmailJS configuration (you'll need to set up EmailJS account and get these values)
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID'; // Replace with your EmailJS service ID
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // Replace with your EmailJS template ID
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // Replace with your EmailJS public key
+// Backend endpoint for email sending
+// Use production URL when deployed, localhost for development
+const BACKEND_EMAIL_ENDPOINT = import.meta.env.PROD 
+  ? 'https://your-backend-domain.com/api/send-email'  // Replace with your production backend URL
+  : 'http://localhost:3001/api/send-email';
 const RECIPIENT_EMAIL = 'satoshiengineer92@gmail.com';
 
-// Backend endpoint for email sending
-const BACKEND_EMAIL_ENDPOINT = 'http://localhost:3001/api/send-email';
-
 /**
- * Send email using EmailJS (recommended for frontend-only solutions)
- * You need to:
- * 1. Create an EmailJS account at https://www.emailjs.com/
- * 2. Set up an email service (Gmail, Outlook, etc.)
- * 3. Create an email template
- * 4. Replace the configuration values above
+ * Send email using backend Nodemailer service
+ * This is the primary method for sending emails
  */
-export const sendEmailWithEmailJS = async (formData: ContactFormData): Promise<EmailServiceResponse> => {
-  try {
-    // Dynamic import to avoid build issues if EmailJS is not installed
-    const emailjs = await import('@emailjs/browser');
-    
-    const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
-      project_type: formData.projectType,
-      message: formData.message,
-      to_email: RECIPIENT_EMAIL,
-    };
-
-    const result = await emailjs.send(
-      EMAILJS_SERVICE_ID,
-      EMAILJS_TEMPLATE_ID,
-      templateParams,
-      EMAILJS_PUBLIC_KEY
-    );
-
-    return {
-      success: true,
-      message: 'Email sent successfully!'
-    };
-  } catch (error: any) {
-    console.error('EmailJS Error:', error);
-    return {
-      success: false,
-      error: error.message || 'Failed to send email'
-    };
-  }
-};
 
 /**
  * Send email using a backend API endpoint
@@ -119,7 +81,7 @@ ${formData.message}
 
 /**
  * Main email sending function
- * Uses backend endpoint by default, with fallback to mailto
+ * Uses backend endpoint with fallback to mailto
  */
 export const sendContactEmail = async (formData: ContactFormData): Promise<EmailServiceResponse> => {
   // Try backend endpoint first (primary method)
@@ -129,19 +91,7 @@ export const sendContactEmail = async (formData: ContactFormData): Promise<Email
       return backendResult;
     }
   } catch (error) {
-    console.warn('Backend email failed, trying fallback:', error);
-  }
-
-  // Try EmailJS as secondary option (if configured)
-  if (EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID') {
-    try {
-      const emailjsResult = await sendEmailWithEmailJS(formData);
-      if (emailjsResult.success) {
-        return emailjsResult;
-      }
-    } catch (error) {
-      console.warn('EmailJS failed, using fallback:', error);
-    }
+    console.warn('Backend email failed, using fallback:', error);
   }
 
   // Fallback: Open email client

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Github, Send, Clock, CheckCircle, MessageCircle, Users } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { sendContactEmail, ContactFormData } from '../services/emailService';
+import { sendContactEmail, ContactFormData } from '../services/simpleEmailService';
 
 export const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
