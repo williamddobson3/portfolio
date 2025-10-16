@@ -101,7 +101,7 @@ export const HomePage: React.FC = () => {
             { Icon: Github, href: 'https://github.com/williamddobson3', label: 'GitHub' },
             { Icon: Mail, href: 'mailto:satoshiengineer92@gmail.com', label: 'Email' },
             { Icon: MessageCircle, href: 'https://t.me/ErosPhoenix', label: 'Telegram' },
-            { Icon: Users, href: 'https://discord.com/users/cupid076831', label: 'Discord' }
+            { Icon: Users, href: 'https://discord.gg/ZKbuj7ZV', label: 'Discord' }
           ].map(({ Icon, href, label }) => (
             <a
               key={label}
