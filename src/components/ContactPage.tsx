@@ -1,102 +1,70 @@
 import React, { useState } from 'react';
-import { Mail, Github, Send, Clock, CheckCircle, MessageCircle, Users } from 'lucide-react';
+import { Mail, Github, MessageCircle, Users, ExternalLink, Copy, Check } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { sendContactEmail, ContactFormData } from '../services/simpleEmailService';
 
 export const ContactPage: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    projectType: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const { t } = useLanguage();
+  const [copiedItem, setCopiedItem] = useState<string | null>(null);
 
-  const projectTypes = [
-    t('project.type.ai'),
-    t('project.type.web'),
-    t('project.type.android'),
-    t('project.type.fullstack'),
-    t('project.type.leadership'),
-    t('project.type.consulting'),
-    t('project.type.other')
-  ];
-
-  const socialLinks = [
+  const contactMethods = [
     {
       name: 'Email',
       href: 'mailto:satoshiengineer92@gmail.com',
       icon: Mail,
-      description: t('contact.social.email'),
-      color: 'blue'
+      description: 'Send me an email directly',
+      color: 'from-blue-500 to-blue-600',
+      bgColor: 'bg-blue-500/10',
+      borderColor: 'border-blue-500/20',
+      iconColor: 'text-blue-400',
+      copyText: 'satoshiengineer92@gmail.com',
+      buttonText: 'Send Email'
     },
     {
       name: 'GitHub',
       href: 'https://github.com/williamddobson3',
       icon: Github,
-      description: t('contact.social.github'),
-      color: 'gray'
+      description: 'Check out my code and projects',
+      color: 'from-gray-600 to-gray-700',
+      bgColor: 'bg-gray-500/10',
+      borderColor: 'border-gray-500/20',
+      iconColor: 'text-gray-400',
+      copyText: 'github.com/williamddobson3',
+      buttonText: 'View Profile'
     },
     {
-      name: 'TeFlegram',
+      name: 'Telegram',
       href: 'https://t.me/ErosPhoenix',
       icon: MessageCircle,
-      description: t('contact.social.telegram'),
-      color: 'cyan'
+      description: 'Chat with me on Telegram',
+      color: 'from-cyan-500 to-cyan-600',
+      bgColor: 'bg-cyan-500/10',
+      borderColor: 'border-cyan-500/20',
+      iconColor: 'text-cyan-400',
+      copyText: 't.me/ErosPhoenix',
+      buttonText: 'Start Chat'
     },
     {
       name: 'Discord',
       href: 'https://discord.gg/ZKbuj7ZV',
       icon: Users,
-      description: t('contact.social.discord'),
-      color: 'purple'
+      description: 'Join my Discord server',
+      color: 'from-purple-500 to-purple-600',
+      bgColor: 'bg-purple-500/10',
+      borderColor: 'border-purple-500/20',
+      iconColor: 'text-purple-400',
+      copyText: 'discord.gg/ZKbuj7ZV',
+      buttonText: 'Join Server'
     }
   ];
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
+  const handleCopy = async (text: string, itemName: string) => {
     try {
-      const result = await sendContactEmail(formData as ContactFormData);
-      
-      if (result.success) {
-        setIsSubmitted(true);
-        // Reset form after 3 seconds
-        setTimeout(() => {
-          setIsSubmitted(false);
-          setFormData({ name: '', email: '', projectType: '', message: '' });
-        }, 3000);
-      } else {
-        // Handle error - you might want to show an error message to the user
-        console.error('Email sending failed:', result.error);
-        // For now, we'll still show successaaaaaaaaaaa to avoid confusing the user
-        setIsSubmitted(true);
-        setTimeout(() => {
-          setIsSubmitted(false);
-          setFormData({ name: '', email: '', projectType: '', message: '' });
-        }, 3000);
-      }
-    } catch (error) {
-      console.error('Unexpected error:', error);
-      // Still show success to avoid confusing the user
-      setIsSubmitted(true);
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({ name: '', email: '', projectType: '', message: '' });
-      }, 3000);
-    } finally {
-      setIsSubmitting(false);
+      await navigator.clipboard.writeText(text);
+      setCopiedItem(itemName);
+      setTimeout(() => setCopiedItem(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
     }
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
   };
 
   return (
@@ -125,184 +93,144 @@ export const ContactPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8">
-            <h2 className="text-2xl font-bold text-white mb-6">{t('contact.form.title')}</h2>
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    {t('contact.form.name')} *
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-300"
-                    placeholder="Enter your name"
-                  />
+        {/* Contact Methods Grid */}
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          {contactMethods.map((method, index) => (
+            <div
+              key={method.name}
+              className={`group relative bg-white/5 backdrop-blur-sm border ${method.borderColor} rounded-3xl p-8 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl`}
+              style={{
+                animationDelay: `${index * 0.1}s`
+              }}
+            >
+              {/* Background Gradient */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${method.color} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-300`} />
+              
+              {/* Content */}
+              <div className="relative z-10">
+                {/* Icon and Header */}
+                <div className="flex items-center mb-6">
+                  <div className={`w-16 h-16 ${method.bgColor} rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <method.icon className={`w-8 h-8 ${method.iconColor}`} />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                      {method.name}
+                    </h3>
+                    <p className="text-gray-400">{method.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    {t('contact.form.email')} *
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-300"
-                    placeholder="your@email.com"
-                  />
-                </div>
-              </div>
 
-              <div>
-                <label className="block text-white text-sm font-medium mb-2">
-                  {t('contact.form.project')}
-                </label>
-                <select
-                  name="projectType"
-                  value={formData.projectType}
-                  onChange={handleInputChange}
-                  className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-300"
+                {/* Contact Info */}
+                <div className="mb-6">
+                  <div className="flex items-center justify-between bg-white/5 rounded-xl p-4 mb-4">
+                    <span className="text-gray-300 font-mono text-sm">{method.copyText}</span>
+                    <button
+                      onClick={() => handleCopy(method.copyText, method.name)}
+                      className="flex items-center space-x-2 px-3 py-1 bg-white/10 hover:bg-white/20 rounded-lg transition-colors duration-200"
+                    >
+                      {copiedItem === method.name ? (
+                        <>
+                          <Check size={16} className="text-green-400" />
+                          <span className="text-green-400 text-sm">Copied!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy size={16} className="text-gray-400" />
+                          <span className="text-gray-400 text-sm">Copy</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Action Button */}
+                <a
+                  href={method.href}
+                  target={method.name === 'Email' ? '_self' : '_blank'}
+                  rel={method.name === 'Email' ? '' : 'noopener noreferrer'}
+                  className={`inline-flex items-center justify-center w-full py-4 px-6 bg-gradient-to-r ${method.color} hover:shadow-lg hover:shadow-${method.name.toLowerCase()}-500/25 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105`}
                 >
-                  <option value="" className="bg-gray-900">Select project type</option>
-                  {projectTypes.map(type => (
-                    <option key={type} value={type} className="bg-gray-900">{type}</option>
-                  ))}
-                </select>
+                  <method.icon size={20} className="mr-2" />
+                  {method.buttonText}
+                  <ExternalLink size={16} className="ml-2" />
+                </a>
               </div>
-
-              <div>
-                <label className="block text-white text-sm font-medium mb-2">
-                  {t('contact.form.details')} *
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  rows={6}
-                  className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-300 resize-none"
-                  placeholder="Tell me about your project, timeline, budget, and any specific requirements..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting || isSubmitted}
-                className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 ${
-                  isSubmitted
-                    ? 'bg-green-500 text-white'
-                    : isSubmitting
-                    ? 'bg-blue-500/50 text-white cursor-not-allowed'
-                    : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg shadow-blue-500/25'
-                }`}
-              >
-                {isSubmitted ? (
-                  <>
-                    <CheckCircle size={20} />
-                    <span>{t('contact.form.sent')}</span>
-                  </>
-                ) : isSubmitting ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    <span>{t('contact.form.sending')}</span>
-                  </>
-                ) : (
-                  <>
-                    <Send size={20} />
-                    <span>{t('contact.form.send')}</span>
-                  </>
-                )}
-              </button>
-            </form>
-
-            <div className="mt-6 p-4 bg-blue-500/10 border border-blue-500/30 rounded-xl">
-              <div className="flex items-center text-blue-300 mb-2">
-                <Clock size={16} className="mr-2" />
-                <span className="text-sm font-medium">{t('contact.form.response')}</span>
-              </div>
-              <p className="text-gray-300 text-sm">
-                {t('contact.form.response.desc')}
-              </p>
             </div>
+          ))}
+        </div>
+
+        {/* Special Email Interface */}
+        <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-3xl p-8 mb-12">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-white mb-4">Direct Email Contact</h2>
+            <p className="text-gray-300 text-lg">
+              For the fastest response, send me an email directly
+            </p>
           </div>
-
-          {/* Contact Information & Social Links */}
-          <div className="space-y-8">
-            {/* Commitment Statement */}
-            <div className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-3xl p-8">
-              <h2 className="text-2xl font-bold text-white mb-4">{t('contact.commitment.title')}</h2>
-              <div className="space-y-4 text-gray-300">
-                <p>
-                  "{t('contact.commitment.content')}"
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center">
-                    <span className="w-2 h-2 bg-blue-400 rounded-full mr-3" />
-                    <span>{t('contact.commitment.communication')}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span className="w-2 h-2 bg-purple-400 rounded-full mr-3" />
-                    <span>{t('contact.commitment.delivery')}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span className="w-2 h-2 bg-cyan-400 rounded-full mr-3" />
-                    <span>{t('contact.commitment.support')}</span>
-                  </div>
+          
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 mb-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-2">satoshiengineer92@gmail.com</h3>
+                  <p className="text-gray-400">Click to compose your message</p>
                 </div>
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div>
-              <h3 className="text-xl font-bold text-white mb-6">{t('contact.connect')}</h3>
-              <div className="space-y-4">
-                {socialLinks.map(link => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group block bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
+                <div className="flex space-x-3">
+                  <button
+                    onClick={() => handleCopy('satoshiengineer92@gmail.com', 'email')}
+                    className="flex items-center space-x-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors duration-200"
                   >
-                    <div className="flex items-center">
-                      <div className={`w-12 h-12 bg-${link.color}-500/20 rounded-xl flex items-center justify-center mr-4`}>
-                        <link.icon className={`w-6 h-6 text-${link.color}-400`} />
-                      </div>
-                      <div>
-                        <h4 className="text-white font-semibold group-hover:text-blue-300 transition-colors">
-                          {link.name}
-                        </h4>
-                        <p className="text-gray-400 text-sm">{link.description}</p>
-                      </div>
-                    </div>
-                  </a>
-                ))}
+                    {copiedItem === 'email' ? (
+                      <>
+                        <Check size={16} className="text-green-400" />
+                        <span className="text-green-400">Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy size={16} className="text-gray-400" />
+                        <span className="text-gray-400">Copy</span>
+                      </>
+                    )}
+                  </button>
+                </div>
               </div>
             </div>
+            
+            <a
+              href="mailto:satoshiengineer92@gmail.com"
+              className="block w-full py-4 px-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 text-center"
+            >
+              <Mail size={20} className="inline mr-2" />
+              Open Email Client
+            </a>
+          </div>
+        </div>
 
-            {/* Availability Calendar */}
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
-              <h3 className="text-lg font-bold text-white mb-4">{t('contact.availability')}</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-green-400 mb-1">Available</div>
-                  <div className="text-sm text-gray-400">{t('contact.availability.new')}</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-400 mb-1">JST</div>
-                  <div className="text-sm text-gray-400">{t('contact.availability.timezone')}</div>
-                </div>
-              </div>
+        {/* Availability Status */}
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
+            <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-6 h-6 bg-green-400 rounded-full animate-pulse" />
             </div>
+            <h3 className="text-xl font-bold text-white mb-2">Available</h3>
+            <p className="text-gray-400">Accepting new projects</p>
+          </div>
+          
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
+            <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-6 h-6 bg-blue-400 rounded-full" />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2">24h Response</h3>
+            <p className="text-gray-400">Quick turnaround time</p>
+          </div>
+          
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
+            <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-6 h-6 bg-purple-400 rounded-full" />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2">JST Timezone</h3>
+            <p className="text-gray-400">Tokyo, Japan</p>
           </div>
         </div>
       </div>
