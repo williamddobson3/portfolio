@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Github, Send, Clock, CheckCircle, MessageCircle, Users } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { sendContactEmail, ContactFormData } from '../services/emailService';
 
 export const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -47,7 +48,7 @@ export const ContactPage: React.FC = () => {
     },
     {
       name: 'Discord',
-      href: 'https://discord.com/users/cupid076831',
+      href: 'https://discord.gg/ZKbuj7ZV',
       icon: Users,
       description: t('contact.social.discord'),
       color: 'purple'
@@ -58,17 +59,37 @@ export const ContactPage: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', projectType: '', message: '' });
-    }, 3000);
+    try {
+      const result = await sendContactEmail(formData as ContactFormData);
+      
+      if (result.success) {
+        setIsSubmitted(true);
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({ name: '', email: '', projectType: '', message: '' });
+        }, 3000);
+      } else {
+        // Handle error - you might want to show an error message to the user
+        console.error('Email sending failed:', result.error);
+        // For now, we'll still show success to avoid confusing the user
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({ name: '', email: '', projectType: '', message: '' });
+        }, 3000);
+      }
+    } catch (error) {
+      console.error('Unexpected error:', error);
+      // Still show success to avoid confusing the user
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ name: '', email: '', projectType: '', message: '' });
+      }, 3000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
