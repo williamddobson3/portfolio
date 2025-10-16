@@ -40,7 +40,7 @@ export const ContactPage: React.FC = () => {
       color: 'gray'
     },
     {
-      name: 'Telegram',
+      name: 'TeFlegram',
       href: 'https://t.me/ErosPhoenix',
       icon: MessageCircle,
       description: t('contact.social.telegram'),
@@ -72,7 +72,7 @@ export const ContactPage: React.FC = () => {
       } else {
         // Handle error - you might want to show an error message to the user
         console.error('Email sending failed:', result.error);
-        // For now, we'll still show success to avoid confusing the user
+        // For now, we'll still show successaaaaaaaaaaa to avoid confusing the user
         setIsSubmitted(true);
         setTimeout(() => {
           setIsSubmitted(false);
