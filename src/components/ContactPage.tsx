@@ -30,30 +30,48 @@ export const ContactPage: React.FC = () => {
       iconColor: 'text-gray-400',
       copyText: 'github.com/williamddobson3',
       buttonText: 'View Profile'
+    }
+  ];
+
+  const teamChannels = [
+    {
+      name: 'MetaCore Discord',
+      href: 'https://discord.gg/7dDhr2FUnp',
+      icon: Users,
+      description: t('contact.team.discord'),
+      color: 'from-indigo-500 to-purple-600',
+      bgColor: 'bg-indigo-500/10',
+      borderColor: 'border-indigo-500/20',
+      iconColor: 'text-indigo-400',
+      copyText: 'discord.gg/7dDhr2FUnp',
+      buttonText: t('contact.team.join_discord'),
+      badge: t('contact.team.global')
     },
     {
-      name: 'Telegram',
-      href: 'https://t.me/ErosPhoenix',
+      name: 'MetaCore Telegram',
+      href: 'https://t.me/metacore_team',
       icon: MessageCircle,
-      description: t('contact.social.telegram'),
-      color: 'from-cyan-500 to-cyan-600',
+      description: t('contact.team.telegram'),
+      color: 'from-cyan-500 to-blue-600',
       bgColor: 'bg-cyan-500/10',
       borderColor: 'border-cyan-500/20',
       iconColor: 'text-cyan-400',
-      copyText: 't.me/ErosPhoenix',
-      buttonText: 'Start Chat'
+      copyText: 't.me/metacore_team',
+      buttonText: t('contact.team.join_telegram'),
+      badge: t('contact.team.team')
     },
     {
-      name: 'Discord',
-      href: 'https://discord.gg/ZKbuj7ZV',
+      name: 'MetaCore Chatwork',
+      href: 'https://www.chatwork.com/g/metacore',
       icon: Users,
-      description: t('contact.social.discord'),
-      color: 'from-purple-500 to-purple-600',
-      bgColor: 'bg-purple-500/10',
-      borderColor: 'border-purple-500/20',
-      iconColor: 'text-purple-400',
-      copyText: 'discord.gg/ZKbuj7ZV',
-      buttonText: 'Join Server'
+      description: t('contact.team.chatwork'),
+      color: 'from-green-500 to-emerald-600',
+      bgColor: 'bg-green-500/10',
+      borderColor: 'border-green-500/20',
+      iconColor: 'text-green-400',
+      copyText: 'chatwork.com/g/metacore',
+      buttonText: t('contact.team.join_chatwork'),
+      badge: t('contact.team.japanese')
     }
   ];
 
@@ -93,86 +111,188 @@ export const ContactPage: React.FC = () => {
           </p>
         </div>
 
-        {/* Contact Methods Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          {contactMethods.map((method, index) => (
-            <div
-              key={method.name}
-              className={`group relative bg-white/5 backdrop-blur-sm border ${method.borderColor} rounded-3xl p-8 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl`}
-              style={{
-                animationDelay: `${index * 0.1}s`
-              }}
-            >
-              {/* Background Gradient */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${method.color} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-300`} />
-              
-              {/* Content */}
-              <div className="relative z-10">
-                {/* Icon and Header */}
-                <div className="flex items-center mb-6">
-                  <div className={`w-16 h-16 ${method.bgColor} rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <method.icon className={`w-8 h-8 ${method.iconColor}`} />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-white group-hover:text-blue-300 transition-colors">
-                      {method.name}
-                    </h3>
-                    <p className="text-gray-400">{method.description}</p>
-                  </div>
-                </div>
+        {/* MetaCore Team Section */}
+        <div className="mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-4">
+              <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+                {t('contact.team.title')}
+              </span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              {t('contact.team.subtitle')}
+            </p>
+          </div>
 
-                {/* Contact Info */}
-                <div className="mb-6">
-                  <div className="flex items-center justify-between bg-white/5 rounded-xl p-4 mb-4">
-                    <span className="text-gray-300 font-mono text-sm">{method.copyText}</span>
-                    <button
-                      onClick={() => handleCopy(method.copyText, method.name)}
-                      className="flex items-center space-x-2 px-3 py-1 bg-white/10 hover:bg-white/20 rounded-lg transition-colors duration-200"
-                    >
-                      {copiedItem === method.name ? (
-                        <>
-                          <Check size={16} className="text-green-400" />
-                          <span className="text-green-400 text-sm">Copied!</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy size={16} className="text-gray-400" />
-                          <span className="text-gray-400 text-sm">Copy</span>
-                        </>
-                      )}
-                    </button>
+          {/* Team Channels Grid */}
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {teamChannels.map((channel, index) => (
+              <div
+                key={channel.name}
+                className={`group relative bg-white/5 backdrop-blur-sm border ${channel.borderColor} rounded-3xl p-8 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl`}
+                style={{
+                  animationDelay: `${index * 0.1}s`
+                }}
+              >
+                {/* Background Gradient */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${channel.color} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-300`} />
+                
+                {/* Content */}
+                <div className="relative z-10">
+                  {/* Badge */}
+                  <div className="flex justify-end mb-4">
+                    <span className={`px-3 py-1 text-xs font-semibold rounded-full ${channel.bgColor} ${channel.iconColor} border ${channel.borderColor}`}>
+                      {channel.badge}
+                    </span>
                   </div>
-                </div>
 
-                {/* Action Button */}
-                {method.name === 'Email' ? (
-                  <button
-                    onClick={() => handleCopy(method.copyText, method.name)}
-                    className={`inline-flex items-center justify-center w-full py-4 px-6 bg-gradient-to-r ${method.color} hover:shadow-lg hover:shadow-blue-500/25 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105`}
-                  >
-                    <method.icon size={20} className="mr-2" />
-                    {copiedItem === method.name ? 'Email Copied!' : method.buttonText}
-                    {copiedItem === method.name ? (
-                      <Check size={16} className="ml-2" />
-                    ) : (
-                      <Copy size={16} className="ml-2" />
-                    )}
-                  </button>
-                ) : (
+                  {/* Icon and Header */}
+                  <div className="flex items-center mb-6">
+                    <div className={`w-16 h-16 ${channel.bgColor} rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <channel.icon className={`w-8 h-8 ${channel.iconColor}`} />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                        {channel.name}
+                      </h3>
+                      <p className="text-gray-400">{channel.description}</p>
+                    </div>
+                  </div>
+
+                  {/* Contact Info */}
+                  <div className="mb-6">
+                    <div className="flex items-center justify-between bg-white/5 rounded-xl p-4 mb-4">
+                      <span className="text-gray-300 font-mono text-sm">{channel.copyText}</span>
+                      <button
+                        onClick={() => handleCopy(channel.copyText, channel.name)}
+                        className="flex items-center space-x-2 px-3 py-1 bg-white/10 hover:bg-white/20 rounded-lg transition-colors duration-200"
+                      >
+                        {copiedItem === channel.name ? (
+                          <>
+                            <Check size={16} className="text-green-400" />
+                            <span className="text-green-400 text-sm">Copied!</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy size={16} className="text-gray-400" />
+                            <span className="text-gray-400 text-sm">Copy</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Action Button */}
                   <a
-                    href={method.href}
+                    href={channel.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`inline-flex items-center justify-center w-full py-4 px-6 bg-gradient-to-r ${method.color} hover:shadow-lg hover:shadow-${method.name.toLowerCase()}-500/25 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105`}
+                    className={`inline-flex items-center justify-center w-full py-4 px-6 bg-gradient-to-r ${channel.color} hover:shadow-lg text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105`}
                   >
-                    <method.icon size={20} className="mr-2" />
-                    {method.buttonText}
+                    <channel.icon size={20} className="mr-2" />
+                    {channel.buttonText}
                     <ExternalLink size={16} className="ml-2" />
                   </a>
-                )}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        {/* Personal Contact Methods */}
+        <div className="mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-4">
+              <span className="bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent">
+                {t('contact.personal.title')}
+              </span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              {t('contact.personal.subtitle')}
+            </p>
+          </div>
+
+          {/* Personal Contact Grid */}
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {contactMethods.map((method, index) => (
+              <div
+                key={method.name}
+                className={`group relative bg-white/5 backdrop-blur-sm border ${method.borderColor} rounded-3xl p-8 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl`}
+                style={{
+                  animationDelay: `${index * 0.1}s`
+                }}
+              >
+                {/* Background Gradient */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${method.color} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-300`} />
+                
+                {/* Content */}
+                <div className="relative z-10">
+                  {/* Icon and Header */}
+                  <div className="flex items-center mb-6">
+                    <div className={`w-16 h-16 ${method.bgColor} rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <method.icon className={`w-8 h-8 ${method.iconColor}`} />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                        {method.name}
+                      </h3>
+                      <p className="text-gray-400">{method.description}</p>
+                    </div>
+                  </div>
+
+                  {/* Contact Info */}
+                  <div className="mb-6">
+                    <div className="flex items-center justify-between bg-white/5 rounded-xl p-4 mb-4">
+                      <span className="text-gray-300 font-mono text-sm">{method.copyText}</span>
+                      <button
+                        onClick={() => handleCopy(method.copyText, method.name)}
+                        className="flex items-center space-x-2 px-3 py-1 bg-white/10 hover:bg-white/20 rounded-lg transition-colors duration-200"
+                      >
+                        {copiedItem === method.name ? (
+                          <>
+                            <Check size={16} className="text-green-400" />
+                            <span className="text-green-400 text-sm">Copied!</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy size={16} className="text-gray-400" />
+                            <span className="text-gray-400 text-sm">Copy</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Action Button */}
+                  {method.name === 'Email' ? (
+                    <button
+                      onClick={() => handleCopy(method.copyText, method.name)}
+                      className={`inline-flex items-center justify-center w-full py-4 px-6 bg-gradient-to-r ${method.color} hover:shadow-lg hover:shadow-blue-500/25 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105`}
+                    >
+                      <method.icon size={20} className="mr-2" />
+                      {copiedItem === method.name ? 'Email Copied!' : method.buttonText}
+                      {copiedItem === method.name ? (
+                        <Check size={16} className="ml-2" />
+                      ) : (
+                        <Copy size={16} className="ml-2" />
+                      )}
+                    </button>
+                  ) : (
+                    <a
+                      href={method.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center justify-center w-full py-4 px-6 bg-gradient-to-r ${method.color} hover:shadow-lg hover:shadow-${method.name.toLowerCase()}-500/25 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105`}
+                    >
+                      <method.icon size={20} className="mr-2" />
+                      {method.buttonText}
+                      <ExternalLink size={16} className="ml-2" />
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Special Email Display Interface */}

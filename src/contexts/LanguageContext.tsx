@@ -318,6 +318,60 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
         ja: '東京、日本'
       },
 
+      // MetaCore Team Contact
+      'contact.team.title': {
+        en: 'MetaCore Team Channels',
+        ja: 'MetaCoreチームチャンネル'
+      },
+      'contact.team.subtitle': {
+        en: 'Connect with our global IT team through our dedicated communication channels. Join our community for collaboration, support, and networking opportunities.',
+        ja: '専用のコミュニケーションチャンネルを通じて、グローバルITチームとつながりましょう。コラボレーション、サポート、ネットワーキングの機会のためにコミュニティに参加してください。'
+      },
+      'contact.team.discord': {
+        en: 'Global community server for real-time collaboration, voice channels, and project discussions. Perfect for international team members and open discussions.',
+        ja: 'リアルタイムコラボレーション、音声チャンネル、プロジェクト議論のためのグローバルコミュニティサーバー。国際的なチームメンバーとオープンな議論に最適。'
+      },
+      'contact.team.telegram': {
+        en: 'Team-focused messaging platform for quick updates, file sharing, and direct communication. Ideal for project coordination and team announcements.',
+        ja: 'クイックアップデート、ファイル共有、直接コミュニケーションのためのチーム重視メッセージングプラットフォーム。プロジェクト調整とチーム発表に最適。'
+      },
+      'contact.team.chatwork': {
+        en: 'Japanese business communication platform for professional discussions, task management, and corporate collaboration. Designed for Japanese team members and business partners.',
+        ja: 'プロフェッショナルな議論、タスク管理、企業コラボレーションのための日本のビジネスコミュニケーションプラットフォーム。日本のチームメンバーとビジネスパートナー向けに設計。'
+      },
+      'contact.team.join_discord': {
+        en: 'Join Discord Server',
+        ja: 'Discordサーバーに参加'
+      },
+      'contact.team.join_telegram': {
+        en: 'Join Telegram Group',
+        ja: 'Telegramグループに参加'
+      },
+      'contact.team.join_chatwork': {
+        en: 'Join Chatwork Group',
+        ja: 'Chatworkグループに参加'
+      },
+      'contact.team.global': {
+        en: 'Global',
+        ja: 'グローバル'
+      },
+      'contact.team.team': {
+        en: 'Team',
+        ja: 'チーム'
+      },
+      'contact.team.japanese': {
+        en: 'Japanese',
+        ja: '日本語'
+      },
+      'contact.personal.title': {
+        en: 'Personal Contact',
+        ja: '個人連絡先'
+      },
+      'contact.personal.subtitle': {
+        en: 'Direct contact methods for professional inquiries and project discussions.',
+        ja: 'プロフェッショナルな問い合わせやプロジェクトの議論のための直接連絡方法。'
+      },
+
       // Project Types
       'project.type.ai': {
         en: 'AI/ML Development',
