@@ -247,6 +247,10 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
         en: 'Timezone',
         ja: 'タイムゾーン'
       },
+      'contact.availability.tokyo': {
+        en: 'Tokyo (JST)',
+        ja: '東京（JST）'
+      },
       'contact.social.email': {
         en: 'Direct email contact',
         ja: '直接メール連絡'

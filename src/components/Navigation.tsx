@@ -18,7 +18,7 @@ export const Navigation: React.FC<NavigationProps> = ({ currentPage }) => {
     { id: 'services', label: t('nav.services'), icon: Settings },
     { id: 'testimonials', label: t('nav.testimonials'), icon: MessageSquare },
     { id: 'blog', label: t('nav.blog'), icon: BookOpen },
-    { id: 'chat', label: t('nav.chat'), icon: MessageCircle },
+    // { id: 'chat', label: t('nav.chat'), icon: MessageCircle },
     { id: 'about', label: t('nav.about'), icon: User },
     { id: 'contact', label: t('nav.contact'), icon: Mail },
   ];
