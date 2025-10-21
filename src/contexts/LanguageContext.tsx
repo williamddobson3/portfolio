@@ -455,6 +455,10 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
         en: 'Eyewear e‑commerce with customizable filters, real‑time inventory, and 3D product views. React front‑end with Node/Express backend and Stripe payments.',
         ja: 'カスタマイズ可能なフィルタ、在庫のリアルタイム反映、3D商品ビューを備えたメガネEC。ReactフロントとNode/Expressバックエンド、Stripe決済。'
       },
+      'project.18trip.description': {
+        en: 'Japanese mobile game and anime project "18TRIP" - a near-future hospitality adventure game. Features character-driven storytelling, cassette tape memory system, and immersive travel experiences. Built with modern web technologies for both game platform and promotional website.',
+        ja: '日本のモバイルゲーム・アニメプロジェクト「18TRIP」- 近未来おもてなしアドベンチャーゲーム。キャラクター駆動のストーリーテリング、カセットテープメモリーシステム、没入型旅行体験を特徴とする。ゲームプラットフォームとプロモーションウェブサイトの両方にモダンなウェブ技術を使用。'
+      },
       'project.teamlab.description': {
         en: 'Immersive digital art experiences with interactive 3D/real‑time visuals. Contributed to performant WebGL scenes, SSR UI, and real‑time interactions for exhibitions and virtual tours.',
         ja: '没入型デジタルアート体験。パフォーマンスに優れたWebGLシーン、SSR UI、リアルタイムインタラクションを実装し、展示やバーチャルツアーを支援。'

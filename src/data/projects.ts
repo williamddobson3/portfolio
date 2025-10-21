@@ -164,6 +164,23 @@ export const projects: Project[] = [
     technologies: ['React', 'Sass', 'Node.js', 'Express', 'MongoDB', 'Stripe'],
     images: ['/projects/zoff/1.png', '/projects/zoff/2.png', '/projects/zoff/3.png', '/projects/zoff/4.png'],
     website: 'https://www.zoff.co.jp/shop/default.aspx'
+  },
+  {
+    id: '18trip',
+    title: '18TRIP (エイティーントリップ)',
+    category: 'media',
+    descriptionKey: 'project.18trip.description',
+    role: 'Full Stack Developer',
+    year: '2024',
+    status: 'Active',
+    technologies: ['Next.js', 'React', 'TypeScript', 'CSS3', 'Node.js', 'Express', 'PostgreSQL', 'Redis', 'AWS', 'Docker', 'Mobile Game Development'],
+    images: ['/projects/18trip.jp/1.png', '/projects/18trip.jp/2.png'],
+    website: 'https://18trip.jp',
+    metrics: {
+      users: 'Mobile game platform',
+      downloads: 'Free-to-play with in-app purchases',
+      awards: 'Japanese anime/game project'
+    }
   }
   ,
 

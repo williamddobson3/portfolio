@@ -1,0 +1,287 @@
+
+## Project overview
+
+**Project name:** 18trip.jp
+
+**Project type:** Travel / Experience listing and booking site (adapt this to exact purpose)
+
+**Project summary (short):**
+A responsive, SEO-friendly travel experiences website that allows users to discover, browse, and (optionally) book curated trips, activities and guides in Japan. The site focuses on clean UX, fast performance, image-first content, and easy content management for editors.
+
+**My role:** Full-stack developer — responsible for architecture, frontend, backend API design, database schema, CI/CD, deployment, performance tuning, SEO and accessibility improvements, and integration with third-party services. (If you worked with others, replace "Full-stack" with your actual role and credit collaborators.)
+
+**Project duration & timeline:**
+
+* Planning & wireframes: 1–2 weeks
+* MVP development (core listing pages, search, single-trip pages): 4–6 weeks
+* CMS / editorial & admin tooling: 2–3 weeks
+* Performance, SEO and polishing: 1–2 weeks
+* Launch & post-launch fixes: 2–4 weeks
+
+*(Replace with real start/end dates or sprint counts.)*
+
+---
+
+## Goals & success criteria
+
+* Deliver a modern, fast, and mobile-first listing site for travel experiences.
+* Achieve sub-2s first meaningful paint on mobile and desktop.
+* SEO-optimized pages to compete for long-tail travel-related keywords.
+* Enable non-technical editors to add and update content via a CMS or admin panel.
+* Ensure accessibility (WCAG 2.1 AA as baseline) for major pages.
+
+---
+
+## Tech stack (what I used and why)
+
+* **Frontend:** React (or Vue/Nuxt/Next) — component-driven UI, SSR/SSG options for SEO.
+* **Styling:** Tailwind CSS or custom SCSS — fast development and consistent spacing system.
+* **Routing / SSR:** Next.js (recommended) or Nuxt for server-side rendering and static generation for SEO-critical pages.
+* **Backend / API:** Node.js + Express/Fastify or a serverless approach (AWS Lambda, Vercel Functions) — lightweight, fast, scalable.
+* **Database:** PostgreSQL for relational data (trips, users, bookings) and Redis for caching and rate-limiting.
+* **Storage & CDN:** S3-compatible storage for images + CloudFront / BunnyCDN / Fastly for global delivery.
+* **Search:** Algolia or Elasticsearch for instant, typo-tolerant search and filters.
+* **Authentication:** JWT-based auth with refresh tokens or OAuth for third-party logins.
+* **CMS / Admin:** Strapi / Contentful / Netlify CMS or a custom admin UI powered by the same API for editors.
+* **Analytics:** Google Analytics / GA4 + Google Search Console and optionally Hotjar for session recording.
+* **Deployment:** Vercel or Netlify (frontend), Heroku / Railway / AWS ECS or serverless for backend.
+* **CI/CD:** GitHub Actions for test, build, lint and deploy pipelines.
+
+*If you used different tools, replace these with the exact technologies you used.*
+
+---
+
+## Architecture & data flow (high-level)
+
+1. **Client**: React SPA with server-side rendering for public pages (Next.js). Static generation for trip pages where possible.
+2. **Edge / CDN**: CDN serves pre-rendered static assets and images.
+3. **API Gateway / Server**: Node.js API provides JSON endpoints for search, detail pages, admin operations and user auth.
+4. **Database**: PostgreSQL stores canonical data: trips, locations, categories, user profiles, bookings, reviews.
+5. **Cache**: Redis caches frequently-read API responses (top listings, home page) and stores session tokens.
+6. **Search**: Index trip pages to Algolia for fast, filtered searches.
+7. **CMS**: Editors create content via Strapi or a curated admin panel; content triggers re-indexing and static regeneration.
+
+---
+
+## Key features implemented
+
+### 1) Homepage & discovery
+
+* Hero image carousel with fast LCP optimization (below).
+* Curated categories and location chips.
+* Trending/featured experiences with lazy loading and placeholder images.
+
+### 2) Search & filtering
+
+* Instant search with autocomplete (Algolia) and multi-facet filters (price, duration, difficulty, region).
+* URL-synced query parameters so results are shareable and crawable.
+
+### 3) Trip detail pages
+
+* High-quality hero image, gallery with responsive `srcset` and `loading="lazy"`.
+* Structured data (JSON-LD) for schema.org `TouristTrip` / `Event` to enhance SERP appearance.
+* Clear CTA (contact / booking) with progress / modal booking flow.
+
+### 4) Editorial & Admin
+
+* Editor interface for adding trips, images, tags, structured itineraries, highlights, and FAQs.
+* Image upload pipeline with resizing, WebP conversion and alt-text prompts.
+
+### 5) User auth & booking (if applicable)
+
+* Secure auth endpoints, session handling, reservation creation, confirmation emails.
+* Integration with a payment gateway (Stripe) with server-side payment intents and webhooks.
+
+### 6) Internationalization (optional)
+
+* Locale-aware routes and `hreflang` tags for SEO when supporting Japanese and other languages.
+
+---
+
+## Frontend details
+
+* **Component design:** Atomic pattern — `Hero`, `TripCard`, `FilterPanel`, `Gallery`, `BookingModal`.
+* **State management:** React Query (for server state) + local component state for UI interactions. Query keys structured by filters to enable caching and background refresh.
+* **Accessibility:** Semantic HTML, keyboard navigable carousels, skip links, form labels and ARIA attributes where necessary. Color contrast checks.
+* **Responsive:** Mobile-first breakpoints with fluid typography and image sizes. Performance budget set for mobile.
+* **Image handling:** Generated multiple sizes and formats (`avif`/`webp`) using build-time or upload-time processing (Sharp). Served via CDN.
+* **SSR/SSG:** Implemented pre-rendering for the most trafficked trip pages and dynamic server-side rendering for search results to keep content fresh.
+
+---
+
+## Backend details
+
+* **API design:** RESTful endpoints with clear resource separation: `/api/trips`, `/api/search`, `/api/users`, `/api/bookings`.
+* **Validation:** Joi/Zod for request validation and type-safety.
+* **Security:** Rate limiting, input sanitization, helmet for HTTP headers, and secure cookie settings.
+* **Email:** Transactional emails via SendGrid or SES for booking confirmations and password resets.
+* **Webhooks:** Payment gateway webhook handlers to confirm and finalize bookings.
+
+---
+
+## DevOps, CI/CD & deployment
+
+* **Repo structure:** Monorepo with `apps/web` and `apps/api` (or separate repos if preferred).
+* **CI pipeline:** GitHub Actions flow: lint → unit tests → build → deploy. PR checks enforced.
+* **Preview environments:** Auto-deployed preview for each pull request (Vercel/Netlify preview) so stakeholders can review changes.
+* **Monitoring & logs:** Sentry for frontend and backend error monitoring; Papertrail/LogDNA for aggregated logs.
+* **Backup & migrations:** Managed DB backups and migration scripts via Knex/TypeORM/Flyway.
+
+---
+
+## Performance optimizations
+
+* **Critical rendering path:** Critical CSS inlined for hero section, deferred non-critical JS.
+* **Code splitting & lazy loading:** Dynamic imports for heavy components (map, calendar, gallery viewer).
+* **Image optimization:** Use modern formats with automatic fallback. Pre-generate multiple sizes and use `srcset`.
+* **Caching:** CDN caching with cache-control for static pages, stale-while-revalidate for APIs.
+* **Metrics:** Lighthouse scores tracked in CI with thresholds to block regression.
+
+---
+
+## SEO & content strategy
+
+* **Technical SEO:** Clean URLs, canonical tags, `hreflang` (if multiple locales), XML sitemap, robots.txt.
+* **On-page SEO:** Title/meta templates, structured data JSON-LD for trips, semantic headings, and open graph tags for social sharing.
+* **Content:** Long-form editorial posts tied to destination keywords and trip pages to capture long-tail organic traffic.
+
+---
+
+## Accessibility
+
+* Performed manual keyboard testing and automated checks (axe) against core pages.
+* Implemented skip links, high-contrast focus outlines, aria-labels for dynamic controls, accessible modals and dialogs.
+* Documented accessibility trade-offs and a remediation plan for future sprints.
+
+---
+
+## Testing & QA
+
+* **Unit tests:** Jest for utility functions and small components.
+* **Integration tests:** Cypress for E2E flows — search, filter, trip detail, booking flow, login/reset.
+* **Visual regression:** Chromatic or Percy snapshots for key pages.
+* **Load testing:** k6 or Artillery to validate backend under expected peak loads.
+
+---
+
+## Security considerations
+
+* **OWASP basics:** Input sanitization, parameterized queries, secure headers, and CSP where possible.
+* **Secrets:** Encrypted environment variables in deployment platform; rotated keys for payment and email services.
+* **Permissions:** Role-based access control in admin panel with audit logs for content changes.
+
+---
+
+## Challenges & solutions (examples you can adapt)
+
+### Image-heavy pages causing slow LCP
+
+**Solution:** Built an image pipeline (Sharp) to auto-generate AVIF/WebP, used low-quality image placeholders (LQIP) and preloading for the largest hero image.
+
+### Search and filtering were slow with DB-only approach
+
+**Solution:** Offloaded search to Algolia for instant results; implement incremental indexing on content updates.
+
+### Keeping editorial workflow simple for non-technical editors
+
+**Solution:** Implemented a lightweight CMS (Strapi) with content validation and media workflows, plus a custom admin UI for bulk edits.
+
+### Managing SEO while using a JS framework
+
+**Solution:** Used Next.js static generation for pages most likely to be crawled, server-rendered search endpoints for crawlers, and implemented server-side structured data.
+
+---
+
+## Results & impact (suggested placeholders — replace with real metrics)
+
+* Organic traffic growth: **+X%** month-over-month after 3 months.
+* Average page load time: **Y s** (desktop) / **Z s** (mobile) after optimization.
+* Conversion rate (inquiry/booking): **A%**.
+* Editorial publishing time cut from **N hours** to **M minutes** after CMS rollout.
+
+---
+
+## How to present this on your portfolio
+
+* **Hero line:** *18trip.jp — Fast, image-first travel experiences site built with React and Next.js (or your stack)*
+* **One-liner:** A production-ready travel experiences site with SEO-first architecture, image optimization pipeline, and an editor-friendly CMS.
+* **Short bullets (3–5):** Role, tech stack, time to build, key achievement (e.g., improved LCP from 4s→1.6s).
+* **Case study page:** Include the full write-up (this document), screenshots (homepage, trip page, admin), a short video or GIF of search and booking flows, and code highlights.
+* **Callouts:** "Performance improvements", "SEO & structured data", "Editor CMS" as small badge-style highlights.
+
+---
+
+## Suggested screenshots & assets to include
+
+* Homepage (mobile and desktop)
+* Trip detail page with gallery
+* Search with filter panel open
+* Admin/editor interface for creating trips
+* Lighthouse report before/after
+* Small code snippets: API route and a React component showing state + React Query usage
+
+---
+
+## Example code snippets (short)
+
+**Sample API endpoint (Express)**
+
+```js
+// GET /api/trips
+app.get('/api/trips', async (req, res) => {
+  const { q, page = 1 } = req.query;
+  const results = await tripsService.search({ q, page });
+  res.json({ results });
+});
+```
+
+**Sample Next.js data fetching (SSG)**
+
+```js
+export async function getStaticProps() {
+  const trips = await fetch('https://api.18trip.jp/trips?featured=true').then(r => r.json());
+  return { props: { trips }, revalidate: 60 };
+}
+```
+
+**Dockerfile (simple)**
+
+```dockerfile
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM node:20-alpine
+WORKDIR /app
+COPY --from=builder /app/.next .
+COPY package*.json ./
+CMD ["npm", "start"]
+```
+
+---
+
+## Future improvements
+
+* Add localized content and currency conversion for international tourists.
+* Implement dynamic pricing and availability calendar for bookings.
+* Add personalized recommendations and machine-learning-powered trip suggestions.
+* Expand editorial content with more long-form destination guides to boost SEO.
+
+---
+
+## TL;DR (short summary for portfolio header)
+
+Built and shipped 18trip.jp — a performant, SEO-friendly travel experiences site with a polished editor workflow, fast image pipeline, and robust search. I led full-stack development, set up CI/CD, and improved performance and SEO to deliver measurable gains in load speed and organic discoverability.
+
+---
+
+If you want, I can:
+
+* Generate a **one-page case study** (shorter, visually structured) suitable for your portfolio.
+* Translate this write-up into **polite Japanese** for a Japanese portfolio page.
+* Extract a 3–5 bullet technical summary and a 1–2 sentence non-technical blurb for your portfolio header.
+
+*Replace placeholders with your real metrics, dates, and the exact tech you used to make this copy fully accurate.*
