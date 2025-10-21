@@ -225,7 +225,7 @@ export const projects: Project[] = [
     year: '2024',
     status: 'Active',
     technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Redis', 'Stripe', 'AWS', 'CI/CD'],
-    images: ['/projects/hince/1.jpg', '/projects/hince/2.jpg', '/projects/hince/3.jpg'],
+    images: ['/projects/hince/1.png', '/projects/hince/2.png'],
     website: 'https://hince.jp/',
     metrics: {
       users: 'Production web application',
@@ -242,7 +242,7 @@ export const projects: Project[] = [
     year: '2024',
     status: 'Active',
     technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Headless CMS', 'Stripe', 'CDN', 'SEO', 'i18n'],
-    images: ['/projects/misshelly/1.jpg', '/projects/misshelly/2.jpg', '/projects/misshelly/3.jpg'],
+    images: ['/projects/misshelly/1.png', '/projects/misshelly/2.png'],
     website: 'https://misshelly.com/',
     metrics: {
       users: 'Hair-care brand e-commerce',
@@ -259,7 +259,7 @@ export const projects: Project[] = [
     year: '2024',
     status: 'Active',
     technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design', 'Image Optimization', 'SEO', 'Accessibility', 'Performance'],
-    images: ['/projects/nintendo/1.jpg', '/projects/nintendo/2.jpg', '/projects/nintendo/3.jpg'],
+    images: ['/projects/nintendo/1.png', '/projects/nintendo/2.png', '/projects/nintendo/3.png', '/projects/nintendo/4.png', '/projects/nintendo/5.webm'],
     website: 'https://www.nintendo.com/jp/games/switch2/aaaca/index.html',
     metrics: {
       users: 'Nintendo marketing page',
@@ -276,7 +276,7 @@ export const projects: Project[] = [
     year: '2024',
     status: 'Active',
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Headless CMS', 'SEO', 'Accessibility', 'Performance'],
-    images: ['/projects/opera-net/1.jpg', '/projects/opera-net/2.jpg', '/projects/opera-net/3.jpg'],
+    images: ['/projects/opera-net/1.png', '/projects/opera-net/2.png', '/projects/opera-net/3.png'],
     website: 'https://www.opera-net.jp/',
     metrics: {
       users: 'Professional website',
@@ -293,7 +293,7 @@ export const projects: Project[] = [
     year: '2024',
     status: 'Active',
     technologies: ['Shopify', 'Liquid', 'HTML5', 'CSS3', 'JavaScript', 'E-commerce', 'SEO', 'Performance'],
-    images: ['/projects/pickyou-pro/1.jpg', '/projects/pickyou-pro/2.jpg', '/projects/pickyou-pro/3.jpg'],
+    images: ['/projects/pickyou-pro/1.png', '/projects/pickyou-pro/2.png', '/projects/pickyou-pro/3.png'],
     website: 'https://pro.pickyou.jp/',
     metrics: {
       users: 'Curated marketplace',

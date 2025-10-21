@@ -1,0 +1,59 @@
+BOTANIST Official Website – Development Case Study
+My Role
+
+I worked as the lead front-end developer and technical owner for the BOTANIST official website. My responsibility was to take the brand’s creative direction and turn it into a fast, accessible, and maintainable site. This covered everything from implementing the design system in code, to optimizing assets, setting up a CMS workflow, and ensuring the site was ready for marketing campaigns and seasonal releases.
+
+Key Contributions
+
+From Design to Production
+I translated detailed Figma/Sketch designs into pixel-perfect, responsive templates. Extra attention was given to typography, spacing, and image handling so the brand’s clean aesthetic stayed consistent across devices without layout shifts.
+
+CMS Templating & Content Workflow
+I built reusable templates in WordPress for the home page, product catalog, special landings, and journal articles. Custom fields and modular sections allowed editors to build rich, flexible pages without needing developer support, which sped up marketing turnaround.
+
+Performance & Media Strategy
+I introduced responsive image handling (srcset), WebP/AVIF formats, and lazy-loading to improve load speed. By reserving aspect-ratio boxes and prefetching key images, I reduced layout shifts and improved Largest Contentful Paint.
+
+Accessibility & Progressive Enhancement
+I made sure the site followed semantic HTML practices, included ARIA where needed, and supported full keyboard navigation. I also conducted Lighthouse audits and manual screen reader checks to verify accessibility.
+
+Campaign & Release Support
+I set up a component-based system that let the marketing team quickly launch seasonal campaigns and landing pages. This made frequent content updates repeatable and less error-prone.
+
+Tech & Tools
+
+CMS & Backend: WordPress with custom theme and ACF
+
+Templating: PHP on a LAMP/LEMP environment, cached behind a CDN
+
+Frontend: HTML5, SCSS (Sass), modular JavaScript (lightweight, no heavy frameworks)
+
+Build Workflow: npm + webpack/gulp for bundling, Sass compilation, and asset hashing
+
+Performance Delivery: CDN distribution, optimized images, HTTP/2+ delivery, server-side caching
+
+Analytics & Marketing: Google Analytics, Tag Manager, Ads, social meta tags; integrations with Amazon, Rakuten, ZOZOTOWN, etc.
+
+Testing & QA: Lighthouse audits, BrowserStack cross-device checks, visual diffing for hero assets
+
+Impact & Results
+
+Improved page performance (LCP, CLS, and FID) through targeted optimizations
+
+Delivered reusable components (hero, product cards, editorial blocks, CTA grids, footer) that sped up campaign launches
+
+Simplified editor workflow, reducing dependence on engineering for updates
+
+Ensured brand consistency while still meeting accessibility standards
+
+Portfolio Presentation
+
+For the portfolio, I’d highlight:
+
+Before/After performance scores with a short explanation of what changed
+
+Component library snapshots to show the building blocks of the site
+
+Case study of a seasonal campaign page (brief overview of requirements → build approach → launch results)
+
+Screenshots with captions that tell the story of design fidelity, mobile responsiveness, and speed improvements
