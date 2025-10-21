@@ -1,0 +1,206 @@
+PICKYOU PRO — Development case study
+
+Project
+PICKYOU PRO — a curated marketplace where models, artists and creators (“PICKER”s) sell pre-owned/fashion items. The storefront presents curated PICKER profiles, item listings grouped by category/brand, cart and checkout flow, and public policy/FAQ pages. 
+
+My role
+Lead developer / full-stack engineer — I took the product from concept → production: product architecture, front-end UI/UX, integrations with platform services, performance optimizations, QA and deployment, and handed over operational runbook to ops/marketing.
+
+Timeline
+Design → MVP in 6–8 weeks; iterative feature rollout (picker profiles, advanced filtering, mobile UX improvements) over the following 8–12 weeks.
+
+Problem & goals
+
+Launch a clean, high-conversion ecommerce experience targeted at fans of individual creators and models: discover “pickers”, browse their items, and buy quickly.
+
+Provide editorial curation (featured pickers / hot picks) while keeping product administration manageable for the business team.
+
+Ensure fast mobile experience (audience is mobile heavy), SEO discoverability, and easy integration with marketing channels (Instagram / TikTok / X / YouTube / Pinterest). 
+
+Solution & high-level architecture
+
+Platform approach
+
+Shopify storefront backend for product catalog, customer accounts, carts and checkout (the site references the Shopify storefront domain). Using Shopify as the commerce engine dramatically reduced time-to-market for payments, order management and inventory. 
+
+Custom front-end theme on the custom domain (pro.pickyou.jp) implemented as a Shopify theme (Liquid + HTML/CSS/vanilla JS), with targeted client-side enhancements for better UX and performance.
+
+Rationale: Shopify handles payments & admin; a custom theme allowed precise layout, editorial pages and SEO control while keeping operations simple for the business team.
+
+Notion-hosted policy/FQA pages are linked for legal/policy content (fast editable pages for non-technical staff). 
+
+Diagram (conceptual):
+Client browser (responsive UI) ↔ Custom Shopify theme (Liquid + JS) ↔ Shopify API (orders, products, customers) ↔ Admin (Shopify + Notion for policies)
+
+Key features I implemented
+
+Homepage / category-driven discovery
+
+Multi-level navigation for categories (Outer, Tops, Pants, Shoes, etc.) and a Brand list to support discovery by brand or by PICKER. Navigation structure is driven by Shopify collections and theme nav data. 
+
+Picker profiles & curated collections
+
+Each PICKER has a profile page showing their items and small editorial blurb; featured PICKER carousel on homepage for editorial marketing. (Implemented via custom collection templates and metafields.)
+
+Product listing & product pages
+
+Grid/listing with sold-out state, price display, thumbnails and hover states; product page with image gallery, size/condition metadata, and “add to cart”. Sold-out labels are surfaced dynamically from inventory data. 
+
+Cart & customer flows
+
+Client-side cart interactions (AJAX add/remove, mini-cart UI) + Shopify checkout for secure payment and order processing.
+
+Account & authentication
+
+Customer accounts handled by Shopify Customers; flows for login / create account are integrated into the theme header.
+
+Editorial & policy pages
+
+FAQ, Terms, Privacy and Specified Commercial Transaction pages link out to Notion pages for quick business updates. 
+
+Social & marketing integration
+
+Footer links to Instagram, X (Twitter), TikTok, YouTube, Pinterest for organic marketing and traffic channels. 
+
+Technical details — stack & implementation
+
+Front end
+
+Shopify Liquid templates for theme structure and product/collection templates.
+
+HTML5, semantic markup and BEM-like CSS structure for maintainability.
+
+CSS: Mobile-first responsive layout (flexbox + grid), utility classes where appropriate.
+
+JS: Minimal vanilla JS + a small helper module for AJAX cart actions, lightweight DOM updates, and lazy image loading.
+
+Image handling: used srcset + sizes and lazy loading to serve appropriately sized images to mobile and desktop.
+
+Back end / platform
+
+Shopify (Products, Collections, Customers, Orders, Inventory).
+
+Policies and long-form content hosted on Notion (linked from the site) to enable non-dev content updates. 
+
+Deployment / CI
+
+Theme code versioned in Git.
+
+Automated deploy pipeline to Shopify (theme kit / Shopify CLI) triggered on merge to main.
+
+Staging preview theme for QA and production promotion.
+
+Performance & scaling
+
+CDN provided out of the box by Shopify for assets and images.
+
+Implemented critical CSS inlines for above-the-fold content, deferred non-critical CSS and JS, and image lazy loading.
+
+Leveraged cache headers and HTTP/2 (Shopify standard) to lower TTFB and speed up repeat visits.
+
+SEO & accessibility
+
+Server-rendered HTML (Liquid) for crawlable product pages.
+
+Implemented structured data (JSON-LD) for products (price, availability, SKU) to improve SERP rich results.
+
+Semantic headings, alt attributes on images, and keyboard accessible navigation.
+
+XML sitemap and robots rules managed via Shopify settings / theme configuration.
+
+Example snippets (ready to paste in a portfolio)
+
+Liquid: product card (simplified)
+
+<div class="product-card">
+  <a href="{{ product.url }}">
+    <img src="{{ product.featured_image | img_url: '600x' }}" 
+         srcset="{{ product.featured_image | img_url: '600x' }} 600w, {{ product.featured_image | img_url: '1200x' }} 1200w"
+         sizes="(max-width: 600px) 100vw, 33vw"
+         alt="{{ product.title }}">
+    {% if product.available == false %}
+      <span class="badge sold-out">SOLD OUT</span>
+    {% endif %}
+    <h3>{{ product.title }}</h3>
+    <p class="price">{{ product.price | money }}</p>
+  </a>
+</div>
+
+
+Vanilla JS: minimal AJAX add-to-cart
+
+async function addToCart(variantId, qty=1){
+  const res = await fetch('/cart/add.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id: variantId, quantity: qty })
+  });
+  const data = await res.json();
+  // update mini-cart UI...
+}
+
+Testing & QA
+
+Cross-browser testing (Chrome, Safari, Firefox) and real-device mobile testing.
+
+Accessibility audit with axe-core and manual keyboard testing.
+
+Automated Lighthouse audits on PRs for performance / SEO regressions.
+
+Manual checkout test matrix for typical payment methods and edge cases (sold-out items in cart, address validation).
+
+Security & compliance
+
+HTTPS enforced (Shopify SSL).
+
+Checkout and payment handled by Shopify’s PCI-compliant workflow — no card data stored on custom servers.
+
+Privacy & terms pages linked and kept current via Notion to streamline legal updates. 
+
+Challenges & how I solved them
+
+Large image sets from PICKER uploads
+
+Problem: high resolution images caused slow mobile loads.
+
+Fix: generate multiple image sizes via Shopify image transforms, use srcset/sizes and lazy loading; display a blurred low-res placeholder (LQIP) while the main image loads.
+
+Editorial layout vs. product-driven Shopify collections
+
+Problem: business wanted editorial curation (featured pickers & styled sections) while keeping product data normalized.
+
+Fix: used Shopify metafields + custom collections to create editorial grouping, and managed curated content via theme settings in Shopify admin.
+
+Non-technical staff updating policies
+
+Problem: legal team wanted ability to update pages without developer deploys.
+
+Fix: link policies to Notion public pages and add an internal process for linking/updating.
+
+Outcomes & metrics (example / model statements)
+
+Reduced time-to-market by leveraging Shopify for payments and orders (MVP launch in ~6–8 weeks).
+
+Mobile performance: initial Lighthouse scores improved by X points after image/critical CSS optimizations (insert your actual metrics here).
+
+Conversion improvements from clearer picker profiles and “hot picker” editorial sections — measured via A/B tests (insert conversion uplift numbers if available).
+
+(If you give me your real metrics I can insert exact numbers and charts.)
+
+What I learned & future roadmap
+
+Learned: the value of balancing platform tradeoffs — Shopify allowed rapid commerce features but required careful Liquid and metafield design for editorial flexibility.
+
+Future improvements I’d prioritize
+
+Advanced search / faceted filtering (by size, condition, brand, pickup).
+
+Picker onboarding & dashboard (allow creators to manage listings themselves).
+
+Deeper marketing integrations (UTM + channel attribution, creative/product feeds for social ads).
+
+Progressive Web App (PWA) features for better offline and add-to-home-screen experience.
+
+Short CV / bullets you can paste on LinkedIn or resume
+
+Lead developer for PICKYOU PRO (pro.pickyou.jp) — curated marketplace for creators & models. Built custom Shopify theme (Liquid + HTML/CSS/JS), implemented category & brand discovery, picker profiles, responsive product pages, AJAX cart, and Notion-backed policy pages. Optimized images and critical rendering path for mobile performance and implemented SEO structured data.

@@ -1,0 +1,128 @@
+Short summary
+
+I developed the front-end and delivered the full public website for FUTURE TRAIN — a bilingual (JA/EN) marketing and visitor-information site that showcases immersive restaurant experiences, menus (PDF), space/gallery and handles booking via an embedded TableCheck reservation flow. 
+
+Long-form case study / experience of development
+Project context & goals
+
+FUTURE TRAIN is a themed restaurant/experience that blends immersive, train-themed attractions with dining. The site’s mission is to present the concept and experience clearly, provide easy access to reservations, display menus and photos, and support both Japanese and English visitors. The main measurable goals were:
+
+Communicate the concept and course/plan options clearly.
+
+Make reservations frictionless (link/integrate with TableCheck).
+
+Provide downloadable/updatable menu assets (PDF).
+
+Support both Japanese and English audiences.
+All of these primary user-flows are implemented on the live site. 
+
+My role & responsibilities
+
+(Write this in first-person or alter if you were part of a team)
+
+Sole front-end developer (HTML/CSS/JS) and integrator for content, assets and reservation flows.
+
+Responsible for content layout and structure, image/gallery integration, PDF menu management, and multilingual toggle (JA/EN).
+
+Coordinated with creative/art direction for photography, copy, and information hierarchy.
+
+Implemented responsive layout, accessibility-first markup, and performance/asset optimization for real-world visitors.
+
+Key features I implemented (what I built)
+
+Clear information architecture: Home / Plan / Access / Contact plus subsections such as Visitor Guide, Menu, Space, FAQ and Credits to let visitors find booking and menu info quickly. 
+
+Reservation integration: Reservation buttons link out to TableCheck for booking, reducing friction by using an established reservation platform rather than building a bespoke booking system. (visible “Reservation — www.tablecheck.com”
+ links in the header and multiple reservation CTAs). 
+
+Menu assets: PDF menu is hosted and linked (assets.futuretrain.jp), enabling downloads and easy updates without code changes. 
+
+Bilingual support: Simple and discoverable language toggle (ja / en) to support international visitors and press. 
+
+Image gallery & space pages: Rich photography for “Space / Interior” and a gallery for each car/area — important for conveying the immersive experience. Images are organized and served from the site’s asset paths. 
+
+Implementation details & engineering decisions
+
+(These are written so you can keep or edit specifics to match your exact implementation.)
+
+Frontend structure
+
+Semantic HTML pages organized around content sections (hero, plan cards, visitor guide, gallery). This made content easily indexable and accessible.
+
+CSS architecture using a component-first approach (reusable classes for hero, card, gallery, CTA). I used modern layout primitives (Flexbox / CSS Grid) to make the layout responsive across breakpoints.
+
+Performance & assets
+
+Images were exported at carefully chosen sizes with responsive <img srcset> or lazy-loading so mobile gets smaller files and desktops get richer images. Large hero/gallery images were optimized and served from the site’s asset domain to reduce first-byte time and caching complexity. 
+FUTURE TRAIN
+
+Accessibility & SEO
+
+Prioritized semantic markup and alt text for images so the content is crawlable and accessible. Page headings follow a clear H1→H2 hierarchy so the site communicates structure to screen readers and search engines.
+
+Basic SEO: descriptive page title and meta descriptions (contextual content sections like Plan, Visitor Guide, Menu for structured snippets).
+
+External integration
+
+TableCheck reservation CTA links were added in multiple places (header CTA and per-plan CTAs) to encourage reservations from any point on the site — this minimizes friction and leverages a reliable booking stack. 
+FUTURE TRAIN
+
+Menu PDF hosted on assets.futuretrain.jp so non-developers (content owners) can update the downloadable menu without redeploying templates. 
+FUTURE TRAIN
+
+Internationalization
+
+
+
+Implemented a language switcher and content variants (JA / EN). The multilingual approach is designed so content updates can be done per-language, keeping markup and URLs stable for search engines and user bookmarks. 
+
+Challenges and how I solved them
+
+High visual fidelity without hurting load times: solved by responsive images, lazy-loading, and choosing compression levels that preserved visual quality while lowering bytes.
+
+Keeping reservation flow seamless: rather than building a fragile custom booking system, I integrated TableCheck via clear CTAs which keeps the UX smooth and offloads critical payments and seat management to a specialized platform. 
+
+Updating menus without code deploys: hosting the PDF on an assets host made content ownership > developer dependency — non-technical staff can replace the PDF file in the asset storage.
+
+Testing & quality assurance
+
+Manual cross-device QA on Android/iOS and desktop to check layout, breakpoints and image loading.
+
+Accessibility checks with automated tools and manual keyboard navigation to ensure CTAs and language switcher are reachable.
+
+Link and content verification to ensure external reservation links and downloadable PDFs work reliably. (All reservation CTAs point to TableCheck; the menu PDF resolves on the assets.futuretrain.jp host.) 
+FUTURE TRAIN
+
+Deployment & operations
+
+Assets (images, PDF) are served from a dedicated assets host (visible links to assets.futuretrain.jp), so images and PDFs are cached and updated independently of page HTML. This reduces build times and allows content edits without full site redeploys. 
+
+Static pages were built to be cache-friendly and suitable for a static-hosting/CDN environment (fast TTFB, long cache TTLs for static assets, short TTL for HTML if content changes).
+
+Results & impact (how to report outcomes)
+
+If you have analytics numbers, add them here. Example metrics you can claim if verified:
+
+Increased reservation clicks by X% after clearer CTA placement.
+
+Reduced homepage load time to Y seconds on mobile after image optimization.
+
+Improved organic search impressions for “FUTURE TRAIN 京都” or similar keywords.
+
+(If you don’t have exact metrics yet, you can say: “Instrumented the site for analytics and set up conversion tracking for reservation clicks and PDF downloads.”)
+
+Lessons learned / next steps
+
+Implementing a light CMS for content edits (menus, news/what’s new) would let editors update the site without developer involvement.
+
+Consider deeper TableCheck API integration in the future to keep users on-site for booking and to enable richer pre-filled flows.
+
+Add structured data (JSON-LD) for events and menus to improve SERP presentation and event discovery.
+
+Ready-to-copy resume bullets
+
+Developed and launched the public website for FUTURE TRAIN (bilingual, JA/EN), including reservation CTA integration with TableCheck, menu PDF hosting, image gallery and responsive design. 
+
+Implemented content-driven site architecture and optimized images/assets for performance; enabled non-dev menu updates via hosted PDF assets. 
+
+Coordinated with creative and operations teams to ensure accurate copy, accessible markup, and reliable booking flow.

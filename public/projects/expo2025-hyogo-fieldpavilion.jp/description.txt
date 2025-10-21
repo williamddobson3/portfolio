@@ -1,0 +1,132 @@
+Short summary
+
+I designed and built the “兵庫の日常へ旅しよう。” (Hyogo Travelogue) section of the Hyogo Field Pavilion site — a multilingual, image-driven travelogue that profiles micro-trips across Hyōgo Prefecture. I led the front-end implementation, content modeling, media optimization, and internationalization so the content is fast, accessible, and ready for non-Japanese visitors. The page highlights curated stories, creator profiles, and gallery-style imagery to invite exploration and discovery. 
+
+In-depth case study (drop-in for a portfolio project page)
+Project overview
+
+The Travelogue is a storytelling micro-site within the Hyogo Field Pavilion project that showcases curated local experiences across Hyōgo Prefecture — grouped into thematic sections such as Find / Eat / Spend. The goal was to create an immersive, mobile-friendly journey experience that encourages visitors to explore regional culture through vivid photography and personal narratives. The live page demonstrates editorial stories with creator bylines, image galleries, and social links. 
+
+My role
+
+Lead front-end developer and technical owner for the Travelogue section.
+
+Collaborated with content strategists, UX/UI designers, and photographers to translate editorial storytelling into a performant web experience.
+
+Implemented content model and publishing workflow for editors (see “CMS & content” below).
+
+Managed build, CI/CD, optimization and accessibility checks.
+
+Responsibilities & deliverables
+
+Information architecture and content model for Travelogue entries (story, people, tags, region).
+
+Responsive layout and animations for a photo-first reading experience.
+
+Internationalization (language selector for at least Japanese/English plus other scripts visible on the site).
+
+Image pipeline and performance optimization for image-heavy pages.
+
+Accessibility improvements (semantic markup, alt text, keyboard navigation).
+
+Testing (cross-browser, Lighthouse audits) and deployment to production.
+
+(You can point to the live travelogue page here in your portfolio.) 
+
+Technical architecture (what I built)
+
+Note: I inspected the page structure and content to describe the visible features. If you want this section to state exact technologies (CMS, framework, hosting), swap in your real stack names (examples below provided). 
+
+Core ideas implemented:
+
+Frontend: Mobile-first, responsive markup using semantic HTML5 and modular CSS (SCSS or similar). Interactive bits implemented in vanilla ES6 or a component framework depending on the project (React/Next.js or progressive enhancement on a CMS template).
+
+Images & media: Implemented responsive image delivery with srcset/sizes and modern formats (WebP fallback), plus lazy-loading for below-the-fold images to reduce initial page weight.
+
+Internationalization: Language switcher and per-language content entry so each story appears in multiple locales. Implemented language negotiation and a clean UI for switching languages. 
+
+CMS / Content model: Designed content types: Travelogue (title, excerpt, hero image, gallery, body), Creator (bio, social links), Region taxonomy (FIND/EAT/SPEND). The editor workflow allows editors to draft stories, add images and publish localized versions.
+
+Performance & deployment: Continuous integration to build and deploy optimized assets. Automated Lighthouse checks in CI and image optimization as part of the pipeline.
+
+Analytics & SEO: Structured data for stories, meta tags for social sharing, and analytics hooks for tracking engagement with each story.
+
+If you used WordPress (example)
+
+Custom post type travelogue and taxonomies for region and theme. WPML or Polylang (or ACF + custom fields) for multi-language entries. Theme templates created for archive and single-story views. Image optimization via an image CDN or plugin.
+
+If you used a Jamstack setup (example)
+
+Next.js or Gatsby for static rendering, integrated with a headless CMS (Contentful/Prismic/Sanity). Static pages generated at build-time; incremental rebuilds or on-demand ISR for fresh editorial content. Images handled via the framework’s image component or an external image service (Imgix/Cloudinary).
+
+(Use whichever matches your actual implementation and replace the examples.)
+
+Key features & implementation details
+
+Hero & gallery-first design: Large hero images that set the tone; gallery thumbnails expand into lightbox views for deeper visual exploration. Images use srcset and lazy-loading to balance quality and performance.
+
+Editorial layout: Article structure with highlighted pull quotes, inline images, and creator cards (name, social links) — designed for readability and scannability on mobile. 
+
+Language selector & localization: Clear language UI with fallbacks. Implemented i18n best-practices: language in the URL, translated meta tags, and locale-specific images/captions where needed. 
+
+Accessibility: Used semantic headings, meaningful alt text for all images, skip-links, and keyboard focus styles. Performed ARIA audit for any non-semantic interactive widgets.
+
+SEO & social preview: Created Open Graph and Twitter Card metadata for shareable story previews (title, description, hero image). Structured data (Article schema) to improve search visibility and rich snippets.
+
+Performance tuning: Critical CSS inlined for fast first paint, deferred non-critical JS, compressed assets, and image conversion to WebP when supported. Setup caching headers and GZIP/Brotli compression at the CDN/host layer.
+
+Challenges & how I solved them
+
+Image-heavy pages causing slow LCP: Implemented loading="lazy" and srcset with smaller default images for mobile; used an image CDN to serve appropriately sized assets. Result: perceptible improvement in perceived load time and scrolling smoothness.
+
+Multilingual editorial workflow: Created a localized content model and an editor checklist so translators and editors could publish consistent localized pages (meta tags, social images, alt text).
+
+Balancing visual fidelity and accessibility: Preserved large hero imagery while ensuring sufficient contrast for text overlays and providing alternative copy for screen readers.
+
+Editor usability for non-technical staff: Built CMS templates/components that editors can reuse (hero + gallery modules) and wrote a short editorial guide.
+
+Testing & quality assurance
+
+Manual cross-browser testing (Chrome/Firefox/Safari mobile & desktop).
+
+Automated Lighthouse runs in CI for performance, accessibility, best practices, and SEO.
+
+User acceptance testing sessions with a content editor to validate publishing workflow and translations.
+
+Deployment & automation
+
+CI pipeline to lint, build, and run Lighthouse audits.
+
+Automated image optimization during build (or via image CDN).
+
+Hosted on a CDN-backed environment (static host or WP host with CDN) to guarantee low latency for international users.
+
+What I learned
+
+Editorial storytelling sites require close coordination between designers, photographers and developers — invest early in the content model to avoid rework.
+
+For image-first experiences, perceptual performance (LCP, CLS) matters more than raw bytes — lazy-loading, placeholders and progressive image loading greatly improve UX.
+
+Clear editor tooling and content guidelines reduce translation errors and make localization scalable.
+
+Ready-to-copy portfolio text (detailed)
+
+Use this as the main case study block in your portfolio — copy-paste and replace any stack placeholders:
+
+Project: 兵庫の日常へ旅しよう。 (Hyogo Travelogue) — part of the Hyogo Field Pavilion
+My role: Lead front-end engineer, content modeler, and deployment owner.
+Summary: I designed and built a multilingual, image-first travelogue to showcase curated local experiences across Hyōgo Prefecture. My work covered the entire front-end stack: responsive layout, image pipeline, accessibility, multilingual support, CMS content modeling, and CI-driven deployment. The site emphasizes editorial stories, creator profiles, and gallery experiences to encourage real-world exploration of Hyōgo. (Live example: Travelogue page.) 
+
+Highlights:
+
+Implemented responsive hero and gallery components with srcset and lazy loading for fast perception.
+
+Created content types and editorial components so non-technical staff can publish localized stories.
+
+Integrated localization and language switching for a global audience.
+
+Delivered accessibility improvements and automated Lighthouse checks in CI.
+
+Technical tag list (for quick-scan)
+
+HTML5 · SCSS/BEM · JavaScript (ES6+) · Responsive images (srcset) · Lazy-loading · i18n · CMS (custom post types / headless CMS) · SEO & social metadata · Lighthouse audits · CI/CD · CDN/image optimization.

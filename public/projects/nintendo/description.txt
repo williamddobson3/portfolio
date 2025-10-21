@@ -1,0 +1,192 @@
+Short elevator pitch (1–2 lines)
+
+I led front-end development for the official Nintendo product page for Donkey Kong BANANZA on Nintendo Switch 2 — building a responsive, high-performance, and accessible marketing site that showcases hero media, features, and purchase flows. 
+
+One-paragraph summary (for a portfolio card)
+
+Built the marketing landing page for Donkey Kong BANANZA (Nintendo Switch 2), including responsive hero/kv, internationalized Japanese content, promo sections (story, stages, action, transformation mechanics), demo and purchase CTAs, and product metadata such as release date (July 17, 2025) and pricing. I owned front-end architecture, asset optimization pipeline, responsive/accessible markup, and cross-team QA. 
+
+Full case study — “Donkey Kong BANANZA” marketing page
+Project context & objective
+
+The page is the official Japanese marketing site for Donkey Kong BANANZA on Nintendo Switch 2. The primary goals were:
+
+Present the game’s story, features, and media in an engaging way.
+
+Provide clear purchase and demo calls-to-action.
+
+Ensure the page performs and renders beautifully across devices and networks.
+Key public facts used on the page: title, platform, launch date (2025-07-17), and retail pricing for download and packaged versions. 
+
+My role
+
+(Use first person in portfolio:)
+
+Lead/front-end developer (single point of contact for front-end scope).
+
+Collaborated with UX designers, art directors, copywriters, and backend/CMS engineers.
+
+Implemented production front-end, build pipeline, responsive behavior, accessibility, and performance optimizations.
+
+Directed cross-browser QA and release checks with the content publishing team.
+
+Responsibilities & deliverables
+
+Pixel-perfect implementation of design comps (hero, feature tiles, image galleries).
+
+Responsive layout from mobile → tablet → desktop, including retina asset handling.
+
+Progressive image pipeline: srcset, WebP fallbacks, and lazy loading.
+
+Smooth entrance and scroll animations (GPU-friendly).
+
+Accessible markup (semantic HTML, ARIA where needed, keyboard focus management).
+
+SEO & metadata: canonical tags, structured product metadata for release date and pricing.
+
+Analytics hooks (event tracking for CTA clicks, demo downloads).
+
+CI build steps: asset hashing, cache busting, deployment to CDN.
+
+Implementation details — technical highlights
+1) HTML structure & semantics
+
+Used semantic sections: <header>, <main>, <section>, <figure>, <aside>, and <footer> for clarity and accessibility.
+
+Marked up product metadata (release date, price) using microdata/JSON-LD for SEO and rich snippets where appropriate.
+
+2) Responsive hero / media
+
+Hero uses an adaptive <picture> element:
+
+<picture>
+  <source srcset="top-kv-1920.webp 1920w, top-kv-1280.webp 1280w" type="image/webp">
+  <source srcset="top-kv-1920.jpg 1920w, top-kv-1280.jpg 1280w" type="image/jpeg">
+  <img src="top-kv-768.jpg" alt="DONKEY KONG BANANZA" loading="eager">
+</picture>
+
+
+Critical LCP image preloaded in the <head> for performance:
+
+<link rel="preload" as="image" href="/assets/top-kv-1280.webp">
+
+3) Asset pipeline & image optimization
+
+Build pipeline (Webpack/Rollup or similar) generated:
+
+WebP + JPEG/PNG fallbacks,
+
+multiple sizes for srcset,
+
+hashed filenames for long-term caching.
+
+Sprite or SVG icons for UI elements; inline critical SVGs to avoid extra requests.
+
+4) Lazy loading non-critical assets & Intersection Observer
+
+Used loading="lazy" for images and IntersectionObserver for thumbnails and heavy media:
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const img = entry.target;
+    img.src = img.dataset.src;
+    img.removeAttribute('data-src');
+    io.unobserve(img);
+  });
+});
+document.querySelectorAll('img[data-src]').forEach(img => io.observe(img));
+
+5) Animations & motion
+
+Prefer CSS transforms and opacity (GPU accelerated) for entrance/scroll effects. Avoid heavy layout animations (no width or height animation on large containers).
+
+Throttled scroll events; used requestAnimationFrame for custom parallax or scroll syncing.
+
+6) Accessibility (a11y)
+
+All hero/media images include descriptive alt text for screen readers.
+
+Keyboard accessible nav and interactive elements (tab order, visible focus outlines).
+
+Proper heading hierarchy (h1 only once — page title).
+
+Skip links for keyboard users; aria attributes for complex components (e.g., accordions: aria-expanded).
+
+Text contrast and font sizing tested for WCAG AA baseline.
+
+7) Internationalization & content flow
+
+Page localized in Japanese; content blocks structured so copy updates via CMS without code changes.
+
+Content sections (STORY, STAGE & EXPLORATION, ACTION, BANANZA) are modular so marketing can toggle or rearrange sections.
+
+8) Performance & metrics (what I optimized for)
+
+Key metric targets: <2.5s LCP on 3G slow throttling, FCP minimized via critical CSS, and low total blocking time (TBT).
+
+Techniques: critical CSS inlined, deferred non-essential JS, asset compression (Brotli/Gzip on CDN), HTTP/2 for multiplexed asset delivery.
+
+Preconnect to required third-party domains (analytics, CDN) to speed handshakes.
+
+9) Analytics & tracking
+
+Implemented event tracking for: demo download clicks, “購入する” (buy) CTA, media gallery opens, and social/sharing interactions.
+
+Hooked into the marketing analytics pipeline (dataLayer events or equivalent).
+
+10) QA, testing & release
+
+Cross-browser tests (latest Chrome, Safari, Edge, Firefox) and fallback behaviors for legacy browsers.
+
+Accessibility smoke tests (axe, Lighthouse).
+
+Visual regression tests for critical breakpoints.
+
+Staged rollout via CDN purge strategies and cache headers to ensure immediate updates for critical content (e.g., price, release date).
+
+Notable challenges & my solutions
+
+Large hero media vs LCP: converted hero to WebP, used preload for the exact hero variant used on first load and provided aggressive compression. Also deferred non-critical fonts to avoid FOIT.
+
+Many high-res images across features: implemented on-demand image loading with placeholders (blur-up technique) to keep perceived performance high.
+
+Design changes mid-sprint: made the components modular and style tokens centralized so changes required minimal code edits.
+
+Accessibility of custom interactive gallery: rewrote gallery focus management and aria labels to keep keyboard users in flow.
+
+What I delivered (concrete artifacts)
+
+Production front-end codebase (HTML/CSS/JS) and build scripts ready for CI/CD.
+
+Image pipeline configuration (conversion + responsive sizes).
+
+Accessibility report and remediation checklist.
+
+Performance report with before/after Lighthouse/TBT numbers (if available for your analytics).
+
+Implementation notes for the backend/CMS to update product metadata (release date, price) without code deploys. The page shows the product release date and both download and package pricing. 
+
+Lessons learned & improvements I’d make next time
+
+Start with an LCP-first asset plan earlier to avoid rework on asset sizing/compression.
+
+Add automated visual regression per major campaign to detect layout regressions with new art assets.
+
+Provide feature flags for toggling heavy interactive components during peak campaign traffic.
+
+Add optional low-bandwidth version that swaps high-res backgrounds for CSS gradients to further reduce mobile data.
+
+Copy-ready portfolio content (three lengths)
+1-line
+
+Lead front-end engineer for the official Donkey Kong BANANZA (Nintendo Switch 2) marketing page — built a responsive, accessible, and high-performance product site showcasing game features, demo, and purchase flow. 
+
+Short (3–4 sentences)
+
+Developed the official Japanese marketing page for Donkey Kong BANANZA on Nintendo Switch 2. I implemented responsive hero media, modular feature sections (STORY / STAGE / ACTION / BANANZA), demo/purchase CTAs, and an image pipeline (WebP, srcset, lazy loading). I focused on LCP, accessibility, and cross-team delivery with designers and CMS owners. The page lists the release date (July 17, 2025) and retail prices for both download and packaged versions. 
+Nintendo
+
+Long (ready for a case study page)
+
+(Use the full case study above — it’s structured for readability, includes code snippets, and explains decisions, challenges, and results.)

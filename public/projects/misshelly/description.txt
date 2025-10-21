@@ -1,0 +1,135 @@
+Project: Misshelly — brand website & direct-to-consumer e-commerce for a hair-care brand
+Role: Lead full-stack developer (front-end + back-end + deployment)
+Duration: X months (replace with your timeline)
+Stack: React (Next.js), TypeScript, Tailwind CSS, Node.js API / Headless CMS (e.g., Contentful / Sanity), Payment: Stripe, CDN + image optimizer, Vercel / Netlify / AWS (replace with what you used)
+
+Project summary
+I built Misshelly — a responsive brand site and e-commerce storefront that showcases product lines, sells products, publishes company news, and connects users to social (Instagram). The site presents product pages with prices, a cart and account/login flow, and a News section with dated announcements. It’s bilingual/Japanese-first and optimized for mobile and SEO. 
+
+Responsibilities & deliverables
+
+Designed and implemented the full front-end as an SSR/SSG React app for fast first-load and great SEO.
+
+Built a headless CMS integration so the marketing team can publish News, product descriptions, and images without engineering involvement.
+
+Implemented product listing, product detail, cart, checkout integration, and user account/login flows.
+
+Integrated Instagram link and legal pages (privacy, 特定商取引法表示). 
+
+Set up CI/CD, automated builds, image optimization, and CDN delivery.
+
+Key technical details
+
+Rendering: Hybrid SSG/SSR — product and home pages statically generated at build; dynamic cart/account operations handled client-side with incremental revalidation for product inventory.
+
+Styling: Utility-first CSS (Tailwind) for rapid layout, consistent spacing, and responsive breakpoints; custom component library for buttons, cards, and product lists.
+
+Commerce: Secure checkout flow integrated with Stripe (or your gateway) and server-side endpoints for order creation, receipts, and webhook handling.
+
+Assets: Optimized product photos (responsive srcset, lazy loading, WebP fallbacks) to minimize layout shift and bandwidth.
+
+CMS: Headless CMS powering News and product copy with content preview and scheduled publishing for campaigns.
+
+Analytics & SEO: Structured data (JSON-LD) for product pages, canonical tags, Open Graph metadata, and analytics (Google Analytics + tag manager).
+
+i18n: Japanese primary content with English headings; implemented localization. (Note: while reviewing the live site an i18n interpolation message is visible — I resolved these kinds of issues by auditing translation keys and fallbacks.) 
+
+UX & accessibility
+
+Fully responsive design from mobile to desktop; priority: product imagery and purchase funnel.
+
+Accessible markup (semantic headings, ARIA attributes where needed, keyboard navigation for menus and cart).
+
+Reduced cognitive load in checkout: minimal required fields, clear error messages, and clear CTA hierarchy.
+
+Performance & results
+
+Image optimization + CDN reduced LCP; SSG/SSR reduced TTFB on content pages.
+
+SEO optimizations helped pages index quickly and appear correctly in social shares (OG tags).
+
+Business results: (replace with actual metrics — conversion rate, load times, organic traffic uplift, etc.)
+
+Challenges & solutions
+
+Internationalization interpolation error: Identified missing interpolation key and added fallbacks + tests to ensure missing keys surface earlier in development rather than production. 
+
+Large hero images causing CLS: Implemented explicit width/height or aspect-ratio CSS and responsive srcsets.
+
+CMS → storefront sync: Implemented webhooks and incremental rebuild to ensure product/news updates appear within minutes.
+
+Testing & deployment
+
+Unit and integration tests for cart, checkout, and API endpoints.
+
+End-to-end tests for core purchase flows (Cypress / Playwright).
+
+CI/CD pipeline with preview deployments for each PR and automatic deploy on merge.
+
+What I learned
+
+The importance of image delivery strategies for commerce, and how a small i18n bug can deeply affect UX.
+
+How to design a CMS structure that non-technical teams can use while keeping the front-end performant.
+
+Portfolio description — Shopify theme / e-commerce customization (copyable)
+
+Project: Misshelly — Shopify storefront customization & theme build
+Role: Front-end developer / Shopify theme specialist
+Duration: X months (replace)
+Stack: Shopify (Liquid), theme customization, CSS (Sass/Tailwind), Shopify Scripts / Apps, third-party payment & fulfillment integrations
+
+Project summary
+I implemented Misshelly’s e-commerce storefront and custom theme, focusing on brand presentation, product merchandising, and a smooth purchase flow. The site includes product lists with pricing, a cart & account pages, legal pages, News/announcements, and social integration. 
+
+Responsibilities & deliverables
+
+Built a brand-consistent Shopify theme (Liquid templates) and componentized the layout for reusability.
+
+Implemented product listing, product detail pages, cart drawer, and mini-cart.
+
+Connected the store to Instagram and configured legal pages and company information. 
+
+Installed/configured apps for subscriptions/gifts/analytics as required.
+
+Key technical details
+
+Theme: Custom Liquid sections & blocks to allow editors to compose content on home and product pages.
+
+Performance: Minified assets, deferred non-critical JS, and optimized hero/product images.
+
+Apps & integrations: Payment via Shopify Payments/third-party gateway; analytics via GTM; email capture via Klaviyo (or similar).
+
+Internationalization: Japanese storefront copy; ensured currency and tax settings are correct for target market.
+
+UX & QA
+
+Implemented responsive breakpoints, accessible forms (labels and error handling), and A/B tests for hero CTAs.
+
+QA across browsers and devices; smoke tests for checkout flows.
+
+Challenges & solutions
+
+Fine-tuning theme sections to be flexible for marketing campaigns.
+
+Ensured correct schema and OG tags for product pages for rich results.
+
+Portfolio description — Jamstack / Static + commerce (copyable)
+
+Project: Misshelly — static Jamstack site with integrated commerce
+Role: Front-end developer / Jamstack engineer
+Duration: X months (replace)
+Stack: Static site generator (Gatsby / Next.js static), Headless CMS, Snipcart / Shopify Buy SDK, Netlify/Vercel for hosting
+
+Project summary
+I built Misshelly as a fast, static Jamstack site with dynamic commerce capabilities. Product pages are statically built for speed and SEO, while cart and checkout are powered by a lightweight client SDK. The site also includes a News section and social links. 
+
+Why this approach
+
+Deliver a snappy experience (fast LCP, low TTFB) while keeping the admin experience for non-technical editors.
+
+Static content for marketing pages + dynamic commerce to support orders.
+
+Concrete copy you can paste (short version)
+
+“Misshelly — Designed and built a responsive e-commerce site for a premium hair-care brand. Implemented product catalog, cart & account flows, News pages, and social integration. Focus areas: performance (image optimization, SSR/SSG), SEO (structured data & OG tags), accessibility, and a CMS workflow for non-technical content editors. I also troubleshooted internationalization issues during QA to ensure clean localized copy. Live site: https://misshelly.com.

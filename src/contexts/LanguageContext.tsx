@@ -459,6 +459,34 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
         en: 'Japanese mobile game and anime project "18TRIP" - a near-future hospitality adventure game. Features character-driven storytelling, cassette tape memory system, and immersive travel experiences. Built with modern web technologies for both game platform and promotional website.',
         ja: '日本のモバイルゲーム・アニメプロジェクト「18TRIP」- 近未来おもてなしアドベンチャーゲーム。キャラクター駆動のストーリーテリング、カセットテープメモリーシステム、没入型旅行体験を特徴とする。ゲームプラットフォームとプロモーションウェブサイトの両方にモダンなウェブ技術を使用。'
       },
+      'project.futuretrain.description': {
+        en: 'Bilingual (JA/EN) marketing website for FUTURE TRAIN - an immersive themed restaurant experience combining train attractions with dining. Features TableCheck reservation integration, PDF menu management, responsive design, and accessibility-first markup for seamless visitor experience.',
+        ja: 'FUTURE TRAINのバイリンガル（日英）マーケティングウェブサイト - 列車アトラクションとダイニングを組み合わせた没入型テーマレストラン体験。TableCheck予約統合、PDFメニュー管理、レスポンシブデザイン、シームレスな訪問者体験のためのアクセシビリティファーストマークアップを特徴とする。'
+      },
+      'project.expo2025-hyogo.description': {
+        en: 'Multilingual, image-driven travelogue for Hyogo Field Pavilion showcasing curated local experiences across Hyōgo Prefecture. Features storytelling micro-site with creator profiles, gallery-style imagery, and internationalization for global visitors.',
+        ja: '兵庫フィールドパビリオンの多言語・画像駆動トラベローグ。兵庫県のキュレーションされた地域体験を紹介するストーリーテリングマイクロサイト。クリエイター紹介、ギャラリー形式の画像、グローバル訪問者向け国際化を特徴とする。'
+      },
+      'project.hince.description': {
+        en: 'End-to-end development of Hince production web application with full-stack implementation, responsive design, and SEO optimization. Built componentized frontend, robust backend APIs, CI/CD pipeline, and performance monitoring.',
+        ja: 'Hince本番ウェブアプリケーションのエンドツーエンド開発。フルスタック実装、レスポンシブデザイン、SEO最適化を特徴とする。コンポーネント化フロントエンド、堅牢なバックエンドAPI、CI/CDパイプライン、パフォーマンス監視を構築。'
+      },
+      'project.misshelly.description': {
+        en: 'Direct-to-consumer e-commerce platform for hair-care brand Misshelly. Built responsive brand site with product catalog, cart & checkout flows, CMS integration, and bilingual support. Focus on performance, SEO, and accessibility.',
+        ja: 'ヘアケアブランドMisshellyのダイレクトツーコンシューマーeコマースプラットフォーム。レスポンシブブランドサイト、商品カタログ、カート・チェックアウトフロー、CMS統合、バイリンガルサポートを構築。パフォーマンス、SEO、アクセシビリティに焦点。'
+      },
+      'project.nintendo.description': {
+        en: 'Official Nintendo marketing page for Donkey Kong BANANZA on Nintendo Switch 2. Built responsive, high-performance, and accessible marketing site with hero media, feature sections, demo/purchase CTAs, and product metadata.',
+        ja: 'Nintendo Switch 2向けドンキーコングBANANZAの公式Nintendoマーケティングページ。レスポンシブ、高性能、アクセシブルなマーケティングサイトを構築。ヒーローメディア、機能セクション、デモ・購入CTA、商品メタデータを特徴とする。'
+      },
+      'project.opera-net.description': {
+        en: 'Professional website for opera-net.jp with performant, accessible, and SEO-optimized content. Built end-to-end with CMS-driven content workflow, CI/CD automation, and post-launch monitoring.',
+        ja: 'opera-net.jpのプロフェッショナルウェブサイト。高性能、アクセシブル、SEO最適化コンテンツを特徴とする。CMS駆動コンテンツワークフロー、CI/CD自動化、ローンチ後監視を備えたエンドツーエンド構築。'
+      },
+      'project.pickyou-pro.description': {
+        en: 'Curated marketplace PICKYOU PRO for models, artists and creators selling pre-owned fashion items. Built custom Shopify theme with picker profiles, category discovery, responsive product pages, and AJAX cart functionality.',
+        ja: 'モデル、アーティスト、クリエイターが中古ファッションアイテムを販売するキュレーション型マーケットプレイスPICKYOU PRO。ピッカープロフィール、カテゴリー発見、レスポンシブ商品ページ、AJAXカート機能を備えたカスタムShopifyテーマを構築。'
+      },
       'project.teamlab.description': {
         en: 'Immersive digital art experiences with interactive 3D/real‑time visuals. Contributed to performant WebGL scenes, SSR UI, and real‑time interactions for exhibitions and virtual tours.',
         ja: '没入型デジタルアート体験。パフォーマンスに優れたWebGLシーン、SSR UI、リアルタイムインタラクションを実装し、展示やバーチャルツアーを支援。'

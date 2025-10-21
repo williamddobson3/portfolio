@@ -181,6 +181,125 @@ export const projects: Project[] = [
       downloads: 'Free-to-play with in-app purchases',
       awards: 'Japanese anime/game project'
     }
+  },
+  {
+    id: 'futuretrain',
+    title: 'FUTURE TRAIN (フューチャートレイン)',
+    category: 'consumer',
+    descriptionKey: 'project.futuretrain.description',
+    role: 'Frontend Developer',
+    year: '2024',
+    status: 'Active',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design', 'TableCheck API', 'PDF Management', 'Bilingual Support', 'SEO', 'Accessibility'],
+    images: ['/projects/futuretrain/1.png', '/projects/futuretrain/2.png'],
+    website: 'https://www.futuretrain.jp/ja',
+    metrics: {
+      users: 'Themed restaurant experience',
+      downloads: 'Bilingual (JA/EN) support',
+      awards: 'Immersive dining concept'
+    }
+  },
+  {
+    id: 'expo2025-hyogo',
+    title: '兵庫の日常へ旅しよう (Hyogo Travelogue)',
+    category: 'consumer',
+    descriptionKey: 'project.expo2025-hyogo.description',
+    role: 'Lead Frontend Developer',
+    year: '2024',
+    status: 'Active',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design', 'Image Optimization', 'i18n', 'CMS Integration', 'SEO', 'Accessibility'],
+    images: ['/projects/expo2025-hyogo/1.jpg', '/projects/expo2025-hyogo/2.jpg', '/projects/expo2025-hyogo/3.jpg'],
+    website: 'https://expo2025-hyogo-fieldpavilion.jp/travelogue/',
+    metrics: {
+      users: 'Multilingual travelogue',
+      downloads: 'Image-driven storytelling',
+      awards: 'Expo 2025 project'
+    }
+  },
+  {
+    id: 'hince',
+    title: 'Hince',
+    category: 'consumer',
+    descriptionKey: 'project.hince.description',
+    role: 'Lead Developer',
+    year: '2024',
+    status: 'Active',
+    technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Redis', 'Stripe', 'AWS', 'CI/CD'],
+    images: ['/projects/hince/1.jpg', '/projects/hince/2.jpg', '/projects/hince/3.jpg'],
+    website: 'https://hince.jp/',
+    metrics: {
+      users: 'Production web application',
+      downloads: 'Full-stack development',
+      awards: 'End-to-end ownership'
+    }
+  },
+  {
+    id: 'misshelly',
+    title: 'Misshelly',
+    category: 'consumer',
+    descriptionKey: 'project.misshelly.description',
+    role: 'Lead Full-Stack Developer',
+    year: '2024',
+    status: 'Active',
+    technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Headless CMS', 'Stripe', 'CDN', 'SEO', 'i18n'],
+    images: ['/projects/misshelly/1.jpg', '/projects/misshelly/2.jpg', '/projects/misshelly/3.jpg'],
+    website: 'https://misshelly.com/',
+    metrics: {
+      users: 'Hair-care brand e-commerce',
+      downloads: 'Direct-to-consumer',
+      awards: 'Bilingual support'
+    }
+  },
+  {
+    id: 'nintendo',
+    title: 'Donkey Kong BANANZA (Nintendo Switch 2)',
+    category: 'media',
+    descriptionKey: 'project.nintendo.description',
+    role: 'Lead Frontend Developer',
+    year: '2024',
+    status: 'Active',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design', 'Image Optimization', 'SEO', 'Accessibility', 'Performance'],
+    images: ['/projects/nintendo/1.jpg', '/projects/nintendo/2.jpg', '/projects/nintendo/3.jpg'],
+    website: 'https://www.nintendo.com/jp/games/switch2/aaaca/index.html',
+    metrics: {
+      users: 'Nintendo marketing page',
+      downloads: 'High-performance site',
+      awards: 'Official Nintendo project'
+    }
+  },
+  {
+    id: 'opera-net',
+    title: 'opera-net.jp',
+    category: 'business',
+    descriptionKey: 'project.opera-net.description',
+    role: 'Full-Stack Developer',
+    year: '2024',
+    status: 'Active',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Headless CMS', 'SEO', 'Accessibility', 'Performance'],
+    images: ['/projects/opera-net/1.jpg', '/projects/opera-net/2.jpg', '/projects/opera-net/3.jpg'],
+    website: 'https://www.opera-net.jp/',
+    metrics: {
+      users: 'Professional website',
+      downloads: 'SEO-optimized',
+      awards: 'Accessibility-first'
+    }
+  },
+  {
+    id: 'pickyou-pro',
+    title: 'PICKYOU PRO',
+    category: 'consumer',
+    descriptionKey: 'project.pickyou-pro.description',
+    role: 'Lead Developer',
+    year: '2024',
+    status: 'Active',
+    technologies: ['Shopify', 'Liquid', 'HTML5', 'CSS3', 'JavaScript', 'E-commerce', 'SEO', 'Performance'],
+    images: ['/projects/pickyou-pro/1.jpg', '/projects/pickyou-pro/2.jpg', '/projects/pickyou-pro/3.jpg'],
+    website: 'https://pro.pickyou.jp/',
+    metrics: {
+      users: 'Curated marketplace',
+      downloads: 'Creator-focused',
+      awards: 'Custom Shopify theme'
+    }
   }
   ,
 

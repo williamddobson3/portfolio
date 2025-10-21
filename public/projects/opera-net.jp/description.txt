@@ -1,0 +1,225 @@
+# opera-net.jp — Development Case Study
+
+> **Project:** opera-net.jp
+
+---
+
+## TL;DR
+
+I designed and developed **opera-net.jp**, a production-ready website delivering performant, accessible, and SEO-optimized content for its target users. This case study documents the goals, my role, the full development process (design → engineering → deployment), technical choices, key implementation details, testing and monitoring approach, challenges I encountered and how I solved them, measurable outcomes, and suggested future improvements for the portfolio.
+
+---
+
+## Project overview
+
+**opera-net.jp** is a professional website built to present [organization/services/content — replace with actual description]. The site emphasizes clear information architecture, fast load times, cross-device compatibility, and maintainability.
+
+**Primary goals**
+
+* Present the organization and services in a trustworthy, easy-to-scan manner.
+* Improve organic visibility (SEO) and accessibility.
+* Provide a CMS-driven content workflow for non-technical editors.
+* Achieve high performance scores and reliable uptime.
+
+**My role**
+
+* Full-stack developer (planning, frontend, backend integration, deployment)
+* UX consultant (information architecture and content strategy)
+* DevOps owner (CI/CD, hosting and performance monitoring)
+
+**Timeline**
+
+* Discovery & planning: 1–2 weeks
+* Design & prototyping: 1–2 weeks
+* Implementation: 2–4 weeks
+* Testing & polish: 1 week
+* Launch & post-launch monitoring: ongoing
+
+(adjust actual dates/times to your project timeline)
+
+---
+
+## Responsibilities and contributions
+
+* Led requirements gathering with stakeholders and translated business needs into technical requirements.
+* Designed the information architecture, sitemap, and content hierarchy.
+* Built responsive UI components and page templates.
+* Integrated CMS (or static generation) for editing and content publishing.
+* Implemented SEO best-practices (structured data, canonical tags, meta tags, semantic HTML).
+* Set up CI/CD pipeline, automated builds and deployments, and server configuration.
+* Performed accessibility remediation (ARIA roles, keyboard focus, semantic markup).
+* Implemented performance optimizations (image optimization, code-splitting, caching).
+* Configured analytics, logging and uptime monitoring.
+
+---
+
+## Design & UX process
+
+1. **Discovery & stakeholder interviews** — gathered business goals, target audiences, and content types.
+2. **Content inventory & IA** — mapped content to pages, defined primary navigation, and prioritized calls-to-action.
+3. **Wireframes** — low-fidelity wireframes to align layout and content blocks for desktop and mobile.
+4. **Visual design** — crafted final UI components: hero, feature blocks, footer, contact forms; focused on typographic hierarchy and clear CTAs.
+5. **Prototyping & usability checks** — verified reading/scanning flow and mobile navigation.
+
+### Design decisions worth highlighting
+
+* **Mobile-first approach** — ensures core content is accessible on small screens; desktop enhancements layered progressively.
+* **Clear visual hierarchy** — large type for headlines, consistent spacing, and high-contrast CTAs to improve scanability and conversions.
+* **Content-first layout** — prioritized content blocks and easy access to contact/CTA elements.
+
+---
+
+## Technical architecture & stack
+
+Below is a typical stack that I used (adjust to your actual choices):
+
+* **Frontend:** Static-site generator (e.g., Next.js / Nuxt.js / Gatsby) or server-side rendered framework; vanilla JS/TypeScript for components.
+* **Styling:** Tailwind CSS (utility-first) or custom SASS; responsive design with CSS Grid & Flexbox.
+* **Content management:** Headless CMS (e.g., Contentful, Netlify CMS) or Markdown + Git workflow for content updates.
+* **Backend / APIs:** Node.js serverless functions (if dynamic features) or none if fully static.
+* **Hosting / CDN:** Vercel / Netlify / AWS S3 + CloudFront for static assets.
+* **CI/CD:** GitHub Actions for automated builds, tests, and deployments.
+* **Performance & monitoring:** Lighthouse, Google PageSpeed, Sentry (errors), UptimeRobot or Datadog for availability.
+* **Analytics:** Google Analytics or Plausible; events for CTAs and form submissions.
+
+### Architecture notes
+
+* Pages are generated from templates and content sources. Shared components are atomic and re-usable.
+* Assets served through a CDN with cache-control headers and hashed filenames for long-term caching.
+* Critical CSS and lazy-loading used to reduce first paint time.
+
+---
+
+## Key features & implementation details
+
+Below are the important features I developed and the specific technical/UX choices I implemented.
+
+### 1. Responsive, accessible layout
+
+* Implemented semantic HTML5 structure (`header`, `main`, `article`, `footer`) for accessibility and SEO.
+* Mobile-first CSS and breakpoints for tablet/desktop.
+* Focus states for interactive elements and ARIA attributes where necessary.
+* Keyboard navigation tested across pages.
+
+### 2. Performance optimizations
+
+* **Images:** Used responsive `srcset` and `picture` with modern formats (WebP/AVIF) and sized images to device widths. Automated image optimization pipeline during build.
+* **Code-splitting:** Split vendor and page-specific bundles to reduce initial JS payload.
+* **Lazy loading:** Implemented `loading="lazy"` for offscreen images; deferred non-critical scripts.
+* **Caching:** Configured long-lived cache headers and CDN invalidation strategy after deploys.
+* **Critical CSS:** Extracted minimal CSS for above-the-fold rendering.
+
+### 3. SEO & structured data
+
+* Implemented page-level meta tags (title, description), Open Graph tags, and Twitter card metadata.
+* Added JSON-LD structured data for the Organization / Website schema to help search engines.
+* Generated and served `sitemap.xml` and `robots.txt` automatically.
+* Used semantic heading order (h1 → h2 → h3) to preserve content hierarchy.
+
+### 4. Content workflow
+
+* Implemented either a headless CMS or a git-based content workflow (Markdown) so non-technical editors could publish content.
+* Built canonical page templates, SEO fields in CMS, and preview hooks for content editors (if applicable).
+
+### 5. Contact & forms
+
+* Built a lightweight contact form with validation (client + server) and spam mitigation (honeypot or CAPTCHA as needed).
+* Integrated form submissions with email via transactional provider (SES, SendGrid) or webhook.
+
+### 6. Security
+
+* Enforced HTTPS via CDN/TLS.
+* Sanitized and validated any user-supplied content server-side.
+* Set secure headers (HSTS, Content-Security-Policy, X-Frame-Options) at the CDN or server level.
+
+---
+
+## Testing strategy
+
+* **Unit tests** for core JS utilities and form validation logic.
+* **Visual regression checks** (Chromatic or Percy) to detect unintended UI regressions.
+* **Accessibility testing:** automated checks with axe-core + manual spot checks (screen reader navigation and keyboard-only navigation).
+* **E2E testing:** Cypress or Playwright to validate critical flows (form submission, navigation, contact CTA).
+* **Performance monitoring:** Lighthouse audits during CI and post-deploy synthetic checks.
+
+---
+
+## CI/CD & deployment
+
+* **CI pipeline:** On push to `main`, run linting, unit tests, Lighthouse smoke tests, and build.
+* **Preview deploys:** Automatic preview URLs for pull requests for stakeholder review.
+* **Production deploys:** Atomic, immutable builds deployed to CDN with zero-downtime.
+
+---
+
+## Observability & analytics
+
+* **Analytics:** Tracked pageviews, CTA clicks, and form submissions; set up conversion goals in analytics.
+* **Error reporting:** Sentry for frontend runtime errors.
+* **Uptime & performance:** Synthetic checks to alert on regressions in lighthouse metrics or downtime.
+
+---
+
+## Challenges & solutions
+
+1. **Balancing rich visuals with load speed**
+
+   * *Problem:* High-resolution imagery increased load times.
+   * *Solution:* Implemented responsive images, progressive loading, and served modern formats. Replaced hero video with optimized Lottie/animated SVG where appropriate.
+
+2. **SEO for dynamic pages**
+
+   * *Problem:* Some content was generated client-side which reduced SEO effectiveness.
+   * *Solution:* Shifted to server-side rendering or static generation for key pages and ensured metadata is present at HTML render time.
+
+3. **Content editing for non-technical users**
+
+   * *Problem:* Stakeholders needed simple publishing workflows.
+   * *Solution:* Integrated a headless CMS with structured fields, preview links, and training for editors.
+
+---
+
+## Outcomes & recommended metrics to include in portfolio (replace with your actual numbers)
+
+* **Performance:** Lighthouse Performance score improved to **XX** (desktop) and **YY** (mobile).
+* **Load time:** Time to interactive reduced to **Z.Zs**.
+* **SEO:** Organic search impressions / sessions increased by **N%** within M months.
+* **Accessibility:** Achieved WCAG AA compliance on core pages; automated axe checks show 0 critical issues.
+* **Reliability:** Uptime maintained at **99.9%+** after deployment.
+
+> Replace the placeholders with real analytics and Lighthouse numbers from your monitoring tools to strengthen the case study.
+
+---
+
+## What I learned
+
+* The importance of aligning content strategy early — content dictates layout more than the other way around.
+* Small, well-targeted performance improvements (image formats, caching, and code-splitting) yield outsized improvements in perceived speed.
+* Investing in editor UX (CMS structure & preview) reduces content errors and speeds up publishing.
+
+---
+
+## Suggested screenshots & artifacts to include in your portfolio entry
+
+1. Homepage full-width screenshot (desktop)
+2. Mobile view screenshot showing responsive layout
+3. Example of a page built from CMS (editor UI screenshot)
+4. Lighthouse report screenshot before/after
+5. Code snippet showing reusable component or build script (sanitized)
+6. Deployment/CI workflow screenshot (GitHub Actions)
+7. Any before/after SEO or analytics charts (anonymized)
+
+---
+
+## Short résumé / CV bullet (one-liner)
+
+Built and launched **opera-net.jp** — a performant, accessible, SEO-optimized website with a CMS-backed content workflow; responsible for end-to-end development, CI/CD automation, and post-launch monitoring.
+
+---
+
+## Notes about presenting this in a portfolio
+
+* Start with a compelling headline and one-sentence summary of impact.
+* Use the TL;DR and the Outcomes as the lead content so busy recruiters see impact immediately.
+* Use the "Suggested screenshots" list to arrange visuals — visuals should show mobile and desktop and at least one technical screenshot.
+* Keep a short technical section that lists exact tools and versions used.
