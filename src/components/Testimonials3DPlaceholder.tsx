@@ -75,17 +75,17 @@ export const Testimonials3DPlaceholder: React.FC<{ playing: boolean }> = ({ play
           
           {/* Testimonial content */}
           <div className="space-y-4">
-            <blockquote className="text-lg md:text-xl text-gray-800/90 leading-relaxed italic">
+            <blockquote className="text-lg md:text-xl text-white leading-relaxed italic">
               "{testimonials[currentTestimonial].quote}"
             </blockquote>
             
             <div className="flex items-center justify-center space-x-4">
               <div className="text-right">
-                <div className="font-semibold text-gray-800">{testimonials[currentTestimonial].author}</div>
-                <div className="text-sm text-gray-800/70">{testimonials[currentTestimonial].company}</div>
+                <div className="font-semibold text-white">{testimonials[currentTestimonial].author}</div>
+                <div className="text-sm text-white">{testimonials[currentTestimonial].company}</div>
               </div>
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-coral-500 rounded-full flex items-center justify-center">
-                <Users className="w-6 h-6 text-gray-800" />
+                <Users className="w-6 h-6 text-white" />
               </div>
             </div>
             

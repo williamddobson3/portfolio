@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Calendar, Clock, Search, Filter, ArrowRight, BookOpen, User, Eye, Heart, ChevronLeft, ChevronRight, Edit3, Save, X, Plus, Upload } from 'lucide-react';
+import { Calendar, Clock, Search, Filter, ArrowRight, BookOpen, User, Eye, Heart, ChevronLeft, ChevronRight, Edit3, Save, X, Upload } from 'lucide-react';
 
 interface BlogPost {
   id: string;
@@ -19,7 +19,7 @@ interface BlogPost {
 }
 
 const BlogPage: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
@@ -31,44 +31,17 @@ const BlogPage: React.FC = () => {
   const [uploadingImage, setUploadingImage] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const postsPerPage = 6;
-  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([
+  const blogPosts = useMemo(() => [
     {
       id: '1',
-      title: 'Building High-Performance Web Applications with React and Next.js',
-      excerpt: 'Learn how to create lightning-fast web applications using modern React patterns, Next.js optimization techniques, and performance best practices.',
-      content: `In today's competitive digital landscape, web application performance is crucial for user engagement and business success. This comprehensive guide covers everything you need to know about building high-performance web applications using React and Next.js.
-
-## The Foundation: React Performance Optimization
-
-React's component-based architecture provides excellent opportunities for optimization. Key strategies include:
-
-- **Component Memoization**: Use React.memo() for expensive components
-- **Hook Optimization**: Implement useMemo() and useCallback() strategically
-- **Code Splitting**: Lazy load components to reduce initial bundle size
-- **Virtual Scrolling**: Handle large datasets efficiently
-
-## Next.js Performance Features
-
-Next.js offers powerful built-in optimizations:
-
-- **Automatic Code Splitting**: Pages are automatically split for optimal loading
-- **Image Optimization**: Next.js Image component with automatic WebP conversion
-- **Static Generation**: Pre-render pages at build time for maximum speed
-- **API Routes**: Serverless functions for backend logic
-
-## Real-World Results
-
-In my recent projects, implementing these techniques has resulted in:
-- **40% faster page load times**
-- **60% improvement in Core Web Vitals**
-- **2x better user engagement metrics**
-
-The key is understanding your users' needs and optimizing accordingly.`,
+      title: t('blog.post1.title'),
+      excerpt: t('blog.post1.excerpt'),
+      content: t('blog.post1.content'),
       author: 'Keishin',
       date: '2024-01-15',
-      readTime: '8 min',
+      readTime: language === 'ja' ? '8分' : '8 min',
       category: 'Web Development',
-      tags: ['React', 'Next.js', 'Performance', 'Web Development'],
+      tags: language === 'ja' ? ['React', 'Next.js', 'パフォーマンス', 'Web開発'] : ['React', 'Next.js', 'Performance', 'Web Development'],
       image: '/projects/buzzfeed/1.jpg',
       views: 1247,
       likes: 89,
@@ -76,39 +49,14 @@ The key is understanding your users' needs and optimizing accordingly.`,
     },
     {
       id: '2',
-      title: 'Android App Development with Jetpack Compose: A Complete Guide',
-      excerpt: 'Discover the power of Jetpack Compose for creating modern, responsive Android applications with less code and better performance.',
-      content: `Jetpack Compose has revolutionized Android development by providing a declarative UI framework that's both powerful and intuitive. This guide covers everything from basic concepts to advanced patterns.
-
-## Why Jetpack Compose?
-
-Traditional Android development with XML layouts has several limitations:
-- Verbose and error-prone
-- Difficult to maintain
-- Limited reusability
-- Complex state management
-
-Jetpack Compose solves these issues by:
-- **Declarative UI**: Describe what you want, not how to achieve it
-- **Composable Functions**: Reusable, testable UI components
-- **State Management**: Built-in state handling with remember and mutableStateOf
-- **Material Design**: Seamless integration with Material 3
-
-## Best Practices
-
-1. **Keep Composables Small**: Single responsibility principle
-2. **Use State Hoisting**: Lift state up to the appropriate level
-3. **Implement Proper Testing**: Unit and UI tests for composables
-4. **Performance Optimization**: Use LazyColumn for large lists
-
-## Real Project Example
-
-In my recent Android project, Jetpack Compose reduced development time by 30% while improving code maintainability significantly.`,
+      title: t('blog.post2.title'),
+      excerpt: t('blog.post2.excerpt'),
+      content: t('blog.post2.content'),
       author: 'Keishin',
       date: '2024-01-10',
-      readTime: '12 min',
+      readTime: language === 'ja' ? '12分' : '12 min',
       category: 'Mobile Development',
-      tags: ['Android', 'Jetpack Compose', 'Mobile Development', 'Kotlin'],
+      tags: language === 'ja' ? ['Android', 'Jetpack Compose', 'モバイル開発', 'Kotlin'] : ['Android', 'Jetpack Compose', 'Mobile Development', 'Kotlin'],
       image: '/projects/ameba/1.png',
       views: 892,
       likes: 67,
@@ -116,43 +64,14 @@ In my recent Android project, Jetpack Compose reduced development time by 30% wh
     },
     {
       id: '3',
-      title: 'AI Model Development: From Prototype to Production',
-      excerpt: 'A comprehensive guide to building, training, and deploying AI models in production environments with MLOps best practices.',
-      content: `The journey from AI prototype to production-ready system involves numerous challenges. This guide covers the complete MLOps pipeline for successful AI deployment.
-
-## The MLOps Pipeline
-
-### 1. Data Preparation
-- **Data Collection**: Gathering relevant, high-quality datasets
-- **Data Cleaning**: Handling missing values, outliers, and inconsistencies
-- **Feature Engineering**: Creating meaningful features for model training
-- **Data Validation**: Ensuring data quality and consistency
-
-### 2. Model Development
-- **Algorithm Selection**: Choosing the right model for your problem
-- **Hyperparameter Tuning**: Optimizing model performance
-- **Cross-Validation**: Ensuring model generalization
-- **Model Evaluation**: Comprehensive performance metrics
-
-### 3. Production Deployment
-- **Containerization**: Docker for consistent environments
-- **API Development**: RESTful services for model inference
-- **Monitoring**: Real-time performance tracking
-- **Scaling**: Handling increased load and traffic
-
-## Real-World Success
-
-In my recent AI projects, implementing proper MLOps practices has resulted in:
-- **50% faster model deployment**
-- **90% reduction in production issues**
-- **3x better model performance monitoring**
-
-The key is treating AI models as production software, not just research experiments.`,
+      title: t('blog.post3.title'),
+      excerpt: t('blog.post3.excerpt'),
+      content: t('blog.post3.content'),
       author: 'Keishin',
       date: '2024-01-05',
-      readTime: '15 min',
+      readTime: language === 'ja' ? '15分' : '15 min',
       category: 'AI/ML',
-      tags: ['AI', 'MLOps', 'Machine Learning', 'Production'],
+      tags: language === 'ja' ? ['AI', 'MLOps', '機械学習', '本番環境'] : ['AI', 'MLOps', 'Machine Learning', 'Production'],
       image: '/projects/OpenAI/1.png',
       views: 1563,
       likes: 124,
@@ -160,49 +79,14 @@ The key is treating AI models as production software, not just research experime
     },
     {
       id: '4',
-      title: 'Modern CSS Techniques for Stunning User Interfaces',
-      excerpt: 'Explore advanced CSS techniques including Grid, Flexbox, animations, and modern layout patterns for creating beautiful user interfaces.',
-      content: `CSS has evolved significantly, offering powerful tools for creating sophisticated user interfaces. This guide covers modern CSS techniques that every developer should know.
-
-## Layout Systems
-
-### CSS Grid
-- **Two-dimensional layouts**: Perfect for complex page structures
-- **Responsive design**: Automatic adaptation to different screen sizes
-- **Grid areas**: Semantic naming for better maintainability
-
-### Flexbox
-- **One-dimensional layouts**: Ideal for component-level layouts
-- **Alignment**: Precise control over item positioning
-- **Flexible sizing**: Automatic space distribution
-
-## Advanced Techniques
-
-1. **Custom Properties**: CSS variables for dynamic theming
-2. **Container Queries**: Responsive design based on container size
-3. **CSS Animations**: Smooth, performant animations
-4. **Modern Selectors**: Advanced targeting capabilities
-
-## Performance Considerations
-
-- Use transform and opacity for animations
-- Leverage CSS containment for better performance
-- Implement proper fallbacks for older browsers
-- Use CSS-in-JS libraries judiciously
-
-## Real Project Impact
-
-Implementing modern CSS techniques in my projects has resulted in:
-- **25% faster rendering**
-- **40% better user experience**
-- **60% reduction in JavaScript bundle size**
-
-The key is understanding when to use each technique and how they work together.`,
+      title: t('blog.post4.title'),
+      excerpt: t('blog.post4.excerpt'),
+      content: t('blog.post4.content'),
       author: 'Keishin',
       date: '2024-01-01',
-      readTime: '10 min',
+      readTime: language === 'ja' ? '10分' : '10 min',
       category: 'Frontend',
-      tags: ['CSS', 'Frontend', 'UI/UX', 'Web Development'],
+      tags: language === 'ja' ? ['CSS', 'フロントエンド', 'UI/UX', 'Web開発'] : ['CSS', 'Frontend', 'UI/UX', 'Web Development'],
       image: '/projects/muji/1.png',
       views: 743,
       likes: 56,
@@ -210,51 +94,14 @@ The key is understanding when to use each technique and how they work together.`
     },
     {
       id: '5',
-      title: 'Building Scalable Backend Systems with Node.js',
-      excerpt: 'Learn how to design and implement robust, scalable backend systems using Node.js, Express, and modern architectural patterns.',
-      content: `Backend development requires careful consideration of scalability, performance, and maintainability. This guide covers building production-ready backend systems with Node.js.
-
-## Architecture Patterns
-
-### Microservices
-- **Service Separation**: Independent, deployable services
-- **API Gateway**: Centralized request routing
-- **Service Discovery**: Dynamic service location
-- **Circuit Breakers**: Fault tolerance patterns
-
-### Event-Driven Architecture
-- **Message Queues**: Asynchronous communication
-- **Event Sourcing**: Audit trail and state reconstruction
-- **CQRS**: Command Query Responsibility Segregation
-- **Saga Pattern**: Distributed transaction management
-
-## Performance Optimization
-
-1. **Database Optimization**: Proper indexing and query optimization
-2. **Caching Strategies**: Redis for session and data caching
-3. **Load Balancing**: Distributing traffic across multiple servers
-4. **CDN Integration**: Static asset delivery optimization
-
-## Security Best Practices
-
-- **Authentication**: JWT tokens and session management
-- **Authorization**: Role-based access control
-- **Input Validation**: Preventing injection attacks
-- **Rate Limiting**: Protecting against abuse
-
-## Real-World Results
-
-Implementing these patterns in my backend projects has resulted in:
-- **70% better scalability**
-- **50% faster response times**
-- **90% reduction in downtime**
-
-The key is choosing the right architecture for your specific use case.`,
+      title: t('blog.post5.title'),
+      excerpt: t('blog.post5.excerpt'),
+      content: t('blog.post5.content'),
       author: 'Keishin',
       date: '2023-12-28',
-      readTime: '14 min',
+      readTime: language === 'ja' ? '14分' : '14 min',
       category: 'Backend',
-      tags: ['Node.js', 'Backend', 'Architecture', 'Scalability'],
+      tags: language === 'ja' ? ['Node.js', 'バックエンド', 'アーキテクチャ', 'スケーラビリティ'] : ['Node.js', 'Backend', 'Architecture', 'Scalability'],
       image: '/projects/cookpad/1.jpg',
       views: 1089,
       likes: 78,
@@ -262,113 +109,24 @@ The key is choosing the right architecture for your specific use case.`,
     },
     {
       id: '6',
-      title: 'The Future of Web Development: Trends and Predictions',
-      excerpt: 'Explore emerging trends in web development, from WebAssembly to edge computing, and how they will shape the future of the web.',
-      content: `The web development landscape is constantly evolving. This article explores current trends and future predictions for web development.
-
-## Emerging Technologies
-
-### WebAssembly (WASM)
-- **Near-native performance**: Running compiled code in browsers
-- **Language diversity**: Support for C++, Rust, Go, and more
-- **Use cases**: Games, image processing, scientific computing
-
-### Edge Computing
-- **Reduced latency**: Processing closer to users
-- **Better performance**: Faster response times
-- **Global distribution**: Content delivery optimization
-
-### Progressive Web Apps (PWAs)
-- **Native-like experience**: App-like functionality in browsers
-- **Offline support**: Working without internet connection
-- **Push notifications**: Engaging users effectively
-
-## Future Predictions
-
-1. **AI Integration**: Machine learning in web applications
-2. **Voice Interfaces**: Conversational user experiences
-3. **AR/VR Web**: Immersive web experiences
-4. **Quantum Computing**: Revolutionary processing power
-
-## Preparing for the Future
-
-- **Stay updated**: Continuous learning and adaptation
-- **Experiment**: Try new technologies and frameworks
-- **Community involvement**: Contributing to open source
-- **Skill diversification**: Broad knowledge base
-
-## Real-World Impact
-
-Staying ahead of trends in my development work has resulted in:
-- **30% faster adoption of new technologies**
-- **50% better client satisfaction**
-- **40% increased project success rates**
-
-The key is balancing innovation with practical application.`,
+      title: t('blog.post6.title'),
+      excerpt: t('blog.post6.excerpt'),
+      content: t('blog.post6.content'),
       author: 'Keishin',
       date: '2023-12-20',
-      readTime: '11 min',
+      readTime: language === 'ja' ? '11分' : '11 min',
       category: 'Technology',
-      tags: ['Future', 'Technology', 'Web Development', 'Trends'],
+      tags: language === 'ja' ? ['未来', 'テクノロジー', 'Web開発', 'トレンド'] : ['Future', 'Technology', 'Web Development', 'Trends'],
       image: '/projects/teamlab/1.jpg',
       views: 934,
       likes: 72,
       featured: false
     }
-  ]);
+  ], [t, language]);
 
-  // Editing functions
-  const handleEditPost = (post: BlogPost) => {
-    setEditingPost({ ...post });
-    setIsEditing(true);
-    setSelectedPost(null);
-  };
+  // Note: Editing functions removed as blog posts are now dynamic based on language
 
-  const handleCreatePost = () => {
-    const newPost: BlogPost = {
-      id: Date.now().toString(),
-      title: 'New Article Title',
-      excerpt: 'Write a compelling excerpt that summarizes your article...',
-      content: `# Your Article Title
-
-Write your article content here. You can use markdown formatting:
-
-## Section Headers
-Use ## for section headers
-
-### Subsection Headers
-Use ### for subsection headers
-
-**Bold text** and *italic text* are supported.
-
-- Bullet points
-- Work great for lists
-- And organizing content
-
-## Code Examples
-\`\`\`javascript
-// Code blocks are supported
-const example = "Hello World";
-console.log(example);
-\`\`\`
-
-## Conclusion
-Wrap up your article with key takeaways and next steps.`,
-      author: 'Keishin',
-      date: new Date().toISOString().split('T')[0],
-      readTime: '5 min',
-      category: 'Web Development',
-      tags: ['New Article', 'Technology'],
-      image: '/projects/teamlab/1.jpg',
-      views: 0,
-      likes: 0,
-      featured: false
-    };
-    setEditingPost(newPost);
-    setIsCreating(true);
-    setIsEditing(true);
-    setSelectedPost(null); // Close any open article modal
-  };
+  // Note: Create function removed as blog posts are now dynamic based on language
 
   const handleSavePost = () => {
     if (!editingPost) return;
@@ -383,16 +141,9 @@ Wrap up your article with key takeaways and next steps.`,
       return;
     }
     
-    if (isCreating) {
-      // Add new article to the beginning of the list
-      setBlogPosts(prev => [editingPost, ...prev]);
-      alert('Article created successfully!');
-    } else {
-      setBlogPosts(prev => prev.map(post => 
-        post.id === editingPost.id ? editingPost : post
-      ));
-      alert('Article updated successfully!');
-    }
+    // Note: Blog posts are now dynamic based on language
+    // Editing functionality is disabled for language-consistent content
+    alert('Blog posts are managed through the translation system. Changes are not saved.');
     
     setIsEditing(false);
     setIsCreating(false);
@@ -405,12 +156,7 @@ Wrap up your article with key takeaways and next steps.`,
     setEditingPost(null);
   };
 
-  const handleDeletePost = (postId: string) => {
-    if (window.confirm('Are you sure you want to delete this article?')) {
-      setBlogPosts(prev => prev.filter(post => post.id !== postId));
-      setSelectedPost(null);
-    }
-  };
+  // Note: Delete function removed as blog posts are now dynamic based on language
 
   // Image upload functionality
   const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -479,18 +225,7 @@ Wrap up your article with key takeaways and next steps.`,
     });
   };
 
-  const handleShare = (post: BlogPost) => {
-    if (navigator.share) {
-      navigator.share({
-        title: post.title,
-        text: post.excerpt,
-        url: window.location.href
-      });
-    } else {
-      navigator.clipboard.writeText(window.location.href);
-      alert('Link copied to clipboard!');
-    }
-  };
+  // Note: Share function removed as it's not used in the current implementation
 
   return (
     <div className=" min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
@@ -502,25 +237,24 @@ Wrap up your article with key takeaways and next steps.`,
         <div className="pt-10 relative z-10 max-w-6xl mx-auto text-center">
           <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <BookOpen className="w-5 h-5 text-blue-400" />
-            <span className="text-gray-800/80 text-sm font-medium">Technical Blog</span>
+            <span className="text-white/80 text-sm font-medium">{t('blog.title')}</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
-            Insights & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-coral-400">Knowledge</span>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            {t('blog.hero.title')}
           </h1>
           
-          <p className="text-xl text-gray-800/80 mb-8 max-w-3xl mx-auto">
-            Deep dives into web development, mobile apps, AI/ML, and the latest technology trends. 
-            Real-world experiences and practical insights.
+          <p className="text-xl text-white/80 mb-8 max-w-3xl mx-auto">
+            {t('blog.hero.subtitle')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
               onClick={() => document.getElementById('blog-posts')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-gray-800 rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center space-x-2"
+              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center space-x-2"
             >
               <BookOpen className="w-5 h-5" />
-              <span>Browse Articles</span>
+              <span>{t('blog.hero.browse')}</span>
             </button>
           </div>
         </div>
@@ -533,27 +267,27 @@ Wrap up your article with key takeaways and next steps.`,
             <div className="flex flex-col lg:flex-row gap-4">
               {/* Search */}
               <div className="flex-1 relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-800/60 w-5 h-5" />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/60 w-5 h-5" />
                 <input
                   type="text"
-                  placeholder="Search articles..."
+                  placeholder={t('blog.search.placeholder')}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-gray-800 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full pl-12 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
               
               {/* Category Filter */}
               <div className="flex items-center space-x-2">
-                <Filter className="text-gray-800/60 w-5 h-5" />
+                <Filter className="text-white/60 w-5 h-5" />
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   {categories.map(category => (
                     <option key={category} value={category} className="bg-slate-800">
-                      {category === 'all' ? 'All Categories' : category}
+                      {category === 'all' ? t('blog.categories.all') : category}
                     </option>
                   ))}
                 </select>
@@ -570,7 +304,7 @@ Wrap up your article with key takeaways and next steps.`,
       {selectedCategory === 'all' && (
         <section className="py-12 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl font-bold text-gray-800 mb-8">Featured Articles</h2>
+            <h2 className="text-2xl font-bold text-white mb-8">{t('blog.featured')}</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {blogPosts.filter(post => post.featured).map(post => (
                 <article
@@ -611,14 +345,14 @@ Wrap up your article with key takeaways and next steps.`,
                       {post.title}
                     </h3>
                     
-                    <p className="text-gray-800/80 mb-4 line-clamp-3">
+                    <p className="text-white mb-4 line-clamp-3">
                       {post.excerpt}
                     </p>
                     
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <User className="w-4 h-4 text-gray-800/60" />
-                        <span className="text-gray-800/80 text-sm">{post.author}</span>
+                        <User className="w-4 h-4 text-white" />
+                        <span className="text-white text-sm">{post.author}</span>
                       </div>
                       
                       <div className="flex items-center space-x-4">
@@ -647,10 +381,10 @@ Wrap up your article with key takeaways and next steps.`,
       <section id="blog-posts" className="py-12 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-gray-800">
-              {selectedCategory === 'all' ? 'All Articles' : `${selectedCategory} Articles`}
+            <h2 className="text-2xl font-bold text-white">
+              {selectedCategory === 'all' ? t('blog.all_articles') : `${selectedCategory} Articles`}
             </h2>
-            <span className="text-gray-800/60">
+            <span className="text-white/60">
               {filteredPosts.length} article{filteredPosts.length !== 1 ? 's' : ''}
             </span>
           </div>
@@ -669,14 +403,14 @@ Wrap up your article with key takeaways and next steps.`,
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-white/20 text-gray-800 text-sm font-medium rounded-full">
+                    <span className="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full">
                       {post.category}
                     </span>
                   </div>
                 </div>
                 
                 <div className="p-6">
-                  <div className="flex items-center space-x-4 text-sm text-gray-800/60 mb-3">
+                  <div className="flex items-center space-x-4 text-sm text-white/60 mb-3">
                     <span className="flex items-center space-x-1">
                       <Calendar className="w-4 h-4" />
                       <span>{post.date}</span>
@@ -687,11 +421,11 @@ Wrap up your article with key takeaways and next steps.`,
                     </span>
                   </div>
                   
-                  <h3 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-blue-400 transition-colors line-clamp-2">
+                  <h3 className="text-lg font-bold text-white mb-3 group-hover:text-blue-400 transition-colors line-clamp-2">
                     {post.title}
                   </h3>
                   
-                  <p className="text-gray-800/80 mb-4 line-clamp-3">
+                  <p className="text-white/80 mb-4 line-clamp-3">
                     {post.excerpt}
                   </p>
                   
@@ -699,7 +433,7 @@ Wrap up your article with key takeaways and next steps.`,
                     {post.tags.slice(0, 3).map(tag => (
                       <span
                         key={tag}
-                        className="px-2 py-1 bg-white/10 text-gray-800/70 text-xs rounded-full"
+                        className="px-2 py-1 bg-white/10 text-white/70 text-xs rounded-full"
                       >
                         {tag}
                       </span>
@@ -708,8 +442,8 @@ Wrap up your article with key takeaways and next steps.`,
                   
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                      <User className="w-4 h-4 text-gray-800/60" />
-                      <span className="text-gray-800/80 text-sm">{post.author}</span>
+                      <User className="w-4 h-4 text-white/60" />
+                      <span className="text-white/80 text-sm">{post.author}</span>
                     </div>
                     
                     <div className="flex items-center space-x-4">
@@ -718,7 +452,7 @@ Wrap up your article with key takeaways and next steps.`,
                         className={`flex items-center space-x-1 px-3 py-1 rounded-full transition-colors ${
                           likedPosts.has(post.id) 
                             ? 'bg-red-500/20 text-red-400' 
-                            : 'bg-white/10 text-gray-800/60 hover:bg-white/20'
+                            : 'bg-white/10 text-white/60 hover:bg-white/20'
                         }`}
                       >
                         <Heart className={`w-4 h-4 ${likedPosts.has(post.id) ? 'fill-current' : ''}`} />
@@ -727,9 +461,9 @@ Wrap up your article with key takeaways and next steps.`,
                       
                       <button
                         onClick={() => setSelectedPost(post)}
-                        className="flex items-center space-x-1 px-3 py-1 bg-blue-600 text-gray-800 hover:bg-blue-700 rounded-full transition-colors"
+                        className="flex items-center space-x-1 px-3 py-1 bg-blue-600 text-white hover:bg-blue-700 rounded-full transition-colors"
                       >
-                        <span className="text-sm">Read</span>
+                        <span className="text-sm">{t('blog.read')}</span>
                         <ArrowRight className="w-4 h-4" />
                       </button>
                     </div>
