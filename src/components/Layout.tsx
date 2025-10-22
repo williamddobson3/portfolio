@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navigation } from './Navigation';
-import VantaCloudsDebug from './VantaCloudsDebug';
+import VantaCloudsProduction from './VantaCloudsProduction';
 import '../styles/clouds-background.css';
 
 interface LayoutProps {
@@ -11,12 +11,12 @@ interface LayoutProps {
 export const Layout: React.FC<LayoutProps> = ({ children, currentPage }) => {
   return (
     <div className="min-h-screen relative">
-      <VantaCloudsDebug>
+      <VantaCloudsProduction>
         <Navigation currentPage={currentPage} />
         <main className="relative z-10">
           {children}
         </main>
-      </VantaCloudsDebug>
+      </VantaCloudsProduction>
     </div>
   );
 };

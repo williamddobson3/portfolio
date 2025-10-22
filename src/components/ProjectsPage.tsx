@@ -14,7 +14,6 @@ export const ProjectsPage: React.FC = () => {
   const [showDetails, setShowDetails] = useState(false);
   const [detailsTriedPaths, setDetailsTriedPaths] = useState<string[]>([]);
   const { t, language } = useLanguage();
-  const [projectDescriptions, setProjectDescriptions] = useState<{ [id: string]: string | null }>({});
 
   const categories = projectCategories.map(cat => ({
     ...cat,
@@ -26,38 +25,6 @@ export const ProjectsPage: React.FC = () => {
     ? projects 
     : projects.filter(p => p.category === selectedCategory);
 
-  // When language is Japanese, try to fetch per-project `explanation_JP.txt` and cache it.
-  useEffect(() => {
-    if (language !== 'ja') return;
-
-    filteredProjects.forEach(async (project) => {
-  if (projectDescriptions[project.id] !== undefined) return; // already fetched (or attempted)
-      const pathsToTry = [
-        `/projects/${project.id}/explanation_JP.txt`,
-        `/projects/${project.id}/explanation-jp.txt`,
-        `/projects/${project.id}/explanation.txt`
-      ];
-
-      let foundText: string | null = null;
-      for (const p of pathsToTry) {
-        try {
-          const res = await fetch(p);
-          if (!res.ok) continue;
-          const ct = res.headers.get('content-type') || '';
-          if (ct.includes('text/html')) continue;
-          const text = await res.text();
-          if (text && text.trim().length > 0) {
-            foundText = text;
-            break;
-          }
-        } catch (err) {
-          // ignore and try next path
-        }
-      }
-
-  setProjectDescriptions(prev => ({ ...prev, [project.id]: foundText }));
-    });
-  }, [language, filteredProjects]);
 
   // Auto-rotate images for project cards
   useEffect(() => {
@@ -230,9 +197,7 @@ export const ProjectsPage: React.FC = () => {
                 </h3>
                 
                 <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                  {language === 'ja' && projectDescriptions[project.id]
-                    ? projectDescriptions[project.id]
-                    : t(project.descriptionKey)}
+                  {t(project.descriptionKey)}
                 </p>
                 
                 <div className="flex items-center text-sm text-gray-600 mb-4">
@@ -353,9 +318,7 @@ export const ProjectsPage: React.FC = () => {
                 </div>
                 
                 <p className="text-gray-600 text-lg mb-6">
-                  {language === 'ja' && projectDescriptions[selectedProject.id]
-                    ? projectDescriptions[selectedProject.id]
-                    : t(selectedProject.descriptionKey)}
+                  {t(selectedProject.descriptionKey)}
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-6 mb-6">

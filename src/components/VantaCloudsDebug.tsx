@@ -12,11 +12,8 @@ const VantaCloudsDebug: React.FC<VantaCloudsDebugProps> = ({
   const vantaRef = useRef<HTMLDivElement>(null);
   const [vantaEffect, setVantaEffect] = useState<any>(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [debugInfo, setDebugInfo] = useState<string[]>([]);
-
   const addDebugInfo = (info: string) => {
     console.log('Vanta Debug:', info);
-    setDebugInfo(prev => [...prev, `${new Date().toLocaleTimeString()}: ${info}`]);
   };
 
   useEffect(() => {
@@ -26,7 +23,7 @@ const VantaCloudsDebug: React.FC<VantaCloudsDebugProps> = ({
       addDebugInfo('Checking for existing scripts');
       
       // Check if scripts are already loaded
-      if (window.THREE && window.VANTA && window.VANTA.CLOUDS) {
+      if (window.THREE && window.VANTA && typeof window.VANTA.CLOUDS === 'function') {
         addDebugInfo('Scripts already loaded, initializing effect');
         initializeEffect();
         return;
@@ -99,7 +96,7 @@ const VantaCloudsDebug: React.FC<VantaCloudsDebugProps> = ({
         return;
       }
       
-      if (!window.VANTA || !window.VANTA.CLOUDS) {
+      if (!window.VANTA || typeof window.VANTA.CLOUDS !== 'function') {
         addDebugInfo('VANTA.CLOUDS not available');
         return;
       }
