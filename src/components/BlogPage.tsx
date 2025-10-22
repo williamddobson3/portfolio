@@ -502,14 +502,14 @@ Wrap up your article with key takeaways and next steps.`,
         <div className="pt-10 relative z-10 max-w-6xl mx-auto text-center">
           <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <BookOpen className="w-5 h-5 text-blue-400" />
-            <span className="text-white/80 text-sm font-medium">Technical Blog</span>
+            <span className="text-gray-800/80 text-sm font-medium">Technical Blog</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
             Insights & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-coral-400">Knowledge</span>
           </h1>
           
-          <p className="text-xl text-white/80 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-800/80 mb-8 max-w-3xl mx-auto">
             Deep dives into web development, mobile apps, AI/ML, and the latest technology trends. 
             Real-world experiences and practical insights.
           </p>
@@ -517,7 +517,7 @@ Wrap up your article with key takeaways and next steps.`,
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
               onClick={() => document.getElementById('blog-posts')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center space-x-2"
+              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-gray-800 rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center space-x-2"
             >
               <BookOpen className="w-5 h-5" />
               <span>Browse Articles</span>
@@ -533,23 +533,23 @@ Wrap up your article with key takeaways and next steps.`,
             <div className="flex flex-col lg:flex-row gap-4">
               {/* Search */}
               <div className="flex-1 relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/60 w-5 h-5" />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-800/60 w-5 h-5" />
                 <input
                   type="text"
                   placeholder="Search articles..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full pl-12 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-gray-800 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
               
               {/* Category Filter */}
               <div className="flex items-center space-x-2">
-                <Filter className="text-white/60 w-5 h-5" />
+                <Filter className="text-gray-800/60 w-5 h-5" />
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   {categories.map(category => (
                     <option key={category} value={category} className="bg-slate-800">
@@ -570,7 +570,7 @@ Wrap up your article with key takeaways and next steps.`,
       {selectedCategory === 'all' && (
         <section className="py-12 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl font-bold text-white mb-8">Featured Articles</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-8">Featured Articles</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {blogPosts.filter(post => post.featured).map(post => (
                 <article
@@ -585,14 +585,14 @@ Wrap up your article with key takeaways and next steps.`,
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-blue-600 text-white text-sm font-medium rounded-full">
+                      <span className="px-3 py-1 bg-blue-600 text-gray-800 text-sm font-medium rounded-full">
                         Featured
                       </span>
                     </div>
                   </div>
                   
                   <div className="p-6">
-                    <div className="flex items-center space-x-4 text-sm text-white/60 mb-3">
+                    <div className="flex items-center space-x-4 text-sm text-gray-800/60 mb-3">
                       <span className="flex items-center space-x-1">
                         <Calendar className="w-4 h-4" />
                         <span>{post.date}</span>
@@ -607,18 +607,18 @@ Wrap up your article with key takeaways and next steps.`,
                       </span>
                     </div>
                     
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                    <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-blue-400 transition-colors">
                       {post.title}
                     </h3>
                     
-                    <p className="text-white/80 mb-4 line-clamp-3">
+                    <p className="text-gray-800/80 mb-4 line-clamp-3">
                       {post.excerpt}
                     </p>
                     
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <User className="w-4 h-4 text-white/60" />
-                        <span className="text-white/80 text-sm">{post.author}</span>
+                        <User className="w-4 h-4 text-gray-800/60" />
+                        <span className="text-gray-800/80 text-sm">{post.author}</span>
                       </div>
                       
                       <div className="flex items-center space-x-4">
@@ -627,7 +627,7 @@ Wrap up your article with key takeaways and next steps.`,
                           className={`flex items-center space-x-1 px-3 py-1 rounded-full transition-colors ${
                             likedPosts.has(post.id) 
                               ? 'bg-red-500/20 text-red-400' 
-                              : 'bg-white/10 text-white/60 hover:bg-white/20'
+                              : 'bg-white/10 text-gray-800/60 hover:bg-white/20'
                           }`}
                         >
                           <Heart className={`w-4 h-4 ${likedPosts.has(post.id) ? 'fill-current' : ''}`} />
@@ -647,10 +647,10 @@ Wrap up your article with key takeaways and next steps.`,
       <section id="blog-posts" className="py-12 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-white">
+            <h2 className="text-2xl font-bold text-gray-800">
               {selectedCategory === 'all' ? 'All Articles' : `${selectedCategory} Articles`}
             </h2>
-            <span className="text-white/60">
+            <span className="text-gray-800/60">
               {filteredPosts.length} article{filteredPosts.length !== 1 ? 's' : ''}
             </span>
           </div>
@@ -669,14 +669,14 @@ Wrap up your article with key takeaways and next steps.`,
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full">
+                    <span className="px-3 py-1 bg-white/20 text-gray-800 text-sm font-medium rounded-full">
                       {post.category}
                     </span>
                   </div>
                 </div>
                 
                 <div className="p-6">
-                  <div className="flex items-center space-x-4 text-sm text-white/60 mb-3">
+                  <div className="flex items-center space-x-4 text-sm text-gray-800/60 mb-3">
                     <span className="flex items-center space-x-1">
                       <Calendar className="w-4 h-4" />
                       <span>{post.date}</span>
@@ -687,11 +687,11 @@ Wrap up your article with key takeaways and next steps.`,
                     </span>
                   </div>
                   
-                  <h3 className="text-lg font-bold text-white mb-3 group-hover:text-blue-400 transition-colors line-clamp-2">
+                  <h3 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-blue-400 transition-colors line-clamp-2">
                     {post.title}
                   </h3>
                   
-                  <p className="text-white/80 mb-4 line-clamp-3">
+                  <p className="text-gray-800/80 mb-4 line-clamp-3">
                     {post.excerpt}
                   </p>
                   
@@ -699,7 +699,7 @@ Wrap up your article with key takeaways and next steps.`,
                     {post.tags.slice(0, 3).map(tag => (
                       <span
                         key={tag}
-                        className="px-2 py-1 bg-white/10 text-white/70 text-xs rounded-full"
+                        className="px-2 py-1 bg-white/10 text-gray-800/70 text-xs rounded-full"
                       >
                         {tag}
                       </span>
@@ -708,8 +708,8 @@ Wrap up your article with key takeaways and next steps.`,
                   
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                      <User className="w-4 h-4 text-white/60" />
-                      <span className="text-white/80 text-sm">{post.author}</span>
+                      <User className="w-4 h-4 text-gray-800/60" />
+                      <span className="text-gray-800/80 text-sm">{post.author}</span>
                     </div>
                     
                     <div className="flex items-center space-x-4">
@@ -718,7 +718,7 @@ Wrap up your article with key takeaways and next steps.`,
                         className={`flex items-center space-x-1 px-3 py-1 rounded-full transition-colors ${
                           likedPosts.has(post.id) 
                             ? 'bg-red-500/20 text-red-400' 
-                            : 'bg-white/10 text-white/60 hover:bg-white/20'
+                            : 'bg-white/10 text-gray-800/60 hover:bg-white/20'
                         }`}
                       >
                         <Heart className={`w-4 h-4 ${likedPosts.has(post.id) ? 'fill-current' : ''}`} />
@@ -727,7 +727,7 @@ Wrap up your article with key takeaways and next steps.`,
                       
                       <button
                         onClick={() => setSelectedPost(post)}
-                        className="flex items-center space-x-1 px-3 py-1 bg-blue-600 text-white hover:bg-blue-700 rounded-full transition-colors"
+                        className="flex items-center space-x-1 px-3 py-1 bg-blue-600 text-gray-800 hover:bg-blue-700 rounded-full transition-colors"
                       >
                         <span className="text-sm">Read</span>
                         <ArrowRight className="w-4 h-4" />
@@ -745,7 +745,7 @@ Wrap up your article with key takeaways and next steps.`,
               <button
                 onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
-                className="p-2 bg-white/10 text-white/60 hover:bg-white/20 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="p-2 bg-white/10 text-gray-800/60 hover:bg-white/20 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -756,8 +756,8 @@ Wrap up your article with key takeaways and next steps.`,
                   onClick={() => setCurrentPage(page)}
                   className={`px-4 py-2 rounded-lg transition-colors ${
                     page === currentPage
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-white/10 text-white/60 hover:bg-white/20'
+                      ? 'bg-blue-600 text-gray-800'
+                      : 'bg-white/10 text-gray-800/60 hover:bg-white/20'
                   }`}
                 >
                   {page}
@@ -767,7 +767,7 @@ Wrap up your article with key takeaways and next steps.`,
               <button
                 onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                 disabled={currentPage === totalPages}
-                className="p-2 bg-white/10 text-white/60 hover:bg-white/20 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="p-2 bg-white/10 text-gray-800/60 hover:bg-white/20 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -786,21 +786,21 @@ Wrap up your article with key takeaways and next steps.`,
                 onClick={() => setSelectedPost(null)}
                 className="absolute top-6 right-6 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors group"
               >
-                <svg className="w-5 h-5 text-white group-hover:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-gray-800 group-hover:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
               
               <div className="flex items-start space-x-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-coral-500 rounded-2xl flex items-center justify-center shadow-lg">
-                  <BookOpen className="w-8 h-8 text-white" />
+                  <BookOpen className="w-8 h-8 text-gray-800" />
                 </div>
                 
                 <div className="flex-1">
-                  <h2 className="text-3xl font-bold text-white mb-2">
+                  <h2 className="text-3xl font-bold text-gray-800 mb-2">
                     {selectedPost.title}
                   </h2>
-                  <p className="text-white/80 text-lg leading-relaxed">
+                  <p className="text-gray-800/80 text-lg leading-relaxed">
                     {selectedPost.excerpt}
                   </p>
                 </div>
@@ -810,7 +810,7 @@ Wrap up your article with key takeaways and next steps.`,
             {/* Modal Content */}
             <div className="p-8 max-h-[60vh] overflow-y-auto">
               <div className="prose prose-invert max-w-none">
-                <div className="whitespace-pre-wrap text-white/90 leading-relaxed">
+                <div className="whitespace-pre-wrap text-gray-800/90 leading-relaxed">
                   {selectedPost.content}
                 </div>
               </div>
@@ -821,7 +821,7 @@ Wrap up your article with key takeaways and next steps.`,
               <div className="flex flex-wrap gap-4 justify-center">
                 <button
                   onClick={() => setSelectedPost(null)}
-                  className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-gray-800 rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   Close
                 </button>
@@ -842,19 +842,19 @@ Wrap up your article with key takeaways and next steps.`,
                 onClick={handleCancelEdit}
                 className="absolute top-6 right-6 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors group"
               >
-                <X className="w-5 h-5 text-white group-hover:rotate-90 transition-transform" />
+                <X className="w-5 h-5 text-gray-800 group-hover:rotate-90 transition-transform" />
               </button>
               
               <div className="flex items-start space-x-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg">
-                  <Edit3 className="w-8 h-8 text-white" />
+                  <Edit3 className="w-8 h-8 text-gray-800" />
                 </div>
                 
                 <div className="flex-1">
-                  <h2 className="text-3xl font-bold text-white mb-2">
+                  <h2 className="text-3xl font-bold text-gray-800 mb-2">
                     {isCreating ? 'Create New Article' : 'Edit Article'}
                   </h2>
-                  <p className="text-white/80 text-lg leading-relaxed">
+                  <p className="text-gray-800/80 text-lg leading-relaxed">
                     {isCreating ? 'Fill in the details to create a new blog post' : 'Modify the article details below'}
                   </p>
                 </div>
@@ -866,34 +866,34 @@ Wrap up your article with key takeaways and next steps.`,
               <div className="space-y-6">
                 {/* Title */}
                 <div>
-                  <label className="block text-white font-semibold mb-2">Title</label>
+                  <label className="block text-gray-800 font-semibold mb-2">Title</label>
                   <input
                     type="text"
                     value={editingPost.title}
                     onChange={(e) => setEditingPost({...editingPost, title: e.target.value})}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-gray-800 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Enter article title..."
                   />
                 </div>
 
                 {/* Excerpt */}
                 <div>
-                  <label className="block text-white font-semibold mb-2">Excerpt</label>
+                  <label className="block text-gray-800 font-semibold mb-2">Excerpt</label>
                   <textarea
                     value={editingPost.excerpt}
                     onChange={(e) => setEditingPost({...editingPost, excerpt: e.target.value})}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500 h-24 resize-none"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-gray-800 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500 h-24 resize-none"
                     placeholder="Enter article excerpt..."
                   />
                 </div>
 
                 {/* Content */}
                 <div>
-                  <label className="block text-white font-semibold mb-2">Content</label>
+                  <label className="block text-gray-800 font-semibold mb-2">Content</label>
                   <textarea
                     value={editingPost.content}
                     onChange={(e) => setEditingPost({...editingPost, content: e.target.value})}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500 h-48 resize-none"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-gray-800 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500 h-48 resize-none"
                     placeholder="Enter article content (supports markdown)..."
                   />
                 </div>
@@ -901,11 +901,11 @@ Wrap up your article with key takeaways and next steps.`,
                 {/* Category and Tags */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-white font-semibold mb-2">Category</label>
+                    <label className="block text-gray-800 font-semibold mb-2">Category</label>
                     <select
                       value={editingPost.category}
                       onChange={(e) => setEditingPost({...editingPost, category: e.target.value})}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="Web Development" className="bg-slate-800">Web Development</option>
                       <option value="Mobile Development" className="bg-slate-800">Mobile Development</option>
@@ -917,12 +917,12 @@ Wrap up your article with key takeaways and next steps.`,
                   </div>
 
                   <div>
-                    <label className="block text-white font-semibold mb-2">Read Time</label>
+                    <label className="block text-gray-800 font-semibold mb-2">Read Time</label>
                     <input
                       type="text"
                       value={editingPost.readTime}
                       onChange={(e) => setEditingPost({...editingPost, readTime: e.target.value})}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-gray-800 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="e.g., 5 min"
                     />
                   </div>
@@ -930,12 +930,12 @@ Wrap up your article with key takeaways and next steps.`,
 
                 {/* Tags */}
                 <div>
-                  <label className="block text-white font-semibold mb-2">Tags (comma-separated)</label>
+                  <label className="block text-gray-800 font-semibold mb-2">Tags (comma-separated)</label>
                   <input
                     type="text"
                     value={editingPost.tags.join(', ')}
                     onChange={(e) => setEditingPost({...editingPost, tags: e.target.value.split(',').map(tag => tag.trim()).filter(tag => tag)})}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-gray-800 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="e.g., React, Next.js, Performance"
                   />
                 </div>
@@ -943,7 +943,7 @@ Wrap up your article with key takeaways and next steps.`,
                 {/* Featured and Image */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-white font-semibold mb-2">Featured Article</label>
+                    <label className="block text-gray-800 font-semibold mb-2">Featured Article</label>
                     <label className="flex items-center space-x-3">
                       <input
                         type="checkbox"
@@ -951,12 +951,12 @@ Wrap up your article with key takeaways and next steps.`,
                         onChange={(e) => setEditingPost({...editingPost, featured: e.target.checked})}
                         className="w-5 h-5 text-blue-600 bg-white/10 border-white/20 rounded focus:ring-blue-500"
                       />
-                      <span className="text-white/80">Mark as featured</span>
+                      <span className="text-gray-800/80">Mark as featured</span>
                     </label>
                   </div>
 
                   <div>
-                    <label className="block text-white font-semibold mb-2">Article Image</label>
+                    <label className="block text-gray-800 font-semibold mb-2">Article Image</label>
                     
                     {/* Image Preview */}
                     {editingPost.image && (
@@ -983,7 +983,7 @@ Wrap up your article with key takeaways and next steps.`,
                         <button
                           onClick={() => fileInputRef.current?.click()}
                           disabled={uploadingImage}
-                          className="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 text-white rounded-xl font-semibold transition-colors flex items-center justify-center space-x-2"
+                          className="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 text-gray-800 rounded-xl font-semibold transition-colors flex items-center justify-center space-x-2"
                         >
                           {uploadingImage ? (
                             <>
@@ -997,7 +997,7 @@ Wrap up your article with key takeaways and next steps.`,
                             </>
                           )}
                         </button>
-                        <p className="text-xs text-white/60 mt-1">Max 5MB, JPG/PNG/GIF</p>
+                        <p className="text-xs text-gray-800/60 mt-1">Max 5MB, JPG/PNG/GIF</p>
                       </div>
                       
                       {/* URL Input */}
@@ -1006,20 +1006,20 @@ Wrap up your article with key takeaways and next steps.`,
                           type="text"
                           value={editingPost.image}
                           onChange={(e) => handleImageUrlChange(e.target.value)}
-                          className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-gray-800 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500"
                           placeholder="Or enter image URL (e.g., /projects/example/1.jpg)"
                         />
                       </div>
                       
                       {/* Project Images Quick Select */}
                       <div>
-                        <label className="block text-white/80 text-sm mb-2">Quick Select from Projects:</label>
+                        <label className="block text-gray-800/80 text-sm mb-2">Quick Select from Projects:</label>
                         <div className="grid grid-cols-2 gap-2">
                           {['/projects/teamlab/1.jpg', '/projects/buzzfeed/1.jpg', '/projects/ameba/1.png', '/projects/OpenAI/1.png', '/projects/muji/1.png', '/projects/cookpad/1.jpg'].map((imgPath) => (
                             <button
                               key={imgPath}
                               onClick={() => handleImageUrlChange(imgPath)}
-                              className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-xs text-white/80"
+                              className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-xs text-gray-800/80"
                             >
                               {imgPath.split('/').pop()}
                             </button>
@@ -1037,14 +1037,14 @@ Wrap up your article with key takeaways and next steps.`,
               <div className="flex flex-wrap gap-4 justify-center">
                 <button
                   onClick={handleSavePost}
-                  className="px-8 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center space-x-2"
+                  className="px-8 py-3 bg-green-600 hover:bg-green-700 text-gray-800 rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center space-x-2"
                 >
                   <Save className="w-5 h-5" />
                   <span>{isCreating ? 'Create Article' : 'Save Changes'}</span>
                 </button>
                 <button
                   onClick={handleCancelEdit}
-                  className="px-8 py-3 border border-white/20 hover:border-white/40 text-white rounded-xl font-semibold transition-colors"
+                  className="px-8 py-3 border border-white/20 hover:border-white/40 text-gray-800 rounded-xl font-semibold transition-colors"
                 >
                   Cancel
                 </button>

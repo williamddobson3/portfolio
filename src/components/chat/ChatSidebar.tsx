@@ -196,14 +196,14 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
       {/* Header */}
       <div className="p-4 border-b border-white/10">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold text-white">Chat</h2>
+          <h2 className="text-xl font-bold text-gray-800">Chat</h2>
           <div className="flex items-center space-x-2">
             <button
               onClick={() => setShowUserSearch(!showUserSearch)}
               className="p-2 hover:bg-white/10 rounded-lg transition-colors"
               title="New Message"
             >
-              <Plus className="w-5 h-5 text-white" />
+              <Plus className="w-5 h-5 text-gray-800" />
             </button>
             {onNavigate && (
               <button
@@ -219,7 +219,7 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
               className="p-2 hover:bg-white/10 rounded-lg transition-colors"
               title="Sign Out"
             >
-              <LogOut className="w-5 h-5 text-white" />
+              <LogOut className="w-5 h-5 text-gray-800" />
             </button>
           </div>
         </div>
@@ -232,7 +232,7 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
             placeholder="Search conversations..."
             value={searchQuery}
             onChange={(e) => handleSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 bg-black/30 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full pl-10 pr-4 py-2 bg-black/30 border border-white/20 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
       </div>
@@ -289,12 +289,12 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
         <div className="p-4 border-t border-white/10">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-              <span className="text-white font-medium text-sm">
+              <span className="text-gray-800 font-medium text-sm">
                 {user.displayName?.charAt(0).toUpperCase() || 'U'}
               </span>
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-white font-medium text-sm truncate">
+              <p className="text-gray-800 font-medium text-sm truncate">
                 {user.displayName || 'User'}
               </p>
               <p className="text-gray-400 text-xs truncate">

@@ -99,12 +99,12 @@ export const ChatNavigation: React.FC<ChatNavigationProps> = ({ onNavigate, curr
       <div className="p-4 border-b border-white/10">
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-            <span className="text-white font-medium text-sm">
+            <span className="text-gray-800 font-medium text-sm">
               {user?.displayName?.charAt(0).toUpperCase() || 'U'}
             </span>
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-white font-medium text-sm truncate">
+            <p className="text-gray-800 font-medium text-sm truncate">
               {user?.displayName || 'User'}
             </p>
             <p className="text-gray-400 text-xs truncate">
@@ -132,15 +132,15 @@ export const ChatNavigation: React.FC<ChatNavigationProps> = ({ onNavigate, curr
                   className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg transition-all duration-200 group ${
                     isActive
                       ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
-                      : 'text-gray-300 hover:bg-white/10 hover:text-white'
+                      : 'text-gray-300 hover:bg-white/10 hover:text-gray-800'
                   }`}
                 >
                   <Icon className={`w-5 h-5 flex-shrink-0 ${
-                    isActive ? 'text-blue-400' : 'text-gray-400 group-hover:text-white'
+                    isActive ? 'text-blue-400' : 'text-gray-400 group-hover:text-gray-800'
                   }`} />
                   <div className="flex-1 text-left">
                     <p className={`text-sm font-medium ${
-                      isActive ? 'text-blue-400' : 'text-gray-300 group-hover:text-white'
+                      isActive ? 'text-blue-400' : 'text-gray-300 group-hover:text-gray-800'
                     }`}>
                       {item.label}
                     </p>
@@ -168,15 +168,15 @@ export const ChatNavigation: React.FC<ChatNavigationProps> = ({ onNavigate, curr
               className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg transition-all duration-200 group ${
                 currentPage === 'chat'
                   ? 'bg-green-500/20 text-green-400 border border-green-500/30'
-                  : 'text-gray-300 hover:bg-white/10 hover:text-white'
+                  : 'text-gray-300 hover:bg-white/10 hover:text-gray-800'
               }`}
             >
               <MessageSquare className={`w-5 h-5 flex-shrink-0 ${
-                currentPage === 'chat' ? 'text-green-400' : 'text-gray-400 group-hover:text-white'
+                currentPage === 'chat' ? 'text-green-400' : 'text-gray-400 group-hover:text-gray-800'
               }`} />
               <div className="flex-1 text-left">
                 <p className={`text-sm font-medium ${
-                  currentPage === 'chat' ? 'text-green-400' : 'text-gray-300 group-hover:text-white'
+                  currentPage === 'chat' ? 'text-green-400' : 'text-gray-300 group-hover:text-gray-800'
                 }`}>
                   Live Chat
                 </p>
@@ -197,9 +197,9 @@ export const ChatNavigation: React.FC<ChatNavigationProps> = ({ onNavigate, curr
         <div className="space-y-2">
           <button
             onClick={() => window.open('#', '_blank')}
-            className="w-full flex items-center space-x-3 px-3 py-2.5 text-gray-300 hover:bg-white/10 hover:text-white rounded-lg transition-all duration-200 group"
+            className="w-full flex items-center space-x-3 px-3 py-2.5 text-gray-300 hover:bg-white/10 hover:text-gray-800 rounded-lg transition-all duration-200 group"
           >
-            <Globe className="w-5 h-5 text-gray-400 group-hover:text-white" />
+            <Globe className="w-5 h-5 text-gray-400 group-hover:text-gray-800" />
             <span className="text-sm">Visit Website</span>
           </button>
           

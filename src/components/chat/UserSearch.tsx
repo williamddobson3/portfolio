@@ -30,7 +30,7 @@ export const UserSearch: React.FC<UserSearchProps> = ({ onSelectUser, onClose })
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <h3 className="text-white font-medium">Start New Chat</h3>
+        <h3 className="text-gray-800 font-medium">Start New Chat</h3>
         <button
           onClick={onClose}
           className="p-1 hover:bg-white/10 rounded-lg transition-colors"
@@ -46,7 +46,7 @@ export const UserSearch: React.FC<UserSearchProps> = ({ onSelectUser, onClose })
           placeholder="Search users by name..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full pl-10 pr-4 py-2 bg-black/30 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full pl-10 pr-4 py-2 bg-black/30 border border-white/20 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
       </div>
 
@@ -65,12 +65,12 @@ export const UserSearch: React.FC<UserSearchProps> = ({ onSelectUser, onClose })
                 className="flex items-center space-x-3 p-3 hover:bg-white/10 rounded-lg cursor-pointer transition-colors"
               >
                 <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-                  <span className="text-white font-medium text-sm">
+                  <span className="text-gray-800 font-medium text-sm">
                     {user.displayName?.charAt(0).toUpperCase() || 'U'}
                   </span>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-white font-medium text-sm truncate">
+                  <p className="text-gray-800 font-medium text-sm truncate">
                     {user.displayName || 'Unknown User'}
                   </p>
                   <p className="text-gray-400 text-xs truncate">

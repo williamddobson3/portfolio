@@ -48,7 +48,7 @@ export const LoadingAnimation: React.FC = () => {
 
       {/* Loading text */}
       <div className="relative z-10 text-center">
-        <h2 className="text-3xl font-bold text-white mb-4 animate-pulse">
+        <h2 className="text-3xl font-bold text-gray-800 mb-4 animate-pulse">
           Loading...
         </h2>
         <div className="flex items-center justify-center space-x-2">

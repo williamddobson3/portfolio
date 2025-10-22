@@ -28,7 +28,7 @@ export const DeleteConversationModal: React.FC<DeleteConversationModalProps> = (
               <Trash2 className="w-5 h-5 text-red-400" />
             </div>
             <div>
-              <h3 className="text-white font-semibold text-lg">Delete Conversation</h3>
+              <h3 className="text-gray-800 font-semibold text-lg">Delete Conversation</h3>
               <p className="text-gray-400 text-sm">This action cannot be undone</p>
             </div>
           </div>
@@ -48,11 +48,11 @@ export const DeleteConversationModal: React.FC<DeleteConversationModalProps> = (
               <AlertTriangle className="w-4 h-4 text-yellow-400" />
             </div>
             <div className="flex-1">
-              <p className="text-white font-medium mb-2">
+              <p className="text-gray-800 font-medium mb-2">
                 Are you sure you want to delete this conversation?
               </p>
               <p className="text-gray-400 text-sm leading-relaxed">
-                This will permanently delete <span className="text-white font-medium">"{conversationName}"</span> and all its messages. 
+                This will permanently delete <span className="text-gray-800 font-medium">"{conversationName}"</span> and all its messages. 
                 This action cannot be undone.
               </p>
             </div>
@@ -77,14 +77,14 @@ export const DeleteConversationModal: React.FC<DeleteConversationModalProps> = (
           <button
             onClick={onClose}
             disabled={isLoading}
-            className="px-4 py-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors disabled:opacity-50"
+            className="px-4 py-2 text-gray-400 hover:text-gray-800 hover:bg-white/10 rounded-lg transition-colors disabled:opacity-50"
           >
             Cancel
           </button>
           <button
             onClick={onConfirm}
             disabled={isLoading}
-            className="px-6 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
+            className="px-6 py-2 bg-red-500 hover:bg-red-600 text-gray-800 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
           >
             {isLoading ? (
               <>

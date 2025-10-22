@@ -26,7 +26,7 @@ export const PermissionDeniedModal: React.FC<PermissionDeniedModalProps> = ({
               <Shield className="w-5 h-5 text-red-400" />
             </div>
             <div>
-              <h3 className="text-white font-semibold text-lg">{title}</h3>
+              <h3 className="text-gray-800 font-semibold text-lg">{title}</h3>
               <p className="text-gray-400 text-sm">Access denied</p>
             </div>
           </div>
@@ -45,7 +45,7 @@ export const PermissionDeniedModal: React.FC<PermissionDeniedModalProps> = ({
               <AlertTriangle className="w-4 h-4 text-yellow-400" />
             </div>
             <div className="flex-1">
-              <p className="text-white font-medium mb-2">
+              <p className="text-gray-800 font-medium mb-2">
                 {message}
               </p>
               <p className="text-gray-400 text-sm leading-relaxed">
@@ -72,7 +72,7 @@ export const PermissionDeniedModal: React.FC<PermissionDeniedModalProps> = ({
         <div className="flex items-center justify-end space-x-3 p-6 border-t border-gray-700/50">
           <button
             onClick={onClose}
-            className="px-6 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors"
+            className="px-6 py-2 bg-gray-600 hover:bg-gray-700 text-gray-800 rounded-lg transition-colors"
           >
             Understood
           </button>

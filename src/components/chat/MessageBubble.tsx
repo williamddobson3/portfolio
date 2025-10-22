@@ -78,8 +78,8 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
         <div
           className={`max-w-xs lg:max-w-md px-4 py-2 rounded-2xl relative ${
             isOwn
-              ? 'bg-blue-500 text-white'
-              : 'bg-gray-700 text-white'
+              ? 'bg-blue-500 text-gray-800'
+              : 'bg-gray-700 text-gray-800'
           }`}
           onMouseEnter={() => setShowActions(true)}
           onMouseLeave={() => setShowActions(false)}
@@ -89,7 +89,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
               <textarea
                 value={editText}
                 onChange={(e) => setEditText(e.target.value)}
-                className="w-full bg-transparent border-none outline-none resize-none text-white placeholder-gray-300"
+                className="w-full bg-transparent border-none outline-none resize-none text-gray-800 placeholder-gray-300"
                 rows={2}
                 autoFocus
                 onKeyDown={(e) => {

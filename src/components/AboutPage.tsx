@@ -85,12 +85,12 @@ export const AboutPage: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
             <span className="bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent">
               {t('about.title')}
             </span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             {t('about.subtitle')}
           </p>
         </div>
@@ -99,8 +99,8 @@ export const AboutPage: React.FC = () => {
         <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-3xl p-8 mb-16">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-6 md:mb-0">
-              <h2 className="text-2xl font-bold text-white mb-2">{t('about.currently_available')}</h2>
-              <p className="text-gray-300">
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">{t('about.currently_available')}</h2>
+              <p className="text-gray-600">
                 {t('about.currently_desc')}
               </p>
               <div className="flex items-center mt-3 text-green-400">
@@ -109,7 +109,7 @@ export const AboutPage: React.FC = () => {
               </div>
             </div>
             <button 
-              className="flex items-center space-x-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-6 py-3 rounded-xl transition-all duration-300"
+              className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 border border-gray-300 text-gray-800 px-6 py-3 rounded-xl transition-all duration-300"
               onClick={() => {
                 const link = document.createElement('a');
                 link.href = '/resume.pdf';
@@ -127,7 +127,7 @@ export const AboutPage: React.FC = () => {
 
         {/* Timeline */}
         <div className="relative mb-16">
-          <h2 className="text-3xl font-bold text-white mb-12 text-center">{t('about.career_timeline')}</h2>
+          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">{t('about.career_timeline')}</h2>
           
           {/* Timeline Line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-cyan-500 rounded-full opacity-30" />
@@ -156,15 +156,15 @@ export const AboutPage: React.FC = () => {
                     </div>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-white mb-2">{event.title}</h3>
-                  <p className="text-gray-300 mb-4">{event.description}</p>
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">{event.title}</h3>
+                  <p className="text-gray-600 mb-4">{event.description}</p>
                   
                   {activeEvent === index && (
                     <div className="border-t border-white/20 pt-4 mt-4">
-                      <h4 className="text-white font-semibold mb-2">{t('about.key_highlights')}</h4>
+                      <h4 className="text-gray-800 font-semibold mb-2">{t('about.key_highlights')}</h4>
                       <ul className="space-y-1">
                         {event.highlights.map((highlight, hIndex) => (
-                          <li key={hIndex} className="text-gray-300 text-sm flex items-start">
+                          <li key={hIndex} className="text-gray-600 text-sm flex items-start">
                             <span className="text-blue-400 mr-2">•</span>
                             {highlight}
                           </li>
@@ -192,7 +192,7 @@ export const AboutPage: React.FC = () => {
 
         {/* Core Values */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-white mb-12 text-center">{t('about.core_values')}</h2>
+          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">{t('about.core_values')}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
               <div
@@ -200,8 +200,8 @@ export const AboutPage: React.FC = () => {
                 className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-500 transform hover:scale-105"
               >
                 <div className="text-4xl mb-4 text-center">{value.icon}</div>
-                <h3 className="text-lg font-bold text-white mb-3 text-center">{value.title}</h3>
-                <p className="text-gray-300 text-sm text-center">{value.description}</p>
+                <h3 className="text-lg font-bold text-gray-800 mb-3 text-center">{value.title}</h3>
+                <p className="text-gray-600 text-sm text-center">{value.description}</p>
               </div>
             ))}
           </div>
@@ -217,8 +217,8 @@ export const AboutPage: React.FC = () => {
           ].map((stat, index) => (
             <div key={index} className="text-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
               <stat.icon className="w-8 h-8 text-blue-400 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
-              <div className="text-gray-300 text-sm">{stat.label}</div>
+              <div className="text-3xl font-bold text-gray-800 mb-2">{stat.value}</div>
+              <div className="text-gray-600 text-sm">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -226,8 +226,8 @@ export const AboutPage: React.FC = () => {
         {/* Future Vision */}
         <div className="mt-16 text-center">
           <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-3xl p-12">
-            <h2 className="text-3xl font-bold text-white mb-6">{t('about.future_vision')}</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <h2 className="text-3xl font-bold text-gray-800 mb-6">{t('about.future_vision')}</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               "{t('about.future_vision_text')}"
             </p>
           </div>

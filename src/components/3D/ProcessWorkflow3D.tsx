@@ -163,15 +163,15 @@ export const ProcessWorkflow3D: React.FC<ProcessWorkflow3DProps> = ({
             }`}
             onClick={() => onStepChange(index)}
           >
-            <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center text-white font-bold text-lg mb-2 ${
+            <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center text-gray-800 font-bold text-lg mb-2 ${
               index <= currentStep 
                 ? 'bg-blue-500 shadow-lg shadow-blue-500/30' 
                 : 'bg-gray-600'
             }`}>
               {index + 1}
             </div>
-            <h4 className="text-sm font-medium text-white">{step.title}</h4>
-            <p className="text-xs text-white/70 mt-1">{step.description}</p>
+            <h4 className="text-sm font-medium text-gray-800">{step.title}</h4>
+            <p className="text-xs text-gray-800/70 mt-1">{step.description}</p>
           </div>
         ))}
       </div>

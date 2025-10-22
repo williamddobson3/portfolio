@@ -80,12 +80,12 @@ export const SkillsPage: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
             <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
               {t('skills.title')}
             </span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {t('skills.subtitle')}
           </p>
         </div>
@@ -99,7 +99,7 @@ export const SkillsPage: React.FC = () => {
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                 selectedCategory === category.id
                   ? `bg-${category.color}-500/30 text-${category.color}-300 border border-${category.color}-500/50 shadow-lg`
-                  : 'bg-white/5 text-gray-300 hover:bg-white/10 border border-white/10'
+                  : 'bg-white/5 text-gray-600 hover:bg-white/10 border border-white/10'
               }`}
             >
               {category.name}
@@ -117,10 +117,10 @@ export const SkillsPage: React.FC = () => {
             >
               {/* Skill Header */}
               <div className="mb-4">
-                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-300 transition-colors">
+                <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-300 transition-colors">
                   {skill.name}
                 </h3>
-                <div className="flex items-center justify-between text-sm text-gray-400 mb-3">
+                <div className="flex items-center justify-between text-sm text-gray-600 mb-3">
                   <span>{skill.years} {t('skills.years')}</span>
                   <span className="capitalize text-purple-400">{skill.category}</span>
                 </div>
@@ -129,7 +129,7 @@ export const SkillsPage: React.FC = () => {
               {/* Skill Level */}
               <div className="mb-4">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-gray-300">{t('skills.proficiency')}</span>
+                  <span className="text-sm text-gray-600">{t('skills.proficiency')}</span>
                   <span className="text-sm text-blue-400 font-semibold">
                     {skill.level}/5
                   </span>
@@ -141,7 +141,7 @@ export const SkillsPage: React.FC = () => {
 
               {/* Projects */}
               <div>
-                <div className="text-sm text-gray-400 mb-2">{t('skills.used_in')}</div>
+                <div className="text-sm text-gray-600 mb-2">{t('skills.used_in')}</div>
                 <div className="flex flex-wrap gap-1">
                   {skill.projects.slice(0, 2).map(project => (
                     <span
@@ -152,7 +152,7 @@ export const SkillsPage: React.FC = () => {
                     </span>
                   ))}
                   {skill.projects.length > 2 && (
-                    <span className="px-2 py-1 bg-gray-500/20 text-gray-300 text-xs rounded-md">
+                    <span className="px-2 py-1 bg-gray-500/20 text-gray-600 text-xs rounded-md">
                       +{skill.projects.length - 2}
                     </span>
                   )}
@@ -177,7 +177,7 @@ export const SkillsPage: React.FC = () => {
               <div className={`text-4xl font-bold text-${stat.color}-400 mb-2`}>
                 {stat.value}
               </div>
-              <div className="text-gray-300 text-sm">
+              <div className="text-gray-600 text-sm">
                 {stat.label}
               </div>
             </div>

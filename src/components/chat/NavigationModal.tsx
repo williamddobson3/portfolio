@@ -110,10 +110,10 @@ export const NavigationModal: React.FC<NavigationModalProps> = ({
         <div className="flex items-center justify-between p-6 border-b border-white/10">
           <div className="flex items-center space-x-4">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-              <Globe className="w-6 h-6 text-white" />
+              <Globe className="w-6 h-6 text-gray-800" />
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-white leading-tight">Portfolio Navigation</h2>
+              <h2 className="text-2xl font-bold text-gray-800 leading-tight">Portfolio Navigation</h2>
               <p className="text-gray-400 text-sm mt-1">Choose a section to explore</p>
             </div>
           </div>
@@ -121,7 +121,7 @@ export const NavigationModal: React.FC<NavigationModalProps> = ({
             onClick={onClose}
             className="p-2 hover:bg-white/10 rounded-full transition-colors"
           >
-            <X className="w-6 h-6 text-gray-400 hover:text-white" />
+            <X className="w-6 h-6 text-gray-400 hover:text-gray-800" />
           </button>
         </div>
 
@@ -130,12 +130,12 @@ export const NavigationModal: React.FC<NavigationModalProps> = ({
           <div className="p-6 border-b border-white/10 bg-gradient-to-r from-blue-500/10 to-purple-500/10">
             <div className="flex items-center space-x-4">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">
+                <span className="text-gray-800 font-bold text-xl">
                   {user.displayName?.charAt(0).toUpperCase() || 'U'}
                 </span>
               </div>
               <div className="flex-1">
-                <h3 className="text-white font-semibold text-lg leading-tight">
+                <h3 className="text-gray-800 font-semibold text-lg leading-tight">
                   Welcome back, {user.displayName || 'User'}!
                 </h3>
                 <p className="text-gray-400 text-sm mt-1">
@@ -163,8 +163,8 @@ export const NavigationModal: React.FC<NavigationModalProps> = ({
                   onClick={() => handleNavigation(item)}
                   className={`group relative p-4 rounded-2xl transition-all duration-300 transform hover:scale-105 ${
                     isActive
-                      ? `bg-gradient-to-br ${item.color} text-white shadow-lg shadow-blue-500/25`
-                      : 'bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white'
+                      ? `bg-gradient-to-br ${item.color} text-gray-800 shadow-lg shadow-blue-500/25`
+                      : 'bg-white/5 hover:bg-white/10 text-gray-300 hover:text-gray-800'
                   }`}
                 >
                   <div className="flex flex-col items-center space-y-2">
@@ -174,17 +174,17 @@ export const NavigationModal: React.FC<NavigationModalProps> = ({
                         : `bg-gradient-to-br ${item.color} ${item.hoverColor}`
                     }`}>
                       <Icon className={`w-5 h-5 ${
-                        isActive ? 'text-white' : 'text-white'
+                        isActive ? 'text-gray-800' : 'text-gray-800'
                       }`} />
                     </div>
                     <div className="text-center">
                       <p className={`font-semibold text-xs leading-tight ${
-                        isActive ? 'text-white' : 'text-gray-300 group-hover:text-white'
+                        isActive ? 'text-gray-800' : 'text-gray-300 group-hover:text-gray-800'
                       }`}>
                         {item.label}
                       </p>
                       <p className={`text-xs mt-1 leading-tight ${
-                        isActive ? 'text-white/80' : 'text-gray-500 group-hover:text-gray-400'
+                        isActive ? 'text-gray-800/80' : 'text-gray-500 group-hover:text-gray-400'
                       }`}>
                         {item.description}
                       </p>
@@ -207,10 +207,10 @@ export const NavigationModal: React.FC<NavigationModalProps> = ({
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center">
-                  <MessageSquare className="w-5 h-5 text-white" />
+                  <MessageSquare className="w-5 h-5 text-gray-800" />
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold text-base leading-tight">Live Chat</h3>
+                  <h3 className="text-gray-800 font-semibold text-base leading-tight">Live Chat</h3>
                   <p className="text-gray-400 text-sm">Real-time messaging with other users</p>
                 </div>
               </div>
@@ -218,8 +218,8 @@ export const NavigationModal: React.FC<NavigationModalProps> = ({
                 onClick={() => handleNavigation({ id: 'chat', label: 'Chat', icon: MessageSquare, description: 'Live chat', color: '', hoverColor: '' })}
                 className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 text-sm ${
                   currentPage === 'chat'
-                    ? 'bg-green-500 text-white shadow-lg'
-                    : 'bg-green-500/20 text-green-400 hover:bg-green-500 hover:text-white'
+                    ? 'bg-green-500 text-gray-800 shadow-lg'
+                    : 'bg-green-500/20 text-green-400 hover:bg-green-500 hover:text-gray-800'
                 }`}
               >
                 {currentPage === 'chat' ? 'Current' : 'Enter Chat'}
@@ -234,7 +234,7 @@ export const NavigationModal: React.FC<NavigationModalProps> = ({
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => window.open('#', '_blank')}
-                className="flex items-center space-x-2 px-3 py-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors text-sm"
+                className="flex items-center space-x-2 px-3 py-2 text-gray-400 hover:text-gray-800 hover:bg-white/10 rounded-lg transition-colors text-sm"
               >
                 <ExternalLink className="w-4 h-4" />
                 <span>Visit Website</span>

@@ -26,7 +26,7 @@ export const FloatingNavButton: React.FC<FloatingNavButtonProps> = ({
       {/* Floating Navigation Button - Positioned to avoid sidebar overlap */}
       <button
         onClick={handleOpenModal}
-        className="fixed bottom-6 left-96 z-40 w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group"
+        className="fixed bottom-6 left-96 z-40 w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group"
         title="Navigate to other pages"
       >
         <div className="flex items-center justify-center">

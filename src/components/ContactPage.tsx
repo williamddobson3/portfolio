@@ -27,7 +27,7 @@ export const ContactPage: React.FC = () => {
       color: 'from-gray-600 to-gray-700',
       bgColor: 'bg-gray-500/10',
       borderColor: 'border-gray-500/20',
-      iconColor: 'text-gray-400',
+      iconColor: 'text-gray-600',
       copyText: 'github.com/williamddobson3',
       buttonText: 'View Profile'
     }
@@ -90,12 +90,12 @@ export const ContactPage: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
             <span className="bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent">
               {t('contact.title')}
             </span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {t('contact.subtitle')}
           </p>
         </div>
@@ -106,7 +106,7 @@ export const ContactPage: React.FC = () => {
             <div className="w-3 h-3 bg-green-400 rounded-full mr-3 animate-pulse" />
             <span className="text-green-400 font-semibold">{t('contact.available')}</span>
           </div>
-          <p className="text-gray-300">
+          <p className="text-gray-600">
             {t('contact.response')}
           </p>
         </div>
@@ -114,12 +114,12 @@ export const ContactPage: React.FC = () => {
         {/* MetaCore Team Section */}
         <div className="mb-16">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">
               <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
                 {t('contact.team.title')}
               </span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               {t('contact.team.subtitle')}
             </p>
           </div>
@@ -152,17 +152,17 @@ export const ContactPage: React.FC = () => {
                       <channel.icon className={`w-8 h-8 ${channel.iconColor}`} />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                      <h3 className="text-2xl font-bold text-gray-800 group-hover:text-blue-300 transition-colors">
                         {channel.name}
                       </h3>
-                      <p className="text-gray-400">{channel.description}</p>
+                      <p className="text-gray-600">{channel.description}</p>
                     </div>
                   </div>
 
                   {/* Contact Info */}
                   <div className="mb-6">
                     <div className="flex items-center justify-between bg-white/5 rounded-xl p-4 mb-4">
-                      <span className="text-gray-300 font-mono text-sm">{channel.copyText}</span>
+                      <span className="text-gray-600 font-mono text-sm">{channel.copyText}</span>
                       <button
                         onClick={() => handleCopy(channel.copyText, channel.name)}
                         className="flex items-center space-x-2 px-3 py-1 bg-white/10 hover:bg-white/20 rounded-lg transition-colors duration-200"
@@ -174,8 +174,8 @@ export const ContactPage: React.FC = () => {
                           </>
                         ) : (
                           <>
-                            <Copy size={16} className="text-gray-400" />
-                            <span className="text-gray-400 text-sm">Copy</span>
+                            <Copy size={16} className="text-gray-600" />
+                            <span className="text-gray-600 text-sm">Copy</span>
                           </>
                         )}
                       </button>
@@ -187,7 +187,7 @@ export const ContactPage: React.FC = () => {
                     href={channel.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`inline-flex items-center justify-center w-full py-4 px-6 bg-gradient-to-r ${channel.color} hover:shadow-lg text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105`}
+                    className={`inline-flex items-center justify-center w-full py-4 px-6 bg-gradient-to-r ${channel.color} hover:shadow-lg text-gray-800 font-semibold rounded-xl transition-all duration-300 transform hover:scale-105`}
                   >
                     <channel.icon size={20} className="mr-2" />
                     {channel.buttonText}
@@ -202,12 +202,12 @@ export const ContactPage: React.FC = () => {
         {/* Personal Contact Methods */}
         <div className="mb-16">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">
               <span className="bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent">
                 {t('contact.personal.title')}
               </span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               {t('contact.personal.subtitle')}
             </p>
           </div>
@@ -233,17 +233,17 @@ export const ContactPage: React.FC = () => {
                       <method.icon className={`w-8 h-8 ${method.iconColor}`} />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                      <h3 className="text-2xl font-bold text-gray-800 group-hover:text-blue-300 transition-colors">
                         {method.name}
                       </h3>
-                      <p className="text-gray-400">{method.description}</p>
+                      <p className="text-gray-600">{method.description}</p>
                     </div>
                   </div>
 
                   {/* Contact Info */}
                   <div className="mb-6">
                     <div className="flex items-center justify-between bg-white/5 rounded-xl p-4 mb-4">
-                      <span className="text-gray-300 font-mono text-sm">{method.copyText}</span>
+                      <span className="text-gray-600 font-mono text-sm">{method.copyText}</span>
                       <button
                         onClick={() => handleCopy(method.copyText, method.name)}
                         className="flex items-center space-x-2 px-3 py-1 bg-white/10 hover:bg-white/20 rounded-lg transition-colors duration-200"
@@ -255,8 +255,8 @@ export const ContactPage: React.FC = () => {
                           </>
                         ) : (
                           <>
-                            <Copy size={16} className="text-gray-400" />
-                            <span className="text-gray-400 text-sm">Copy</span>
+                            <Copy size={16} className="text-gray-600" />
+                            <span className="text-gray-600 text-sm">Copy</span>
                           </>
                         )}
                       </button>
@@ -267,7 +267,7 @@ export const ContactPage: React.FC = () => {
                   {method.name === 'Email' ? (
                     <button
                       onClick={() => handleCopy(method.copyText, method.name)}
-                      className={`inline-flex items-center justify-center w-full py-4 px-6 bg-gradient-to-r ${method.color} hover:shadow-lg hover:shadow-blue-500/25 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105`}
+                      className={`inline-flex items-center justify-center w-full py-4 px-6 bg-gradient-to-r ${method.color} hover:shadow-lg hover:shadow-blue-500/25 text-gray-800 font-semibold rounded-xl transition-all duration-300 transform hover:scale-105`}
                     >
                       <method.icon size={20} className="mr-2" />
                       {copiedItem === method.name ? 'Email Copied!' : method.buttonText}
@@ -282,7 +282,7 @@ export const ContactPage: React.FC = () => {
                       href={method.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`inline-flex items-center justify-center w-full py-4 px-6 bg-gradient-to-r ${method.color} hover:shadow-lg hover:shadow-${method.name.toLowerCase()}-500/25 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105`}
+                      className={`inline-flex items-center justify-center w-full py-4 px-6 bg-gradient-to-r ${method.color} hover:shadow-lg hover:shadow-${method.name.toLowerCase()}-500/25 text-gray-800 font-semibold rounded-xl transition-all duration-300 transform hover:scale-105`}
                     >
                       <method.icon size={20} className="mr-2" />
                       {method.buttonText}
@@ -299,10 +299,10 @@ export const ContactPage: React.FC = () => {
         <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-3xl p-8 mb-12">
           <div className="text-center mb-8">
             <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Mail size={32} className="text-white" />
+              <Mail size={32} className="text-gray-800" />
             </div>
-            <h2 className="text-3xl font-bold text-white mb-4">{t('contact.email.title')}</h2>
-            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">{t('contact.email.title')}</h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               {t('contact.email.subtitle')}
             </p>
           </div>
@@ -315,19 +315,19 @@ export const ContactPage: React.FC = () => {
                   <Mail size={28} className="text-blue-400" />
                 </div>
                 
-                <h3 className="text-2xl font-bold text-white mb-2">satoshiengineer92@gmail.com</h3>
-                <p className="text-gray-400 mb-6">{t('contact.email.professional')}</p>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">satoshiengineer92@gmail.com</h3>
+                <p className="text-gray-600 mb-6">{t('contact.email.professional')}</p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 w-full">
-                  <div className="flex items-center justify-center text-gray-300">
+                  <div className="flex items-center justify-center text-gray-600">
                     <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
                     <span className="text-sm">{t('contact.status.response')}</span>
                   </div>
-                  <div className="flex items-center justify-center text-gray-300">
+                  <div className="flex items-center justify-center text-gray-600">
                     <div className="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
                     <span className="text-sm">{t('contact.status.professional')}</span>
                   </div>
-                  <div className="flex items-center justify-center text-gray-300">
+                  <div className="flex items-center justify-center text-gray-600">
                     <div className="w-2 h-2 bg-purple-400 rounded-full mr-2"></div>
                     <span className="text-sm">{t('contact.status.detailed')}</span>
                   </div>
@@ -344,8 +344,8 @@ export const ContactPage: React.FC = () => {
                     </>
                   ) : (
                     <>
-                      <Copy size={18} className="text-gray-400" />
-                      <span className="text-gray-300">{t('contact.email.copy')}</span>
+                      <Copy size={18} className="text-gray-600" />
+                      <span className="text-gray-600">{t('contact.email.copy')}</span>
                     </>
                   )}
                 </button>
@@ -360,24 +360,24 @@ export const ContactPage: React.FC = () => {
             <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
               <div className="w-6 h-6 bg-green-400 rounded-full animate-pulse" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">{t('contact.availability.title')}</h3>
-            <p className="text-gray-400">{t('contact.availability.new')}</p>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">{t('contact.availability.title')}</h3>
+            <p className="text-gray-600">{t('contact.availability.new')}</p>
           </div>
           
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
             <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
               <div className="w-6 h-6 bg-blue-400 rounded-full" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">{t('contact.availability.response')}</h3>
-            <p className="text-gray-400">{t('contact.availability.new')}</p>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">{t('contact.availability.response')}</h3>
+            <p className="text-gray-600">{t('contact.availability.new')}</p>
           </div>
           
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
             <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
               <div className="w-6 h-6 bg-purple-400 rounded-full" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">{t('contact.availability.timezone')}</h3>
-            <p className="text-gray-400">{t('contact.availability.tokyo')}</p>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">{t('contact.availability.timezone')}</h3>
+            <p className="text-gray-600">{t('contact.availability.tokyo')}</p>
           </div>
         </div>
       </div>

@@ -152,12 +152,12 @@ export const ServiceCard3D: React.FC<ServiceCard3DProps> = ({
       {/* Content Layer */}
       <div className="relative z-10 flex items-start space-x-4">
         <div className="p-3 bg-white/8 rounded-lg">
-          <Icon size={28} className="text-white" />
+          <Icon size={28} className="text-gray-800" />
         </div>
         <div className="flex-1">
-          <h3 className="text-lg font-medium text-white">{title}</h3>
-          <p className="text-sm text-white/70 mt-1">{subtitle}</p>
-          <div className="mt-4 flex items-center justify-between text-sm text-white/70">
+          <h3 className="text-lg font-medium text-gray-800">{title}</h3>
+          <p className="text-sm text-gray-800/70 mt-1">{subtitle}</p>
+          <div className="mt-4 flex items-center justify-between text-sm text-gray-800/70">
             <span>{kpi}</span>
             <span>{duration}</span>
           </div>
@@ -170,7 +170,7 @@ export const ServiceCard3D: React.FC<ServiceCard3DProps> = ({
             </button>
             <button 
               onClick={onQuoteClick}
-              className="text-sm px-3 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+              className="text-sm px-3 py-2 rounded-md bg-blue-600 text-gray-800 hover:bg-blue-700 transition-colors"
             >
               見積を依頼
             </button>

@@ -72,7 +72,7 @@ export const ChatPage: React.FC = () => {
       <div className="flex h-screen">
         {/* Mobile menu button */}
         <button
-          className="md:hidden fixed top-4 left-4 z-50 bg-black/30 backdrop-blur-md border border-white/20 rounded-full p-3 text-white"
+          className="md:hidden fixed top-4 left-4 z-50 bg-black/30 backdrop-blur-md border border-white/20 rounded-full p-3 text-gray-800"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -108,7 +108,7 @@ export const ChatPage: React.FC = () => {
               onSelectConversation={setSelectedConversationId}
             />
           ) : (
-            <div className="flex-1 flex items-center justify-center text-white">
+            <div className="flex-1 flex items-center justify-center text-gray-800">
               <div className="text-center">
                 <div className="w-24 h-24 mx-auto mb-6 bg-blue-500/20 rounded-full flex items-center justify-center">
                   <svg className="w-12 h-12 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -119,7 +119,7 @@ export const ChatPage: React.FC = () => {
                 <p className="text-gray-300 mb-6">Select a conversation to start messaging</p>
                 <button
                   onClick={() => setIsMobileMenuOpen(true)}
-                  className="md:hidden bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full transition-colors"
+                  className="md:hidden bg-blue-500 hover:bg-blue-600 text-gray-800 px-6 py-3 rounded-full transition-colors"
                 >
                   Browse Conversations
                 </button>

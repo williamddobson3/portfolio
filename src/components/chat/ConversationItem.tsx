@@ -83,11 +83,11 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
         <div className="relative">
           <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
             {conversation.id === 'general_chat' ? (
-              <Globe className="w-6 h-6 text-white" />
+              <Globe className="w-6 h-6 text-gray-800" />
             ) : conversation.type === 'group' ? (
-              <Users className="w-6 h-6 text-white" />
+              <Users className="w-6 h-6 text-gray-800" />
             ) : (
-              <MessageCircle className="w-6 h-6 text-white" />
+              <MessageCircle className="w-6 h-6 text-gray-800" />
             )}
           </div>
           {/* Online indicator for DM */}
@@ -99,7 +99,7 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
         {/* Content */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between mb-1">
-            <h3 className="text-white font-medium text-sm truncate">
+            <h3 className="text-gray-800 font-medium text-sm truncate">
               {getDisplayName()}
             </h3>
             {conversation.lastMessage && (
@@ -114,7 +114,7 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
               {getLastMessagePreview()}
             </p>
             {unreadCount > 0 && (
-              <div className="ml-2 bg-blue-500 text-white text-xs rounded-full min-w-[20px] h-5 flex items-center justify-center px-2">
+              <div className="ml-2 bg-blue-500 text-gray-800 text-xs rounded-full min-w-[20px] h-5 flex items-center justify-center px-2">
                 {unreadCount > 99 ? '99+' : unreadCount}
               </div>
             )}

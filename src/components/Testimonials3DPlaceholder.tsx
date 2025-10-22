@@ -75,17 +75,17 @@ export const Testimonials3DPlaceholder: React.FC<{ playing: boolean }> = ({ play
           
           {/* Testimonial content */}
           <div className="space-y-4">
-            <blockquote className="text-lg md:text-xl text-white/90 leading-relaxed italic">
+            <blockquote className="text-lg md:text-xl text-gray-800/90 leading-relaxed italic">
               "{testimonials[currentTestimonial].quote}"
             </blockquote>
             
             <div className="flex items-center justify-center space-x-4">
               <div className="text-right">
-                <div className="font-semibold text-white">{testimonials[currentTestimonial].author}</div>
-                <div className="text-sm text-white/70">{testimonials[currentTestimonial].company}</div>
+                <div className="font-semibold text-gray-800">{testimonials[currentTestimonial].author}</div>
+                <div className="text-sm text-gray-800/70">{testimonials[currentTestimonial].company}</div>
               </div>
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-coral-500 rounded-full flex items-center justify-center">
-                <Users className="w-6 h-6 text-white" />
+                <Users className="w-6 h-6 text-gray-800" />
               </div>
             </div>
             
@@ -117,7 +117,7 @@ export const Testimonials3DPlaceholder: React.FC<{ playing: boolean }> = ({ play
       <div className="absolute top-6 right-6">
         <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-2">
           <div className={`w-2 h-2 rounded-full ${playing ? 'bg-green-400 animate-pulse' : 'bg-gray-400'}`}></div>
-          <span className="text-xs text-white/70">
+          <span className="text-xs text-gray-800/70">
             {playing ? t('testimonials.controls.auto_rotating') : t('testimonials.controls.paused')}
           </span>
         </div>

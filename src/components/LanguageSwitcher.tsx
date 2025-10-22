@@ -12,11 +12,11 @@ export const LanguageSwitcher: React.FC = () => {
   return (
     <button
       onClick={toggleLanguage}
-      className="flex items-center space-x-2 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 group"
+      className="flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 border border-gray-300 transition-all duration-300 group shadow-sm"
       aria-label="Toggle language"
     >
-      <Globe size={16} className="text-gray-400 group-hover:text-white transition-colors" />
-      <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
+      <Globe size={16} className="text-gray-700 group-hover:text-gray-900 transition-colors" />
+      <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
         {language === 'en' ? 'EN' : 'JP'}
       </span>
     </button>

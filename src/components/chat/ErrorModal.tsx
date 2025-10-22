@@ -59,7 +59,7 @@ export const ErrorModal: React.FC<ErrorModalProps> = ({
               <Icon className={`w-5 h-5 ${iconColor}`} />
             </div>
             <div>
-              <h3 className="text-white font-semibold text-lg">{title}</h3>
+              <h3 className="text-gray-800 font-semibold text-lg">{title}</h3>
               <p className="text-gray-400 text-sm">
                 {type === 'error' ? 'Operation failed' : type === 'warning' ? 'Warning' : 'Information'}
               </p>
@@ -80,7 +80,7 @@ export const ErrorModal: React.FC<ErrorModalProps> = ({
               <AlertCircle className={`w-4 h-4 ${iconColor}`} />
             </div>
             <div className="flex-1">
-              <p className="text-white font-medium mb-2">
+              <p className="text-gray-800 font-medium mb-2">
                 {message}
               </p>
               <p className="text-gray-400 text-sm leading-relaxed">
@@ -122,7 +122,7 @@ export const ErrorModal: React.FC<ErrorModalProps> = ({
         <div className="flex items-center justify-end space-x-3 p-6 border-t border-gray-700/50">
           <button
             onClick={onClose}
-            className={`px-6 py-2 ${type === 'error' ? 'bg-red-600 hover:bg-red-700' : type === 'warning' ? 'bg-yellow-600 hover:bg-yellow-700' : 'bg-blue-600 hover:bg-blue-700'} text-white rounded-lg transition-colors`}
+            className={`px-6 py-2 ${type === 'error' ? 'bg-red-600 hover:bg-red-700' : type === 'warning' ? 'bg-yellow-600 hover:bg-yellow-700' : 'bg-blue-600 hover:bg-blue-700'} text-gray-800 rounded-lg transition-colors`}
           >
             {type === 'error' ? 'Got it' : type === 'warning' ? 'Understood' : 'OK'}
           </button>

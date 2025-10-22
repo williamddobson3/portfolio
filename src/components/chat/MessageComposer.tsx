@@ -91,7 +91,7 @@ export const MessageComposer: React.FC<MessageComposerProps> = ({
           onChange={handleInputChange}
           onKeyPress={handleKeyPress}
           placeholder="Type a message..."
-          className="w-full px-4 py-3 pr-12 bg-black/30 border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none max-h-32"
+          className="w-full px-4 py-3 pr-12 bg-black/30 border border-white/20 rounded-2xl text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none max-h-32"
           rows={1}
         />
       </div>
@@ -100,7 +100,7 @@ export const MessageComposer: React.FC<MessageComposerProps> = ({
       <button
         onClick={handleSend}
         disabled={!message.trim()}
-        className="p-3 bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 disabled:from-gray-500 disabled:to-gray-600 disabled:cursor-not-allowed text-white rounded-xl transition-all duration-300 transform hover:scale-105 disabled:hover:scale-100 flex-shrink-0 shadow-lg"
+        className="p-3 bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 disabled:from-gray-500 disabled:to-gray-600 disabled:cursor-not-allowed text-gray-800 rounded-xl transition-all duration-300 transform hover:scale-105 disabled:hover:scale-100 flex-shrink-0 shadow-lg"
         title="Send message"
       >
         <Send className="w-5 h-5" />

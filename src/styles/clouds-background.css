@@ -1,0 +1,132 @@
+/* Clouds Background Animations */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) scale(1); 
+    opacity: 0.6;
+  }
+  25% { 
+    transform: translateY(-10px) translateX(5px) scale(1.05); 
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translateY(-20px) translateX(-5px) scale(1.1); 
+    opacity: 0.7;
+  }
+  75% { 
+    transform: translateY(-10px) translateX(8px) scale(1.05); 
+    opacity: 0.9;
+  }
+}
+
+@keyframes drift {
+  0% { 
+    transform: translateX(-100px) translateY(0px) rotate(0deg); 
+    opacity: 0.4;
+  }
+  50% { 
+    transform: translateX(50vw) translateY(-30px) rotate(5deg); 
+    opacity: 0.8;
+  }
+  100% { 
+    transform: translateX(100vw) translateY(-60px) rotate(0deg); 
+    opacity: 0.4;
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% { 
+    opacity: 0.6; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.9; 
+    transform: scale(1.1);
+  }
+}
+
+@keyframes gentle-bounce {
+  0%, 100% { 
+    transform: translateY(0px) scale(1); 
+  }
+  50% { 
+    transform: translateY(-15px) scale(1.05); 
+  }
+}
+
+.cloud-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.cloud-drift {
+  animation: drift 25s linear infinite;
+}
+
+.cloud-shimmer {
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+.cloud-bounce {
+  animation: gentle-bounce 6s ease-in-out infinite;
+}
+
+/* Performance optimizations */
+.cloud-optimized {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Bright color scheme */
+.bright-gradient {
+  background: linear-gradient(135deg, 
+    #87CEEB 0%, 
+    #98D8E8 20%, 
+    #B0E0E6 40%, 
+    #E0F6FF 60%, 
+    #F0F8FF 80%, 
+    #FFFFFF 100%
+  );
+}
+
+.bright-sky {
+  background: linear-gradient(135deg, 
+    #87CEEB 0%, 
+    #98D8E8 30%, 
+    #B0E0E6 60%, 
+    #E0F6FF 100%
+  );
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .cloud-float {
+    animation-duration: 10s;
+  }
+  
+  .cloud-drift {
+    animation-duration: 30s;
+  }
+  
+  .cloud-shimmer {
+    animation-duration: 6s;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .cloud-float,
+  .cloud-drift,
+  .cloud-shimmer {
+    opacity: 0.8;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .cloud-float,
+  .cloud-drift,
+  .cloud-shimmer,
+  .cloud-bounce {
+    animation: none;
+  }
+}

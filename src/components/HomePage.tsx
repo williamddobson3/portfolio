@@ -43,7 +43,7 @@ export const HomePage: React.FC = () => {
               }}
             >
               <div className={`w-full h-full bg-${node.color}-500/20 border-2 border-${node.color}-500/50 rounded-full flex items-center justify-center backdrop-blur-sm hover:scale-110 transition-transform duration-300 cursor-pointer`}>
-                <span className="text-xs font-bold text-white">{node.name}</span>
+                <span className="text-xs font-bold text-gray-800">{node.name}</span>
               </div>
             </div>
           ))}
@@ -54,25 +54,25 @@ export const HomePage: React.FC = () => {
       <div className="text-center z-10 max-w-4xl mx-auto px-6">
         {/* Name */}
         <div className="mb-8">
-          <h1 className="text-6xl md:text-8xl font-bold text-white mb-4 tracking-tight">
-            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
+          <h1 className="text-6xl md:text-8xl font-bold text-gray-800 mb-4 tracking-tight">
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
               {t('home.title')}
             </span>
           </h1>
           
           {/* Animated Title */}
           <div className="h-16 flex items-center justify-center">
-            <h2 className="text-2xl md:text-4xl font-semibold text-blue-300 transition-all duration-500">
+            <h2 className="text-2xl md:text-4xl font-semibold text-blue-600 transition-all duration-500">
               {titles[textIndex]}
             </h2>
           </div>
         </div>
 
         {/* Tagline */}
-        <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed">
           {t('home.tagline').replace('AI', '').replace('Immersive Web', '').trim()}{' '}
-          <span className="text-purple-400 font-semibold">{t('home.tagline.ai')}</span> and{' '}
-          <span className="text-cyan-400 font-semibold">{t('home.tagline.immersive')}</span>
+          <span className="text-purple-600 font-semibold">{t('home.tagline.ai')}</span> and{' '}
+          <span className="text-cyan-600 font-semibold">{t('home.tagline.immersive')}</span>
         </p>
 
         {/* CTA Buttons */}
@@ -88,7 +88,7 @@ export const HomePage: React.FC = () => {
           </button>
           
           <button 
-            className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105"
+            className="border-2 border-gray-400 text-gray-800 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105"
             onClick={() => window.location.hash = 'about'}
           >
 {t('home.cta.about')}
@@ -108,7 +108,7 @@ export const HomePage: React.FC = () => {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors duration-300 transform hover:scale-110"
+              className="text-gray-600 hover:text-gray-800 transition-colors duration-300 transform hover:scale-110"
               aria-label={label}
             >
               <Icon size={24} />
@@ -119,7 +119,7 @@ export const HomePage: React.FC = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ChevronDown className="text-white/50" size={32} />
+        <ChevronDown className="text-gray-600" size={32} />
       </div>
 
       <style>{`

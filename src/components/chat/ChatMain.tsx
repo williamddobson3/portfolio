@@ -241,15 +241,15 @@ export const ChatMain: React.FC<ChatMainProps> = ({ conversationId, onBack, onSe
                   onClick={onBack}
                   className="md:hidden p-2 hover:bg-white/10 rounded-lg transition-colors"
                 >
-                  <ArrowLeft className="w-5 h-5 text-white" />
+                  <ArrowLeft className="w-5 h-5 text-gray-800" />
                 </button>
 
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-                    <span className="text-white font-medium text-sm">?</span>
+                    <span className="text-gray-800 font-medium text-sm">?</span>
                   </div>
                   <div>
-                    <h2 className="text-white font-medium">Loading...</h2>
+                    <h2 className="text-gray-800 font-medium">Loading...</h2>
                     <p className="text-gray-400 text-sm">
                       Looking for: {conversationId}
                     </p>
@@ -260,7 +260,7 @@ export const ChatMain: React.FC<ChatMainProps> = ({ conversationId, onBack, onSe
           </div>
 
           {/* Loading content */}
-          <div className="flex-1 flex items-center justify-center text-white">
+          <div className="flex-1 flex items-center justify-center text-gray-800">
             <div className="text-center">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-400 mx-auto mb-4"></div>
               <p className="text-lg">Loading conversation...</p>
@@ -297,17 +297,17 @@ export const ChatMain: React.FC<ChatMainProps> = ({ conversationId, onBack, onSe
                 onClick={onBack}
                 className="md:hidden p-2 hover:bg-white/10 rounded-lg transition-colors"
               >
-                <ArrowLeft className="w-5 h-5 text-white" />
+                <ArrowLeft className="w-5 h-5 text-gray-800" />
               </button>
               
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-                  <span className="text-white font-medium text-sm">
+                  <span className="text-gray-800 font-medium text-sm">
                     {getDisplayName().charAt(0).toUpperCase()}
                   </span>
                 </div>
                 <div>
-                  <h2 className="text-white font-medium">{getDisplayName()}</h2>
+                  <h2 className="text-gray-800 font-medium">{getDisplayName()}</h2>
                   <p className="text-gray-400 text-sm">
                     {conversation.type === 'dm' ? 'Direct Message' : `${conversation.participants.length} members`}
                   </p>

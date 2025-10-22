@@ -14,7 +14,7 @@ const Services3DPlaceholder: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full h-full flex items-center justify-center text-white">
+    <div className="w-full h-full flex items-center justify-center text-gray-800">
       <svg
         role="img"
         aria-label="services visual placeholder"

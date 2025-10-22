@@ -138,8 +138,8 @@ export const CaseStudy3D: React.FC<CaseStudy3DProps> = ({
 
       {/* Overlay Content */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-xl p-6 flex flex-col justify-end">
-        <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
-        <p className="text-white/80 text-sm mb-4">{description}</p>
+        <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
+        <p className="text-gray-800/80 text-sm mb-4">{description}</p>
         
         <div className="flex flex-wrap gap-2">
           <span className="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigation } from './Navigation';
-import { ParticleBackground } from './ParticleBackground';
+import VantaCloudsDebug from './VantaCloudsDebug';
+import '../styles/clouds-background.css';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,12 +10,13 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children, currentPage }) => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 relative overflow-hidden">
-      <ParticleBackground />
-      <Navigation currentPage={currentPage} />
-      <main className="relative z-10">
-        {children}
-      </main>
+    <div className="min-h-screen relative">
+      <VantaCloudsDebug>
+        <Navigation currentPage={currentPage} />
+        <main className="relative z-10">
+          {children}
+        </main>
+      </VantaCloudsDebug>
     </div>
   );
 };

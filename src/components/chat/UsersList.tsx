@@ -78,12 +78,12 @@ export const UsersList: React.FC<UsersListProps> = ({ conversationId, onSelectCo
       <div className="w-80 bg-black/20 backdrop-blur-md border-l border-white/10 flex flex-col">
         <div className="p-4 border-b border-white/10">
           <div className="flex items-center space-x-2">
-            <Users className="w-5 h-5 text-white" />
-            <h3 className="text-white font-medium">Users</h3>
+            <Users className="w-5 h-5 text-gray-800" />
+            <h3 className="text-gray-800 font-medium">Users</h3>
           </div>
         </div>
         <div className="flex-1 flex items-center justify-center">
-          <div className="text-white text-center">
+          <div className="text-gray-800 text-center">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-400 mx-auto mb-2"></div>
             <p className="text-sm">Loading users...</p>
           </div>
@@ -97,8 +97,8 @@ export const UsersList: React.FC<UsersListProps> = ({ conversationId, onSelectCo
       {/* Header */}
       <div className="p-4 border-b border-white/10">
         <div className="flex items-center space-x-2">
-          <Users className="w-5 h-5 text-white" />
-          <h3 className="text-white font-medium">Users</h3>
+          <Users className="w-5 h-5 text-gray-800" />
+          <h3 className="text-gray-800 font-medium">Users</h3>
           <span className="text-gray-400 text-sm">({allUsers.length})</span>
         </div>
       </div>
@@ -130,7 +130,7 @@ export const UsersList: React.FC<UsersListProps> = ({ conversationId, onSelectCo
                     {/* Avatar */}
                     <div className="relative">
                       <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-                        <span className="text-white font-medium text-sm">
+                        <span className="text-gray-800 font-medium text-sm">
                           {user.displayName?.charAt(0).toUpperCase() || 'U'}
                         </span>
                       </div>
@@ -143,7 +143,7 @@ export const UsersList: React.FC<UsersListProps> = ({ conversationId, onSelectCo
                     {/* User info */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center space-x-2">
-                        <p className="text-white font-medium text-sm truncate">
+                        <p className="text-gray-800 font-medium text-sm truncate">
                           {user.displayName || 'Unknown User'}
                           {isCurrentUser && (
                             <span className="text-blue-400 text-xs ml-1">(You)</span>
