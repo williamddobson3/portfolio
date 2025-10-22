@@ -20,8 +20,6 @@ Key public facts used on the page: title, platform, launch date (2025-07-17), an
 
 My role
 
-(Use first person in portfolio:)
-
 Lead/front-end developer (single point of contact for front-end scope).
 
 Collaborated with UX designers, art directors, copywriters, and backend/CMS engineers.

@@ -1,6 +1,6 @@
 Project: Misshelly — brand website & direct-to-consumer e-commerce for a hair-care brand
 Role: Lead full-stack developer (front-end + back-end + deployment)
-Duration: X months (replace with your timeline)
+Duration: 2 months
 Stack: React (Next.js), TypeScript, Tailwind CSS, Node.js API / Headless CMS (e.g., Contentful / Sanity), Payment: Stripe, CDN + image optimizer, Vercel / Netlify / AWS (replace with what you used)
 
 Project summary

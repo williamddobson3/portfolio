@@ -1,6 +1,6 @@
 プロジェクト: Misshelly — ヘアケアブランドのブランドウェブサイト及びD2C（消費者直販）ECサイト
 役割: リードフルスタック開発者（フロントエンド＋バックエンド＋デプロイ）
-期間: Xヶ月（ご自身のスケジュールに置き換えてください）
+期間: 2ヶ月
 技術スタック：React（Next.js）、TypeScript、Tailwind CSS、Node.js API / ヘッドレスCMS（例：Contentful / Sanity）、決済：Stripe、CDN + 画像最適化ツール、Vercel / Netlify / AWS（使用したサービスに置き換えてください）
 
 プロジェクト概要

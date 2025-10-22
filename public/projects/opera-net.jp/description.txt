@@ -35,8 +35,6 @@ I designed and developed **opera-net.jp**, a production-ready website delivering
 * Testing & polish: 1 week
 * Launch & post-launch monitoring: ongoing
 
-(adjust actual dates/times to your project timeline)
-
 ---
 
 ## Responsibilities and contributions
