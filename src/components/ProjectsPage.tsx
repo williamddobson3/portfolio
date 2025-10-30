@@ -307,7 +307,7 @@ export const ProjectsPage: React.FC = () => {
               
               <div className="p-8">
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-3xl font-bold text-gray-800">{selectedProject.title}</h2>
+                  <h2 className="text-3xl font-bold text-white">{selectedProject.title}</h2>
                   <span className={`px-4 py-2 rounded-full text-sm font-medium ${
                     selectedProject.status === 'Launched' ? 'bg-green-500/20 text-green-300' :
                     selectedProject.status === 'Beta' ? 'bg-yellow-500/20 text-yellow-300' :
@@ -317,23 +317,23 @@ export const ProjectsPage: React.FC = () => {
                   </span>
                 </div>
                 
-                <p className="text-gray-600 text-lg mb-6">
+                <p className="text-white text-lg mb-6">
                   {t(selectedProject.descriptionKey)}
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <h4 className="text-gray-800 font-semibold mb-2">{t('projects.modal.role')}</h4>
-                    <p className="text-gray-600">{selectedProject.role}</p>
+                    <h4 className="text-white font-semibold mb-2">{t('projects.modal.role')}</h4>
+                    <p className="text-white">{selectedProject.role}</p>
                   </div>
                   <div>
                     <h4 className="text-gray-800 font-semibold mb-2">{t('projects.modal.year')}</h4>
-                    <p className="text-gray-600">{selectedProject.year}</p>
+                    <p className="text-white">{selectedProject.year}</p>
                   </div>
                 </div>
                 
                 <div className="mb-6">
-                  <h4 className="text-gray-800 font-semibold mb-3">{t('projects.modal.technologies')}</h4>
+                  <h4 className="text-white font-semibold mb-3">{t('projects.modal.technologies')}</h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.technologies.map(tech => (
                       <span

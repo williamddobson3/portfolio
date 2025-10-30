@@ -354,7 +354,7 @@ export const ServicesPage: React.FC = () => {
                 </div>
                 
                 <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                  <div className="w-24 h-8 bg-coral-500/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                  <div className="w-24 h-8 bg-coral-9\500/20 backdrop-blur-sm rounded-full flex items-center justify-center">
                     <span className="text-coral-300 text-xs font-semibold text-center">{study.role}</span>
                   </div>
                 </div>
@@ -491,10 +491,10 @@ export const ServicesPage: React.FC = () => {
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"></div>
           
           <div className="relative z-10 text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               {t('services.cta.big_title')}
             </h2>
-            <p className="text-lg md:text-xl text-gray-800/90 mb-10 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-white mb-10 max-w-2xl mx-auto leading-relaxed">
               {t('services.cta.big_desc')}
             </p>
             
@@ -509,7 +509,7 @@ export const ServicesPage: React.FC = () => {
               
               <a 
                 href="#projects" 
-                className="inline-flex items-center gap-3 border-2 border-white/40 text-gray-800 px-8 py-5 rounded-xl font-semibold hover:bg-white/10 hover:border-white/60 transition-all duration-300"
+                className="inline-flex items-center gap-3 border-2 border-white/40 text-white px-8 py-5 rounded-xl font-semibold hover:bg-white/10 hover:border-white/60 transition-all duration-300"
               >
                 {t('services.cta.examples')}
                 <ChevronRight size={20} />
@@ -519,20 +519,20 @@ export const ServicesPage: React.FC = () => {
             {/* Trust indicators */}
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-800 mb-1">8+</div>
-                <div className="text-gray-800/70 text-sm">{t('services.stats.experience')}</div>
+                <div className="text-3xl font-bold text-white mb-1">8+</div>
+                <div className="text-white/70 text-sm">{t('services.stats.experience')}</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-800 mb-1">30+</div>
-                <div className="text-gray-800/70 text-sm">{t('services.stats.projects')}</div>
+                <div className="text-3xl font-bold text-white mb-1">30+</div>
+                <div className="text-white/70 text-sm">{t('services.stats.projects')}</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-800 mb-1">24 hours</div>
-                <div className="text-gray-800/70 text-sm">{t('services.stats.timeframe')}</div>
+                <div className="text-3xl font-bold text-white mb-1">24 hours</div>
+                <div className="text-white/70 text-sm">{t('services.stats.timeframe')}</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-800 mb-1">100%</div>
-                <div className="text-gray-800/70 text-sm">{t('services.stats.satisfaction')}</div>
+                <div className="text-3xl font-bold text-white mb-1">100%</div>
+                <div className="text-white/70 text-sm">{t('services.stats.satisfaction')}</div>
               </div>
             </div>
           </div>
@@ -541,11 +541,11 @@ export const ServicesPage: React.FC = () => {
 
       {/* Service Details Modal */}
       {selectedService && (
-        <div className=" fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+        <div className=" fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
           <div 
-            className="mt-10 relative w-full max-w-4xl max-h-[90vh] bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 scale-100 opacity-100"
+            className="mt-10 relative w-full max-w-4xl max-h-[90vh] bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 scale-100 opacity-90"
             style={{
-              background: `linear-gradient(135deg, ${serviceDetails[selectedService as keyof typeof serviceDetails]?.color}10, rgba(15, 23, 42, 0.95))`
+              background: `black`
             }}
           >
             {/* Modal Header */}
@@ -564,16 +564,16 @@ export const ServicesPage: React.FC = () => {
                   className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
                   style={{ backgroundColor: serviceDetails[selectedService as keyof typeof serviceDetails]?.color }}
                 >
-                  {selectedService === 'web' && <Globe className="w-8 h-8 text-gray-800" />}
-                  {selectedService === 'android' && <Smartphone className="w-8 h-8 text-gray-800" />}
-                  {selectedService === 'ai' && <Brain className="w-8 h-8 text-gray-800" />}
+                  {selectedService === 'web' && <Globe className="w-8 h-8 text-white" />}
+                  {selectedService === 'android' && <Smartphone className="w-8 h-8 text-white" />}
+                  {selectedService === 'ai' && <Brain className="w-8 h-8 text-white" />}
                 </div>
                 
                 <div className="flex-1">
-                  <h2 className="text-3xl font-bold text-gray-800 mb-2">
+                  <h2 className="text-3xl font-bold text-white mb-2">
                     {serviceDetails[selectedService as keyof typeof serviceDetails]?.title}
                   </h2>
-                  <p className="text-gray-800/80 text-lg leading-relaxed">
+                  <p className="text-white text-lg leading-relaxed">
                     {serviceDetails[selectedService as keyof typeof serviceDetails]?.subtitle}
                   </p>
                 </div>
@@ -585,15 +585,15 @@ export const ServicesPage: React.FC = () => {
               <div className="space-y-8">
                 {/* Description */}
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Overview</h3>
-                  <p className="text-gray-800/80 leading-relaxed">
+                  <h3 className="text-xl font-semibold text-white mb-4">Overview</h3>
+                  <p className="text-white/80 leading-relaxed">
                     {serviceDetails[selectedService as keyof typeof serviceDetails]?.description}
                   </p>
                 </div>
 
                 {/* Features */}
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">What's Included</h3>
+                  <h3 className="text-xl font-semibold text-white mb-4">What's Included</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {serviceDetails[selectedService as keyof typeof serviceDetails]?.features.map((feature, index) => (
                       <div key={index} className="flex items-start space-x-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
@@ -601,7 +601,7 @@ export const ServicesPage: React.FC = () => {
                           className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                           style={{ backgroundColor: serviceDetails[selectedService as keyof typeof serviceDetails]?.color }}
                         />
-                        <span className="text-gray-800/80 text-sm">{feature}</span>
+                        <span className="text-white/80 text-sm">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -609,12 +609,12 @@ export const ServicesPage: React.FC = () => {
 
                 {/* Technologies */}
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Technologies & Tools</h3>
+                  <h3 className="text-xl font-semibold text-white mb-4">Technologies & Tools</h3>
                   <div className="flex flex-wrap gap-2">
                     {serviceDetails[selectedService as keyof typeof serviceDetails]?.technologies.map((tech, index) => (
                       <span 
                         key={index}
-                        className="px-3 py-1 bg-white/10 hover:bg-white/20 rounded-full text-gray-800/80 text-sm transition-colors"
+                        className="px-3 py-1 bg-white/10 hover:bg-white/20 rounded-full text-white/80 text-sm transition-colors"
                         style={{ 
                           border: `1px solid ${serviceDetails[selectedService as keyof typeof serviceDetails]?.color}30` 
                         }}
@@ -628,18 +628,18 @@ export const ServicesPage: React.FC = () => {
                 {/* Project Info */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="p-4 bg-white/5 rounded-xl">
-                    <h4 className="text-gray-800 font-semibold mb-2">Duration</h4>
-                    <p className="text-gray-800/80">{serviceDetails[selectedService as keyof typeof serviceDetails]?.duration}</p>
+                    <h4 className="text-white font-semibold mb-2">Duration</h4>
+                    <p className="text-white/80">{serviceDetails[selectedService as keyof typeof serviceDetails]?.duration}</p>
                   </div>
                   
                   <div className="p-4 bg-white/5 rounded-xl">
-                    <h4 className="text-gray-800 font-semibold mb-2">Goal</h4>
-                    <p className="text-gray-800/80 text-sm">{serviceDetails[selectedService as keyof typeof serviceDetails]?.goal}</p>
+                    <h4 className="text-white font-semibold mb-2">Goal</h4>
+                    <p className="text-white/80 text-sm">{serviceDetails[selectedService as keyof typeof serviceDetails]?.goal}</p>
                   </div>
                   
                   <div className="p-4 bg-white/5 rounded-xl">
-                    <h4 className="text-gray-800 font-semibold mb-2">Support</h4>
-                    <p className="text-gray-800/80">Continuous support after delivery</p>
+                    <h4 className="text-white font-semibold mb-2">Support</h4>
+                    <p className="text-white/80">Continuous support after delivery</p>
                   </div>
                 </div>
               </div>
@@ -650,13 +650,13 @@ export const ServicesPage: React.FC = () => {
               <div className="flex flex-wrap gap-4 justify-center">
                 <button
                   onClick={() => window.location.hash = 'contact'}
-                  className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-gray-800 rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   Start Your Project
                 </button>
                 <button
                   onClick={() => setSelectedService(null)}
-                  className="px-8 py-3 border border-white/20 hover:border-white/40 text-gray-800 rounded-xl font-semibold transition-colors"
+                  className="px-8 py-3 border border-white/20 hover:border-white/40 text-white rounded-xl font-semibold transition-colors"
                 >
                   Close
                 </button>
