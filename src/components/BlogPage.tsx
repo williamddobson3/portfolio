@@ -320,7 +320,7 @@ const BlogPage: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1 bg-blue-600 text-gray-800 text-sm font-medium rounded-full">
-                        Featured
+                        {t('blog.featured.badge')}
                       </span>
                     </div>
                   </div>
@@ -552,12 +552,12 @@ const BlogPage: React.FC = () => {
 
             {/* Modal Footer */}
             <div className="p-8 border-t border-white/10 bg-gradient-to-r from-transparent via-white/5 to-transparent">
-              <div className="flex flex-wrap gap-4 justify-center">
+                  <div className="flex flex-wrap gap-4 justify-center">
                 <button
                   onClick={() => setSelectedPost(null)}
                   className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-gray-800 rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
-                  Close
+                      {t('blog.close')}
                 </button>
                
               </div>

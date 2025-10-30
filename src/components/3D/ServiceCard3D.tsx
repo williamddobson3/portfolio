@@ -172,7 +172,7 @@ export const ServiceCard3D: React.FC<ServiceCard3DProps> = ({
               onClick={onQuoteClick}
               className="text-sm px-3 py-2 rounded-md bg-blue-600 text-gray-800 hover:bg-blue-700 transition-colors"
             >
-              見積を依頼
+              お見積りを依頼する
             </button>
           </div>
         </div>

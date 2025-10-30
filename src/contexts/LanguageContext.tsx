@@ -39,7 +39,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       },
       'home.tagline': {
         en: 'Building future-ready experiences with AI and Immersive Web',
-        ja: 'AIと没入型ウェブで未来に対応した体験を構築'
+        ja: 'AI と没入型ウェブで未来に対応した体験を構築いたします'
       },
       'home.tagline.ai': {
         en: 'AI',
@@ -51,7 +51,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       },
       'home.cta.explore': {
         en: 'Explore My Work',
-        ja: '作品を探索'
+        ja: '作品をご覧ください'
       },
       'home.cta.about': {
         en: 'About Me',
@@ -65,7 +65,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       },
       'nav.about': {
         en: 'About',
-        ja: 'について'
+        ja: '私について'
       },
       'nav.projects': {
         en: 'Projects',
@@ -91,7 +91,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       },
       'projects.subtitle': {
         en: 'Explore my portfolio of 30+ projects across social platforms, AR/VR experiences, AI tools, consumer apps, media platforms, and business solutions',
-        ja: 'ソーシャルプラットフォーム、AR/VR体験、AIツール、コンシューマーアプリ、メディアプラットフォーム、ビジネスソリューションにわたる30以上のプロジェクトのポートフォリオを探索'
+        ja: 'ソーシャルプラットフォーム、AR/VR 体験、AI ツール、コンシューマーアプリ、メディアプラットフォーム、ビジネスソリューションにわたる 30 件以上の実績をご紹介いたします'
       },
       'projects.category.all': {
         en: 'All Projects',
@@ -143,7 +143,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       },
       'projects.modal.live': {
         en: 'Live Demo',
-        ja: 'ライブデモ'
+        ja: 'ライブデモを見る'
       },
       'projects.modal.code': {
         en: 'View Code',
@@ -161,19 +161,19 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       },
       'contact.subtitle': {
         en: 'Ready to bring your next project to life? Let\'s discuss how we can create something amazing together.',
-        ja: '次のプロジェクトを実現する準備はできていますか？一緒に素晴らしいものを作る方法について話し合いましょう。'
+        ja: '次のプロジェクトの実現に向けて、ぜひご相談ください。ご一緒に最適な進め方を検討いたします。'
       },
       'contact.available': {
         en: 'Currently Available',
-        ja: '現在利用可能'
+        ja: '現在対応可能です'
       },
       'contact.response': {
         en: 'Accepting new projects • Response within 24 hours • Tokyo timezone (JST)',
-        ja: '新しいプロジェクトを受け入れ中 • 24時間以内に回答 • 東京時間（JST）'
+        ja: '新規プロジェクトを承っております • 24 時間以内にご返信 • 日本時間（JST）'
       },
       'contact.form.title': {
         en: 'Start a Conversation',
-        ja: '会話を始める'
+        ja: 'ご相談を開始する'
       },
       'contact.form.name': {
         en: 'Your Name',
@@ -189,19 +189,19 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       },
       'contact.form.details': {
         en: 'Project Details',
-        ja: 'プロジェクト詳細'
+        ja: 'プロジェクトの詳細'
       },
       'contact.form.send': {
         en: 'Send Message',
-        ja: 'メッセージを送信'
+        ja: 'メッセージを送信する'
       },
       'contact.form.sending': {
         en: 'Sending...',
-        ja: '送信中...'
+        ja: '送信中です...'
       },
       'contact.form.sent': {
         en: 'Message Sent!',
-        ja: 'メッセージが送信されました！'
+        ja: 'メッセージを送信しました'
       },
       'contact.form.response': {
         en: 'Response Time',
@@ -209,7 +209,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       },
       'contact.form.response.desc': {
         en: 'I typically respond within 24 hours with project insights and next steps.',
-        ja: '通常24時間以内にプロジェクトの洞察と次のステップで回答いたします。'
+        ja: '通常 24 時間以内に、プロジェクトの見解と次のステップをご連絡いたします。'
       },
       'contact.commitment.title': {
         en: 'My Commitment',
@@ -221,15 +221,15 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       },
       'contact.commitment.communication': {
         en: 'Honest communication throughout the project',
-        ja: 'プロジェクト全体を通じた誠実なコミュニケーション'
+        ja: 'プロジェクト全体を通じて誠実にコミュニケーションいたします'
       },
       'contact.commitment.delivery': {
         en: 'Reliable delivery on time and budget',
-        ja: '時間と予算内での信頼できる提供'
+        ja: '期限とご予算内で確実に納品いたします'
       },
       'contact.commitment.support': {
         en: 'Ongoing support and maintenance',
-        ja: '継続的なサポートとメンテナンス'
+        ja: '継続的なサポートと保守をご提供します'
       },
       'contact.connect': {
         en: 'Connect With Me',
@@ -263,7 +263,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       },
       'contact.email.subtitle': {
         en: 'For professional inquiries and project discussions, you can reach me via email.',
-        ja: 'プロフェッショナルな問い合わせやプロジェクトの議論については、メールでお問い合わせください。'
+        ja: '業務に関するお問い合わせやご相談は、メールにてお気軽にご連絡ください。'
       },
       'contact.email.professional': {
         en: 'Professional Email Contact',
@@ -275,11 +275,11 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       },
       'contact.email.copied': {
         en: 'Email Copied!',
-        ja: 'メールアドレスをコピーしました！'
+        ja: 'メールアドレスをコピーしました'
       },
       'contact.status.response': {
         en: '24h Response',
-        ja: '24時間以内に回答'
+        ja: '24 時間以内にご返信'
       },
       'contact.status.professional': {
         en: 'Professional Service',
@@ -291,7 +291,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       },
       'contact.availability.title': {
         en: 'Available',
-        ja: '利用可能'
+        ja: '対応可能'
       },
       'contact.availability.new': {
         en: 'New Projects',
@@ -317,7 +317,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       },
       'contact.team.subtitle': {
         en: 'Connect with our global IT team through our dedicated communication channels. Join our community for collaboration, support, and networking opportunities.',
-        ja: '専用のコミュニケーションチャンネルを通じて、グローバルITチームとつながりましょう。コラボレーション、サポート、ネットワーキングの機会のためにコミュニティに参加してください。'
+        ja: '専用のコミュニケーションチャンネルを通じて、グローバルな IT チームとご連絡いただけます。共同作業・サポート・ネットワーキングの場としてコミュニティにぜひご参加ください。'
       },
       'contact.team.discord': {
         en: 'Global community server for real-time collaboration, voice channels, and project discussions. Perfect for international team members and open discussions.',
@@ -645,23 +645,23 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       },
       'about.subtitle': {
         en: 'With 8+ years of experience spanning corporate engineering at Rakuten and international freelancing, now leading distributed teams to deliver AI, web, and mobile solutions worldwide.',
-        ja: '楽天での企業エンジニアリングと国際フリーランスにわたる8年以上の経験を持ち、現在は分散チームを率いてAI、ウェブ、モバイルソリューションを世界中に提供しています。'
+        ja: '楽天での企業エンジニアリングおよび国際的なフリーランスの経験を通じて 8 年以上の実績がございます。現在は分散チームを率い、AI・ウェブ・モバイルのソリューションを世界中に提供しております。'
       },
       'about.currently_available': {
         en: 'Currently Available',
-        ja: '現在利用可能'
+        ja: '現在対応可能です'
       },
       'about.currently_desc': {
         en: 'Leading engineering teams while taking on unique and challenging projects',
-        ja: 'ユニークで挑戦的なプロジェクトに取り組みながらエンジニアリングチームを率いています'
+        ja: 'ユニークで挑戦的なプロジェクトに取り組みつつ、エンジニアリングチームを率いております'
       },
       'about.open_collaborations': {
         en: 'Open for new collaborations',
-        ja: '新しいコラボレーションを受け入れ中'
+        ja: '新たなコラボレーションを承っております'
       },
       'about.download_resume': {
         en: 'Download Resume',
-        ja: '履歴書をダウンロード'
+        ja: '履歴書をダウンロードする'
       },
       'about.career_timeline': {
         en: 'Career Timeline',
